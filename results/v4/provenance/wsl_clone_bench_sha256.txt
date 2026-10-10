@@ -1,0 +1,9 @@
+# sha256 of the WSL clone's bench campaign files (read-only); paths relative to the clone root
+# clone HEAD bcdb68396ec59293990685b0afe2af3989fe243a
+# read 2026-10-01T10:51:43Z
+4d7e0684949be63df14bd7201d203d8f578f4ad02e756995acc58a112095828e  results/v4/bench/cold_rs_wsl/env.json
+74af3205580210ab0472efc15aad18689f444abcb91eb48dc8b0db6f6d247ca4  results/v4/bench/cold_rs_wsl/runs.jsonl
+63cbd145024c9ebd1355d9d0a0487429da09cb3ebeb8a741ad119ec157bf8596  results/v4/bench/cold_rs_wsl/schedule.json
+9befbd90b52c2992291e08f3cd7d8b2eac46deefc1c88cbd9135bf51ddd8b9ae  results/v4/bench/warm_wsl/env.json
+e60d37c7ce3eae61fa6ad3358ee83738495fb8ad270a16637b5a3702951c8496  results/v4/bench/warm_wsl/runs.jsonl
+7db4e4909097e11456dad8341029bd3d02c391e4bf1b23d2849ce8c840c08be3  results/v4/bench/warm_wsl/schedule.json

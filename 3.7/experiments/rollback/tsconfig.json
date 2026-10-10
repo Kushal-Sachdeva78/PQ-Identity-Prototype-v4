@@ -1,0 +1,114 @@
+{
+  "extends": "../../../tsconfig.json",
+  "include": [
+    "run.ts",
+    "../../../types/**/*.d.ts"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@pqid/pqc": [
+        "../../../packages/pqc/src/index.ts"
+      ],
+      "@pqid/v4/encoding": [
+        "../../../packages/v4/src/encoding.ts"
+      ],
+      "@pqid/ledger/evm": [
+        "../../../packages/ledger/src/evm.ts"
+      ],
+      "@pqid/v4/session": [
+        "../../../packages/v4/src/session.ts"
+      ],
+      "@pqid/v4/statements": [
+        "../../../packages/v4/src/statements.ts"
+      ],
+      "@pqid/v4/witness": [
+        "../../../packages/v4/src/witness.ts"
+      ],
+      "@pqid/wallet/witness": [
+        "../../../packages/wallet/src/witness.ts"
+      ],
+      "@pqid/pqc/kyber-demo": [
+        "../../../packages/pqc/kyber_demo.ts"
+      ],
+      "@pqid/common/paths": [
+        "../../../packages/common/src/paths.ts"
+      ],
+      "@pqid/v4/prove": [
+        "../../../packages/v4/src/prove.ts"
+      ],
+      "@pqid/v4/imt": [
+        "../../../packages/v4/src/imt.ts"
+      ],
+      "@pqid/v4/verifier": [
+        "../../../packages/v4/src/verifier.ts"
+      ],
+      "@pqid/v4/wallet": [
+        "../../../packages/v4/src/wallet.ts"
+      ],
+      "@pqid/v4/published": [
+        "../../../packages/v4/src/published.ts"
+      ],
+      "@pqid/verifier": [
+        "../../../packages/verifier/src/index.ts"
+      ],
+      "@pqid/common/encoding": [
+        "../../../packages/common/src/encoding.ts"
+      ],
+      "@pqid/v4/governance": [
+        "../../../packages/v4/src/governance.ts"
+      ],
+      "@pqid/issuer": [
+        "../../../packages/issuer/src/index.ts"
+      ],
+      "@pqid/ledger": [
+        "../../../packages/ledger/src/index.ts"
+      ],
+      "@pqid/wallet/prove": [
+        "../../../packages/wallet/src/prove.ts"
+      ],
+      "@pqid/v4/clock": [
+        "../../../packages/v4/src/clock.ts"
+      ],
+      "@pqid/common/did": [
+        "../../../packages/common/src/did.ts"
+      ],
+      "@pqid/v4/constants": [
+        "../../../packages/v4/src/constants.ts"
+      ],
+      "@pqid/v4/ledger": [
+        "../../../packages/v4/src/ledger.ts"
+      ],
+      "@pqid/v4/issuer": [
+        "../../../packages/v4/src/issuer.ts"
+      ],
+      "@pqid/v4/world": [
+        "../../../packages/v4/src/world.ts"
+      ],
+      "@pqid/revocation": [
+        "../../../packages/revocation/src/index.ts"
+      ],
+      "@pqid/v4/dates": [
+        "../../../packages/v4/src/dates.ts"
+      ],
+      "@pqid/common/hash": [
+        "../../../packages/common/src/hash.ts"
+      ],
+      "@pqid/common/meta": [
+        "../../../packages/common/src/meta.ts"
+      ],
+      "@pqid/v4/paths": [
+        "../../../packages/v4/src/paths.ts"
+      ],
+      "@pqid/v4/pqc": [
+        "../../../packages/v4/src/pqc.ts"
+      ],
+      "@pqid/wallet": [
+        "../../../packages/wallet/src/index.ts"
+      ],
+      "@pqid/common/stats": [
+        "../../../packages/common/src/stats.ts"
+      ]
+    }
+  }
+}

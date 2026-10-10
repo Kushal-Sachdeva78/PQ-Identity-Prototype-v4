@@ -1,0 +1,284 @@
+{
+  "schema": "pqid/attack-matrix/v1",
+  "sources": {
+    "v2v3": "results/v3/security_suite.json (committed, dev keys of their versions)",
+    "v4": "results/v4/security_suite.json"
+  },
+  "note": "Cells count accepted routes per family. v2/v3 cells come from the committed v3 suite; 'not run' = the family did not exist for that version.",
+  "rows": [
+    {
+      "id": "A1",
+      "title": "Forged credential the issuer never issued (malicious-wallet probe)",
+      "v2": "1/1 accepted",
+      "v3": "0/5 accepted",
+      "v4": "0/4 accepted"
+    },
+    {
+      "id": "A2",
+      "title": "Holder of a genuine age-16 credential claims age 42",
+      "v2": "1/1 accepted",
+      "v3": "0/3 accepted",
+      "v4": "0/4 accepted"
+    },
+    {
+      "id": "A4",
+      "title": "Thief holds the victim's full credential and path, but not the holder secret",
+      "v2": "1/1 accepted",
+      "v3": "0/2 accepted",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "A5",
+      "title": "Holder of issuer B's credential presents it as issuer A's",
+      "v2": "1/1 accepted",
+      "v3": "0/3 accepted",
+      "v4": "0/2 accepted"
+    },
+    {
+      "id": "A6",
+      "title": "Honest v3 proof with a tampered, foreign, missing or re-encoded root attestation",
+      "v2": "n/a",
+      "v3": "0/4 accepted",
+      "v4": "0/5 accepted"
+    },
+    {
+      "id": "A7",
+      "title": "Attacker registers an accredited issuer's DID string with its own key first",
+      "v2": "n/a",
+      "v3": "0/1 accepted",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "T1",
+      "title": "Groth16 proof forged from the setup trapdoor (no credential at all)",
+      "v2": "1/1 accepted",
+      "v3": "0/1 accepted",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "R1",
+      "title": "v3 keeps v2's replay, cross-verifier and policy protections",
+      "v2": "n/a",
+      "v3": "0/3 accepted",
+      "v4": "0/7 accepted"
+    },
+    {
+      "id": "KL1",
+      "title": "Relay: an intermediary forwards a verifier's request to a victim's honest wallet",
+      "v2": "1/1 accepted",
+      "v3": "1/1 accepted",
+      "v4": "1/1 accepted"
+    },
+    {
+      "id": "A3",
+      "title": "Revoked holder tries to keep authenticating",
+      "v2": "1/5 accepted",
+      "v3": "0/7 accepted",
+      "v4": "0/7 accepted"
+    },
+    {
+      "id": "A8",
+      "title": "Adversary that can write issuer A's on-chain anchor publishes its own root and signature",
+      "v2": "n/a",
+      "v3": "0/1 accepted",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "NL",
+      "title": "Forged neighbour-leaf (low-leaf) openings in the indexed Merkle tree",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/4 accepted"
+    },
+    {
+      "id": "EX",
+      "title": "Expired credential",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/2 accepted"
+    },
+    {
+      "id": "TY",
+      "title": "Wrong credential type",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/3 accepted"
+    },
+    {
+      "id": "PH",
+      "title": "Private policy inputs differ from the verifier's public policyHash",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/3 accepted"
+    },
+    {
+      "id": "SD",
+      "title": "Stale dates",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/3 accepted"
+    },
+    {
+      "id": "TP",
+      "title": "Threshold probing",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/4 accepted"
+    },
+    {
+      "id": "SD-g",
+      "title": "Request whose date changes after the wallet checked it (accessor)",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "TP-d",
+      "title": "Request whose threshold changes after the wallet checked it (accessor)",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "SQ",
+      "title": "Real-key squatter: registers issuer A's DID with A's genuine public key",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/3 accepted"
+    },
+    {
+      "id": "RA",
+      "title": "Rogue accreditation (attacker holds the governance EVM account)",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/6 accepted"
+    },
+    {
+      "id": "DE",
+      "title": "Holder of an issuer whose DID record was deactivated",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "RL",
+      "title": "Relay variants (ML-KEM session to the verifier's registered key)",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/6 accepted"
+    },
+    {
+      "id": "RL-f+",
+      "title": "Same relay against a wallet with (modelled) origin binding",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "RL-g",
+      "title": "Verifier controller EVM account re-posts a retired KEM key statement",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "SQ-d",
+      "title": "Verifier record registered with an origin its proof of possession did not sign",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "RL-h",
+      "title": "Verifier controller EVM account posts a KEM key statement the verifier did not sign",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "RL-i",
+      "title": "Retired KEM statement re-posted with a higher declared notBefore",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "RG",
+      "title": "Registry write rules (writes that would corrupt or roll back a record)",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/5 accepted"
+    },
+    {
+      "id": "KL5",
+      "title": "Credential lending: the holder gives another person its holder secret and credential",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "1/1 accepted"
+    },
+    {
+      "id": "KL6",
+      "title": "Issuer splits its holders across several accredited DIDs",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "1/1 accepted"
+    },
+    {
+      "id": "KL4",
+      "title": "Online mode: the issuer's services see the credID at presentation time",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "1/1 accepted"
+    },
+    {
+      "id": "KL2",
+      "title": "Frozen anchor: revoked holder inside the last statement's window (bounded latency)",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "1/1 accepted"
+    },
+    {
+      "id": "FA",
+      "title": "Frozen anchor expires",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/2 accepted"
+    },
+    {
+      "id": "KL3",
+      "title": "Governance's de-accreditation of G is withheld: G stays accepted inside its accreditation window",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "1/1 accepted"
+    },
+    {
+      "id": "KL3-b",
+      "title": "Withheld de-accreditation: bounded by the accreditation window",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "LD-forge",
+      "title": "Leap-day birth: malicious wallet proves age_gte t on 28 Feb",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "SD-d",
+      "title": "Verifier asks for the other acceptable date minutes after midnight (two-date probe)",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    },
+    {
+      "id": "SD-f",
+      "title": "Two requests with the two acceptable dates at the same moment (race)",
+      "v2": "not run",
+      "v3": "not run",
+      "v4": "0/1 accepted"
+    }
+  ],
+  "cellsFrom": "results/v4/public_suite_counts.json (v2 and v3 cells)"
+}

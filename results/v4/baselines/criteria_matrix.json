@@ -1,0 +1,767 @@
+{
+  "schema": "pqid/v4-criteria-matrix/v1",
+  "generatedBy": "scripts/baselines/criteria_matrix.py",
+  "criteria": {
+    "1": "NIST post-quantum credential signatures at sub-millisecond cost",
+    "2": "verifiers learn only the policy result and issuer",
+    "3": "holders cannot prove attribute values their issued credential lacks",
+    "4": "revoked holders cannot authenticate",
+    "5": "sub-second authentication on a laptop, measured against a classical baseline"
+  },
+  "verdicts": [
+    "met",
+    "partly",
+    "not met",
+    "not implemented",
+    "pending"
+  ],
+  "inputs": {
+    "measure": "results/v4/baselines/measure.json",
+    "bench": "results/v4/bench/summary.json",
+    "benchWsl": "results/v4/bench_wsl/summary.json"
+  },
+  "rows": [
+    {
+      "system": "v2 (published)",
+      "cells": {
+        "1": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met when ML-DSA-44 sign and verify medians are below 1 ms",
+          "evidence": [
+            {
+              "key": "pwDilithiumSignMs",
+              "value": "0.188",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "pwDilithiumVerifyMs",
+              "value": "0.058",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": []
+        },
+        "2": {
+          "verdict": "partly",
+          "verdictIfComplete": "partly",
+          "rule": "partly: the verifier also learns answers to arbitrary thresholds (binary search on the birth date, E3 model)",
+          "evidence": [
+            {
+              "key": "vFourPrivBinarySearchBits",
+              "value": "15",
+              "unit": "bits",
+              "status": "[S]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": []
+        },
+        "3": {
+          "verdict": "not met",
+          "verdictIfComplete": "not met",
+          "rule": "met only when no v2 forgery or age route is accepted",
+          "evidence": [
+            {
+              "key": "vThreeSuiteVTwoForgeryAccepted",
+              "value": "1",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            },
+            {
+              "key": "vThreeSuiteVTwoRoutes",
+              "value": "10",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "notes": [
+            "depends on the dev key (ceremony pending)"
+          ]
+        },
+        "4": {
+          "verdict": "not met",
+          "verdictIfComplete": "not met",
+          "rule": "met only when no v2 revoked-holder route is accepted",
+          "evidence": [
+            {
+              "key": "vThreeSuiteVTwoRevokedAccepted",
+              "value": "1",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            },
+            {
+              "key": "vThreeSuiteVTwoRevokedRoutes",
+              "value": "5",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "notes": [
+            "depends on the dev key (ceremony pending)"
+          ]
+        },
+        "5": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "two measured prover paths, each against 1 s: cold snarkJS proving median plus verification below 1 s on this laptop (Windows, Phase D): met; cold rapidsnark proving median plus verification (WSL2 on the same laptop, BENCH_PROTOCOL Deviations 2026-09-29): met; met = both, partly = one; the published figure used rapidsnark on another laptop (pwRapidsnarkProveCoolMs, pwVerifyMs)",
+          "evidence": [
+            {
+              "key": "vTwoBenchColdProveMedianMs",
+              "value": "964",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vTwoBenchColdVerifyMedianMs",
+              "value": "12.3",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vTwoBenchWslColdRsProveMedianMs",
+              "value": "140",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vTwoBenchWslColdRsVerifyMedianMs",
+              "value": "25.6",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "computed": {
+            "snarkjsSumMs": 976.3,
+            "rapidsnarkSumMs": 165.6,
+            "limitMs": 1000
+          }
+        }
+      }
+    },
+    {
+      "system": "v3",
+      "cells": {
+        "1": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met when ML-DSA-44 sign and verify medians are below 1 ms",
+          "evidence": [
+            {
+              "key": "pwDilithiumSignMs",
+              "value": "0.188",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "pwDilithiumVerifyMs",
+              "value": "0.058",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": []
+        },
+        "2": {
+          "verdict": "partly",
+          "verdictIfComplete": "partly",
+          "rule": "partly: unrestricted thresholds (same binary-search leak as v2)",
+          "evidence": [
+            {
+              "key": "vFourPrivBinarySearchBits",
+              "value": "15",
+              "unit": "bits",
+              "status": "[S]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": []
+        },
+        "3": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met when no v3 forgery route is accepted",
+          "evidence": [
+            {
+              "key": "vThreeSuiteForgeryAccepted",
+              "value": "0",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            },
+            {
+              "key": "vThreeSuiteForgeryRoutes",
+              "value": "5",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "notes": [
+            "depends on the dev key (ceremony pending)"
+          ]
+        },
+        "4": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met when no v3 revoked-holder route is accepted",
+          "evidence": [
+            {
+              "key": "vThreeSuiteRevokedAccepted",
+              "value": "0",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            },
+            {
+              "key": "vThreeSuiteRevokedRoutes",
+              "value": "7",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "notes": [
+            "depends on the dev key (ceremony pending)"
+          ]
+        },
+        "5": {
+          "verdict": "partly",
+          "verdictIfComplete": "partly",
+          "rule": "two measured prover paths, each against 1 s: cold snarkJS proving median plus verification below 1 s on this laptop (Windows, Phase D): not met; cold rapidsnark proving median plus verification (WSL2 on the same laptop, BENCH_PROTOCOL Deviations 2026-09-29): met; met = both, partly = one",
+          "evidence": [
+            {
+              "key": "vThreeBenchColdProveMedianMs",
+              "value": "1127",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vThreeBenchColdVerifyMedianMs",
+              "value": "12.3",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vThreeBenchWslColdRsProveMedianMs",
+              "value": "159",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vThreeBenchWslColdRsVerifyMedianMs",
+              "value": "26.5",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "computed": {
+            "snarkjsSumMs": 1139.3,
+            "rapidsnarkSumMs": 185.5,
+            "limitMs": 1000
+          }
+        }
+      }
+    },
+    {
+      "system": "v4",
+      "cells": {
+        "1": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met when ML-DSA-44 sign and verify medians are below 1 ms",
+          "evidence": [
+            {
+              "key": "vFourMlDsaSignMs",
+              "value": "0.278",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vFourMlDsaVerifyMs",
+              "value": "0.113",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": []
+        },
+        "2": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met with quantified residual leaks: standard thresholds only (at most the listed bits over all answers), issuer and epoch visible",
+          "evidence": [
+            {
+              "key": "vFourPrivThresholdMaxBits",
+              "value": "3",
+              "unit": "bits",
+              "status": "[S]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vFourPrivThresholdExpectedBits",
+              "value": "1.92",
+              "unit": "bits",
+              "status": "[S]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": [
+            "results/v4/privacy.json",
+            "security suite PV1-PV8"
+          ]
+        },
+        "3": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met when no v4 route of groups A1, A2, A4, A5 is accepted (dev key)",
+          "evidence": [
+            {
+              "key": "vFourBaBindsAcceptedRoutes",
+              "value": "0",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            },
+            {
+              "key": "vFourBaBindsValidRoutes",
+              "value": "11",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "notes": [
+            "depends on the dev key (ceremony pending)"
+          ]
+        },
+        "4": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met when no v4 route of groups A3, NL is accepted (dev key)",
+          "evidence": [
+            {
+              "key": "vFourBaRevokedAcceptedRoutes",
+              "value": "0",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            },
+            {
+              "key": "vFourBaRevokedValidRoutes",
+              "value": "11",
+              "unit": "attack routes",
+              "status": "[M]",
+              "keyLabel": "dev"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "notes": [
+            "depends on the dev key (ceremony pending)"
+          ]
+        },
+        "5": {
+          "verdict": "partly",
+          "verdictIfComplete": "partly",
+          "rule": "two measured prover paths, each against 1 s: cold snarkJS proving median plus verification below 1 s on this laptop (Windows, Phase D): not met; cold rapidsnark proving median plus verification (WSL2 on the same laptop, BENCH_PROTOCOL Deviations 2026-09-29): met; met = both, partly = one",
+          "evidence": [
+            {
+              "key": "vFourBenchColdProveMedianMs",
+              "value": "1090",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "dev"
+            },
+            {
+              "key": "vFourBenchColdVerifyMedianMs",
+              "value": "10.6",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "dev"
+            },
+            {
+              "key": "vFourBenchWslColdRsProveMedianMs",
+              "value": "159",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "dev"
+            },
+            {
+              "key": "vFourBenchWslColdRsVerifyMedianMs",
+              "value": "25.7",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "dev"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "computed": {
+            "snarkjsSumMs": 1100.6,
+            "rapidsnarkSumMs": 184.7,
+            "limitMs": 1000
+          },
+          "notes": [
+            "depends on the dev key (ceremony pending)"
+          ]
+        }
+      }
+    },
+    {
+      "system": "SD-JWT, ML-DSA-44 (one credential)",
+      "cells": {
+        "1": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met when ML-DSA-44 sign and verify medians are below 1 ms",
+          "evidence": [
+            {
+              "key": "vFourMlDsaSignMs",
+              "value": "0.278",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vFourMlDsaVerifyMs",
+              "value": "0.113",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": []
+        },
+        "2": {
+          "verdict": "not met",
+          "verdictIfComplete": "not met",
+          "rule": "not met when two presentations of one credential share values a pair of verifiers can match",
+          "evidence": [
+            {
+              "key": "vFourSdjwtSharedHandles",
+              "value": "11",
+              "unit": "shared values",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": []
+        },
+        "3": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met: the issuer signs the salted digests; tests/v4/baseline_sdjwt.test.ts rejects altered disclosures",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "tests/v4/baseline_sdjwt.test.ts"
+          ]
+        },
+        "4": {
+          "verdict": "not implemented",
+          "verdictIfComplete": "not implemented",
+          "rule": "the baseline has no status list",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "baselines/sdjwt/"
+          ]
+        },
+        "5": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "presentation plus verification below 1 s; E2 run, warm, in-process, n = 200 (not a Phase D cold series); classical baseline: the same SD-JWT with ES256",
+          "evidence": [
+            {
+              "key": "vFourSdjwtPresentMs",
+              "value": "0.387",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vFourSdjwtVerifyMs",
+              "value": "0.216",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "computed": {
+            "sumMs": 0.603,
+            "limitMs": 1000
+          }
+        }
+      }
+    },
+    {
+      "system": "SD-JWT, ML-DSA-44, batch issuance",
+      "cells": {
+        "1": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met when ML-DSA-44 sign and verify medians are below 1 ms",
+          "evidence": [
+            {
+              "key": "vFourMlDsaSignMs",
+              "value": "0.278",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vFourMlDsaVerifyMs",
+              "value": "0.113",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": []
+        },
+        "2": {
+          "verdict": "partly",
+          "verdictIfComplete": "partly",
+          "rule": "partly when presentations of two batch credentials share no handle (each credential used once); not met otherwise",
+          "evidence": [
+            {
+              "key": "vFourSdjwtBatchSharedHandles",
+              "value": "0",
+              "unit": "shared values",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": []
+        },
+        "3": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "as the single credential",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "tests/v4/baseline_sdjwt.test.ts"
+          ]
+        },
+        "4": {
+          "verdict": "not implemented",
+          "verdictIfComplete": "not implemented",
+          "rule": "the baseline has no status list",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "baselines/sdjwt/batch.ts"
+          ]
+        },
+        "5": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "as the single credential",
+          "evidence": [
+            {
+              "key": "vFourSdjwtPresentMs",
+              "value": "0.387",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vFourSdjwtVerifyMs",
+              "value": "0.216",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "computed": {
+            "sumMs": 0.603,
+            "limitMs": 1000
+          }
+        }
+      }
+    },
+    {
+      "system": "EdDSA-in-circuit ZK credential (classical)",
+      "cells": {
+        "1": {
+          "verdict": "not met",
+          "verdictIfComplete": "not met",
+          "rule": "not met: EdDSA on Baby Jubjub is not a NIST post-quantum signature",
+          "evidence": [
+            {
+              "key": "vFourEddsaConstraints",
+              "value": "5,188",
+              "unit": "constraints",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": []
+        },
+        "2": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met by construction: same public-signal design as v4 (issuer key, policy, nonce)",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "circuits/baselines/eddsa_credential.circom"
+          ]
+        },
+        "3": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met: the issuer's EdDSA signature is verified in the circuit; tests/v4/baseline_eddsa.test.ts",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "tests/v4/baseline_eddsa.test.ts"
+          ]
+        },
+        "4": {
+          "verdict": "not implemented",
+          "verdictIfComplete": "not implemented",
+          "rule": "the baseline has no revocation",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "circuits/baselines/eddsa_credential.circom"
+          ]
+        },
+        "5": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "proving plus verification below 1 s; E2 run, warm, in-process, n = 10, throwaway key (not a Phase D cold series)",
+          "evidence": [
+            {
+              "key": "vFourEddsaProveMs",
+              "value": "302",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            },
+            {
+              "key": "vFourEddsaVerifyMs",
+              "value": "10.0",
+              "unit": "ms",
+              "status": "[M]",
+              "keyLabel": "none"
+            }
+          ],
+          "pending": [],
+          "pointers": [],
+          "computed": {
+            "sumMs": 312.0,
+            "limitMs": 1000
+          }
+        }
+      }
+    },
+    {
+      "system": "Longfellow (external, not re-measured)",
+      "cells": {
+        "1": {
+          "verdict": "not met",
+          "verdictIfComplete": "not met",
+          "rule": "not met: ECDSA P-256 issuer and device keys",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "packs/F5_related_work.md sec. 1.2"
+          ]
+        },
+        "2": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met as reported: zero-knowledge presentation; issuer public (issuer hiding not benchmarked)",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "packs/F5_related_work.md sec. 1.2"
+          ]
+        },
+        "3": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "met as reported: issuer signature verified inside the proof",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "packs/F5_related_work.md sec. 1.2"
+          ]
+        },
+        "4": {
+          "verdict": "not implemented",
+          "verdictIfComplete": "not implemented",
+          "rule": "not implemented or benchmarked in the paper",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "packs/F5_related_work.md sec. 1.2"
+          ]
+        },
+        "5": {
+          "verdict": "met",
+          "verdictIfComplete": "met",
+          "rule": "as reported (single-thread timings in the paper)",
+          "evidence": [],
+          "pending": [],
+          "pointers": [
+            "packs/F5_related_work.md sec. 1.3"
+          ]
+        }
+      }
+    }
+  ]
+}

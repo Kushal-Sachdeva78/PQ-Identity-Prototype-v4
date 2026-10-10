@@ -1,0 +1,37 @@
+{
+  "schema": "pqid/v3-setup-transcript/v1",
+  "circuit": "circuits/build/v3/credential_auth_v3.r1cs",
+  "ptau": "setup/ptau/powersOfTau28_hez_final_15.ptau",
+  "phase2": [
+    {
+      "step": "contribution",
+      "name": "pqid v3 contribution 1",
+      "entropy": "OS randomness (snarkjs getRandomBytes, 64 B) + crypto.randomBytes(64); never written",
+      "contributionHash": "b2d46dcb1c503148c06072fb622dc6f0c49c5a20dc80514aa1d7cc068fde29d787f5105fa5b4bece07e26f5959ae2f36a6144a1625ffbee3340fefad29c89067"
+    },
+    {
+      "step": "beacon",
+      "name": "pqid v3 beacon",
+      "beaconHash": "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20",
+      "numIterationsExp": 10,
+      "contributionHash": "665351a8a0c932fa42f565ace437cc756d5d3dacf8d0177ec508e9b28c8d8f3ea1a638d2eb4f96a2fe969589e5980eb6dd456836fd6680b98c9d31f1ff62c626"
+    }
+  ],
+  "sha256": {
+    "r1cs": "fe66790db13004b57c52169592228c95c025c0a627cb6f1c9c3afb24332c9314",
+    "wasm": "04c2556fdd64b5ce6937f76471f782171b9b6419f480edd39a5792024964afe7",
+    "zkey": "f0d412eb141e6ea0f9d9703ebd8b226175c63070c58ed1e0e7a332e865a0117f",
+    "vkey": "bdb7b352657e4fdbace212c2df3b7656b49f39d4a8ce38a14bea02c15726771e",
+    "sol": "d26df30e246dde2cda4b95a321368f91f588fff07649827aaedd6848cc4bcd01"
+  },
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-26T13:19:50.769Z"
+  }
+}

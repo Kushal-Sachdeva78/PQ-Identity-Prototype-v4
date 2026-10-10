@@ -1,0 +1,65 @@
+{
+  "name": "pq-identity-v4",
+  "version": "4.0.0",
+  "private": true,
+  "description": "Research code for Auditing and Redesigning a Zero-Knowledge Digital Identity System: Issuance-Bound Credentials with Post-Quantum-Signed Statements",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24.18.0 <25"
+  },
+  "workspaces": [
+    "packages/*",
+    "harness",
+    "cli",
+    "onchain"
+  ],
+  "scripts": {
+    "setup": "tsx setup/download_ptau.ts && tsx setup/build_circuit.ts && tsx setup/groth16_setup.ts",
+    "build": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "bench:pqc": "tsx harness/bench_pqc.ts",
+    "bench:zk": "tsx harness/bench_zk.ts",
+    "bench:baseline": "tsx packages/baseline/bench_baseline.ts",
+    "gas": "tsx onchain/measure_gas.ts",
+    "e2e": "tsx harness/e2e.ts",
+    "e2e:latency": "tsx harness/e2e_latency.ts",
+    "negative": "tsx harness/negative_test.ts",
+    "probe": "tsx harness/malicious_wallet_probe.ts",
+    "audit": "tsx harness/circomspect_audit.ts",
+    "campaign": "tsx harness/campaign.ts",
+    "tables": "tsx harness/generate_results.ts",
+    "demo": "tsx cli/demo.ts",
+    "setup:v3": "tsx setup/build_circuit_v3.ts && tsx setup/groth16_setup_v3.ts",
+    "security:v3": "tsx harness/v3/security_suite.ts",
+    "compare:v3": "tsx harness/v3/compare_v2_v3.ts",
+    "verify-pins": "tsx setup/download_ptau.ts",
+    "test:v4": "vitest run tests/v4",
+    "security:v4": "tsx harness/v4/security_suite.ts",
+    "demo:v4": "tsx demo/v4_demo.ts",
+    "verify-artifacts": "python scripts/verify_artifacts.py",
+    "validate": "bash artifact/rebuild.sh --quick"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.17.0",
+    "@types/node": "22.10.2",
+    "@types/pg": "8.11.10",
+    "eslint": "9.17.0",
+    "prettier": "3.4.2",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2",
+    "typescript-eslint": "8.18.1",
+    "vitest": "2.1.8"
+  },
+  "dependencies": {
+    "bs58": "6.0.0",
+    "circomlib": "2.0.5",
+    "circomlibjs": "0.1.7",
+    "ethers": "6.13.4",
+    "keccak256-circom": "git+https://github.com/vocdoni/keccak256-circom.git#af3e89816b46366e3fb9ff551be819357637f09b",
+    "pg": "8.13.1",
+    "snarkjs": "0.7.4",
+    "solc": "0.8.28"
+  }
+}

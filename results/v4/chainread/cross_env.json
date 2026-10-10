@@ -1,0 +1,3281 @@
+{
+ "schema": "pqid/v4-chainread-cross/v1",
+ "generatedBy": "scripts/chainread/analyze.py",
+ "generatedUtc": "2026-10-04T10:09:00.528Z",
+ "sourceSha256": {
+  "scripts/chainread/analyze.py": "ca1f9c75e8119b71198476e95809dcd82890b16de268b36ae0069b0288fd1b4e"
+ },
+ "measured": {
+  "cr_wsl": {
+   "anvil": {
+    "startedUtc": "2026-10-03T16:29:08.016Z",
+    "finishedUtc": "2026-10-03T16:59:47.721Z",
+    "env": "results/v4/chainread/cr_wsl/anvil/env.json"
+   },
+   "besu": {
+    "startedUtc": "2026-10-03T17:16:55.794Z",
+    "finishedUtc": "2026-10-03T17:50:36.652Z",
+    "env": "results/v4/chainread/cr_wsl/besu/env.json"
+   }
+  },
+  "cr_win": {
+   "anvil": {
+    "startedUtc": "2026-10-03T17:54:02.871Z",
+    "finishedUtc": "2026-10-03T18:35:03.417Z",
+    "env": "results/v4/chainread/cr_win/anvil/env.json"
+   },
+   "besu": {
+    "startedUtc": "2026-10-03T18:35:56.632Z",
+    "finishedUtc": "2026-10-03T19:18:33.837Z",
+    "env": "results/v4/chainread/cr_win/besu/env.json"
+   }
+  }
+ },
+ "smoke": false,
+ "label": "cross-environment (D-032): ratios between separate campaigns in different environments and toolchains; the harness is pinned to one CPU in WSL and unpinned on Windows, so only chain time, POSTs, requests and depth are compared. v4 dev key; loopback, same host; traced ethers clients (wrapper code runs per request; R0's E4 figures are untraced).",
+ "numerator": "cr_wsl",
+ "denominator": "cr_win",
+ "targetSources": {
+  "anvil": {
+   "numerator": "cr_wsl",
+   "denominator": "cr_win"
+  },
+  "besu": {
+   "numerator": "cr_wsl",
+   "denominator": "cr_win"
+  }
+ },
+ "excluded": [],
+ "targets": {
+  "anvil": {
+   "campaigns": {
+    "numerator": "cr_wsl",
+    "denominator": "cr_win"
+   },
+   "toolchains": {
+    "cr_wsl": {
+     "environment": "wsl2",
+     "node": "v24.21.0",
+     "client": "anvil/v1.5.1",
+     "pinned": true
+    },
+    "cr_win": {
+     "environment": "windows",
+     "node": "v24.18.0",
+     "client": "anvil/v1.5.1",
+     "pinned": false
+    }
+   },
+   "labels": {
+    "cr_wsl": {
+     "key": "dev (v4 Groth16 dev key; proving untimed)",
+     "network": "loopback, same host (D-034): the node listens on 127.0.0.1 of the same laptop (per target: target.endpoint)",
+     "endpoint": "loopback, same host",
+     "clients": "traced ethers clients (wrapper code runs per request; R0's E4 figures are untraced)",
+     "variants": "only A asShipped and the read set sequentialShipped are as shipped; every other variant is 'variant, not shipped' (D-034)"
+    },
+    "cr_win": {
+     "key": "dev (v4 Groth16 dev key; proving untimed)",
+     "network": "loopback, same host (D-034): the node listens on 127.0.0.1 of the same laptop (per target: target.endpoint)",
+     "endpoint": "loopback, same host",
+     "clients": "traced ethers clients (wrapper code runs per request; R0's E4 figures are untraced)",
+     "variants": "only A asShipped and the read set sequentialShipped are as shipped; every other variant is 'variant, not shipped' (D-034)"
+    }
+   },
+   "ratios": [
+    {
+     "id": "xenv:anvil:s4:A:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.7528,
+     "ci95": [
+      0.749,
+      0.7557
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "as shipped"
+    },
+    {
+     "id": "xenv:anvil:s4:B:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.1771,
+     "ci95": [
+      0.1751,
+      0.1782
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s4:C:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.7488,
+     "ci95": [
+      0.7458,
+      0.7531
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s4:D:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.1755,
+     "ci95": [
+      0.1738,
+      0.1767
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s4:E:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.7066,
+     "ci95": [
+      0.7004,
+      0.7134
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s4:F:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.3715,
+     "ci95": [
+      0.3536,
+      0.4252
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s4:G:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.3046,
+     "ci95": [
+      0.2975,
+      0.3116
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s4:H:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.2426,
+     "ci95": [
+      0.2395,
+      0.2457
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s4:I:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.886,
+     "ci95": [
+      0.8461,
+      0.9339
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s5:A:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.7607,
+     "ci95": [
+      0.7598,
+      0.7621
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "as shipped"
+    },
+    {
+     "id": "xenv:anvil:s5:B:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.1522,
+     "ci95": [
+      0.151,
+      0.1539
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s5:C:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.759,
+     "ci95": [
+      0.7577,
+      0.7602
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s5:D:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.15,
+     "ci95": [
+      0.1491,
+      0.1534
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s5:E:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.8444,
+     "ci95": [
+      0.8411,
+      0.8471
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s5:F:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.4519,
+     "ci95": [
+      0.4448,
+      0.4593
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s5:G:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.2587,
+     "ci95": [
+      0.2568,
+      0.2611
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s5:H:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.2439,
+     "ci95": [
+      0.224,
+      0.2541
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s5:I:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.9587,
+     "ci95": [
+      0.9182,
+      0.9856
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:anvil:s1:array:14:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.6186,
+     "ci95": [
+      0.579,
+      0.6579
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:array:2:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.5677,
+     "ci95": [
+      0.529,
+      0.6286
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:array:7:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.6398,
+     "ci95": [
+      0.5992,
+      0.6918
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:concurrent:2:httpPool:cr_wsl/cr_win",
+     "ratio": 0.55,
+     "ci95": [
+      0.5001,
+      0.6159
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:concurrent:7:httpPool:cr_wsl/cr_win",
+     "ratio": 0.6728,
+     "ci95": [
+      0.6329,
+      0.7167
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_blockNumber:fetch:cr_wsl/cr_win",
+     "ratio": 0.039,
+     "ci95": [
+      0.0364,
+      0.0408
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_blockNumber:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.6131,
+     "ci95": [
+      0.5565,
+      0.6936
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_blockNumber:tcpRawNoDelay:cr_wsl/cr_win",
+     "ratio": 0.625,
+     "ci95": [
+      0.5641,
+      0.6924
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_call_resolve:fetch:cr_wsl/cr_win",
+     "ratio": 0.0419,
+     "ci95": [
+      0.04,
+      0.0448
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_call_resolve:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.5444,
+     "ci95": [
+      0.5047,
+      0.6044
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_call_resolve:tcpRawNoDelay:cr_wsl/cr_win",
+     "ratio": 0.5091,
+     "ci95": [
+      0.4634,
+      0.5627
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_chainId:fetch:cr_wsl/cr_win",
+     "ratio": 0.038,
+     "ci95": [
+      0.0356,
+      0.0404
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_chainId:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.6465,
+     "ci95": [
+      0.5812,
+      0.7335
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_chainId:tcpRawNoDelay:cr_wsl/cr_win",
+     "ratio": 0.6618,
+     "ci95": [
+      0.5901,
+      0.7611
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_getLogs_registered:fetch:cr_wsl/cr_win",
+     "ratio": 0.0411,
+     "ci95": [
+      0.0382,
+      0.0436
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_getLogs_registered:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.5864,
+     "ci95": [
+      0.543,
+      0.6544
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:anvil:s1:single:eth_getLogs_registered:tcpRawNoDelay:cr_wsl/cr_win",
+     "ratio": 0.6258,
+     "ci95": [
+      0.5699,
+      0.6899
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    }
+   ],
+   "counts": {
+    "s4:A": {
+     "posts": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 14,
+       "median": 14.0,
+       "max": 14,
+       "counts": {
+        "14": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 14,
+       "median": 14.0,
+       "max": 14,
+       "counts": {
+        "14": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:B": {
+     "posts": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 14,
+       "median": 14.0,
+       "max": 14,
+       "counts": {
+        "14": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 14,
+       "median": 14.0,
+       "max": 14,
+       "counts": {
+        "14": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:C": {
+     "posts": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:D": {
+     "posts": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:E": {
+     "posts": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 9,
+       "median": 9.0,
+       "max": 9,
+       "counts": {
+        "9": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 9,
+       "median": 9.0,
+       "max": 9,
+       "counts": {
+        "9": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:F": {
+     "posts": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 3,
+       "counts": {
+        "2": 590,
+        "3": 10
+       },
+       "invariant": false
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 3,
+       "counts": {
+        "2": 583,
+        "3": 17
+       },
+       "invariant": false
+      }
+     }
+    },
+    "s4:G": {
+     "posts": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:H": {
+     "posts": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 3,
+       "median": 3.0,
+       "max": 3,
+       "counts": {
+        "3": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 3,
+       "median": 3.0,
+       "max": 3,
+       "counts": {
+        "3": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:I": {
+     "posts": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:A": {
+     "posts": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 32,
+       "median": 32.0,
+       "max": 32,
+       "counts": {
+        "32": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 32,
+       "median": 32.0,
+       "max": 32,
+       "counts": {
+        "32": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:B": {
+     "posts": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 32,
+       "median": 32.0,
+       "max": 32,
+       "counts": {
+        "32": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 32,
+       "median": 32.0,
+       "max": 32,
+       "counts": {
+        "32": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:C": {
+     "posts": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:D": {
+     "posts": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:E": {
+     "posts": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 20,
+       "median": 20.0,
+       "max": 20,
+       "counts": {
+        "20": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 20,
+       "median": 20.0,
+       "max": 20,
+       "counts": {
+        "20": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:F": {
+     "posts": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 5,
+       "counts": {
+        "4": 590,
+        "5": 10
+       },
+       "invariant": false
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 5,
+       "counts": {
+        "4": 582,
+        "5": 18
+       },
+       "invariant": false
+      }
+     }
+    },
+    "s5:G": {
+     "posts": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:H": {
+     "posts": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:I": {
+     "posts": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     }
+    }
+   }
+  },
+  "besu": {
+   "campaigns": {
+    "numerator": "cr_wsl",
+    "denominator": "cr_win"
+   },
+   "toolchains": {
+    "cr_wsl": {
+     "environment": "wsl2",
+     "node": "v24.21.0",
+     "client": "besu/v26.9.0/linux-x86_64/openjdk-java-25",
+     "pinned": true
+    },
+    "cr_win": {
+     "environment": "windows",
+     "node": "v24.18.0",
+     "client": "besu/v26.9.0/windows-x86_64/openjdk-java-25",
+     "pinned": false
+    }
+   },
+   "labels": {
+    "cr_wsl": {
+     "key": "dev (v4 Groth16 dev key; proving untimed)",
+     "network": "loopback, same host (D-034): the node listens on 127.0.0.1 of the same laptop (per target: target.endpoint)",
+     "endpoint": "loopback, same host",
+     "clients": "traced ethers clients (wrapper code runs per request; R0's E4 figures are untraced)",
+     "variants": "only A asShipped and the read set sequentialShipped are as shipped; every other variant is 'variant, not shipped' (D-034)"
+    },
+    "cr_win": {
+     "key": "dev (v4 Groth16 dev key; proving untimed)",
+     "network": "loopback, same host (D-034): the node listens on 127.0.0.1 of the same laptop (per target: target.endpoint)",
+     "endpoint": "loopback, same host",
+     "clients": "traced ethers clients (wrapper code runs per request; R0's E4 figures are untraced)",
+     "variants": "only A asShipped and the read set sequentialShipped are as shipped; every other variant is 'variant, not shipped' (D-034)"
+    }
+   },
+   "ratios": [
+    {
+     "id": "xenv:besu:s4:A:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.7224,
+     "ci95": [
+      0.718,
+      0.7281
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "as shipped"
+    },
+    {
+     "id": "xenv:besu:s4:B:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.2313,
+     "ci95": [
+      0.2273,
+      0.2334
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s4:C:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.7246,
+     "ci95": [
+      0.7197,
+      0.728
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s4:D:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.2293,
+     "ci95": [
+      0.2266,
+      0.2319
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s4:E:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.7239,
+     "ci95": [
+      0.7184,
+      0.7322
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s4:F:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.4651,
+     "ci95": [
+      0.4285,
+      0.5404
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s4:G:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.3526,
+     "ci95": [
+      0.33,
+      0.3759
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s4:H:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.2925,
+     "ci95": [
+      0.285,
+      0.2973
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s4:I:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.8346,
+     "ci95": [
+      0.7566,
+      0.9015
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s5:A:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.8089,
+     "ci95": [
+      0.8077,
+      0.81
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "as shipped"
+    },
+    {
+     "id": "xenv:besu:s5:B:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.2012,
+     "ci95": [
+      0.2002,
+      0.2026
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s5:C:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.8105,
+     "ci95": [
+      0.8092,
+      0.8116
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s5:D:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.2029,
+     "ci95": [
+      0.2016,
+      0.2086
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s5:E:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.7301,
+     "ci95": [
+      0.7272,
+      0.7329
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s5:F:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.5536,
+     "ci95": [
+      0.5446,
+      0.562
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s5:G:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.3349,
+     "ci95": [
+      0.3314,
+      0.3382
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s5:H:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.2806,
+     "ci95": [
+      0.2766,
+      0.2998
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s5:I:chainUnionMs:cr_wsl/cr_win",
+     "ratio": 0.8743,
+     "ci95": [
+      0.8124,
+      0.9098
+     ],
+     "nNum": 600,
+     "nDen": 600,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "variant, not shipped"
+    },
+    {
+     "id": "xenv:besu:s1:array:14:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.7481,
+     "ci95": [
+      0.6861,
+      0.8339
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:array:2:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.8819,
+     "ci95": [
+      0.8233,
+      0.9397
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:array:7:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.7928,
+     "ci95": [
+      0.7091,
+      0.8611
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:concurrent:2:httpPool:cr_wsl/cr_win",
+     "ratio": 0.8312,
+     "ci95": [
+      0.7718,
+      0.9042
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:concurrent:7:httpPool:cr_wsl/cr_win",
+     "ratio": 1.0147,
+     "ci95": [
+      0.9647,
+      1.0784
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_blockNumber:fetch:cr_wsl/cr_win",
+     "ratio": 0.1159,
+     "ci95": [
+      0.1071,
+      0.1233
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_blockNumber:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.8148,
+     "ci95": [
+      0.7567,
+      0.8957
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_blockNumber:tcpRawNoDelay:cr_wsl/cr_win",
+     "ratio": 0.8327,
+     "ci95": [
+      0.7661,
+      0.9149
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_call_resolve:fetch:cr_wsl/cr_win",
+     "ratio": 0.1513,
+     "ci95": [
+      0.1445,
+      0.1657
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_call_resolve:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.8793,
+     "ci95": [
+      0.8103,
+      0.9497
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_call_resolve:tcpRawNoDelay:cr_wsl/cr_win",
+     "ratio": 0.8891,
+     "ci95": [
+      0.8285,
+      0.9679
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_chainId:fetch:cr_wsl/cr_win",
+     "ratio": 0.1072,
+     "ci95": [
+      0.1003,
+      0.1195
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_chainId:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.8747,
+     "ci95": [
+      0.8021,
+      0.9389
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_chainId:tcpRawNoDelay:cr_wsl/cr_win",
+     "ratio": 0.7897,
+     "ci95": [
+      0.7363,
+      0.8932
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_getLogs_registered:fetch:cr_wsl/cr_win",
+     "ratio": 0.1547,
+     "ci95": [
+      0.1464,
+      0.1648
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_getLogs_registered:httpKeepAlive:cr_wsl/cr_win",
+     "ratio": 0.8088,
+     "ci95": [
+      0.7488,
+      0.8505
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    },
+    {
+     "id": "xenv:besu:s1:single:eth_getLogs_registered:tcpRawNoDelay:cr_wsl/cr_win",
+     "ratio": 0.741,
+     "ci95": [
+      0.6905,
+      0.8059
+     ],
+     "nNum": 300,
+     "nDen": 300,
+     "B": 10000,
+     "seed": 20260927,
+     "label": "raw transport (no ethers), not the shipped client"
+    }
+   ],
+   "counts": {
+    "s4:A": {
+     "posts": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 14,
+       "median": 14.0,
+       "max": 14,
+       "counts": {
+        "14": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 14,
+       "median": 14.0,
+       "max": 14,
+       "counts": {
+        "14": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:B": {
+     "posts": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 14,
+       "median": 14.0,
+       "max": 14,
+       "counts": {
+        "14": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 14,
+       "median": 14.0,
+       "max": 14,
+       "counts": {
+        "14": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:C": {
+     "posts": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:D": {
+     "posts": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:E": {
+     "posts": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 9,
+       "median": 9.0,
+       "max": 9,
+       "counts": {
+        "9": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 9,
+       "median": 9.0,
+       "max": 9,
+       "counts": {
+        "9": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:F": {
+     "posts": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 3,
+       "counts": {
+        "2": 571,
+        "3": 29
+       },
+       "invariant": false
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 3,
+       "counts": {
+        "2": 574,
+        "3": 26
+       },
+       "invariant": false
+      }
+     }
+    },
+    "s4:G": {
+     "posts": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:H": {
+     "posts": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 3,
+       "median": 3.0,
+       "max": 3,
+       "counts": {
+        "3": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 3,
+       "median": 3.0,
+       "max": 3,
+       "counts": {
+        "3": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 2,
+       "median": 2.0,
+       "max": 2,
+       "counts": {
+        "2": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s4:I": {
+     "posts": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:A": {
+     "posts": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 32,
+       "median": 32.0,
+       "max": 32,
+       "counts": {
+        "32": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 32,
+       "median": 32.0,
+       "max": 32,
+       "counts": {
+        "32": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:B": {
+     "posts": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 32,
+       "median": 32.0,
+       "max": 32,
+       "counts": {
+        "32": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 32,
+       "median": 32.0,
+       "max": 32,
+       "counts": {
+        "32": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:C": {
+     "posts": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:D": {
+     "posts": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:E": {
+     "posts": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 20,
+       "median": 20.0,
+       "max": 20,
+       "counts": {
+        "20": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 20,
+       "median": 20.0,
+       "max": 20,
+       "counts": {
+        "20": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:F": {
+     "posts": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 5,
+       "counts": {
+        "4": 564,
+        "5": 36
+       },
+       "invariant": false
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 5,
+       "counts": {
+        "4": 569,
+        "5": 31
+       },
+       "invariant": false
+      }
+     }
+    },
+    "s5:G": {
+     "posts": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 16,
+       "median": 16.0,
+       "max": 16,
+       "counts": {
+        "16": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:H": {
+     "posts": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 7,
+       "median": 7.0,
+       "max": 7,
+       "counts": {
+        "7": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 4,
+       "median": 4.0,
+       "max": 4,
+       "counts": {
+        "4": 600
+       },
+       "invariant": true
+      }
+     }
+    },
+    "s5:I": {
+     "posts": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     },
+     "requests": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     },
+     "depth": {
+      "cr_wsl": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      },
+      "cr_win": {
+       "min": 0,
+       "median": 0.0,
+       "max": 0,
+       "counts": {
+        "0": 600
+       },
+       "invariant": true
+      }
+     }
+    }
+   }
+  }
+ }
+}

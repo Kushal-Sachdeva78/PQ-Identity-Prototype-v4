@@ -1,0 +1,165 @@
+{
+  "circuit:G09_predicate_code": {
+    "class": "redundant",
+    "backedBy": [
+      "circuit:G12_age",
+      "circuit:G08_policy_hash",
+      "verifier:policyHash"
+    ],
+    "reason": "reached.out is a LessEqThan output (boolean) and G12 forces reached.out = 2 - predicateCode, so predicateCode is 1 or 2 whenever G12 holds; G08 and the verifier's policyHash also fix it to the verifier's predicate."
+  },
+  "circuit:G11_ranges": {
+    "class": "redundant",
+    "backedBy": [
+      "circuit:G03_leaf",
+      "circuit:G04_issuance_membership",
+      "circuit:G08_policy_hash",
+      "circuit:G10_standard_threshold",
+      "verifier:policyHash",
+      "verifier:epochWindow"
+    ],
+    "reason": "every range-checked input is already fixed by another binding: birthDate and expiryDate by the issuer-signed leaf (valid dates from an honest issuer), today by policyHash (the verifier's valid date), epochFromDate and epochToDate by the verifier's epochWindow check against the signed statement, threshold by G10; the comparators' own Num2Bits bound the differences. Relies on the honest-issuer assumption for leaf dates."
+  },
+  "circuit:G16_stmt": {
+    "class": "redundant",
+    "backedBy": [
+      "verifier:stmtCode",
+      "verifier:nonceBinding",
+      "Groth16 public-input binding"
+    ],
+    "reason": "stmtCode is a public input; Groth16 binds every public input whether or not a constraint uses it, and the verifier compares it with its own domain tag (review round 1, CIR-5)."
+  },
+  "circuit:G17_nonce": {
+    "class": "redundant",
+    "backedBy": [
+      "verifier:nonceBinding",
+      "Groth16 public-input binding"
+    ],
+    "reason": "the nonce is a public input bound by Groth16 (snarkjs gives every public input a verification-key term); the square constraint adds nothing (review round 1, CIR-5)."
+  },
+  "verifier:issuerKeyHash": {
+    "class": "redundant",
+    "backedBy": [
+      "verifier:epochAnchorCurrent",
+      "circuit:G03_leaf",
+      "circuit:G04_issuance_membership"
+    ],
+    "reason": "the proof's issRoot must equal the presented issuer's anchored root, and every leaf in that tree commits the issuer's own key hash (issuers are trusted for their own trees), so a proof carrying another issuer's key hash cannot open under the presented issuer's root; with a malicious issuer the decision still names the presented issuer."
+  },
+  "verifier:issuerPop": {
+    "class": "redundant",
+    "backedBy": [
+      "verifier:accreditation",
+      "governance:issuerPopBeforeAccreditation",
+      "verifier:issuerRecord"
+    ],
+    "reason": "governance accredits a (did, controller) only after checking its PoP, and the accreditation names the controller and the key hash, so a record without a valid PoP has no valid accreditation."
+  },
+  "verifier:issuerRecord": {
+    "class": "redundant",
+    "backedBy": [
+      "verifier:accreditation",
+      "verifier:issuerPop"
+    ],
+    "reason": "the accreditation statement binds the issuer's key (pkSha3) and controller, and the PoP check verifies the record's key; a record with another key or deactivated fails those."
+  },
+  "verifier:sessionKnown": {
+    "class": "redundant",
+    "backedBy": [
+      "verifier:transcriptDecrypts"
+    ],
+    "reason": "decryption needs the stored session's request (the transcript and the ML-KEM key schedule), so a reply for an unknown or expired session cannot decrypt."
+  },
+  "verifier:shape": {
+    "class": "redundant",
+    "backedBy": [
+      "fail-closed exception handler in verifyReply",
+      "verifier:epochAnchorCurrent",
+      "verifier:groth16"
+    ],
+    "reason": "a malformed presentation either fails a later field check or makes the checking code throw, which verifyReply turns into a rejection (review round 1, VER-2)."
+  },
+  "verifier:stmtCode": {
+    "class": "redundant",
+    "backedBy": [
+      "verifier:nonceBinding"
+    ],
+    "reason": "the proof nonce is derived from the session transcript, which contains the verifier's DID, controller and request, so a proof for another verifier's session fails nonceBinding."
+  },
+  "verifier:transcriptDecrypts": {
+    "class": "redundant",
+    "backedBy": [
+      "verifier:shape"
+    ],
+    "reason": "without authenticated decryption there is no presentation to check; the missing plaintext fails the shape check."
+  },
+  "wallet:credentialSignature": {
+    "class": "robustness",
+    "backedBy": [
+      "circuit:G03_leaf",
+      "circuit:G04_issuance_membership"
+    ],
+    "reason": "the wallet checks its own credential; the verifier never relies on the per-credential ML-DSA signature (the circuit binds the leaf under the issuer's signed anchor)."
+  },
+  "wallet:dateInWindow": {
+    "class": "robustness",
+    "backedBy": [
+      "circuit:G15_epoch_window"
+    ],
+    "reason": "turns a date outside the anchored statement's dates into a named refusal before the predicate is evaluated; without it the wallet evaluates the predicate at that date and refuses with predicateHolds (predicate false) or, after witness generation fails on G15, with proofFailed (predicate true); either way no reply is sealed, and the date was already reserved by the date check (D-026). Verified by the C3 review (the one refutation was not confirmed)."
+  },
+  "wallet:issuerPop": {
+    "class": "redundant",
+    "backedBy": [
+      "wallet:accreditation",
+      "governance:issuerPopBeforeAccreditation"
+    ],
+    "reason": "as the verifier's issuerPop: an accreditation exists only for a (did, controller) whose PoP governance checked."
+  },
+  "wallet:issuerRecord": {
+    "class": "redundant",
+    "backedBy": [
+      "wallet:accreditation",
+      "wallet:issuerPop"
+    ],
+    "reason": "the accreditation binds key hash and controller; the PoP check verifies the record's key."
+  },
+  "wallet:predicateHolds": {
+    "class": "robustness",
+    "backedBy": [
+      "circuit:G12_age",
+      "circuit:G13_expiry"
+    ],
+    "reason": "refuses before proving; without it the honest prover fails on G12 or G13 and the wallet refuses with proofFailed, which the verifier observes the same way."
+  },
+  "wallet:requestShape": {
+    "class": "redundant",
+    "backedBy": [
+      "session module strict request schema (walletOpenSession)"
+    ],
+    "reason": "the session module validates the request against the same strict schema before deriving the transcript and refuses an extra field (route RL-d1 records it as sessionSchema)."
+  },
+  "wallet:thresholdStandard": {
+    "class": "tested",
+    "backedBy": [
+      "circuit:G10_standard_threshold"
+    ],
+    "reason": "the C3 review (two skeptics, one confirmation) showed that without it the refusal kind at a non-standard threshold depends on the birth date (observation model D-026); route TP-c now exercises it. G10 still stops any proof."
+  },
+  "wallet:typeHeld": {
+    "class": "robustness",
+    "backedBy": [
+      "wallet:typeAllowed",
+      "circuit:G14_type"
+    ],
+    "reason": "with no credential of the requested type there is nothing to prove; the allow-list already refuses unlisted types."
+  },
+  "wallet:verifierRecord": {
+    "class": "redundant",
+    "backedBy": [
+      "wallet:verifierPop",
+      "wallet:verifierKemKey"
+    ],
+    "reason": "the PoP check verifies the record's key and its binding to the DID, controller, chain, registry and origin; the KEM statement must be signed by that key."
+  }
+}

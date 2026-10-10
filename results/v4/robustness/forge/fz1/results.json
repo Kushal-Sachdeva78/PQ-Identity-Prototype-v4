@@ -1,0 +1,140 @@
+{
+  "schema": "pqid/v4-forge-fuzz-results/v1",
+  "forgeExitCode": 0,
+  "wallSec": 26.9,
+  "note": "forge --json output without traces; untimed (wallSec is the run's wall time, not a result)",
+  "tests": [
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_accreditationSerial(string,uint256,uint256,uint256,address,bytes,bytes)",
+      "status": "Success",
+      "reason": null,
+      "kind": "Fuzz",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_deactivateOnlyOwn(string,address,address)",
+      "status": "Success",
+      "reason": null,
+      "kind": "Fuzz",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_epochNeedsOwnRecord(string,address,address,uint64)",
+      "status": "Success",
+      "reason": null,
+      "kind": "Fuzz",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_epochRules(string,address,uint8,uint256[3],uint32[3])",
+      "status": "Success",
+      "reason": null,
+      "kind": "Fuzz",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_kemRules(string,address,uint8,uint256[3],bytes)",
+      "status": "Success",
+      "reason": null,
+      "kind": "Fuzz",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_recordKeyInjective(string,address,string,address)",
+      "status": "Success",
+      "reason": null,
+      "kind": "Fuzz",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_recordKeyIsPackedHash(string,address)",
+      "status": "Success",
+      "reason": null,
+      "kind": "Fuzz",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_registerResolveUnique(string,bytes,bytes32,bytes,string,address,address,uint32)",
+      "status": "Success",
+      "reason": null,
+      "kind": "Fuzz",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "test_constructorGuards()",
+      "status": "Success",
+      "reason": null,
+      "kind": "Unit",
+      "runs": null,
+      "calls": null,
+      "reverts": null,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4InvariantTest",
+      "test": "invariant_callsMatchModel()",
+      "status": "Success",
+      "reason": null,
+      "kind": "Invariant",
+      "runs": 256,
+      "calls": 25600,
+      "reverts": 0,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4InvariantTest",
+      "test": "invariant_stateMatchesModel()",
+      "status": "Success",
+      "reason": null,
+      "kind": "Invariant",
+      "runs": 256,
+      "calls": 25600,
+      "reverts": 0,
+      "counterexample": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4InvariantTest",
+      "test": "test_handlerReachesEveryAcceptance()",
+      "status": "Success",
+      "reason": null,
+      "kind": "Unit",
+      "runs": null,
+      "calls": null,
+      "reverts": null,
+      "counterexample": null
+    }
+  ]
+}

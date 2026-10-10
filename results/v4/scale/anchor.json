@@ -1,0 +1,565 @@
+{
+  "schema": "pqid/v4-e4-anchor/v1",
+  "experiment": "E4",
+  "subcommand": "anchor",
+  "dry": false,
+  "label": "[M] measured unless a field says [S] or [A]",
+  "options": {
+    "sub": "anchor",
+    "dry": false,
+    "n": null,
+    "k": 1000,
+    "epochs": null,
+    "issueK": null,
+    "build": "auto",
+    "heapMiB": 8192,
+    "p": null,
+    "passes": null,
+    "warmup": null,
+    "holders": null,
+    "r": null,
+    "w": null,
+    "port": null,
+    "besuRpc": "http://127.0.0.1:18545",
+    "noPin": false,
+    "gwei": [],
+    "seed": "pqid-e4-v1"
+  },
+  "startedUtc": "2026-09-27T22:06:31.306Z",
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-27T22:06:31.329Z"
+  },
+  "hostState": {
+    "freeMemGiB": 7.2,
+    "uptimeSec": 201721
+  },
+  "runtime": {
+    "node": "v24.18.0",
+    "openssl": "3.5.7",
+    "v8": "13.6.233.17-node.50",
+    "pqc": "OpenSSL 3.5.7 via Node 24.18.0",
+    "execArgv": [
+      "--import",
+      "tsx"
+    ],
+    "gcExposed": false,
+    "heapSizeLimitMiB": 4288
+  },
+  "timer": "process.hrtime.bigint() (monotonic, ns), reported in ms",
+  "harnessSha256": {
+    "harness/v4/scale.ts": "98fb6ea96fe8d7fff1dc965e08718d96df887a1cc0cef17849e69206dc3ae9ec",
+    "harness/v4/scale_lib.ts": "5cb16cea4abd3fec6fc08cf55a33ff4741b21ed957c89ada05cab1f402d4ee89",
+    "harness/v4/bulk_issuance_tree.ts": "8827870b92b4d6115def3c7ac01d567db163884531a155a2ad4019a2821b30ae",
+    "scripts/besu/setup_qbft.sh": "01d3a6f7a5ab2221aac128c4abd87e88e8484356c7a7154b9880eee15f17eb9c"
+  },
+  "sourceSha256": {
+    "onchain/contracts/v4/RegistriesV4.sol": "b1a10712f5022f72ea0e00e0cc23c9386ebe7d86bd14b03745a77982a2280782",
+    "packages/v4/src/clock.ts": "9619b194d4f36a9dc1d738103b60fe7c7ae745f650f8b6868f571babd6dc01d9",
+    "packages/v4/src/constants.ts": "bcaca98edc6ae0f8ea06a4f089a10a337fa2449e2a269fa20f756a7e02f1de5a",
+    "packages/v4/src/dates.ts": "8c00a1e6d8eb72597283550dfdce4d0c2a4e66d7b84c8c4ecd96b86471b5033c",
+    "packages/v4/src/encoding.ts": "2c3a33ac637a7f4de2971913272b793e926ba577ca46207382a15ca8e608b93f",
+    "packages/v4/src/governance.ts": "cc2b113d1af69f81699643ee90f2abfa0dc4abd97f52e27248ed3ac0919d6d79",
+    "packages/v4/src/imt.ts": "a40447fcc48ed4d82c41e6008b12ce73adccd0bc02abe37b0f96761484fe6d5c",
+    "packages/v4/src/issuer.ts": "c86c410dd3ec07797e87251663d822ee24b2710e1489fae50a00436e8369fbcb",
+    "packages/v4/src/ledger.ts": "c0db178b8b02772d3a8c9bce14ba9853043b5d38930057bf6f754bb6fbae0bac",
+    "packages/v4/src/paths.ts": "31bfc967c84c1cf7991886f06ff25f19234f21012c6ae6b81db7746325668edd",
+    "packages/v4/src/pqc.ts": "2a70a18277d512f24ca18ee35488ae41954209221fb673ad994487b6c4918524",
+    "packages/v4/src/prove.ts": "5e192bd4e70156eabf0b5c2b6a20543436d73e4aed189d8f5f80a3828b131bd0",
+    "packages/v4/src/published.ts": "f5ecfc1eac56f39e80e84353632cf3011012c6ef5901ad597c20c15da63aedcd",
+    "packages/v4/src/session.ts": "d772cc59a9161636e0d05faabd8ae34487911147ae462d24a7c37955d7c5fc80",
+    "packages/v4/src/statements.ts": "1b660aab3614736d5a4c9ca3a071d72334c47946be7f7fc206d9f64dfb88ab64",
+    "packages/v4/src/verifier.ts": "bb73ce73e6df049df3aaa65324ee8ad68c83e29cc583e29d8567992cfccc170f",
+    "packages/v4/src/wallet.ts": "e5aa0cffb60dc5b3ba2465f8ab7d100ebbe9810e2f1c9bfeb44c229ded8a725d",
+    "packages/v4/src/witness.ts": "52f85969a9021ed808736ddbfcfc84a1795e61f08cdfbc30b5acc2c01294ceba",
+    "packages/v4/src/world.ts": "0984232a3bc4038a7a49f04e1853f43b09ed1eb45387332c569567d7bfa65eb6",
+    "packages/issuer/src/issuance.ts": "7efb35a3e870d97cdaa10b077a9509303a4f379159a455f8dcb51389866d2d69",
+    "setup/out/v4/verification_key_dev.json": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42"
+  },
+  "keyLabel": "dev",
+  "finishedUtc": "2026-09-27T22:06:37.822Z",
+  "chain": {
+    "node": "Anvil (tools/foundry/anvil.exe), automine, default hardfork",
+    "client": "anvil/v1.5.1",
+    "chainId": 31337,
+    "blockGasLimit": 30000000,
+    "evm": {
+      "anvilHardFork": "Prague",
+      "ethConfigCurrent": {
+        "forkId": "0x00000000",
+        "activationTime": 0,
+        "blobSchedule": {
+          "baseFeeUpdateFraction": 5007716,
+          "max": 9,
+          "target": 6
+        }
+      }
+    },
+    "note": "Prague applies the EIP-7623 calldata floor (21000 + 10 per calldata token); rows with floorBinds = true cost the floor, not their execution gas, and would cost less on a Cancun chain (see besu.json)"
+  },
+  "contracts": "onchain/contracts/v4/RegistriesV4.sol (solc-js 0.8.28, optimizer 200 runs, default EVM version)",
+  "oneOffGas": {
+    "deploy": {
+      "DIDRegistryV4": 730693,
+      "AccreditationRegistryV4": 509831,
+      "IssuanceRootRegistryV4": 545846,
+      "VerifierKemRegistryV4": 518452
+    },
+    "registerDID_issuer": {
+      "gasUsed": 1110102,
+      "blockNumber": 7,
+      "calldataBytes": 4100,
+      "zeroBytes": 327,
+      "nonZeroBytes": 3773,
+      "calldataGasPrePrague": 61676,
+      "eip7623FloorGas": 175190,
+      "floorBinds": false
+    },
+    "registerDID_verifierWithOrigin": {
+      "gasUsed": 1175158,
+      "blockNumber": 11,
+      "calldataBytes": 4164,
+      "zeroBytes": 349,
+      "nonZeroBytes": 3815,
+      "calldataGasPrePrague": 62436,
+      "eip7623FloorGas": 177090,
+      "floorBinds": false
+    },
+    "publishAccreditation_first": {
+      "gasUsed": 164406,
+      "blockNumber": 8,
+      "calldataBytes": 3108,
+      "zeroBytes": 296,
+      "nonZeroBytes": 2812,
+      "calldataGasPrePrague": 46176,
+      "eip7623FloorGas": 136440,
+      "floorBinds": false
+    },
+    "publishAccreditation_renewal": {
+      "gasUsed": 136290,
+      "blockNumber": 9,
+      "calldataBytes": 3108,
+      "zeroBytes": 301,
+      "nonZeroBytes": 2807,
+      "calldataGasPrePrague": 46116,
+      "eip7623FloorGas": 136290,
+      "floorBinds": true
+    },
+    "publishKemKey_first": {
+      "gasUsed": 220925,
+      "blockNumber": 12,
+      "calldataBytes": 4356,
+      "zeroBytes": 373,
+      "nonZeroBytes": 3983,
+      "calldataGasPrePrague": 65220,
+      "eip7623FloorGas": 184050,
+      "floorBinds": false
+    },
+    "publishKemKey_rotation": {
+      "gasUsed": 184260,
+      "blockNumber": 14,
+      "calldataBytes": 4356,
+      "zeroBytes": 366,
+      "nonZeroBytes": 3990,
+      "calldataGasPrePrague": 65304,
+      "eip7623FloorGas": 184260,
+      "floorBinds": true
+    },
+    "label": "[M] gasUsed from receipts; calldata facts and the EIP-7623 floor [S] from the transaction input"
+  },
+  "publishEpoch": {
+    "first": {
+      "gasUsed": 145231,
+      "blockNumber": 15,
+      "calldataBytes": 324,
+      "zeroBytes": 181,
+      "nonZeroBytes": 143,
+      "calldataGasPrePrague": 3012,
+      "eip7623FloorGas": 28530,
+      "floorBinds": false
+    },
+    "later": {
+      "n": 9,
+      "median": 59969,
+      "q1": 57193,
+      "q3": 59993,
+      "iqr": 2800,
+      "mean": 58741.8889,
+      "min": 57157,
+      "max": 59993,
+      "p95": 59993
+    },
+    "laterWithNewRevRoot": {
+      "n": 5,
+      "median": 59993,
+      "q1": 59993,
+      "q3": 59993,
+      "iqr": 0,
+      "mean": 59988.2,
+      "min": 59969,
+      "max": 59993,
+      "p95": 59993
+    },
+    "laterWithSameRevRoot": {
+      "n": 4,
+      "median": 57193,
+      "q1": 57184,
+      "q3": 57193,
+      "iqr": 9,
+      "mean": 57184,
+      "min": 57157,
+      "max": 57193,
+      "p95": 57193
+    },
+    "perEpoch": [
+      {
+        "epoch": 1,
+        "revRootChanged": true,
+        "gasUsed": 145231,
+        "blockNumber": 15,
+        "calldataBytes": 324,
+        "zeroBytes": 181,
+        "nonZeroBytes": 143,
+        "calldataGasPrePrague": 3012,
+        "eip7623FloorGas": 28530,
+        "floorBinds": false
+      },
+      {
+        "epoch": 2,
+        "revRootChanged": true,
+        "gasUsed": 59993,
+        "blockNumber": 17,
+        "calldataBytes": 324,
+        "zeroBytes": 179,
+        "nonZeroBytes": 145,
+        "calldataGasPrePrague": 3036,
+        "eip7623FloorGas": 28590,
+        "floorBinds": false
+      },
+      {
+        "epoch": 3,
+        "revRootChanged": false,
+        "gasUsed": 57193,
+        "blockNumber": 19,
+        "calldataBytes": 324,
+        "zeroBytes": 179,
+        "nonZeroBytes": 145,
+        "calldataGasPrePrague": 3036,
+        "eip7623FloorGas": 28590,
+        "floorBinds": false
+      },
+      {
+        "epoch": 4,
+        "revRootChanged": true,
+        "gasUsed": 59993,
+        "blockNumber": 21,
+        "calldataBytes": 324,
+        "zeroBytes": 179,
+        "nonZeroBytes": 145,
+        "calldataGasPrePrague": 3036,
+        "eip7623FloorGas": 28590,
+        "floorBinds": false
+      },
+      {
+        "epoch": 5,
+        "revRootChanged": false,
+        "gasUsed": 57193,
+        "blockNumber": 23,
+        "calldataBytes": 324,
+        "zeroBytes": 179,
+        "nonZeroBytes": 145,
+        "calldataGasPrePrague": 3036,
+        "eip7623FloorGas": 28590,
+        "floorBinds": false
+      },
+      {
+        "epoch": 6,
+        "revRootChanged": true,
+        "gasUsed": 59993,
+        "blockNumber": 25,
+        "calldataBytes": 324,
+        "zeroBytes": 179,
+        "nonZeroBytes": 145,
+        "calldataGasPrePrague": 3036,
+        "eip7623FloorGas": 28590,
+        "floorBinds": false
+      },
+      {
+        "epoch": 7,
+        "revRootChanged": false,
+        "gasUsed": 57193,
+        "blockNumber": 27,
+        "calldataBytes": 324,
+        "zeroBytes": 179,
+        "nonZeroBytes": 145,
+        "calldataGasPrePrague": 3036,
+        "eip7623FloorGas": 28590,
+        "floorBinds": false
+      },
+      {
+        "epoch": 8,
+        "revRootChanged": true,
+        "gasUsed": 59969,
+        "blockNumber": 29,
+        "calldataBytes": 324,
+        "zeroBytes": 181,
+        "nonZeroBytes": 143,
+        "calldataGasPrePrague": 3012,
+        "eip7623FloorGas": 28530,
+        "floorBinds": false
+      },
+      {
+        "epoch": 9,
+        "revRootChanged": false,
+        "gasUsed": 57157,
+        "blockNumber": 31,
+        "calldataBytes": 324,
+        "zeroBytes": 182,
+        "nonZeroBytes": 142,
+        "calldataGasPrePrague": 3000,
+        "eip7623FloorGas": 28500,
+        "floorBinds": false
+      },
+      {
+        "epoch": 10,
+        "revRootChanged": true,
+        "gasUsed": 59993,
+        "blockNumber": 33,
+        "calldataBytes": 324,
+        "zeroBytes": 179,
+        "nonZeroBytes": 145,
+        "calldataGasPrePrague": 3036,
+        "eip7623FloorGas": 28590,
+        "floorBinds": false
+      }
+    ],
+    "note": "gas does not depend on tree size: the registry stores two 32-byte roots, a 32-byte signature hash and a window. Every epoch has a new issuance root; every second epoch also has a new revRoot (writing an unchanged slot costs less).",
+    "label": "[M]"
+  },
+  "perDay": [
+    {
+      "cadence": "1h (minAnchorInterval, D-012)",
+      "anchorsPerDay": 24,
+      "gasPerDaySteadyState": 1439256,
+      "gasFirstDay": 1524518,
+      "gasPerYearSteadyState": 525328440,
+      "gasPerDayIfEveryEpochHasNewRevRoot": 1439832,
+      "label": "[S] anchorsPerDay x median gas of later publishEpoch [M] (mix: half the later epochs carry a new revRoot)"
+    },
+    {
+      "cadence": "24h (epoch window, D-012)",
+      "anchorsPerDay": 1,
+      "gasPerDaySteadyState": 59969,
+      "gasFirstDay": 145231,
+      "gasPerYearSteadyState": 21888685,
+      "gasPerDayIfEveryEpochHasNewRevRoot": 59993,
+      "label": "[S] anchorsPerDay x median gas of later publishEpoch [M] (mix: half the later epochs carry a new revRoot)"
+    }
+  ],
+  "accreditationRenewal": {
+    "maxValiditySec": 2592000,
+    "gasPerRenewal": 136290,
+    "gasPerDayAmortized": 4543,
+    "label": "[S] one renewal per 30-day accreditation window (D-014), per issuer"
+  },
+  "writes": [
+    {
+      "contract": "DIDRegistryV4",
+      "method": "registerDID",
+      "gasUsed": 1110102,
+      "blockNumber": 7,
+      "calldataBytes": 4100,
+      "zeroBytes": 327,
+      "nonZeroBytes": 3773,
+      "calldataGasPrePrague": 61676,
+      "eip7623FloorGas": 175190,
+      "floorBinds": false
+    },
+    {
+      "contract": "AccreditationRegistryV4",
+      "method": "publish",
+      "gasUsed": 164406,
+      "blockNumber": 8,
+      "calldataBytes": 3108,
+      "zeroBytes": 296,
+      "nonZeroBytes": 2812,
+      "calldataGasPrePrague": 46176,
+      "eip7623FloorGas": 136440,
+      "floorBinds": false
+    },
+    {
+      "contract": "AccreditationRegistryV4",
+      "method": "publish",
+      "gasUsed": 136290,
+      "blockNumber": 9,
+      "calldataBytes": 3108,
+      "zeroBytes": 301,
+      "nonZeroBytes": 2807,
+      "calldataGasPrePrague": 46116,
+      "eip7623FloorGas": 136290,
+      "floorBinds": true
+    },
+    {
+      "contract": "DIDRegistryV4",
+      "method": "registerDID",
+      "gasUsed": 1175158,
+      "blockNumber": 11,
+      "calldataBytes": 4164,
+      "zeroBytes": 349,
+      "nonZeroBytes": 3815,
+      "calldataGasPrePrague": 62436,
+      "eip7623FloorGas": 177090,
+      "floorBinds": false
+    },
+    {
+      "contract": "VerifierKemRegistryV4",
+      "method": "publishKemKey",
+      "gasUsed": 220925,
+      "blockNumber": 12,
+      "calldataBytes": 4356,
+      "zeroBytes": 373,
+      "nonZeroBytes": 3983,
+      "calldataGasPrePrague": 65220,
+      "eip7623FloorGas": 184050,
+      "floorBinds": false
+    },
+    {
+      "contract": "VerifierKemRegistryV4",
+      "method": "publishKemKey",
+      "gasUsed": 184260,
+      "blockNumber": 14,
+      "calldataBytes": 4356,
+      "zeroBytes": 366,
+      "nonZeroBytes": 3990,
+      "calldataGasPrePrague": 65304,
+      "eip7623FloorGas": 184260,
+      "floorBinds": true
+    },
+    {
+      "contract": "IssuanceRootRegistryV4",
+      "method": "publishEpoch",
+      "gasUsed": 145231,
+      "blockNumber": 15,
+      "calldataBytes": 324,
+      "zeroBytes": 181,
+      "nonZeroBytes": 143,
+      "calldataGasPrePrague": 3012,
+      "eip7623FloorGas": 28530,
+      "floorBinds": false
+    },
+    {
+      "contract": "IssuanceRootRegistryV4",
+      "method": "publishEpoch",
+      "gasUsed": 59993,
+      "blockNumber": 17,
+      "calldataBytes": 324,
+      "zeroBytes": 179,
+      "nonZeroBytes": 145,
+      "calldataGasPrePrague": 3036,
+      "eip7623FloorGas": 28590,
+      "floorBinds": false
+    },
+    {
+      "contract": "IssuanceRootRegistryV4",
+      "method": "publishEpoch",
+      "gasUsed": 57193,
+      "blockNumber": 19,
+      "calldataBytes": 324,
+      "zeroBytes": 179,
+      "nonZeroBytes": 145,
+      "calldataGasPrePrague": 3036,
+      "eip7623FloorGas": 28590,
+      "floorBinds": false
+    },
+    {
+      "contract": "IssuanceRootRegistryV4",
+      "method": "publishEpoch",
+      "gasUsed": 59993,
+      "blockNumber": 21,
+      "calldataBytes": 324,
+      "zeroBytes": 179,
+      "nonZeroBytes": 145,
+      "calldataGasPrePrague": 3036,
+      "eip7623FloorGas": 28590,
+      "floorBinds": false
+    },
+    {
+      "contract": "IssuanceRootRegistryV4",
+      "method": "publishEpoch",
+      "gasUsed": 57193,
+      "blockNumber": 23,
+      "calldataBytes": 324,
+      "zeroBytes": 179,
+      "nonZeroBytes": 145,
+      "calldataGasPrePrague": 3036,
+      "eip7623FloorGas": 28590,
+      "floorBinds": false
+    },
+    {
+      "contract": "IssuanceRootRegistryV4",
+      "method": "publishEpoch",
+      "gasUsed": 59993,
+      "blockNumber": 25,
+      "calldataBytes": 324,
+      "zeroBytes": 179,
+      "nonZeroBytes": 145,
+      "calldataGasPrePrague": 3036,
+      "eip7623FloorGas": 28590,
+      "floorBinds": false
+    },
+    {
+      "contract": "IssuanceRootRegistryV4",
+      "method": "publishEpoch",
+      "gasUsed": 57193,
+      "blockNumber": 27,
+      "calldataBytes": 324,
+      "zeroBytes": 179,
+      "nonZeroBytes": 145,
+      "calldataGasPrePrague": 3036,
+      "eip7623FloorGas": 28590,
+      "floorBinds": false
+    },
+    {
+      "contract": "IssuanceRootRegistryV4",
+      "method": "publishEpoch",
+      "gasUsed": 59969,
+      "blockNumber": 29,
+      "calldataBytes": 324,
+      "zeroBytes": 181,
+      "nonZeroBytes": 143,
+      "calldataGasPrePrague": 3012,
+      "eip7623FloorGas": 28530,
+      "floorBinds": false
+    },
+    {
+      "contract": "IssuanceRootRegistryV4",
+      "method": "publishEpoch",
+      "gasUsed": 57157,
+      "blockNumber": 31,
+      "calldataBytes": 324,
+      "zeroBytes": 182,
+      "nonZeroBytes": 142,
+      "calldataGasPrePrague": 3000,
+      "eip7623FloorGas": 28500,
+      "floorBinds": false
+    },
+    {
+      "contract": "IssuanceRootRegistryV4",
+      "method": "publishEpoch",
+      "gasUsed": 59993,
+      "blockNumber": 33,
+      "calldataBytes": 324,
+      "zeroBytes": 179,
+      "nonZeroBytes": 145,
+      "calldataGasPrePrague": 3036,
+      "eip7623FloorGas": 28590,
+      "floorBinds": false
+    }
+  ]
+}

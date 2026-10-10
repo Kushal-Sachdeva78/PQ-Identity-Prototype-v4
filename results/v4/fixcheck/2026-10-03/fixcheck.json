@@ -1,0 +1,637 @@
+{
+  "schema": "pqid/v4-fixcheck/v1",
+  "label": "[M] post-fix rerun (D-034), dev key: C1 security suite re-run with the pinned dev key, compared with dev run 10; C3 mutation campaign re-run with the pinned dev key, compared with campaign 5",
+  "mode": "post-fix rerun (D-034), dev key",
+  "run": "post-fix rerun (D-034)",
+  "key": "dev key",
+  "purpose": "D-034: a packages/v4 fix of a defect found by fuzzing gets tests, the security suite and the mutation campaign again before any timed series; this run re-runs C1 and C3 with the unchanged, pinned dev key and compares them with dev run 10 and campaign 5",
+  "expected": "a fix that touches only refusal paths outside the suite's routes leaves every verdict, summary field, failed-check list and attack-matrix cell equal to dev run 10 and every mutation row (with its exit code) equal to campaign 5; any difference is review and is listed, never dropped",
+  "partial": null,
+  "runId": "fixcheck_2026-10-03",
+  "keyLabel": "dev",
+  "startedUtc": "2026-10-03T14:27:27.963Z",
+  "options": {
+    "devRerun": true,
+    "steps": [
+      "suite",
+      "mutation"
+    ],
+    "only": null,
+    "jobs": 2,
+    "date": "2026-10-03",
+    "baseline": null
+  },
+  "baselineRun": null,
+  "outputs": {
+    "results": "results/v4/fixcheck/2026-10-03",
+    "logs": "verification/v4/fixcheck_2026-10-03",
+    "keyDir": "setup/out/v4",
+    "pins": "setup/pins_v4.json"
+  },
+  "compareWith": {
+    "suite": "results/v4/security_suite.json",
+    "suiteRun": "dev run 10",
+    "attackMatrix": "results/v4/attack_matrix.json",
+    "mutation": "results/v4/mutation.json",
+    "mutationRun": "campaign 5"
+  },
+  "keySwitch": {
+    "method": "none: the pinned dev key is the default of packages/v4/src/paths.ts, so the children run without the rekey loader (rekey_probe.ts without the loader checks that they resolve the pinned dev files)",
+    "packageDefaultKey": "dev"
+  },
+  "marker": {
+    "kind": "BUSY",
+    "copies": [
+      {
+        "rel": "results/v4/BUSY",
+        "via": "local"
+      }
+    ],
+    "campaign": "fixcheck_2026-10-03"
+  },
+  "code": {
+    "gitHead": "b4e9b345f12feefcb17b114e8b2a93fe703476c0",
+    "uncommitted": [],
+    "files": {
+      "harness/v4/security_suite.ts": {
+        "sha256": "1b3f65df70882500809990e3ccac8424ae4470293849cc95476aee73950b586c",
+        "gitBlob": "fbc5d3ba8735e9f673b24fb02e17401b9ef4135e",
+        "headBlob": "fbc5d3ba8735e9f673b24fb02e17401b9ef4135e",
+        "matchesHead": true
+      },
+      "harness/v4/suite_lib.ts": {
+        "sha256": "6fe8efc87d40fa183b65b89c616302680586c605d35232f67eaa8596efad868c",
+        "gitBlob": "ba044b269d074537603ccccb79b32c454be257dd",
+        "headBlob": "ba044b269d074537603ccccb79b32c454be257dd",
+        "matchesHead": true
+      },
+      "harness/v4/mutant_fillers.ts": {
+        "sha256": "eed19e379a28c8f434f6be78fa37af18309d31c08a2c5e015188cdc6c30f6f1b",
+        "gitBlob": "0dfb5d6c59401ecdce8feddd49ee5b2c2f55f81e",
+        "headBlob": "0dfb5d6c59401ecdce8feddd49ee5b2c2f55f81e",
+        "matchesHead": true
+      },
+      "harness/v4/mutate.ts": {
+        "sha256": "ff6c9429a47336cde32a2fbe5db1e7468eec8851040afb9100461bd416cef81d",
+        "gitBlob": "aa4825c162d11af010f448eb7d67bb1ca79410a3",
+        "headBlob": "aa4825c162d11af010f448eb7d67bb1ca79410a3",
+        "matchesHead": true
+      },
+      "harness/v4/mutation.ts": {
+        "sha256": "0b60f98c75e40442c6b09ba3c96852e4b52689b51d7343a5957de389f0b8783a",
+        "gitBlob": "965637da43bedf207b3379e3087378a9e907d225",
+        "headBlob": "965637da43bedf207b3379e3087378a9e907d225",
+        "matchesHead": true
+      },
+      "harness/v4/r1cs_tools.ts": {
+        "sha256": "fd21bbafd9b8436867ba4d65e7c3f5debee3ff214ff918c05ae9acf9e5146506",
+        "gitBlob": "eb2b3e313346368053e36b1b135683a463bd72d5",
+        "headBlob": "eb2b3e313346368053e36b1b135683a463bd72d5",
+        "matchesHead": true
+      },
+      "harness/v3/trapdoor.ts": {
+        "sha256": "f8caaf43f42e19f932f00761620e52723b503b8662520a41ff368572596c7a25",
+        "gitBlob": "e31011cf0769462d99e8df72c9eece6605621b88",
+        "headBlob": "e31011cf0769462d99e8df72c9eece6605621b88",
+        "matchesHead": true
+      },
+      "harness/v4/ceremony/followup.ts": {
+        "sha256": "ab60e6584aa2ba56cde58e0dc81d39e29986c3e782f10486ccfbab294a1d9b0d",
+        "gitBlob": "5382befff99333ffdf2b6c629f53acff80baae8b",
+        "headBlob": "5382befff99333ffdf2b6c629f53acff80baae8b",
+        "matchesHead": true
+      },
+      "harness/v4/ceremony/followup_lib.ts": {
+        "sha256": "232c20878487c5f05090b85aa778908646d11bbaffac36daaa54415d7a6195ca",
+        "gitBlob": "3a171196a47e401495010b1966d6a8c7aaa8bb52",
+        "headBlob": "3a171196a47e401495010b1966d6a8c7aaa8bb52",
+        "matchesHead": true
+      },
+      "harness/v4/ceremony/key_checks.ts": {
+        "sha256": "44734fddd4bba56eaa4c8e6e7943f24dc64bb6ff29a70e3ba22840dd99382703",
+        "gitBlob": "d7f55329f2df033db2b2b8b878738f5779b0fe7a",
+        "headBlob": "d7f55329f2df033db2b2b8b878738f5779b0fe7a",
+        "matchesHead": true
+      },
+      "harness/v4/ceremony/rekey.mjs": {
+        "sha256": "88615fdb37446a7b8d5ef9be6b1dc5a2912e0fabd88ccf349b741d5bd7596ee4",
+        "gitBlob": "2c88379abd98643d8b41c05c2f762db6a7a853de",
+        "headBlob": "2c88379abd98643d8b41c05c2f762db6a7a853de",
+        "matchesHead": true
+      },
+      "harness/v4/ceremony/rekey_hooks.mjs": {
+        "sha256": "9ab4a73a3e59ed573e7c032eda89fd8f1e094a0e6f5df7bb869bc33e401e5263",
+        "gitBlob": "e9325b38d1dbaaa065254d0b6946aa869c954f42",
+        "headBlob": "e9325b38d1dbaaa065254d0b6946aa869c954f42",
+        "matchesHead": true
+      },
+      "harness/v4/ceremony/rekey_rewrite.mjs": {
+        "sha256": "36fe162570b5355e6eefdb821e40a1b39247aedc7d2f5eafdf55a80c1cf197c3",
+        "gitBlob": "48403b7991d0983ad4f9a5145ff97af935ce8bc5",
+        "headBlob": "48403b7991d0983ad4f9a5145ff97af935ce8bc5",
+        "matchesHead": true
+      },
+      "harness/v4/ceremony/rekey_probe.ts": {
+        "sha256": "6f429cf618dfa2a033f73644724ecd325ba42d239994fccd7806d846e4c47cdc",
+        "gitBlob": "f77e737331a66ebc42dbe613d894605461091c3c",
+        "headBlob": "f77e737331a66ebc42dbe613d894605461091c3c",
+        "matchesHead": true
+      },
+      "harness/v4/cmp/spec.ts": {
+        "sha256": "4833901481273c339b6e1625655cbd1e63c804ab72dc724b5953eb2473ce8577",
+        "gitBlob": "aa884763e6af7010a66439aa2804b01a514648a3",
+        "headBlob": "aa884763e6af7010a66439aa2804b01a514648a3",
+        "matchesHead": true
+      },
+      "harness/v4/e2e/lib.ts": {
+        "sha256": "379fb26048f49cca24c6b9dbfac44a0bd1d4f237f3e135dc36ea75107decba6d",
+        "gitBlob": "2dd162c9b117ca91358210b7bb127256921e0fc0",
+        "headBlob": "2dd162c9b117ca91358210b7bb127256921e0fc0",
+        "matchesHead": true
+      },
+      "packages/v4/src/paths.ts": {
+        "sha256": "31bfc967c84c1cf7991886f06ff25f19234f21012c6ae6b81db7746325668edd",
+        "gitBlob": "cb26324712551d0877e685e44b32aa33f181c48c",
+        "headBlob": "cb26324712551d0877e685e44b32aa33f181c48c",
+        "matchesHead": true
+      },
+      "ceremony/coordinator.mjs": {
+        "sha256": "1a580f528aff8f1e12e672cb59541fe53b48e727fe4a857632d48e20ab6f4dfa",
+        "gitBlob": "c2dec9b8ca6158c56a5ac6a52134c9b3adc06263",
+        "headBlob": "c2dec9b8ca6158c56a5ac6a52134c9b3adc06263",
+        "matchesHead": true
+      },
+      "ceremony/lib.mjs": {
+        "sha256": "647fece74b82ea8af09195e811e1c1b26f18c47adff79b7213548afd5c23099a",
+        "gitBlob": "cf32011caa0e0ede407b18e151a421a8f993ce43",
+        "headBlob": "cf32011caa0e0ede407b18e151a421a8f993ce43",
+        "matchesHead": true
+      },
+      "artifact/compare_suite.py": {
+        "sha256": "47509d69989ee0e7f81b6f8b9d6281b830cb0ff219070ea5b4825c2c502b4ff8",
+        "gitBlob": "f9f9644c13c28e81a94afe53b7fba20e0e0bb780",
+        "headBlob": "f9f9644c13c28e81a94afe53b7fba20e0e0bb780",
+        "matchesHead": true
+      },
+      "packages/baseline/package.json": {
+        "sha256": "3d27a541bf916fd16d5c3ba657c655b33ff160bd1d3178198de45f0c31c1e1f3",
+        "gitBlob": "394fc87025a6ef5ae5e940c0c1c877e02fab469c",
+        "headBlob": "394fc87025a6ef5ae5e940c0c1c877e02fab469c",
+        "matchesHead": true
+      },
+      "packages/common/package.json": {
+        "sha256": "363aaf1bcbed1a2f0c3d241f12f7ba5f8c16bd202bc735437ed6d73ba47bf6e9",
+        "gitBlob": "bd8f0ab1db82b99e059b21984faae2a1df9267d6",
+        "headBlob": "bd8f0ab1db82b99e059b21984faae2a1df9267d6",
+        "matchesHead": true
+      },
+      "packages/common/src/did.ts": {
+        "sha256": "813ebb07766ab6bd8b4a8e00e9240b9acdb0f2e17b7e564c83cc26186d4eecee",
+        "gitBlob": "cbb5f2a378eacaa7d549ada3188ad8cdfbff716b",
+        "headBlob": "cbb5f2a378eacaa7d549ada3188ad8cdfbff716b",
+        "matchesHead": true
+      },
+      "packages/common/src/encoding.ts": {
+        "sha256": "d16555e9e8ba613fdf94a2cb076bda9ab9d219147efd262fed59ceee37307a94",
+        "gitBlob": "08c6deeaa7ce0d4d2ec77a3e2123b1e6178d9bea",
+        "headBlob": "08c6deeaa7ce0d4d2ec77a3e2123b1e6178d9bea",
+        "matchesHead": true
+      },
+      "packages/common/src/hash.ts": {
+        "sha256": "57d49b386f065b09c9f7fbe8036655eddee39dd88368b2f8a6ad68f77f379d21",
+        "gitBlob": "a902016695befa669b58b6676aad29cb7ddccb4d",
+        "headBlob": "a902016695befa669b58b6676aad29cb7ddccb4d",
+        "matchesHead": true
+      },
+      "packages/common/src/meta.ts": {
+        "sha256": "27820ba86437d9e04cf847d44b0e962424521f761aab6ba2736081cf568b46b7",
+        "gitBlob": "9b56f32e072a0c42e9c05652bf8a49a116f3cda9",
+        "headBlob": "9b56f32e072a0c42e9c05652bf8a49a116f3cda9",
+        "matchesHead": true
+      },
+      "packages/common/src/paths.ts": {
+        "sha256": "04007e242e08b62953d7e504b2210b0e73ac05c103272e5f22cb73f372ab8461",
+        "gitBlob": "5a8cb8c06234700a969fb92600edcfbbbcd7f589",
+        "headBlob": "5a8cb8c06234700a969fb92600edcfbbbcd7f589",
+        "matchesHead": true
+      },
+      "packages/common/src/stats.ts": {
+        "sha256": "7e70a3a796b364cfd6aab4ab1658b848303a9ad8784db4ef4b05e23c8ced7e01",
+        "gitBlob": "0e493c353998f2c7dddfb94b0007aca94037470a",
+        "headBlob": "0e493c353998f2c7dddfb94b0007aca94037470a",
+        "matchesHead": true
+      },
+      "packages/issuer/package.json": {
+        "sha256": "bc79b7e2e8228a33d78af883ddce69d59d713eb8c58d695e07a9629eaa945d7b",
+        "gitBlob": "f74205169c09b669a48eb2a156d5b6c4cf367526",
+        "headBlob": "f74205169c09b669a48eb2a156d5b6c4cf367526",
+        "matchesHead": true
+      },
+      "packages/issuer/src/index.ts": {
+        "sha256": "81f3c48795af5a1714dfdda928c8e521685bd3907a7e27386faff408a4b266f9",
+        "gitBlob": "f6e3ed04dc051a875994a4121b8f55e6c18676ba",
+        "headBlob": "f6e3ed04dc051a875994a4121b8f55e6c18676ba",
+        "matchesHead": true
+      },
+      "packages/issuer/src/issuance.ts": {
+        "sha256": "7efb35a3e870d97cdaa10b077a9509303a4f379159a455f8dcb51389866d2d69",
+        "gitBlob": "af98d316db63015214a52ab51fdf6000b3384923",
+        "headBlob": "af98d316db63015214a52ab51fdf6000b3384923",
+        "matchesHead": true
+      },
+      "packages/ledger/package.json": {
+        "sha256": "da25f2e31103e0c59176358f34765094195308ea37e61e20f476b64ea92fada1",
+        "gitBlob": "40dbbe37b457bc36749825d8edd6e71d23bae239",
+        "headBlob": "40dbbe37b457bc36749825d8edd6e71d23bae239",
+        "matchesHead": true
+      },
+      "packages/ledger/src/evm.ts": {
+        "sha256": "1e879861a95e479217e2e62c4394b95500fb019e8c3807446054e42b3a4469a0",
+        "gitBlob": "cea96f5b7756fc0038c7b88a6dfaceb79275375a",
+        "headBlob": "cea96f5b7756fc0038c7b88a6dfaceb79275375a",
+        "matchesHead": true
+      },
+      "packages/ledger/src/index.ts": {
+        "sha256": "cd459d06e6b985d9392b9f84202ecc55856dac6f79e207d677e1dada9d46e03b",
+        "gitBlob": "26db6a74a8a0aad8e236b21debc338c358bb8d80",
+        "headBlob": "26db6a74a8a0aad8e236b21debc338c358bb8d80",
+        "matchesHead": true
+      },
+      "packages/pqc/package.json": {
+        "sha256": "5a6de436e641d0e2d20cdb3055d6f689feeee1c164e296d165a64a2f5bc1b5cb",
+        "gitBlob": "e9890f33ffbc0cf984fb9ef8175366a80be44181",
+        "headBlob": "e9890f33ffbc0cf984fb9ef8175366a80be44181",
+        "matchesHead": true
+      },
+      "packages/pqc/src/index.ts": {
+        "sha256": "a95daaaeae809e12a1f5bc36b1f0104ed2e0fdf453e8d1140efd4291a1331fae",
+        "gitBlob": "ec4128981d2a21350bb73254df34be859eb5c227",
+        "headBlob": "ec4128981d2a21350bb73254df34be859eb5c227",
+        "matchesHead": true
+      },
+      "packages/revocation/package.json": {
+        "sha256": "c4ef23c532c8828b7cc9c267a58f0b1c864d37448e7208ae25934a61dfb8221c",
+        "gitBlob": "0e83e009ea024b3ec16007738abf96f5e2a26a37",
+        "headBlob": "0e83e009ea024b3ec16007738abf96f5e2a26a37",
+        "matchesHead": true
+      },
+      "packages/revocation/src/index.ts": {
+        "sha256": "1c4a0153f63d617804945cd33db29bc85525b5758e7124a32de96665cf8ffd35",
+        "gitBlob": "9424598f126df4a002c14a4391362f4f3e33bbe6",
+        "headBlob": "9424598f126df4a002c14a4391362f4f3e33bbe6",
+        "matchesHead": true
+      },
+      "packages/v4/package.json": {
+        "sha256": "d421d54ab7b2fecb5451d23674a2942f1d6edfa038101e72a3f325159d716b02",
+        "gitBlob": "48788cf2438ce1cff2e94f68ee534d98d27e88c5",
+        "headBlob": "48788cf2438ce1cff2e94f68ee534d98d27e88c5",
+        "matchesHead": true
+      },
+      "packages/v4/src/clock.ts": {
+        "sha256": "9619b194d4f36a9dc1d738103b60fe7c7ae745f650f8b6868f571babd6dc01d9",
+        "gitBlob": "ec8f393a5490084c2ebf02703519ae708f8ee185",
+        "headBlob": "ec8f393a5490084c2ebf02703519ae708f8ee185",
+        "matchesHead": true
+      },
+      "packages/v4/src/constants.ts": {
+        "sha256": "bcaca98edc6ae0f8ea06a4f089a10a337fa2449e2a269fa20f756a7e02f1de5a",
+        "gitBlob": "4c703a830dd4d4a4c05d5756edfe7f67cde75e74",
+        "headBlob": "4c703a830dd4d4a4c05d5756edfe7f67cde75e74",
+        "matchesHead": true
+      },
+      "packages/v4/src/dates.ts": {
+        "sha256": "8c00a1e6d8eb72597283550dfdce4d0c2a4e66d7b84c8c4ecd96b86471b5033c",
+        "gitBlob": "b7721211ed9c4b15c92c277ea3ccd8fb7170e691",
+        "headBlob": "b7721211ed9c4b15c92c277ea3ccd8fb7170e691",
+        "matchesHead": true
+      },
+      "packages/v4/src/encoding.ts": {
+        "sha256": "2c3a33ac637a7f4de2971913272b793e926ba577ca46207382a15ca8e608b93f",
+        "gitBlob": "2d164147a880414f52d8d12f721698cb4d06ae1d",
+        "headBlob": "2d164147a880414f52d8d12f721698cb4d06ae1d",
+        "matchesHead": true
+      },
+      "packages/v4/src/governance.ts": {
+        "sha256": "cc2b113d1af69f81699643ee90f2abfa0dc4abd97f52e27248ed3ac0919d6d79",
+        "gitBlob": "f570e5d05e54112c1620f1868292ba19ca9b50d2",
+        "headBlob": "f570e5d05e54112c1620f1868292ba19ca9b50d2",
+        "matchesHead": true
+      },
+      "packages/v4/src/imt.ts": {
+        "sha256": "a40447fcc48ed4d82c41e6008b12ce73adccd0bc02abe37b0f96761484fe6d5c",
+        "gitBlob": "fbed837f3f37603968455ee62c65d28644188a33",
+        "headBlob": "fbed837f3f37603968455ee62c65d28644188a33",
+        "matchesHead": true
+      },
+      "packages/v4/src/issuer.ts": {
+        "sha256": "c86c410dd3ec07797e87251663d822ee24b2710e1489fae50a00436e8369fbcb",
+        "gitBlob": "84d3b8bbeefcdca726fe889e83d2d4c0d6ee5a8b",
+        "headBlob": "84d3b8bbeefcdca726fe889e83d2d4c0d6ee5a8b",
+        "matchesHead": true
+      },
+      "packages/v4/src/ledger.ts": {
+        "sha256": "c0db178b8b02772d3a8c9bce14ba9853043b5d38930057bf6f754bb6fbae0bac",
+        "gitBlob": "192afdc6456b8c3ac2bb7ce79bf277829c700309",
+        "headBlob": "192afdc6456b8c3ac2bb7ce79bf277829c700309",
+        "matchesHead": true
+      },
+      "packages/v4/src/pqc.ts": {
+        "sha256": "2a70a18277d512f24ca18ee35488ae41954209221fb673ad994487b6c4918524",
+        "gitBlob": "9bb8d5a1bfa2e140421fd004a5c7c1602f7a698c",
+        "headBlob": "9bb8d5a1bfa2e140421fd004a5c7c1602f7a698c",
+        "matchesHead": true
+      },
+      "packages/v4/src/prove.ts": {
+        "sha256": "5e192bd4e70156eabf0b5c2b6a20543436d73e4aed189d8f5f80a3828b131bd0",
+        "gitBlob": "6d93d79704565a4130636b57eec711a27b3eb429",
+        "headBlob": "6d93d79704565a4130636b57eec711a27b3eb429",
+        "matchesHead": true
+      },
+      "packages/v4/src/published.ts": {
+        "sha256": "f5ecfc1eac56f39e80e84353632cf3011012c6ef5901ad597c20c15da63aedcd",
+        "gitBlob": "20f0476d5aa2607479dded6ed6a9b62044ab4961",
+        "headBlob": "20f0476d5aa2607479dded6ed6a9b62044ab4961",
+        "matchesHead": true
+      },
+      "packages/v4/src/session.ts": {
+        "sha256": "773b012bf5062f3644c0bf5ae5514b326e93cbb70abc052808c1bb9b1a9d8a69",
+        "gitBlob": "bb8c5b722352451355c3806052a541bcad445f5d",
+        "headBlob": "bb8c5b722352451355c3806052a541bcad445f5d",
+        "matchesHead": true
+      },
+      "packages/v4/src/statements.ts": {
+        "sha256": "1b660aab3614736d5a4c9ca3a071d72334c47946be7f7fc206d9f64dfb88ab64",
+        "gitBlob": "a1d4bf60fa798b3c488b1432570a24194caa5b87",
+        "headBlob": "a1d4bf60fa798b3c488b1432570a24194caa5b87",
+        "matchesHead": true
+      },
+      "packages/v4/src/verifier.ts": {
+        "sha256": "bb73ce73e6df049df3aaa65324ee8ad68c83e29cc583e29d8567992cfccc170f",
+        "gitBlob": "9f3287bf167ff972fce3eff9f066127eeadcc99e",
+        "headBlob": "9f3287bf167ff972fce3eff9f066127eeadcc99e",
+        "matchesHead": true
+      },
+      "packages/v4/src/wallet.ts": {
+        "sha256": "8f4a0a4062449f1f5ca665db492b3b3a8d41e123e1ae2b053653121276975a09",
+        "gitBlob": "14ab3292dd1cf98943e69ad1f8ce5d3918c04aa8",
+        "headBlob": "14ab3292dd1cf98943e69ad1f8ce5d3918c04aa8",
+        "matchesHead": true
+      },
+      "packages/v4/src/witness.ts": {
+        "sha256": "52f85969a9021ed808736ddbfcfc84a1795e61f08cdfbc30b5acc2c01294ceba",
+        "gitBlob": "bd97a348158a92bb1b7faf58069b44561ebdaa51",
+        "headBlob": "bd97a348158a92bb1b7faf58069b44561ebdaa51",
+        "matchesHead": true
+      },
+      "packages/v4/src/world.ts": {
+        "sha256": "0984232a3bc4038a7a49f04e1853f43b09ed1eb45387332c569567d7bfa65eb6",
+        "gitBlob": "5acfe161f77c98575c64f3bb86b56c6c0d1ebc41",
+        "headBlob": "5acfe161f77c98575c64f3bb86b56c6c0d1ebc41",
+        "matchesHead": true
+      },
+      "packages/verifier/package.json": {
+        "sha256": "02f5122d446431079b3937dbf271b43eb2569760cf74186b726ccb42acac0666",
+        "gitBlob": "4ac931aad8da46edffe8c46c7dc5a532123939f2",
+        "headBlob": "4ac931aad8da46edffe8c46c7dc5a532123939f2",
+        "matchesHead": true
+      },
+      "packages/verifier/src/index.ts": {
+        "sha256": "d29fe18fec4ef7998c5e4f625d783c67ff6d105b07cfea92ee431fe0633e4070",
+        "gitBlob": "058da6e20cc0b762f38c986296eb0f54e5aa45a5",
+        "headBlob": "058da6e20cc0b762f38c986296eb0f54e5aa45a5",
+        "matchesHead": true
+      },
+      "packages/wallet/package.json": {
+        "sha256": "3612a01268506a38e70ff1786bfa37ea485bce35447a05d38e215c10f1a27e02",
+        "gitBlob": "6aa1db3a212095d03538d68fcc4c73af79761884",
+        "headBlob": "6aa1db3a212095d03538d68fcc4c73af79761884",
+        "matchesHead": true
+      },
+      "packages/wallet/src/index.ts": {
+        "sha256": "7ed67860675b178449c44eeef11dba99104141dd9bc2157da216d4862c8687d3",
+        "gitBlob": "7d220d65098d780c2003656b965a2b3308d59a16",
+        "headBlob": "7d220d65098d780c2003656b965a2b3308d59a16",
+        "matchesHead": true
+      },
+      "packages/wallet/src/prove.ts": {
+        "sha256": "d90fce711057dd47db831992457649a769c734b3b3fd231f7ce1c8149ab8fe29",
+        "gitBlob": "0afecf9feb3764cfe83669019b0074ea4439f474",
+        "headBlob": "0afecf9feb3764cfe83669019b0074ea4439f474",
+        "matchesHead": true
+      },
+      "packages/wallet/src/witness.ts": {
+        "sha256": "c6228a56bb314fd86a428e9fb8008721249c8faad16c82b3df62901217c5db6e",
+        "gitBlob": "f6ccd12966a4e0724a34c51bd3122bb2dc503433",
+        "headBlob": "f6ccd12966a4e0724a34c51bd3122bb2dc503433",
+        "matchesHead": true
+      }
+    },
+    "snarkjs": "0.7.4",
+    "node": "v24.18.0"
+  },
+  "env": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "ramGiB": 31.4,
+    "platform": "win32",
+    "arch": "x64",
+    "osName": "Windows 11 Home Single Language",
+    "osBuild": "10.0.26200",
+    "node": "v24.18.0",
+    "openssl": "3.5.7",
+    "v8": "13.6.233.17-node.50"
+  },
+  "suiteKey": {
+    "label": "dev",
+    "keyDir": "setup/out/v4",
+    "zkey": {
+      "file": "setup/out/v4/credential_auth_v4_dev.zkey",
+      "sha256": "b6f1675c3b8996f5165d54912bc9e7f592cd9ff3286c1a236ad375ea635635d4"
+    },
+    "vkey": {
+      "file": "setup/out/v4/verification_key_dev.json",
+      "sha256": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42"
+    },
+    "note": "the pinned dev key (setup/pins_v4.json): the package default, no rekey loader; post-fix rerun (D-034)",
+    "pinned": [
+      {
+        "role": "r1cs",
+        "file": "circuits/build/v4/credential_auth_v4.r1cs",
+        "sha256": "c593e9f29094c44efa2b0bf1805715b96e5b3a6815b39c761cdb25c18c9e87b5",
+        "pin": "setup/pins_v4.json#v4/credential_auth_v4.r1cs"
+      },
+      {
+        "role": "wasm",
+        "file": "circuits/build/v4/credential_auth_v4_js/credential_auth_v4.wasm",
+        "sha256": "678720322fc69048b40aa375ee7c9cc2eab5d0ce58f116d54ac1bab6957bd8ae",
+        "pin": "setup/pins_v4.json#v4/credential_auth_v4.wasm"
+      },
+      {
+        "role": "zkey",
+        "file": "setup/out/v4/credential_auth_v4_dev.zkey",
+        "sha256": "b6f1675c3b8996f5165d54912bc9e7f592cd9ff3286c1a236ad375ea635635d4",
+        "pin": "setup/pins_v4.json#v4/credential_auth_v4_dev.zkey"
+      },
+      {
+        "role": "vkey",
+        "file": "setup/out/v4/verification_key_dev.json",
+        "sha256": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42",
+        "pin": "setup/pins_v4.json#v4/verification_key_dev.json"
+      },
+      {
+        "role": "sol",
+        "file": "setup/out/v4/Groth16VerifierV4_dev.sol",
+        "sha256": "bf2a0918213eac2a40b0fa85b4ee167a2b207aa62ee8105dc16724ac1b9d33a7",
+        "pin": "setup/pins_v4.json#v4/Groth16VerifierV4_dev.sol"
+      },
+      {
+        "role": "transcript",
+        "file": "setup/out/v4/setup_transcript_dev.json",
+        "sha256": "1fe062e8732ca113e9e46cae3de955c7c77541297a8b99125b66101871a9c227",
+        "pin": "setup/pins_v4.json#v4/setup_transcript_dev.json"
+      }
+    ]
+  },
+  "suite": {
+    "status": "pass",
+    "out": "results/v4/fixcheck/2026-10-03/suite",
+    "file": "results/v4/fixcheck/2026-10-03/suite/security_suite.json",
+    "exit": 0,
+    "seconds": 166,
+    "pass": true,
+    "keyLabel": "dev",
+    "summary": {
+      "controlsAccepted": "15/15",
+      "v4AttackRoutes": 86,
+      "v4AttackRoutesAccepted": 0,
+      "v4AttackRoutesStoppedBy": {
+        "circuit": 24,
+        "verifier": 36,
+        "wallet-enforced": 9,
+        "governance": 2,
+        "registry": 7,
+        "transport": 2,
+        "wallet": 6
+      },
+      "privacyRecords": 16,
+      "knownLimitations": [
+        "RL-f victim's honest wallet answers the relayed request: accepted",
+        "KL5 lent credential presented by another person: accepted",
+        "KL6 holder of a small, separately accredited DID of one issuer: accepted",
+        "KL4 online-mode wallet contacts the issuer while presenting: accepted",
+        "FA-a before notAfter: revoked holder presents under the frozen anchor: accepted",
+        "KL3-a withheld de-accreditation, inside the accreditation window: accepted"
+      ],
+      "invalid": 0,
+      "invalidRoutes": [],
+      "cataloguedRoutesNotRun": []
+    },
+    "keyMatches": true,
+    "portAfterExit": "closed",
+    "labelTextNote": null,
+    "keySwitch": {
+      "method": "none: the pinned dev key is the default of packages/v4/src/paths.ts, so the children run without the rekey loader (rekey_probe.ts without the loader checks that they resolve the pinned dev files)",
+      "packageDefaultKey": "dev"
+    },
+    "vsDev": {
+      "verdictsBase": 130,
+      "verdictsNew": 130,
+      "verdictDiffs": [],
+      "checkDiffs": [],
+      "summaryDiffs": [],
+      "identical": true
+    },
+    "attackMatrixEqual": true,
+    "compareSuitePy": {
+      "exit": 0,
+      "log": "verification/v4/fixcheck_2026-10-03/compare_suite.log"
+    },
+    "probe": {
+      "rekeyLabel": null,
+      "keyLabel": "dev",
+      "zkey": "setup/out/v4/credential_auth_v4_dev.zkey",
+      "vkey": "setup/out/v4/verification_key_dev.json",
+      "sol": "setup/out/v4/Groth16VerifierV4_dev.sol",
+      "transcript": "setup/out/v4/setup_transcript_dev.json",
+      "proveDefault": {
+        "zkey": "setup/out/v4/credential_auth_v4_dev.zkey",
+        "keyLabel": "dev"
+      },
+      "vkeyParses": true
+    }
+  },
+  "mutation": {
+    "status": "pass",
+    "table": "results/v4/fixcheck/2026-10-03/mutation/mutation.json",
+    "rows": 59,
+    "errors": [],
+    "harnessErrorRows": [
+      "governance:issuerPopBeforeAccreditation"
+    ],
+    "vsDev": {
+      "defencesBase": 59,
+      "defencesNew": 59,
+      "missing": [],
+      "extra": [],
+      "differing": [],
+      "noEffectBase": [
+        "circuit:G09_predicate_code",
+        "circuit:G11_ranges",
+        "circuit:G16_stmt",
+        "circuit:G17_nonce",
+        "verifier:issuerKeyHash",
+        "verifier:issuerPop",
+        "verifier:issuerRecord",
+        "verifier:sessionKnown",
+        "verifier:shape",
+        "verifier:stmtCode",
+        "verifier:transcriptDecrypts",
+        "wallet:credentialSignature",
+        "wallet:dateInWindow",
+        "wallet:issuerPop",
+        "wallet:issuerRecord",
+        "wallet:predicateHolds",
+        "wallet:requestShape",
+        "wallet:typeHeld",
+        "wallet:verifierRecord"
+      ],
+      "noEffectNew": [
+        "circuit:G09_predicate_code",
+        "circuit:G11_ranges",
+        "circuit:G16_stmt",
+        "circuit:G17_nonce",
+        "verifier:issuerKeyHash",
+        "verifier:issuerPop",
+        "verifier:issuerRecord",
+        "verifier:sessionKnown",
+        "verifier:shape",
+        "verifier:stmtCode",
+        "verifier:transcriptDecrypts",
+        "wallet:credentialSignature",
+        "wallet:dateInWindow",
+        "wallet:issuerPop",
+        "wallet:issuerRecord",
+        "wallet:predicateHolds",
+        "wallet:requestShape",
+        "wallet:typeHeld",
+        "wallet:verifierRecord"
+      ],
+      "identical": true
+    },
+    "seconds": 5462
+  },
+  "devResultsUnchanged": {
+    "checked": 69,
+    "changed": []
+  },
+  "steps": {
+    "suite": "pass",
+    "mutation": "pass"
+  },
+  "status": "pass",
+  "finishedUtc": "2026-10-03T16:01:16.805Z",
+  "next": [
+    "commit results/v4/fixcheck/2026-10-03/ and verification/v4/fixcheck_2026-10-03/ (whatever the status: the record of the D-034 rerun is kept)",
+    "every verdict and every mutation row equals the dev runs: record it in DECISIONS with the fix, then the fuzz confirmation run (results/v4/BUSY) before any timed series"
+  ]
+}

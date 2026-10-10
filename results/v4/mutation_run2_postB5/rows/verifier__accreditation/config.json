@@ -1,0 +1,8 @@
+{
+  "name": "verifier:accreditation",
+  "port": 8621,
+  "out": "<repo>\\results\\v4\\mutation\\verifier__accreditation",
+  "verifierDisabled": [
+    "accreditation"
+  ]
+}

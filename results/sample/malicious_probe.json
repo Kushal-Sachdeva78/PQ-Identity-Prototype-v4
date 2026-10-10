@@ -1,0 +1,18 @@
+{
+  "schema": "pqid/malicious-wallet-probe/v1",
+  "label": "[M] Assumption-5 demonstration (wallet honesty is load-bearing)",
+  "forgedProofAccepted": true,
+  "verifierReasons": [],
+  "gapReproducedAsDocumented": true,
+  "interpretation": "Relation R does not verify the issuer's Dilithium signature in-circuit (by design — millions of constraints). A wallet that skips the off-circuit check can prove possession of a forged credential. End-to-end unforgeability therefore rests on Assumption 5 (honest-but-protected wallet). Mitigations are [F]: in-circuit ML-DSA verification or TEE/remote-attestation-bound wallets (paper §VII).",
+  "host": {
+    "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logicalCores": 12,
+    "totalMemGiB": 15.7,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.8655",
+    "nodeVersion": "v22.16.0",
+    "timestampUtc": "2026-06-11T12:15:55.202Z"
+  }
+}

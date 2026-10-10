@@ -1,0 +1,39 @@
+{
+  "schema": "pqid/v4-fuzz-observation/v1",
+  "observation": "nonCanonicalAccepted:statementSpelling",
+  "detail": "accepted a blob that is not the canonical encoding of its content (statementSpelling; statement pretty-printed)",
+  "target": "T-pub",
+  "masterSeed": 20261022,
+  "targetSeed": 4258866428,
+  "caseIndex": 7,
+  "caseSeed": 1346749629,
+  "family": "statement-spelling",
+  "recipe": [
+    "statement pretty-printed"
+  ],
+  "meta": {
+    "$t": "object",
+    "entries": [
+      [
+        "subSeed",
+        1298229109
+      ]
+    ]
+  },
+  "input": {
+    "$t": "object",
+    "entries": [
+      [
+        "n",
+        0
+      ],
+      [
+        "r",
+        8
+      ]
+    ]
+  },
+  "inputTypedJsonBytes": 43,
+  "inputTypedJsonSha256": "5b9f7816cc6eec7d58d2671f4abf3b013797db749be8f41dc5d32b64211b6376",
+  "inputTruncated": false
+}

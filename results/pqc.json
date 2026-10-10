@@ -1,0 +1,452 @@
+{
+  "schema": "pqid/pqc-bench/v2",
+  "label": "[M] measured under §B controls",
+  "controls": {
+    "quiesce": {
+      "quiesced": true,
+      "forced": false,
+      "windows": {
+        "offendingProcesses": [],
+        "nodeCount": 6,
+        "cpuLoadPercent": -1
+      },
+      "wsl": {
+        "offendingProcesses": [],
+        "loadavg1m": 0.16
+      }
+    },
+    "affinity": {
+      "policy": "free scheduling across 12 vCPUs/logical CPUs (quiesced machine)",
+      "rationale": "rapidsnark v0.0.8 is pthread-pool multithreaded (0 OpenMP / 7 pthread symbols); the live probe shows 1-vCPU pinning ≈2.7× slower than free — pinning would not reproduce the paper's method. WSL2 vCPU→P/E-core placement is hypervisor-controlled and not configurable from the guest; quiescing + inter-run stability are the effective §B controls (probe embedded as evidence)."
+    },
+    "cpuGovernor": "unavailable (WSL2 Hyper-V VM — frequency is host-managed; recorded per §B4)",
+    "powerSource": "AC (BatteryStatus=2)",
+    "fsBasis": "in-process loops inside WSL python (no per-op I/O)",
+    "invocations": 3,
+    "ambientLoadNote": "host is an interactive laptop: desktop apps (desktop UI, browser, vendor services) contribute a fluctuating ~10-20% ambient load that cannot be fully quiesced; build/prover tooling is process-checked to zero, and inter-run CV is the stability arbiter (§B5)",
+    "host": {
+      "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+      "logicalCores": 12,
+      "totalMemGiB": 15.7,
+      "platform": "win32 x64",
+      "osRelease": "10.0.26200",
+      "osBuild": "10.0.26200.8655",
+      "nodeVersion": "v22.16.0",
+      "timestampUtc": "2026-06-11T08:53:45.587Z"
+    },
+    "wsl": {
+      "kernel": "6.6.114.1-microsoft-standard-WSL2",
+      "distro": "Ubuntu 26.04 LTS",
+      "gcc": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+      "cmake": "cmake version 4.2.3",
+      "python": "Python 3.14.4"
+    }
+  },
+  "config": {
+    "liboqsVersion": "0.15.0",
+    "liboqsPythonCommit": "unknown",
+    "buildLabel": "reference-optimized-C-noAVX2",
+    "n": 1000,
+    "warmup": 5,
+    "python": "3.14.4",
+    "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "timerResolutionNs": 1,
+    "runs": 3
+  },
+  "algorithms": {
+    "ML-DSA-44": {
+      "keygen": {
+        "headline": {
+          "valueMs": 0.051608,
+          "basis": "median",
+          "rule": "σ/mean > 0.2 → median headline (§B6)"
+        },
+        "repr": {
+          "n": 1000,
+          "meanMs": 0.053346,
+          "medianMs": 0.051608,
+          "stddevMs": 0.011451,
+          "minMs": 0.046695,
+          "maxMs": 0.294054,
+          "p95Ms": 0.064073
+        },
+        "perRun": [
+          {
+            "n": 1000,
+            "meanMs": 0.05567,
+            "medianMs": 0.051319,
+            "stddevMs": 0.022053,
+            "minMs": 0.046323,
+            "maxMs": 0.394016,
+            "p95Ms": 0.072653
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.06737,
+            "medianMs": 0.057136,
+            "stddevMs": 0.033421,
+            "minMs": 0.049623,
+            "maxMs": 0.436788,
+            "p95Ms": 0.124143
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.053346,
+            "medianMs": 0.051608,
+            "stddevMs": 0.011451,
+            "minMs": 0.046695,
+            "maxMs": 0.294054,
+            "p95Ms": 0.064073
+          }
+        ],
+        "interRun": {
+          "runs": 3,
+          "meansMs": [
+            0.06,
+            0.07,
+            0.05
+          ],
+          "mediansMs": [
+            0.05,
+            0.06,
+            0.05
+          ],
+          "medianOfMeansMs": 0.06,
+          "medianOfMediansMs": 0.05,
+          "spreadPct": 11.27,
+          "cvPct": 12.78,
+          "stable": false
+        }
+      },
+      "sign": {
+        "headline": {
+          "valueMs": 0.187715,
+          "basis": "median",
+          "rule": "σ/mean > 0.2 → median headline (§B6)"
+        },
+        "repr": {
+          "n": 1000,
+          "meanMs": 0.240131,
+          "medianMs": 0.187715,
+          "stddevMs": 0.167665,
+          "minMs": 0.086429,
+          "maxMs": 1.91786,
+          "p95Ms": 0.564866
+        },
+        "perRun": [
+          {
+            "n": 1000,
+            "meanMs": 0.240131,
+            "medianMs": 0.187715,
+            "stddevMs": 0.167665,
+            "minMs": 0.086429,
+            "maxMs": 1.91786,
+            "p95Ms": 0.564866
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.244289,
+            "medianMs": 0.192354,
+            "stddevMs": 0.193265,
+            "minMs": 0.085809,
+            "maxMs": 3.275696,
+            "p95Ms": 0.548121
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.231918,
+            "medianMs": 0.177241,
+            "stddevMs": 0.160856,
+            "minMs": 0.085695,
+            "maxMs": 1.185517,
+            "p95Ms": 0.53937
+          }
+        ],
+        "interRun": {
+          "runs": 3,
+          "meansMs": [
+            0.24,
+            0.24,
+            0.23
+          ],
+          "mediansMs": [
+            0.19,
+            0.19,
+            0.18
+          ],
+          "medianOfMeansMs": 0.24,
+          "medianOfMediansMs": 0.19,
+          "spreadPct": 8.05,
+          "cvPct": 2.64,
+          "stable": true
+        }
+      },
+      "verify": {
+        "headline": {
+          "valueMs": 0.057786,
+          "basis": "median",
+          "rule": "σ/mean > 0.2 → median headline (§B6)"
+        },
+        "repr": {
+          "n": 1000,
+          "meanMs": 0.060184,
+          "medianMs": 0.057786,
+          "stddevMs": 0.018206,
+          "minMs": 0.051454,
+          "maxMs": 0.336979,
+          "p95Ms": 0.072617
+        },
+        "perRun": [
+          {
+            "n": 1000,
+            "meanMs": 0.060184,
+            "medianMs": 0.057786,
+            "stddevMs": 0.018206,
+            "minMs": 0.051454,
+            "maxMs": 0.336979,
+            "p95Ms": 0.072617
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.076503,
+            "medianMs": 0.06038,
+            "stddevMs": 0.127376,
+            "minMs": 0.051508,
+            "maxMs": 2.383682,
+            "p95Ms": 0.115978
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.06281,
+            "medianMs": 0.057412,
+            "stddevMs": 0.027955,
+            "minMs": 0.051301,
+            "maxMs": 0.531951,
+            "p95Ms": 0.096414
+          }
+        ],
+        "interRun": {
+          "runs": 3,
+          "meansMs": [
+            0.06,
+            0.08,
+            0.06
+          ],
+          "mediansMs": [
+            0.06,
+            0.06,
+            0.06
+          ],
+          "medianOfMeansMs": 0.06,
+          "medianOfMediansMs": 0.06,
+          "spreadPct": 5.14,
+          "cvPct": 13.18,
+          "stable": false
+        }
+      },
+      "sizes": {
+        "publicKeyBytes": 1312,
+        "secretKeyBytes": 2560,
+        "signatureBytesMax": 2420,
+        "signatureBytesObserved": 2420
+      }
+    },
+    "ML-KEM-512": {
+      "keygen": {
+        "headline": {
+          "valueMs": 0.016019,
+          "basis": "median",
+          "rule": "σ/mean > 0.2 → median headline (§B6)"
+        },
+        "repr": {
+          "n": 1000,
+          "meanMs": 0.01878,
+          "medianMs": 0.016019,
+          "stddevMs": 0.017088,
+          "minMs": 0.014507,
+          "maxMs": 0.358403,
+          "p95Ms": 0.032243
+        },
+        "perRun": [
+          {
+            "n": 1000,
+            "meanMs": 0.01878,
+            "medianMs": 0.016019,
+            "stddevMs": 0.017088,
+            "minMs": 0.014507,
+            "maxMs": 0.358403,
+            "p95Ms": 0.032243
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.018197,
+            "medianMs": 0.016919,
+            "stddevMs": 0.007619,
+            "minMs": 0.015446,
+            "maxMs": 0.112121,
+            "p95Ms": 0.022373
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.016889,
+            "medianMs": 0.015729,
+            "stddevMs": 0.003966,
+            "minMs": 0.015188,
+            "maxMs": 0.075268,
+            "p95Ms": 0.022172
+          }
+        ],
+        "interRun": {
+          "runs": 3,
+          "meansMs": [
+            0.02,
+            0.02,
+            0.02
+          ],
+          "mediansMs": [
+            0.02,
+            0.02,
+            0.02
+          ],
+          "medianOfMeansMs": 0.02,
+          "medianOfMediansMs": 0.02,
+          "spreadPct": 7.43,
+          "cvPct": 5.39,
+          "stable": true
+        }
+      },
+      "encap": {
+        "headline": {
+          "valueMs": 0.017642,
+          "basis": "median",
+          "rule": "σ/mean > 0.2 → median headline (§B6)"
+        },
+        "repr": {
+          "n": 1000,
+          "meanMs": 0.019832,
+          "medianMs": 0.017642,
+          "stddevMs": 0.011151,
+          "minMs": 0.016234,
+          "maxMs": 0.173499,
+          "p95Ms": 0.032749
+        },
+        "perRun": [
+          {
+            "n": 1000,
+            "meanMs": 0.019675,
+            "medianMs": 0.018523,
+            "stddevMs": 0.009449,
+            "minMs": 0.017146,
+            "maxMs": 0.194008,
+            "p95Ms": 0.021703
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.019832,
+            "medianMs": 0.017642,
+            "stddevMs": 0.011151,
+            "minMs": 0.016234,
+            "maxMs": 0.173499,
+            "p95Ms": 0.032749
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.019629,
+            "medianMs": 0.017607,
+            "stddevMs": 0.013296,
+            "minMs": 0.016164,
+            "maxMs": 0.296744,
+            "p95Ms": 0.028742
+          }
+        ],
+        "interRun": {
+          "runs": 3,
+          "meansMs": [
+            0.02,
+            0.02,
+            0.02
+          ],
+          "mediansMs": [
+            0.02,
+            0.02,
+            0.02
+          ],
+          "medianOfMeansMs": 0.02,
+          "medianOfMediansMs": 0.02,
+          "spreadPct": 5.19,
+          "cvPct": 0.54,
+          "stable": true
+        }
+      },
+      "decap": {
+        "headline": {
+          "valueMs": 0.022141,
+          "basis": "median",
+          "rule": "σ/mean > 0.2 → median headline (§B6)"
+        },
+        "repr": {
+          "n": 1000,
+          "meanMs": 0.023518,
+          "medianMs": 0.022141,
+          "stddevMs": 0.009978,
+          "minMs": 0.021013,
+          "maxMs": 0.283314,
+          "p95Ms": 0.026283
+        },
+        "perRun": [
+          {
+            "n": 1000,
+            "meanMs": 0.023518,
+            "medianMs": 0.022141,
+            "stddevMs": 0.009978,
+            "minMs": 0.021013,
+            "maxMs": 0.283314,
+            "p95Ms": 0.026283
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.025779,
+            "medianMs": 0.022477,
+            "stddevMs": 0.021052,
+            "minMs": 0.019369,
+            "maxMs": 0.456217,
+            "p95Ms": 0.044584
+          },
+          {
+            "n": 1000,
+            "meanMs": 0.021593,
+            "medianMs": 0.020911,
+            "stddevMs": 0.002965,
+            "minMs": 0.01918,
+            "maxMs": 0.06671,
+            "p95Ms": 0.025051
+          }
+        ],
+        "interRun": {
+          "runs": 3,
+          "meansMs": [
+            0.02,
+            0.03,
+            0.02
+          ],
+          "mediansMs": [
+            0.02,
+            0.02,
+            0.02
+          ],
+          "medianOfMeansMs": 0.02,
+          "medianOfMediansMs": 0.02,
+          "spreadPct": 7.07,
+          "cvPct": 8.87,
+          "stable": true
+        }
+      },
+      "sizes": {
+        "publicKeyBytes": 800,
+        "secretKeyBytes": 1632,
+        "ciphertextBytes": 768,
+        "sharedSecretBytes": 32
+      }
+    }
+  }
+}

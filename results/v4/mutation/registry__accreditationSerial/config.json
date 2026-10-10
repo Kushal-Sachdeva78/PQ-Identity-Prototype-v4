@@ -1,0 +1,5 @@
+{
+  "name": "registry:accreditationSerial",
+  "port": 8656,
+  "out": "<repo>\\results\\v4\\mutation\\registry__accreditationSerial"
+}

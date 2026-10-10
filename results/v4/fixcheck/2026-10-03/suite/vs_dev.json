@@ -1,0 +1,33 @@
+{
+  "schema": "pqid/v4-suite-comparison/v1",
+  "run": "post-fix rerun (D-034)",
+  "key": "dev key",
+  "base": {
+    "file": "results/v4/security_suite.json",
+    "sha256": "be26ae2dacc53718b573592a474ee69e6535346acaf78e0190283a6441a2f2eb",
+    "keyLabel": "dev",
+    "run": "dev run 10"
+  },
+  "next": {
+    "file": "results/v4/fixcheck/2026-10-03/suite/security_suite.json",
+    "sha256": "cd8489e64bedb6518ef637dafe8b283f4025189edcde43d8fa0b05b9125f011e",
+    "keyLabel": "dev",
+    "labelTextNote": null
+  },
+  "keySwitch": {
+    "method": "none: the pinned dev key is the default of packages/v4/src/paths.ts, so the children run without the rekey loader (rekey_probe.ts without the loader checks that they resolve the pinned dev files)",
+    "packageDefaultKey": "dev"
+  },
+  "rule": "per (record id, route): accepted, valid and stopping layer (artifact/compare_suite.py); post-fix rerun (D-034): the failed-check lists, every summary field, pass, the top-level trapdoor, standardThresholds, pqc, the record list (id, kind, number of attempts) and the attack matrix too; any difference is review",
+  "verdictsBase": 130,
+  "verdictsNew": 130,
+  "verdictDiffs": [],
+  "checkDiffs": [],
+  "summaryDiffs": [],
+  "identical": true,
+  "attackMatrix": {
+    "base": "results/v4/attack_matrix.json",
+    "next": "results/v4/fixcheck/2026-10-03/suite/attack_matrix.json",
+    "equal": true
+  }
+}

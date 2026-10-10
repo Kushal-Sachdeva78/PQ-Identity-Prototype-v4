@@ -1,0 +1,3275 @@
+{
+  "config": "verifier:issuerPop, dev key, post-fix rerun (D-034)",
+  "mutantGroup": null,
+  "verifierDisabled": [
+    "issuerPop"
+  ],
+  "walletDisabled": [],
+  "governanceSkipPop": false,
+  "contracts": "onchain/contracts/v4/RegistriesV4.sol",
+  "schema": "pqid/v4-security-suite/v1",
+  "label": "[M] v4 security suite (dev key; routes per docs/v4/ROUTES.md)",
+  "keyLabel": "dev",
+  "pass": true,
+  "summary": {
+    "controlsAccepted": "15/15",
+    "v4AttackRoutes": 86,
+    "v4AttackRoutesAccepted": 0,
+    "v4AttackRoutesStoppedBy": {
+      "circuit": 24,
+      "verifier": 36,
+      "wallet-enforced": 9,
+      "governance": 2,
+      "registry": 7,
+      "transport": 2,
+      "wallet": 6
+    },
+    "privacyRecords": 16,
+    "knownLimitations": [
+      "RL-f victim's honest wallet answers the relayed request: accepted",
+      "KL5 lent credential presented by another person: accepted",
+      "KL6 holder of a small, separately accredited DID of one issuer: accepted",
+      "KL4 online-mode wallet contacts the issuer while presenting: accepted",
+      "FA-a before notAfter: revoked holder presents under the frozen anchor: accepted",
+      "KL3-a withheld de-accreditation, inside the accreditation window: accepted"
+    ],
+    "invalid": 0,
+    "invalidRoutes": [],
+    "cataloguedRoutesNotRun": []
+  },
+  "records": [
+    {
+      "id": "C0",
+      "title": "Honest holders are accepted",
+      "kind": "control",
+      "attempts": [
+        {
+          "route": "C0-a adult, age_gte 18",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        },
+        {
+          "route": "C0-b minor, age_lt 18",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        },
+        {
+          "route": "C0-c adult, age_gte 21",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        },
+        {
+          "route": "C0-d turns 18 today (birthday boundary), age_gte 18",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        },
+        {
+          "route": "C0-e holder of issuer B, age_gte 21",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "B2-boundary",
+      "title": "Birthday boundary: turns 18 tomorrow (honest wallet refuses, not an attack)",
+      "kind": "baseline",
+      "attempts": [
+        {
+          "route": "honest wallet, age_gte 18 one day before the 18th birthday",
+          "attacker": "none",
+          "goal": "boundary",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "predicateHolds"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "predicateHolds"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (predicateHolds): the credential does not satisfy the request (the verifier learns this from the refusal)"
+        }
+      ]
+    },
+    {
+      "id": "B3-65",
+      "title": "Adult asks age_gte 65 (honest wallet refuses; not an attack)",
+      "kind": "baseline",
+      "attempts": [
+        {
+          "route": "C0-c65 adult (born 1990), age_gte 65",
+          "attacker": "none",
+          "goal": "boundary",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "predicateHolds"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "predicateHolds"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (predicateHolds): the credential does not satisfy the request (the verifier learns this from the refusal)"
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "title": "Honest holders keep presenting through open batches, signed-but-unanchored epochs and refreshes",
+      "kind": "control",
+      "attempts": []
+    },
+    {
+      "id": "B1",
+      "title": "Late holder asks the issuer's service for a path before its leaf is anchored",
+      "kind": "baseline",
+      "attempts": [
+        {
+          "route": "B1 issuer service refuses an unanchored leaf",
+          "attacker": "none",
+          "goal": "",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "issuerServiceRefused"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "issuerServiceRefused"
+            ]
+          },
+          "valid": true,
+          "detail": "credential is not yet covered by an anchored epoch statement"
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "title": "Honest holders keep presenting through open batches, signed-but-unanchored epochs and refreshes",
+      "kind": "control",
+      "attempts": [
+        {
+          "route": "C2-a adult while a newer leaf is unsigned",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        },
+        {
+          "route": "C2-b adult while epoch 3 is signed but not anchored",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        },
+        {
+          "route": "C2-c adult after the refresh to epoch 3",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        },
+        {
+          "route": "C2-d late holder with its first path",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "A1",
+      "title": "Forged credential the issuer never issued",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "A1-a forged leaf with a real holder's path under A's anchored root",
+          "attacker": "malicious holder",
+          "goal": "prove a never-issued credential",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G04_issuance_membership"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G04_issuance_membership"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G04_issuance_membership": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "A1-b attacker-built tree, valid proof, A's genuine statement",
+          "attacker": "malicious holder",
+          "goal": "never-issued credential",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        },
+        {
+          "route": "A1-c attacker-built tree, statement signed with the attacker's key naming A",
+          "attacker": "malicious holder",
+          "goal": "never-issued credential",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochAnchorCurrent",
+              "epochSignature"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        },
+        {
+          "route": "A1-d self-issued under the attacker's own PoP-registered, unaccredited DID",
+          "attacker": "malicious holder with own issuer DID",
+          "goal": "self-issue",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "accreditation"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "accreditation"
+            ]
+          },
+          "valid": true,
+          "detail": "accreditation: no accreditation statement for this DID"
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "title": "Holder of a genuine minor's credential claims adulthood",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "A2-a genuine path, earlier birthDate",
+          "attacker": "minor",
+          "goal": "age_gte 18",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G04_issuance_membership"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G04_issuance_membership"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G04_issuance_membership": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "A2-b genuine leaf and birthDate, age_gte 18",
+          "attacker": "minor",
+          "goal": "age_gte 18",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G12_age"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G12_age"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G12_age": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "A2-d adult proves age_lt 18 with the attacker's generator",
+          "attacker": "adult",
+          "goal": "age_lt 18 (under-age discount or child service)",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G12_age"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G12_age"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G12_age": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "A2-c attacker-built tree with a fake birthDate, A's statement",
+          "attacker": "minor",
+          "goal": "age_gte 18",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "title": "Thief holds the victim's credential and path but not the holder secret",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "A4-a victim's genuine path, thief's secret",
+          "attacker": "thief",
+          "goal": "present the victim's credential",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G04_issuance_membership"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G04_issuance_membership"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G04_issuance_membership": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        }
+      ]
+    },
+    {
+      "id": "A5",
+      "title": "Holder of issuer B's credential presents it as issuer A's",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "A5-a proof on B's tree, issuerDid A, B's statement",
+          "attacker": "B's holder",
+          "goal": "claim issuer A",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "issuerKeyHash",
+              "epochAnchorCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "issuerKeyHash",
+              "epochAnchorCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "issuerKeyHash: Poseidon(pk_issuer) does not match public signal 0; epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        },
+        {
+          "route": "A5-b A's issuerKeyHash with B's path",
+          "attacker": "B's holder",
+          "goal": "claim issuer A",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G04_issuance_membership"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G04_issuance_membership"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G04_issuance_membership": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[epochAnchorCurrent,groth16]"
+        }
+      ]
+    },
+    {
+      "id": "A6",
+      "title": "Honest proof with a tampered, missing or foreign epoch statement",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "A6-a epoch changed after signing",
+          "attacker": "malicious holder",
+          "goal": "tamper",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        },
+        {
+          "route": "A6-b statement omitted",
+          "attacker": "malicious holder",
+          "goal": "tamper",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "shape"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "shape"
+            ]
+          },
+          "valid": true,
+          "detail": "shape: presentation keys must be exactly epochStatement, issuerController, issuerDid, proof, publicSignals (got issuerController,issuerDid,proof,publicSignals)"
+        },
+        {
+          "route": "A6-c A's root signed by B's key",
+          "attacker": "malicious holder",
+          "goal": "foreign signature",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochAnchorCurrent",
+              "epochSignature"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        },
+        {
+          "route": "A6-e issuer A's own statement for another chain and registry (same epoch and roots)",
+          "attacker": "malicious holder",
+          "goal": "present under a statement from another deployment",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        },
+        {
+          "route": "A6-d notAfter extended after signing",
+          "attacker": "malicious holder",
+          "goal": "extend validity",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochAnchorCurrent",
+              "epochWindow"
+            ]
+          },
+          "valid": true,
+          "detail": "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root); epochWindow: outside the epoch statement's signed validity window (or window signals differ)"
+        }
+      ]
+    },
+    {
+      "id": "A7",
+      "title": "Attacker registers issuer A's DID string with its own key",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "A7-a self-consistent credential under A's DID string, attacker key and controller",
+          "attacker": "squatter (own key)",
+          "goal": "impersonate issuer A",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "issuerRecord",
+              "accreditation"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "issuerRecord",
+              "accreditation",
+              "issuerKeyHash"
+            ]
+          },
+          "valid": true,
+          "detail": "issuerRecord: registered key does not match the did:pq identifier; accreditation: no issuer key; issuerKeyHash: no issuer key"
+        }
+      ]
+    },
+    {
+      "id": "T1",
+      "title": "Groth16 proof forged from the public beacon (no credential)",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "T1-a public-beacon trapdoor applied to the v4 dev key",
+          "attacker": "anyone",
+          "goal": "forge without a witness",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "groth16"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "groth16"
+            ]
+          },
+          "valid": true,
+          "detail": "groth16: Groth16 proof does not verify"
+        }
+      ]
+    },
+    {
+      "id": "R1",
+      "title": "Replay, cross-session, cross-verifier and policy binding",
+      "kind": "attack",
+      "attempts": []
+    },
+    {
+      "id": "C1",
+      "title": "First use of the presentation replayed below is accepted",
+      "kind": "control",
+      "attempts": [
+        {
+          "route": "C1-a honest first use",
+          "attacker": "none",
+          "goal": "",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "R1",
+      "title": "Replay, cross-session, cross-verifier and policy binding",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "R1-a replay of the accepted reply",
+          "attacker": "network adversary",
+          "goal": "reuse a presentation",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "sessionKnown"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "sessionKnown"
+            ]
+          },
+          "valid": true,
+          "detail": "sessionKnown: unknownSession"
+        },
+        {
+          "route": "R1-b reply moved into a new session",
+          "attacker": "network adversary",
+          "goal": "reuse in another session",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "transcriptDecrypts"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "transcriptDecrypts"
+            ]
+          },
+          "valid": true,
+          "detail": "transcriptDecrypts: decryptFailed"
+        },
+        {
+          "route": "R1-c presentation for V re-sealed to V2",
+          "attacker": "malicious holder or verifier V",
+          "goal": "cross-verifier reuse",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "nonceBinding",
+              "stmtCode"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "nonceBinding",
+              "stmtCode"
+            ]
+          },
+          "valid": true,
+          "detail": "nonceBinding: nonce is not the one derived from this session's ML-KEM transcript; stmtCode: stmtCode does not bind this verifier"
+        },
+        {
+          "route": "R1-e leaked presentation replayed by a third party into a new session at the same verifier",
+          "attacker": "third party holding a leaked presentation (verifier logs)",
+          "goal": "authenticate as the holder in a new session",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "nonceBinding"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "nonceBinding"
+            ]
+          },
+          "valid": true,
+          "detail": "nonceBinding: nonce is not the one derived from this session's ML-KEM transcript"
+        },
+        {
+          "route": "R1-d age_gte 18 proof where 21 is required",
+          "attacker": "malicious holder",
+          "goal": "weaker policy",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "policyHash"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "policyHash"
+            ]
+          },
+          "valid": true,
+          "detail": "policyHash: policyHash does not bind this session's predicate, threshold, date and type"
+        },
+        {
+          "route": "R1-f the same reply verified twice at once",
+          "attacker": "network adversary",
+          "goal": "two acceptances from one presentation",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "sessionFresh"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "sessionFresh"
+            ]
+          },
+          "valid": true,
+          "detail": "sessionFresh: session already used"
+        },
+        {
+          "route": "R1-g reply sent after the session's lifetime",
+          "attacker": "holder or relay",
+          "goal": "use an expired session",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "sessionKnown"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "sessionKnown"
+            ]
+          },
+          "valid": true,
+          "detail": "sessionKnown: expiredSession"
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "title": "Revoked holder tries to keep authenticating",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "A3-B stale low leaf against the current root",
+          "attacker": "revoked holder",
+          "goal": "keep presenting",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G06_rev_low_membership"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G06_rev_low_membership"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G06_rev_low_membership": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "A3-C stale low leaf, stale revRoot and the old statement",
+          "attacker": "revoked holder",
+          "goal": "keep presenting",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        },
+        {
+          "route": "A3-D1 fresh credID with the revoked credential's genuine path",
+          "attacker": "revoked holder",
+          "goal": "evade revocation",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G04_issuance_membership"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G04_issuance_membership"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G04_issuance_membership": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "A3-D2 fresh credID in an attacker-built tree, A's statement",
+          "attacker": "revoked holder",
+          "goal": "evade revocation",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochAnchorCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        },
+        {
+          "route": "A3-F the revoked key's own leaf as low leaf (lowValue = key)",
+          "attacker": "revoked holder",
+          "goal": "evade revocation",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G07_rev_bracket"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G07_rev_bracket"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G07_rev_bracket": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "A3-G the predecessor leaf, whose next is now the revoked key",
+          "attacker": "revoked holder",
+          "goal": "evade revocation",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G07_rev_bracket"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G07_rev_bracket"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G07_rev_bracket": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "A3-H current statement, valid proof against the pre-revocation revocation root",
+          "attacker": "revoked holder",
+          "goal": "evade revocation",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "revRoot"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "revRoot"
+            ]
+          },
+          "valid": true,
+          "detail": "revRoot: revRoot (signal 1) is not the anchored revocation root"
+        }
+      ]
+    },
+    {
+      "id": "NL",
+      "title": "Forged neighbour-leaf (low-leaf) openings in the indexed Merkle tree",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "NL-a fabricated bracketing leaf with a real leaf's path",
+          "attacker": "revoked holder",
+          "goal": "fake non-membership",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G06_rev_low_membership"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G06_rev_low_membership"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G06_rev_low_membership": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "NL-b fabricated leaf at an empty index",
+          "attacker": "revoked holder",
+          "goal": "fake non-membership",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G06_rev_low_membership"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G06_rev_low_membership"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G06_rev_low_membership": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "NL-c real predecessor leaf with lowNext edited to bracket the key",
+          "attacker": "revoked holder",
+          "goal": "fake non-membership",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G06_rev_low_membership"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G06_rev_low_membership"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G06_rev_low_membership": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "NL-d stale sentinel (0, 2^251), which brackets every key, with index 0's current path",
+          "attacker": "revoked holder",
+          "goal": "fake non-membership",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G06_rev_low_membership"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G06_rev_low_membership"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G06_rev_low_membership": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        }
+      ]
+    },
+    {
+      "id": "EX",
+      "title": "Expired credential",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "EX-a verifier's today after expiryDate",
+          "attacker": "holder of an expired credential",
+          "goal": "present after expiry",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G13_expiry"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G13_expiry"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G13_expiry": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "EX-b older date inside the proof (before expiry)",
+          "attacker": "holder of an expired credential",
+          "goal": "present after expiry",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G15_epoch_window",
+              "G08_policy_hash"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G15_epoch_window",
+              "G08_policy_hash"
+            ]
+          },
+          "r1cs": {
+            "violated": 2,
+            "byGroup": {
+              "G15_epoch_window": 1,
+              "G08_policy_hash": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        }
+      ]
+    },
+    {
+      "id": "TY",
+      "title": "Wrong credential type",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "TY-a requiredType = verifier's type, credential of another type",
+          "attacker": "holder of another type",
+          "goal": "type confusion",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G14_type",
+              "G08_policy_hash"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G08_policy_hash"
+            ]
+          },
+          "r1cs": {
+            "violated": 2,
+            "byGroup": {
+              "G08_policy_hash": 2
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "TY-b requiredType = own type inside the proof",
+          "attacker": "holder of another type",
+          "goal": "type confusion",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "policyHash"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "policyHash"
+            ]
+          },
+          "valid": true,
+          "detail": "policyHash: policyHash does not bind this session's predicate, threshold, date and type"
+        },
+        {
+          "route": "TY-c verifier asks for a credential type outside the wallet's allow-list",
+          "attacker": "verifier",
+          "goal": "learn which types (and issuers) the holder has",
+          "expect": {
+            "layer": "wallet-enforced",
+            "any": [
+              "typeAllowed"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet-enforced",
+            "checks": [
+              "typeAllowed"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (typeAllowed): credential type not available"
+        }
+      ]
+    },
+    {
+      "id": "PH",
+      "title": "Private policy inputs differ from the verifier's public policyHash",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "PH-a minor flips the private predicate to age_lt under the age_gte 18 policyHash",
+          "attacker": "minor",
+          "goal": "age_gte 18",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G08_policy_hash"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G08_policy_hash"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G08_policy_hash": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "PH-b minor lowers the private threshold to 16 under the age_gte 18 policyHash",
+          "attacker": "minor",
+          "goal": "age_gte 18",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G08_policy_hash"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G08_policy_hash"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G08_policy_hash": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "PH-c holder of another type sets the private requiredType to its own type",
+          "attacker": "holder of another type",
+          "goal": "type confusion",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G08_policy_hash"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G08_policy_hash"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G08_policy_hash": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        }
+      ]
+    },
+    {
+      "id": "SD",
+      "title": "Stale dates",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "SD-a prover uses yesterday's date to stay under 18 after turning 18",
+          "attacker": "holder who turned 18 today",
+          "goal": "age_lt 18 after the birthday",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G15_epoch_window",
+              "G08_policy_hash"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G15_epoch_window",
+              "G08_policy_hash"
+            ]
+          },
+          "r1cs": {
+            "violated": 2,
+            "byGroup": {
+              "G15_epoch_window": 1,
+              "G08_policy_hash": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        },
+        {
+          "route": "SD-b verifier supplies a stale date (probe / accept expired)",
+          "attacker": "verifier",
+          "goal": "learn the birth date or accept expired",
+          "expect": {
+            "layer": "wallet-enforced",
+            "any": [
+              "dateCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet-enforced",
+            "checks": [
+              "dateCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (dateCurrent): the wallet answered another date within the last 600 s"
+        },
+        {
+          "route": "SD-c buggy wallet (date check off): date outside the signed epoch window",
+          "attacker": "verifier + buggy wallet",
+          "goal": "stale-date proof",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G15_epoch_window"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G15_epoch_window"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G15_epoch_window": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        }
+      ]
+    },
+    {
+      "id": "TP",
+      "title": "Threshold probing",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "TP-a verifier asks threshold 17",
+          "attacker": "verifier",
+          "goal": "binary-search the birth date",
+          "expect": {
+            "layer": "wallet-enforced",
+            "any": [
+              "thresholdStandard"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet-enforced",
+            "checks": [
+              "thresholdStandard"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (thresholdStandard): threshold 17 is not a standard threshold"
+        },
+        {
+          "route": "TP-a verifier asks threshold 19",
+          "attacker": "verifier",
+          "goal": "binary-search the birth date",
+          "expect": {
+            "layer": "wallet-enforced",
+            "any": [
+              "thresholdStandard"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet-enforced",
+            "checks": [
+              "thresholdStandard"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (thresholdStandard): threshold 19 is not a standard threshold"
+        },
+        {
+          "route": "TP-a verifier asks threshold 20",
+          "attacker": "verifier",
+          "goal": "binary-search the birth date",
+          "expect": {
+            "layer": "wallet-enforced",
+            "any": [
+              "thresholdStandard"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet-enforced",
+            "checks": [
+              "thresholdStandard"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (thresholdStandard): threshold 20 is not a standard threshold"
+        },
+        {
+          "route": "TP-b buggy wallet (threshold check off), threshold 17",
+          "attacker": "verifier + buggy wallet",
+          "goal": "non-standard threshold proof",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G10_standard_threshold"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G10_standard_threshold"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G10_standard_threshold": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        }
+      ]
+    },
+    {
+      "id": "TP-c",
+      "title": "Non-standard thresholds as a refusal-kind oracle (observation model D-026)",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "TP-c refusal kinds at non-standard thresholds around the adult's age and at 17 for the minor",
+          "attacker": "verifier",
+          "goal": "learn the exact age beyond the standard brackets",
+          "expect": {
+            "layer": "wallet-enforced",
+            "any": [
+              "thresholdStandard"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet-enforced",
+            "checks": [
+              "thresholdStandard"
+            ]
+          },
+          "valid": true,
+          "detail": "observations thresholdStandard, thresholdStandard, thresholdStandard, thresholdStandard"
+        }
+      ]
+    },
+    {
+      "id": "SD-g",
+      "title": "Request whose date changes after the wallet checked it (accessor)",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "SD-g request date reads today at the check and tomorrow afterwards (holder turns 18 tomorrow)",
+          "attacker": "verifier",
+          "goal": "an answer for a future date (exact birth date)",
+          "expect": {
+            "layer": "wallet-enforced",
+            "any": [
+              "requestSnapshot"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet-enforced",
+            "checks": [
+              "requestSnapshot"
+            ]
+          },
+          "valid": true,
+          "detail": "evaluated at the checked date (issuer data read: true)"
+        }
+      ]
+    },
+    {
+      "id": "TP-d",
+      "title": "Request whose threshold changes after the wallet checked it (accessor)",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "TP-d threshold reads 18 at the check and 17 afterwards",
+          "attacker": "verifier",
+          "goal": "a predicate at a non-standard threshold (age oracle)",
+          "expect": {
+            "layer": "wallet-enforced",
+            "any": [
+              "requestSnapshot"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet-enforced",
+            "checks": [
+              "requestSnapshot"
+            ]
+          },
+          "valid": true,
+          "detail": "answered at the checked threshold (verifier accepted: true)"
+        }
+      ]
+    },
+    {
+      "id": "SQ",
+      "title": "Real-key squatter: registers issuer A's DID with A's genuine public key",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "SQ-a asks governance to accredit (garbage PoP)",
+          "attacker": "squatter",
+          "goal": "get accredited as A",
+          "expect": {
+            "layer": "governance",
+            "any": [
+              "issuerPop"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "governance",
+            "checks": [
+              "issuerPop"
+            ]
+          },
+          "valid": true,
+          "detail": "governance refuses accreditation: proof of possession does not verify under the registered key (for this controller, chain, registry and origin)"
+        },
+        {
+          "route": "SQ-b replays A's genuine PoP signature under its own controller",
+          "attacker": "squatter",
+          "goal": "get accredited as A",
+          "expect": {
+            "layer": "governance",
+            "any": [
+              "issuerPop"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "governance",
+            "checks": [
+              "issuerPop"
+            ]
+          },
+          "valid": true,
+          "detail": "proof of possession does not verify under the registered key (for this controller, chain, registry and origin); governance refuses accreditation: proof of possession does not verify under the registered key (for this controller, chain, registry and origin)"
+        },
+        {
+          "route": "SQ-c presentation through the squatter's record with its own epoch (old revRoot)",
+          "attacker": "squatter + revoked holder",
+          "goal": "keep a revoked credential accepted",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "issuerPop",
+              "accreditation"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "accreditation"
+            ]
+          },
+          "valid": true,
+          "detail": "accreditation: accreditation names a different controller"
+        }
+      ]
+    },
+    {
+      "id": "RA",
+      "title": "Rogue accreditation (attacker holds the governance EVM account)",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "RA-a accreditation signed with the attacker's ML-DSA key",
+          "attacker": "governance EVM account holder",
+          "goal": "accredit its own issuer",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "accreditation"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "accreditation"
+            ]
+          },
+          "valid": true,
+          "detail": "accreditation: accreditation statement is not signed by the pinned governance key"
+        },
+        {
+          "route": "RA-b accreditation with a garbage signature",
+          "attacker": "governance EVM account holder",
+          "goal": "accredit its own issuer",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "accreditation"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "accreditation"
+            ]
+          },
+          "valid": true,
+          "detail": "accreditation: accreditation statement is not signed by the pinned governance key"
+        },
+        {
+          "route": "RA-c replay of an older genuine accreditation after revocation (serial rollback)",
+          "attacker": "governance EVM account holder",
+          "goal": "undo a de-accreditation",
+          "expect": {
+            "layer": "registry",
+            "any": [
+              "accreditationSerial"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "registry",
+            "checks": [
+              "accreditationSerial"
+            ]
+          },
+          "valid": true,
+          "detail": "AccreditationRegistryV4.publish reverted: accreditationSerial: signed serial must increase [accreditationSerial]"
+        },
+        {
+          "route": "RA-d replay of an older genuine accreditation with a higher declared serial",
+          "attacker": "governance EVM account holder",
+          "goal": "undo a de-accreditation",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "accreditation"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "accreditation"
+            ]
+          },
+          "valid": true,
+          "detail": "accreditation: statement serial differs from the registry's monotonic signed serial"
+        },
+        {
+          "route": "RA-f holder of an issuer that governance de-accredited",
+          "attacker": "holder",
+          "goal": "keep presenting after de-accreditation",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "accreditation"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "accreditation"
+            ]
+          },
+          "valid": true,
+          "detail": "accreditation: accreditation status is revoked"
+        },
+        {
+          "route": "RA-e revoked holder presents through the issuer's retired controller record after a rotation",
+          "attacker": "revoked holder",
+          "goal": "evade revocation through the old record's frozen anchor",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "accreditation"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "accreditation"
+            ]
+          },
+          "valid": true,
+          "detail": "accreditation: accreditation names a different controller"
+        }
+      ]
+    },
+    {
+      "id": "DE",
+      "title": "Holder of an issuer whose DID record was deactivated",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "DE-a issuer deactivates its record; its holder keeps presenting",
+          "attacker": "holder",
+          "goal": "present under a deactivated issuer record",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "issuerRecord",
+              "issuerPop"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "issuerRecord",
+              "accreditation",
+              "issuerKeyHash"
+            ]
+          },
+          "valid": true,
+          "detail": "issuerRecord: DID record deactivated; accreditation: no issuer key; issuerKeyHash: no issuer key"
+        }
+      ]
+    },
+    {
+      "id": "A8",
+      "title": "Adversary with issuer C's controller EVM key anchors its own root and signature",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "A8-a forged leaf under the adversary-anchored root",
+          "attacker": "holder of C's controller EVM key",
+          "goal": "forged credential",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochSignature"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochSignature"
+            ]
+          },
+          "valid": true,
+          "detail": "epochSignature: epoch statement ML-DSA-44 signature does not verify under pk_issuer"
+        }
+      ]
+    },
+    {
+      "id": "RL",
+      "title": "Relay variants (ML-KEM session to the verifier's registered key)",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "RL-a passive capture: read the reply without the KEM secret",
+          "attacker": "eavesdropper",
+          "goal": "read the presentation",
+          "expect": {
+            "layer": "transport",
+            "any": [
+              "aeadConfidentiality"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "transport",
+            "checks": [
+              "aeadConfidentiality"
+            ]
+          },
+          "valid": true
+        },
+        {
+          "route": "RL-b captured reply replayed later",
+          "attacker": "eavesdropper",
+          "goal": "replay",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "sessionKnown"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "sessionKnown"
+            ]
+          },
+          "valid": true,
+          "detail": "sessionKnown: unknownSession"
+        },
+        {
+          "route": "RL-c relay presents its own verifier identity to the victim",
+          "attacker": "relay (registered verifier M)",
+          "goal": "authenticate as the victim at V",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "nonceBinding",
+              "stmtCode"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "nonceBinding",
+              "stmtCode"
+            ]
+          },
+          "valid": true,
+          "detail": "nonceBinding: nonce is not the one derived from this session's ML-KEM transcript; stmtCode: stmtCode does not bind this verifier"
+        },
+        {
+          "route": "RL-d1 relay adds its own KEM key to the request",
+          "attacker": "relay",
+          "goal": "make the wallet encrypt to the relay",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "requestShape"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "requestShape"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (requestShape): malformed request"
+        },
+        {
+          "route": "RL-d2 relay forwards V's request and tries to read the reply with its own KEM key",
+          "attacker": "relay",
+          "goal": "read the victim's reply",
+          "expect": {
+            "layer": "transport",
+            "any": [
+              "kemKeyFromChain"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "transport",
+            "checks": [
+              "kemKeyFromChain"
+            ]
+          },
+          "valid": true,
+          "detail": "relay open: unknownSession"
+        },
+        {
+          "route": "RL-e relay lowers the threshold (21 -> 18) before forwarding",
+          "attacker": "relay",
+          "goal": "pass V's stricter policy",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "transcriptDecrypts"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "transcriptDecrypts"
+            ]
+          },
+          "valid": true,
+          "detail": "transcriptDecrypts: decryptFailed"
+        }
+      ]
+    },
+    {
+      "id": "KL1",
+      "title": "Real-time relay forwarding V's genuine request unchanged and the reply back",
+      "kind": "known-limitation",
+      "attempts": [
+        {
+          "route": "RL-f victim's honest wallet answers the relayed request",
+          "attacker": "real-time relay",
+          "goal": "authenticate as the victim at V",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "RL-f+",
+      "title": "Same relay against a wallet with (modelled) origin binding",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "RL-f with origin binding: caller origin is the relay's",
+          "attacker": "real-time relay",
+          "goal": "authenticate as the victim at V",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "originBinding"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "originBinding"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (originBinding): caller origin https://relay.example is not the verifier's registered origin"
+        }
+      ]
+    },
+    {
+      "id": "RL-g",
+      "title": "Verifier controller EVM account re-posts a retired KEM key statement",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "RL-g re-post the previous KEM statement after a rotation",
+          "attacker": "holder of the verifier's controller EVM key",
+          "goal": "make wallets encrypt to a retired (leaked) KEM key",
+          "expect": {
+            "layer": "registry",
+            "any": [
+              "kemMonotonic"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "registry",
+            "checks": [
+              "kemMonotonic"
+            ]
+          },
+          "valid": true,
+          "detail": "VerifierKemRegistryV4.publishKemKey reverted: kemMonotonic: statement notBefore must increase [kemMonotonic]"
+        }
+      ]
+    },
+    {
+      "id": "SQ-d",
+      "title": "Verifier record registered with an origin its proof of possession did not sign",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "SQ-d controller EVM account registers the verifier DID under a relay origin",
+          "attacker": "holder of a verifier controller EVM key",
+          "goal": "pass wallet origin binding from a relay origin",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "verifierPop"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "verifierPop"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (verifierPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)"
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "title": "Issuer rotates its controller EVM account; credentials naming the old controller keep working (B5 REG-1)",
+      "kind": "control",
+      "attempts": [
+        {
+          "route": "C4-a holder presents after the issuer's controller rotation",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "RL-h",
+      "title": "Verifier controller EVM account posts a KEM key statement the verifier did not sign",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "RL-h KEM statement for the attacker's KEM key, signed with another ML-DSA key",
+          "attacker": "holder of the verifier's controller EVM key",
+          "goal": "make wallets encrypt to a key the attacker holds",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "verifierKemKey"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "verifierKemKey"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (verifierKemKey): verifier ML-KEM key statement missing, unsigned, expired or for another verifier"
+        }
+      ]
+    },
+    {
+      "id": "RL-i",
+      "title": "Retired KEM statement re-posted with a higher declared notBefore",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "RL-i re-post the retired KEM statement declaring a notBefore above the stored one",
+          "attacker": "holder of the verifier's controller EVM key",
+          "goal": "make wallets encrypt to a retired (leaked) KEM key",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "verifierKemKey"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "verifierKemKey"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (verifierKemKey): verifier ML-KEM key statement missing, unsigned, expired or for another verifier"
+        }
+      ]
+    },
+    {
+      "id": "RG",
+      "title": "Registry write rules (writes that would corrupt or roll back a record)",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "RG-a stranger anchors an epoch for the issuer's DID",
+          "attacker": "any EVM account",
+          "goal": "anchor a root for a DID it does not control",
+          "expect": {
+            "layer": "registry",
+            "any": [
+              "controllerOnly"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "registry",
+            "checks": [
+              "controllerOnly"
+            ]
+          },
+          "valid": true,
+          "detail": "IssuanceRootRegistryV4.publishEpoch reverted: controllerOnly: no active DID record for (did, sender) [controllerOnly]"
+        },
+        {
+          "route": "RG-b the controller re-anchors the current epoch number (rollback)",
+          "attacker": "holder of the issuer's controller EVM key",
+          "goal": "replace or roll back an anchored epoch",
+          "expect": {
+            "layer": "registry",
+            "any": [
+              "epochIncrement"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "registry",
+            "checks": [
+              "epochIncrement"
+            ]
+          },
+          "valid": true,
+          "detail": "IssuanceRootRegistryV4.publishEpoch reverted: epochIncrement: epoch must be current + 1 [epochIncrement]"
+        },
+        {
+          "route": "RG-c the controller anchors a window longer than the registry maximum",
+          "attacker": "holder of the issuer's controller EVM key",
+          "goal": "a statement that stays valid for days",
+          "expect": {
+            "layer": "registry",
+            "any": [
+              "windowBounds"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "registry",
+            "checks": [
+              "windowBounds"
+            ]
+          },
+          "valid": true,
+          "detail": "IssuanceRootRegistryV4.publishEpoch reverted: windowBounds: need notBefore < notAfter <= notBefore + maxWindow [windowBounds]"
+        },
+        {
+          "route": "RG-d a second registration of the same (did, controller) record",
+          "attacker": "holder of the issuer's controller EVM key",
+          "goal": "replace the record's key",
+          "expect": {
+            "layer": "registry",
+            "any": [
+              "recordUnique"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "registry",
+            "checks": [
+              "recordUnique"
+            ]
+          },
+          "valid": true,
+          "detail": "DIDRegistryV4.registerDID reverted: recordUnique: record exists for (did, controller) [recordUnique]"
+        },
+        {
+          "route": "RG-e an issuer account posts its own accreditation statement",
+          "attacker": "issuer's controller EVM account",
+          "goal": "self-accreditation on chain",
+          "expect": {
+            "layer": "registry",
+            "any": [
+              "governanceWriter"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "registry",
+            "checks": [
+              "governanceWriter"
+            ]
+          },
+          "valid": true,
+          "detail": "AccreditationRegistryV4.publish reverted: governanceWriter: sender is not the governance account [governanceWriter]"
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "title": "Holder with an expired credential and its renewal of the same type (review round 2, L5)",
+      "kind": "control",
+      "attempts": [
+        {
+          "route": "C5-a renewal presented although the first held credential expired",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "PV15",
+      "title": "Holder whose leaf is newer than the published blob (review round 2, P1)",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV15 the wallet's refusal carries no leaf index",
+          "attacker": "verifier",
+          "goal": "learn the holder's position in the issuance tree",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "anchorMatches"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "anchorMatches"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (anchorMatches): the anchored epoch has no usable data for this credential"
+        }
+      ]
+    },
+    {
+      "id": "KL5",
+      "title": "Credential lending: the holder gives another person its holder secret and credential",
+      "kind": "known-limitation",
+      "attempts": [
+        {
+          "route": "KL5 lent credential presented by another person",
+          "attacker": "holder and borrower together",
+          "goal": "let someone else pass as the holder",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "KL6",
+      "title": "Issuer splits its holders across several accredited DIDs",
+      "kind": "known-limitation",
+      "attempts": [
+        {
+          "route": "KL6 holder of a small, separately accredited DID of one issuer",
+          "attacker": "issuer",
+          "goal": "smaller anonymity sets",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "PV1",
+      "title": "Four holders present to one verifier on one day: identical verifier views",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV1 views equal except the session nonce",
+          "attacker": "colluding verifier",
+          "goal": "link holders",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "identicalViews"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "identicalViews"
+            ]
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "PV2",
+      "title": "Issuer serves one holder re-signed statement bytes",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV2 re-signed statement (different ML-DSA bytes)",
+          "attacker": "issuer tagging one holder",
+          "goal": "link the holder",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "anchorMatches"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "anchorMatches"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (anchorMatches): issuer served a statement or path that is not its current signed on-chain anchor"
+        }
+      ]
+    },
+    {
+      "id": "PV3",
+      "title": "Holder offered a path to an older statement after a newer anchor",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV3 older statement and path",
+          "attacker": "issuer tagging one holder",
+          "goal": "link the holder",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "anchorMatches"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "anchorMatches"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (anchorMatches): issuer served a statement or path that is not its current signed on-chain anchor"
+        }
+      ]
+    },
+    {
+      "id": "PV4",
+      "title": "Statement with an extra per-holder field",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV4 extra field",
+          "attacker": "issuer tagging one holder",
+          "goal": "link the holder",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "anchorMatches"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "anchorMatches"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (anchorMatches): served epoch statement is not in canonical form"
+        }
+      ]
+    },
+    {
+      "id": "PV6",
+      "title": "Issuer re-anchors immediately to give one holder its own epoch",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV6 immediate re-anchor",
+          "attacker": "issuer",
+          "goal": "per-holder epoch",
+          "expect": {
+            "layer": "registry",
+            "any": [
+              "anchorCadence"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "registry",
+            "checks": [
+              "anchorCadence"
+            ]
+          },
+          "valid": true,
+          "detail": "IssuanceRootRegistryV4.publishEpoch reverted: anchorCadence: anchor too soon [anchorCadence]"
+        }
+      ]
+    },
+    {
+      "id": "PV8",
+      "title": "Credential from an unaccredited per-holder issuer DID",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV8 honest wallet checks accreditation",
+          "attacker": "issuer",
+          "goal": "per-holder DID",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "accreditation",
+              "issuerPop"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "accreditation"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (accreditation): no accreditation statement for this DID"
+        }
+      ]
+    },
+    {
+      "id": "PV5",
+      "title": "Served statement with permuted key order",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV5 permuted key order: verifier view identical to the canonical one",
+          "attacker": "issuer tagging one holder",
+          "goal": "link the holder",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "identicalViews"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "identicalViews"
+            ]
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "PV7",
+      "title": "Per-holder revocation root anchored right away",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV7 second revocation root five seconds after an anchor",
+          "attacker": "issuer",
+          "goal": "per-holder revocation root",
+          "expect": {
+            "layer": "registry",
+            "any": [
+              "anchorCadence"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "registry",
+            "checks": [
+              "anchorCadence"
+            ]
+          },
+          "valid": true,
+          "detail": "IssuanceRootRegistryV4.publishEpoch reverted: anchorCadence: anchor too soon [anchorCadence]"
+        }
+      ]
+    },
+    {
+      "id": "PV9",
+      "title": "Second controller record for the same DID (per-holder record)",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV9 credential naming a second, PoP-valid controller of issuer A",
+          "attacker": "issuer",
+          "goal": "per-holder controller record",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "accreditation",
+              "anchorMatches"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "anchorMatches"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (anchorMatches): issuer served a statement or path that is not its current signed on-chain anchor"
+        }
+      ]
+    },
+    {
+      "id": "PV10",
+      "title": "Epoch signature re-encoded as a per-holder tag (upper case, trailing data)",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV10 upper-case signature with a trailing tag",
+          "attacker": "issuer tagging one holder",
+          "goal": "link the holder",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "anchorMatches"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "anchorMatches"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (anchorMatches): served epoch statement is not in canonical form"
+        }
+      ]
+    },
+    {
+      "id": "PV11",
+      "title": "Extra `type` key in the served statement",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV11 statement with type = the epoch statement type",
+          "attacker": "issuer tagging one holder",
+          "goal": "link the holder",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "anchorMatches"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "anchorMatches"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (anchorMatches): served epoch statement is not in canonical form"
+        }
+      ]
+    },
+    {
+      "id": "PV12",
+      "title": "Published-tree wallet: does the issuer see a request when the holder presents?",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV12 issuer contacts during a presentation (published-tree default)",
+          "attacker": "issuer colluding with the verifier",
+          "goal": "link a presentation to a credential",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "publishedTree"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "publishedTree"
+            ]
+          },
+          "valid": true,
+          "detail": "reads of the issuer's service state during the presentation: 0"
+        }
+      ]
+    },
+    {
+      "id": "KL4",
+      "title": "Online mode: the issuer's services see the credID at presentation time",
+      "kind": "known-limitation",
+      "attempts": [
+        {
+          "route": "KL4 online-mode wallet contacts the issuer while presenting",
+          "attacker": "issuer colluding with the verifier",
+          "goal": "link a presentation to a credential",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true,
+          "detail": "issuer service calls naming the credID during the presentation: 2"
+        }
+      ]
+    },
+    {
+      "id": "PV13",
+      "title": "Issuer plants a covert-type credential in one wallet as a tag",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV13 wallet refuses a credential type outside its allow-list at issuance",
+          "attacker": "issuer",
+          "goal": "tag one holder with a covert type",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "typeAllowed"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "typeAllowed"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (typeAllowed): credential type pqid:type:covert-tag:v1 is not on this wallet's allow-list"
+        }
+      ]
+    },
+    {
+      "id": "PV14",
+      "title": "Deployment whose registry allows an anchor every second (per-holder epochs)",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "route": "PV14 honest wallet refuses a registry with a 1 s minimum anchor interval",
+          "attacker": "deployer",
+          "goal": "per-holder epochs",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "anchorCadence"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "anchorCadence"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (anchorCadence): registry allows epochs every 1 s, below the wallet floor"
+        }
+      ]
+    },
+    {
+      "id": "B0",
+      "title": "Revoked holder's honest wallet asks for a non-membership witness",
+      "kind": "baseline",
+      "attempts": [
+        {
+          "route": "B0 issuer service refuses",
+          "attacker": "none",
+          "goal": "",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "issuerServiceRefused"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "issuerServiceRefused"
+            ]
+          },
+          "valid": true,
+          "detail": "key is in the tree: no low leaf brackets it"
+        }
+      ]
+    },
+    {
+      "id": "KL2",
+      "title": "Frozen anchor: revoked holder inside the last statement's window (bounded latency)",
+      "kind": "known-limitation",
+      "attempts": [
+        {
+          "route": "FA-a before notAfter: revoked holder presents under the frozen anchor",
+          "attacker": "revoked holder + frozen anchor",
+          "goal": "keep presenting",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "FA",
+      "title": "Frozen anchor expires",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "FA-b after notAfter: verifier rejects the frozen statement",
+          "attacker": "revoked holder + frozen anchor",
+          "goal": "keep presenting",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "epochWindow"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "epochWindow"
+            ]
+          },
+          "valid": true,
+          "detail": "epochWindow: outside the epoch statement's signed validity window (or window signals differ)"
+        },
+        {
+          "route": "FA-c after notAfter: honest wallet refuses",
+          "attacker": "revoked holder + frozen anchor",
+          "goal": "keep presenting",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "epochWindow"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "epochWindow"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (epochWindow): the anchored epoch statement is outside its validity window"
+        }
+      ]
+    },
+    {
+      "id": "KL3",
+      "title": "Governance's de-accreditation of G is withheld: G stays accepted inside its accreditation window",
+      "kind": "known-limitation",
+      "attempts": [
+        {
+          "route": "KL3-a withheld de-accreditation, inside the accreditation window",
+          "attacker": "governance EVM account holder withholding a statement",
+          "goal": "keep a de-accredited issuer accepted",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "KL3-b",
+      "title": "Withheld de-accreditation: bounded by the accreditation window",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "KL3-b after the accreditation window: verifier rejects",
+          "attacker": "governance EVM account holder withholding a statement",
+          "goal": "keep a de-accredited issuer accepted",
+          "expect": {
+            "layer": "verifier",
+            "any": [
+              "accreditation"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "verifier",
+            "checks": [
+              "accreditation"
+            ]
+          },
+          "valid": true,
+          "detail": "accreditation: accreditation is outside its validity window"
+        }
+      ]
+    },
+    {
+      "id": "LD",
+      "title": "29 February birth on 28 Feb and 1 Mar of a common year (D-010)",
+      "kind": "control",
+      "attempts": [
+        {
+          "route": "LD-c age_lt t on 28 Feb (not yet t: accepted; permissive AGE_LT reading, D-010)",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "LD-refuse",
+      "title": "Leap-day birth: honest wallet refuses age_gte t on 28 Feb (not an attack)",
+      "kind": "baseline",
+      "attempts": [
+        {
+          "route": "LD-a age_gte t on 28 Feb: honest wallet refuses",
+          "attacker": "none",
+          "goal": "boundary",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "predicateHolds"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "predicateHolds"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (predicateHolds): the credential does not satisfy the request (the verifier learns this from the refusal)"
+        }
+      ]
+    },
+    {
+      "id": "LD-forge",
+      "title": "Leap-day birth: malicious wallet proves age_gte t on 28 Feb",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "LD-b age_gte t on 28 Feb with the attacker's generator",
+          "attacker": "holder born 29 Feb",
+          "goal": "age_gte t one day early",
+          "expect": {
+            "layer": "circuit",
+            "any": [
+              "G12_age"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "circuit",
+            "checks": [
+              "G12_age"
+            ]
+          },
+          "r1cs": {
+            "violated": 1,
+            "byGroup": {
+              "G12_age": 1
+            }
+          },
+          "proofVerifies": false,
+          "valid": true,
+          "detail": "verifier failedChecks=[groth16]"
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "title": "Session opened before midnight, answered after a post-midnight re-anchor (B5 CIR-2)",
+      "kind": "control",
+      "attempts": [
+        {
+          "route": "C3-a session across midnight and a re-anchor",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "SD-d",
+      "title": "Verifier asks for the other acceptable date minutes after midnight (two-date probe)",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "SD-d second request for 1 Mar right after answering 28 Feb",
+          "attacker": "verifier",
+          "goal": "answers for two dates: exact birth or expiry date",
+          "expect": {
+            "layer": "wallet-enforced",
+            "any": [
+              "dateCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet-enforced",
+            "checks": [
+              "dateCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (dateCurrent): the wallet answered another date within the last 600 s"
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "title": "Honest verifier asks the other date minutes after midnight (D-017 cost; not a defence)",
+      "kind": "baseline",
+      "attempts": [
+        {
+          "route": "B4 honest request for 1 Mar after the wallet answered 28 Feb at 00:01",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "dateCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "dateCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (dateCurrent): the wallet answered another date within the last 600 s"
+        }
+      ]
+    },
+    {
+      "id": "SD-f",
+      "title": "Two requests with the two acceptable dates at the same moment (race)",
+      "kind": "attack",
+      "attempts": [
+        {
+          "route": "SD-f concurrent requests for 28 Feb and 1 Mar right after midnight",
+          "attacker": "verifier",
+          "goal": "answers for two dates: exact birth or expiry date",
+          "expect": {
+            "layer": "wallet-enforced",
+            "any": [
+              "dateCurrent"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet-enforced",
+            "checks": [
+              "dateCurrent"
+            ]
+          },
+          "valid": true,
+          "detail": "answered | dateCurrent"
+        }
+      ]
+    },
+    {
+      "id": "LD",
+      "title": "29 February birth on 28 Feb and 1 Mar of a common year (D-010)",
+      "kind": "control",
+      "attempts": [
+        {
+          "route": "LD-d age_gte t on 1 Mar: accepted",
+          "attacker": "none",
+          "goal": "honest presentation",
+          "expect": {
+            "layer": "accepted",
+            "any": []
+          },
+          "accepted": true,
+          "stoppedBy": {
+            "layer": "accepted",
+            "checks": []
+          },
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "LD-refuse",
+      "title": "Leap-day birth: honest wallet refuses age_lt t on 1 Mar (not an attack)",
+      "kind": "baseline",
+      "attempts": [
+        {
+          "route": "LD-e age_lt t on 1 Mar: honest wallet refuses",
+          "attacker": "none",
+          "goal": "boundary",
+          "expect": {
+            "layer": "wallet",
+            "any": [
+              "predicateHolds"
+            ]
+          },
+          "accepted": false,
+          "stoppedBy": {
+            "layer": "wallet",
+            "checks": [
+              "predicateHolds"
+            ]
+          },
+          "valid": true,
+          "detail": "wallet refuses (predicateHolds): the credential does not satisfy the request (the verifier learns this from the refusal)"
+        }
+      ]
+    }
+  ],
+  "durationSec": 170,
+  "artifacts": {
+    "r1cs": {
+      "file": "circuits/build/v4/credential_auth_v4.r1cs",
+      "sha256": "c593e9f29094c44efa2b0bf1805715b96e5b3a6815b39c761cdb25c18c9e87b5"
+    },
+    "wasm": {
+      "file": "circuits/build/v4/credential_auth_v4_js/credential_auth_v4.wasm",
+      "sha256": "678720322fc69048b40aa375ee7c9cc2eab5d0ce58f116d54ac1bab6957bd8ae"
+    },
+    "zkey": {
+      "file": "setup/out/v4/credential_auth_v4_dev.zkey",
+      "sha256": "b6f1675c3b8996f5165d54912bc9e7f592cd9ff3286c1a236ad375ea635635d4",
+      "keyLabel": "dev"
+    },
+    "vkey": {
+      "file": "setup/out/v4/verification_key_dev.json",
+      "sha256": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42"
+    }
+  },
+  "pqc": "OpenSSL 3.5.7 via Node 24.18.0",
+  "trapdoor": {
+    "beaconDerivedDeltaMatchesKey": false,
+    "note": "false means a secret contribution precedes the beacon, so delta is not public"
+  },
+  "standardThresholds": [
+    13,
+    14,
+    15,
+    16,
+    18,
+    21,
+    65
+  ],
+  "harnessSha256": "1b3f65df70882500809990e3ccac8424ae4470293849cc95476aee73950b586c",
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-10-03T15:05:09.852Z"
+  }
+}

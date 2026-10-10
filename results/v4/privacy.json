@@ -1,0 +1,418 @@
+{
+  "schema": "pqid/v4-privacy/v1",
+  "anonymitySetDefinition": "credentials in the current anchored epoch of the presentation's issuer that satisfy the verifier's policy (predicate, threshold, date, type), unexpired and not revoked",
+  "anonymity": [
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 13,
+      "ageGteSet": 85556,
+      "ageLtSet": 14444,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 14,
+      "ageGteSet": 84444,
+      "ageLtSet": 15556,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 15,
+      "ageGteSet": 83333,
+      "ageLtSet": 16667,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 16,
+      "ageGteSet": 82222,
+      "ageLtSet": 17778,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 18,
+      "ageGteSet": 80000,
+      "ageLtSet": 20000,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 21,
+      "ageGteSet": 76667,
+      "ageLtSet": 23333,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 65,
+      "ageGteSet": 27778,
+      "ageLtSet": 72222,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 13,
+      "ageGteSet": 855556,
+      "ageLtSet": 144444,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 14,
+      "ageGteSet": 844444,
+      "ageLtSet": 155556,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 15,
+      "ageGteSet": 833333,
+      "ageLtSet": 166667,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 16,
+      "ageGteSet": 822222,
+      "ageLtSet": 177778,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 18,
+      "ageGteSet": 800000,
+      "ageLtSet": 200000,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 21,
+      "ageGteSet": 766667,
+      "ageLtSet": 233333,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "ages uniform 0-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 65,
+      "ageGteSet": 277778,
+      "ageLtSet": 722222,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 13,
+      "ageGteSet": 100000,
+      "ageLtSet": 0,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 14,
+      "ageGteSet": 100000,
+      "ageLtSet": 0,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 15,
+      "ageGteSet": 100000,
+      "ageLtSet": 0,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 16,
+      "ageGteSet": 100000,
+      "ageLtSet": 0,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 18,
+      "ageGteSet": 100000,
+      "ageLtSet": 0,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 21,
+      "ageGteSet": 95833,
+      "ageLtSet": 4167,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 100000,
+      "threshold": 65,
+      "ageGteSet": 34722,
+      "ageLtSet": 65278,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 13,
+      "ageGteSet": 1000000,
+      "ageLtSet": 0,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 14,
+      "ageGteSet": 1000000,
+      "ageLtSet": 0,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 15,
+      "ageGteSet": 1000000,
+      "ageLtSet": 0,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 16,
+      "ageGteSet": 1000000,
+      "ageLtSet": 0,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 18,
+      "ageGteSet": 1000000,
+      "ageLtSet": 0,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 21,
+      "ageGteSet": 958333,
+      "ageLtSet": 41667,
+      "label": "[S] no revocations, none expired, one type"
+    },
+    {
+      "model": "adults uniform 18-90 years",
+      "credentialsInEpoch": 1000000,
+      "threshold": 65,
+      "ageGteSet": 347222,
+      "ageLtSet": 652778,
+      "label": "[S] no revocations, none expired, one type"
+    }
+  ],
+  "leaks": {
+    "issuerVisibility": {
+      "issuersEqualSize": [
+        {
+          "issuers": 2,
+          "bits": 1
+        },
+        {
+          "issuers": 10,
+          "bits": 3.32
+        },
+        {
+          "issuers": 100,
+          "bits": 6.64
+        }
+      ],
+      "note": "[S] the verifier learns which issuer; bits = log2(number of equally sized issuers)"
+    },
+    "epochVisibility": {
+      "maxEpochsPerDay": 24,
+      "windowSec": 86400,
+      "note": "[S] the epoch is shared by every holder of the issuer; it reveals at most which anchor interval the presentation fell in, which the verifier already knows from time"
+    },
+    "pathFetchOnline": [
+      {
+        "credentials": 100000,
+        "bitsToIssuer": 16.61,
+        "note": "[S] online mode: the issuer sees which leaf (so which holder) fetches a path, and when"
+      },
+      {
+        "credentials": 1000000,
+        "bitsToIssuer": 19.93,
+        "note": "[S] online mode: the issuer sees which leaf (so which holder) fetches a path, and when"
+      }
+    ],
+    "pathFetchPublished": {
+      "bitsToIssuer": 0,
+      "note": "[S] published-tree mode: every wallet downloads the same blob"
+    },
+    "perHolderEpochTargeting": {
+      "maxDistinctEpochsPerDay": 24,
+      "bitsPerDayUpperBound": 4.58,
+      "note": "[S] registry cadence caps epochs at one per interval; with published trees the issuer cannot tell who presents in an epoch, so this only partitions presentations by hour"
+    },
+    "thresholdAnswers": [
+      {
+        "model": "ages uniform 0-90 years",
+        "brackets": 8,
+        "maxBits": 3,
+        "expectedBits": 1.923,
+        "label": "[S] verifier asks every standard threshold and links the answers"
+      },
+      {
+        "model": "adults uniform 18-90 years",
+        "brackets": 3,
+        "maxBits": 1.585,
+        "expectedBits": 1.155,
+        "label": "[S] verifier asks every standard threshold and links the answers"
+      }
+    ],
+    "unrestrictedBinarySearch": [
+      {
+        "model": "ages uniform 0-90 years",
+        "bits": 15,
+        "label": "[S] unrestricted thresholds at day resolution (the v3 leak)"
+      },
+      {
+        "model": "adults uniform 18-90 years",
+        "bits": 14.68,
+        "label": "[S] unrestricted thresholds at day resolution (the v3 leak)"
+      }
+    ],
+    "repeatedQueriesAroundBirthday": [
+      {
+        "windowDays": 30,
+        "pCrossingUniform090": 0.0064,
+        "bitsIfCrossed": 8.51,
+        "label": "[S] daily queries by a verifier that can link the holder across days (e.g. an account); answer flips on the birthday"
+      },
+      {
+        "windowDays": 90,
+        "pCrossingUniform090": 0.0192,
+        "bitsIfCrossed": 8.51,
+        "label": "[S] daily queries by a verifier that can link the holder across days (e.g. an account); answer flips on the birthday"
+      },
+      {
+        "windowDays": 365,
+        "pCrossingUniform090": 0.0777,
+        "bitsIfCrossed": 8.51,
+        "label": "[S] daily queries by a verifier that can link the holder across days (e.g. an account); answer flips on the birthday"
+      }
+    ],
+    "refusalKinds": {
+      "bitsUpperBound": 1,
+      "note": "[S] observation model DECISIONS D-026 (the caller of the wallet sees the refusal reason and timing): for a request that passes the request-level checks, a revoked credential or one not yet in the anchored epoch is refused with one generic anchorMatches refusal, differently from one that does not satisfy the predicate or has expired (predicateHolds); only holders who cannot present are affected. Requests with a non-standard threshold, a non-current date or a type outside the allow-list are refused before any credential-dependent work (routes TP-a, TP-c, TP-d, SD-b, SD-d, SD-f, SD-g, TY-c)."
+    },
+    "dateLogAcrossVerifiers": {
+      "bitsUpperBound": 1,
+      "windowSec": 600,
+      "note": "[S] review round 2 VRA-2: the wallet answers one date per window across all verifiers, so a verifier asking the other date within the window after midnight learns that the holder answered some verifier for the first date (DECISIONS D-027)"
+    },
+    "allowListMembership": {
+      "note": "[S] review round 2 VRA-6: typeAllowed and typeHeld refuse differently, so a verifier can learn whether a type is on the wallet's allow-list (the list itself, not the credentials held beyond the D-018 bound)"
+    },
+    "midnightTolerance": {
+      "fractionOfDay": 0.0035,
+      "note": "[S] share of the day in which the wallet accepts two dates (the previous date only in the first WALLET_CLOCK_SKEW_SEC after UTC midnight, never a future date; DECISIONS D-017); within any 2 x WALLET_CLOCK_SKEW_SEC window the wallet answers one date only, so a verifier gets at most one of the two answers per visit"
+    }
+  },
+  "publishedTree": {
+    "statementBytes": 5307,
+    "sizes": [
+      {
+        "credentials": 100000,
+        "revocationFraction": 0.001,
+        "revocations": 100,
+        "bytes": 3208579,
+        "MiB": 3.06,
+        "label": "[S] exact from the blob format (packages/v4/src/published.ts), validated against a real blob by tests/v4/published.test.ts"
+      },
+      {
+        "credentials": 100000,
+        "revocationFraction": 0.01,
+        "revocations": 1000,
+        "bytes": 3237379,
+        "MiB": 3.09,
+        "label": "[S] exact from the blob format (packages/v4/src/published.ts), validated against a real blob by tests/v4/published.test.ts"
+      },
+      {
+        "credentials": 100000,
+        "revocationFraction": 0.05,
+        "revocations": 5000,
+        "bytes": 3365379,
+        "MiB": 3.21,
+        "label": "[S] exact from the blob format (packages/v4/src/published.ts), validated against a real blob by tests/v4/published.test.ts"
+      },
+      {
+        "credentials": 1000000,
+        "revocationFraction": 0.001,
+        "revocations": 1000,
+        "bytes": 32037379,
+        "MiB": 30.55,
+        "label": "[S] exact from the blob format (packages/v4/src/published.ts), validated against a real blob by tests/v4/published.test.ts"
+      },
+      {
+        "credentials": 1000000,
+        "revocationFraction": 0.01,
+        "revocations": 10000,
+        "bytes": 32325379,
+        "MiB": 30.83,
+        "label": "[S] exact from the blob format (packages/v4/src/published.ts), validated against a real blob by tests/v4/published.test.ts"
+      },
+      {
+        "credentials": 1000000,
+        "revocationFraction": 0.05,
+        "revocations": 50000,
+        "bytes": 33605379,
+        "MiB": 32.05,
+        "label": "[S] exact from the blob format (packages/v4/src/published.ts), validated against a real blob by tests/v4/published.test.ts"
+      }
+    ],
+    "timing": [
+      {
+        "credentials": 100000,
+        "revocations": 1000,
+        "issuanceRebuildMs": 6030,
+        "revocationRebuildMs": 144,
+        "label": "[M] single run, in-process, wallet-side rebuild from a downloaded blob"
+      },
+      {
+        "credentials": 1000000,
+        "revocations": 10000,
+        "issuanceRebuildMs": 59382,
+        "revocationRebuildMs": 1386,
+        "label": "[M] single run, in-process, wallet-side rebuild from a downloaded blob"
+      }
+    ]
+  },
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-27T21:59:08.003Z"
+  }
+}

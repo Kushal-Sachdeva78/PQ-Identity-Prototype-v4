@@ -1,0 +1,8 @@
+{
+  "name": "wallet:verifierRecord",
+  "port": 8633,
+  "out": "<repo>\\results\\v4\\mutation\\wallet__verifierRecord",
+  "walletDisabled": [
+    "verifierRecord"
+  ]
+}

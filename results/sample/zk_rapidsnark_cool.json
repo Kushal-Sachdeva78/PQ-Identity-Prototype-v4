@@ -1,0 +1,168 @@
+{
+  "schema": "pqid/zk-rapidsnark-cool/v1",
+  "label": "[M] §C1 cool-state re-measurement (thermal-confound isolation)",
+  "thermalState": "run after a >=10-minute idle cool-down on the quiesced machine — versus the campaign's zk.json where rapidsnark executed LAST, heat-soaked after ~50 min of sustained snarkJS proving. Identical staged zkey+witness (SHA-256-verified), identical N/warmup/method.",
+  "controls": {
+    "quiesce": {
+      "quiesced": true,
+      "forced": false,
+      "windows": {
+        "offendingProcesses": [],
+        "nodeCount": 3,
+        "cpuLoadPercent": 20
+      },
+      "wsl": {
+        "offendingProcesses": [],
+        "loadavg1m": 0.16
+      }
+    },
+    "affinity": {
+      "policy": "free scheduling across 12 vCPUs/logical CPUs (quiesced machine)",
+      "rationale": "rapidsnark v0.0.8 is pthread-pool multithreaded (0 OpenMP / 7 pthread symbols); the live probe shows 1-vCPU pinning ≈2.7× slower than free — pinning would not reproduce the paper's method. WSL2 vCPU→P/E-core placement is hypervisor-controlled and not configurable from the guest; quiescing + inter-run stability are the effective §B controls (probe embedded as evidence)."
+    },
+    "cpuGovernor": "unavailable (WSL2 Hyper-V VM — frequency is host-managed; recorded per §B4)",
+    "powerSource": "AC (BatteryStatus=2)",
+    "fsBasis": "WSL-native ext4 staged inputs (same files as zk.json)",
+    "invocations": 3,
+    "ambientLoadNote": "host is an interactive laptop: desktop apps (desktop UI, browser, vendor services) contribute a fluctuating ~10-20% ambient load that cannot be fully quiesced; build/prover tooling is process-checked to zero, and inter-run CV is the stability arbiter (§B5)",
+    "host": {
+      "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+      "logicalCores": 12,
+      "totalMemGiB": 15.7,
+      "platform": "win32 x64",
+      "osRelease": "10.0.26200",
+      "osBuild": "10.0.26200.8655",
+      "nodeVersion": "v22.16.0",
+      "timestampUtc": "2026-06-11T12:30:30.822Z"
+    },
+    "wsl": {
+      "kernel": "6.6.114.1-microsoft-standard-WSL2",
+      "distro": "Ubuntu 26.04 LTS",
+      "gcc": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+      "cmake": "cmake version 4.2.3",
+      "python": "Python 3.14.4"
+    }
+  },
+  "config": {
+    "n": 100,
+    "warmup": 5,
+    "runs": 3,
+    "zkeySha256": "63529c2b8a3320ce352401b3bf89fa0cde4ff3d0c5354e6d5b6f28c83f9101cc"
+  },
+  "cold": {
+    "perRun": [
+      {
+        "n": 100,
+        "meanMs": 190.5753,
+        "medianMs": 177.4455,
+        "stddevMs": 26.5429,
+        "minMs": 165.269,
+        "maxMs": 256.639,
+        "p95Ms": 245.738
+      },
+      {
+        "n": 100,
+        "meanMs": 232.0412,
+        "medianMs": 228.7305,
+        "stddevMs": 10.8754,
+        "minMs": 216.171,
+        "maxMs": 269.902,
+        "p95Ms": 250.723
+      },
+      {
+        "n": 100,
+        "meanMs": 232.7259,
+        "medianMs": 227.768,
+        "stddevMs": 11.6905,
+        "minMs": 217.816,
+        "maxMs": 290.449,
+        "p95Ms": 253.062
+      }
+    ],
+    "interRun": {
+      "runs": 3,
+      "meansMs": [
+        190.58,
+        232.04,
+        232.73
+      ],
+      "mediansMs": [
+        177.45,
+        228.73,
+        227.77
+      ],
+      "medianOfMeansMs": 232.04,
+      "medianOfMediansMs": 227.77,
+      "spreadPct": 22.52,
+      "cvPct": 11.05,
+      "stable": false
+    },
+    "headline": {
+      "valueMs": 232.7259,
+      "basis": "mean",
+      "rule": "σ/mean > 0.2 → median headline (§B6)"
+    }
+  },
+  "amortized": {
+    "perRun": [
+      {
+        "n": 100,
+        "meanMs": 231.5066,
+        "medianMs": 223.438,
+        "stddevMs": 18.4238,
+        "minMs": 209.993,
+        "maxMs": 310.624,
+        "p95Ms": 265.726
+      },
+      {
+        "n": 100,
+        "meanMs": 226.1863,
+        "medianMs": 223.1875,
+        "stddevMs": 12.66,
+        "minMs": 206.643,
+        "maxMs": 282.605,
+        "p95Ms": 244.67
+      },
+      {
+        "n": 100,
+        "meanMs": 222.2266,
+        "medianMs": 218.2735,
+        "stddevMs": 10.6994,
+        "minMs": 207.662,
+        "maxMs": 254.016,
+        "p95Ms": 242.872
+      }
+    ],
+    "interRun": {
+      "runs": 3,
+      "meansMs": [
+        231.51,
+        226.19,
+        222.23
+      ],
+      "mediansMs": [
+        223.44,
+        223.19,
+        218.27
+      ],
+      "medianOfMeansMs": 226.19,
+      "medianOfMediansMs": 223.19,
+      "spreadPct": 2.31,
+      "cvPct": 2.05,
+      "stable": true
+    },
+    "headline": {
+      "valueMs": 226.1863,
+      "basis": "mean",
+      "rule": "σ/mean > 0.2 → median headline (§B6)"
+    }
+  },
+  "proofVerifies": true,
+  "campaignComparison": {
+    "note": "compare against results/zk.json rapidsnarkProveCold/Amortized (heat-soaked ordering)"
+  },
+  "paperClaim": {
+    "manuscriptVersion": "V6.6",
+    "coolMs": 177
+  }
+}

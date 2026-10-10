@@ -1,0 +1,390 @@
+{
+  "schema": "pqid/v4-fuzz-summary/v1",
+  "campaign": "fz1",
+  "smoke": false,
+  "note": "untimed fuzz campaign; counts only (no timing results)",
+  "totals": {
+    "targets": 17,
+    "casesRun": 708736,
+    "targetsWithViolations": 3,
+    "distinctSignatures": 3,
+    "incompleteTargets": [
+      "T-dates",
+      "T-req-shape",
+      "T-reply-shape"
+    ],
+    "hangs": []
+  },
+  "coverage": {
+    "linesExecutable": 3368,
+    "linesCovered": 2791,
+    "linePercent": 82.9,
+    "functions": 390,
+    "functionsCovered": 313,
+    "functionPercent": 80.3,
+    "scope": "modules of the scope loaded by at least one fuzz process (unloaded files are listed, not counted)",
+    "unloadedFiles": []
+  },
+  "targets": [
+    {
+      "target": "T-dates",
+      "kind": "pure",
+      "budget": null,
+      "casesRun": 0,
+      "complete": false,
+      "stoppedBy": "child exit code 1",
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": null,
+      "distinctSignatures": null,
+      "signatures": [],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": null
+    },
+    {
+      "target": "T-encoding",
+      "kind": "pure",
+      "budget": 100000,
+      "casesRun": 100000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [
+        {
+          "id": "credType:loneSurrogateCollision",
+          "count": 5646
+        },
+        {
+          "id": "policyHash:requiredTypeAliasModP",
+          "count": 2158
+        }
+      ],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-stmt-json",
+      "kind": "pure",
+      "budget": 100000,
+      "casesRun": 100000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [
+        {
+          "id": "exoticObjectThrows",
+          "count": 1768
+        }
+      ],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-stmt-bytes",
+      "kind": "pure",
+      "budget": 100000,
+      "casesRun": 100000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-stmt-sig",
+      "kind": "pure",
+      "budget": 10000,
+      "casesRun": 10000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-req-shape",
+      "kind": "pure",
+      "budget": null,
+      "casesRun": 0,
+      "complete": false,
+      "stoppedBy": "child exit code 1",
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": null,
+      "distinctSignatures": null,
+      "signatures": [],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": null
+    },
+    {
+      "target": "T-reply-shape",
+      "kind": "pure",
+      "budget": 200000,
+      "casesRun": 88736,
+      "complete": false,
+      "stoppedBy": "child exit code 1",
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [
+        {
+          "id": "exoticObjectThrows",
+          "count": 1492
+        }
+      ],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-open",
+      "kind": "pure",
+      "budget": 50000,
+      "casesRun": 50000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 10,
+      "distinctSignatures": 1,
+      "signatures": [
+        {
+          "predicate": "harness:runError",
+          "errorClass": "Error",
+          "occurrences": 10,
+          "file": "results/v4/robustness/fuzz/fz1/failures/T-open/00a08412a548.json"
+        }
+      ],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": 10
+    },
+    {
+      "target": "T-depth",
+      "kind": "pure",
+      "budget": 20000,
+      "casesRun": 20000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-pres-shape",
+      "kind": "pure",
+      "budget": 100000,
+      "casesRun": 100000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [
+        {
+          "id": "longDecimalParse",
+          "count": 2609
+        }
+      ],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-witness",
+      "kind": "pure",
+      "budget": 50000,
+      "casesRun": 50000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 1,
+      "distinctSignatures": 1,
+      "signatures": [
+        {
+          "predicate": "buildCircuitInputV4:acceptedMalformed",
+          "errorClass": null,
+          "occurrences": 1,
+          "file": "results/v4/robustness/fuzz/fz1/failures/T-witness/60768ea948f7.json"
+        }
+      ],
+      "observations": [
+        {
+          "id": "longDecimalParse",
+          "count": 2507
+        }
+      ],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-pqc",
+      "kind": "pure",
+      "budget": 20000,
+      "casesRun": 20000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-imt",
+      "kind": "pure",
+      "budget": 20000,
+      "casesRun": 20000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-pub",
+      "kind": "pure",
+      "budget": 20000,
+      "casesRun": 20000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [
+        {
+          "id": "nonCanonicalAccepted:trailingBytesIgnored",
+          "count": 1750
+        },
+        {
+          "id": "throws:SyntaxError",
+          "count": 5698
+        },
+        {
+          "id": "nonCanonicalAccepted:statementSpelling",
+          "count": 1699
+        },
+        {
+          "id": "nonCanonicalAccepted:leafAboveP",
+          "count": 1131
+        },
+        {
+          "id": "nonCanonicalAccepted:imtLengthOverstated",
+          "count": 472
+        },
+        {
+          "id": "throws:TypeError",
+          "count": 612
+        },
+        {
+          "id": "nonCanonicalAccepted:depthNotChecked",
+          "count": 1361
+        },
+        {
+          "id": "throws:RangeError",
+          "count": 5
+        },
+        {
+          "id": "nonCanonicalAccepted:reservedBytesNotZero",
+          "count": 1
+        }
+      ],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-verify",
+      "kind": "chain",
+      "budget": 20000,
+      "casesRun": 20000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-wallet-req",
+      "kind": "chain",
+      "budget": 5000,
+      "casesRun": 5000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 13,
+      "distinctSignatures": 1,
+      "signatures": [
+        {
+          "predicate": "checkRequest:onlyNamedRefusals",
+          "errorClass": null,
+          "occurrences": 13,
+          "file": "results/v4/robustness/fuzz/fz1/failures/T-wallet-req/d684e06eec1c.json"
+        }
+      ],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": 0
+    },
+    {
+      "target": "T-wallet-iss",
+      "kind": "chain",
+      "budget": 5000,
+      "casesRun": 5000,
+      "complete": true,
+      "stoppedBy": null,
+      "hangFile": null,
+      "anvilCleanup": null,
+      "casesWithViolations": 0,
+      "distinctSignatures": 0,
+      "signatures": [],
+      "observations": [],
+      "slowCases": 0,
+      "harnessErrors": 0
+    }
+  ],
+  "finishedUtc": "2026-10-03T09:34:38.668Z"
+}

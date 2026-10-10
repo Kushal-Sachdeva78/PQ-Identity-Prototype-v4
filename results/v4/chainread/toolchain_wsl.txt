@@ -1,0 +1,15 @@
+# WSL toolchain for the D-034 series (scripts/wsl/besu_wsl_setup.sh); paths relative to the WSL home
+recorded_utc: 2026-10-01T11:33:58Z
+kernel: 6.18.33.2-microsoft-standard-WSL2
+jdk: ~/pqid-tools/jdk25/jdk-25.0.4.1+1
+jdk_version: openjdk version "25.0.4.1" 2026-08-18 LTS OpenJDK Runtime Environment Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS) 
+jdk_source: https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.4.1%2B1/OpenJDK25U-jdk_x64_linux_hotspot_25.0.4.1_1.tar.gz
+jdk_tarball_sha256: dbb698396d478e7fa2b1e50f4103324b2a99b90569ee27c33f2261f9215cf41e (pinned dbb698396d478e7fa2b1e50f4103324b2a99b90569ee27c33f2261f9215cf41e; Adoptium published value checked)
+besu: ~/pqid-tools/besu/besu-26.9.0
+besu_version: besu/v26.9.0/linux-x86_64/openjdk-java-25
+besu_zip_sha256: 749f90b0b29b8138f5d58b949d19eed721826cab66bfb8d983f86e15831d22b2 (pinned 749f90b0b29b8138f5d58b949d19eed721826cab66bfb8d983f86e15831d22b2; copied from the Windows download, no download)
+anvil: ~/pqid-tools/anvil-1.5.1/anvil
+anvil_version: anvil Version: 1.5.1-v1.5.1 Commit SHA: b0a9dd9ceda36f63e2326ce530c10e6916f4b8a2 
+anvil_sha256: b47362d2159aa0f2f575320e5e529bb5a91093cb62dc6bd30c0022018aa9f738
+anvil_source: /usr/local/bin/anvil of Docker image pqid-v4:latest (sha256:b3ec68243aff83945a860b2bc9a86388cf984798756a6bc9a028d0b956eb2433)
+node: ~/.nvm/versions/node/v24.21.0/bin/node (v24.21.0 openssl 3.5.8)

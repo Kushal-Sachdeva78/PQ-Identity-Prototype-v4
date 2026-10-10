@@ -1,0 +1,68 @@
+{
+  "schema": "pqid/v4-mutation-comparison/v1",
+  "run": "post-fix rerun (D-034)",
+  "key": "dev key",
+  "base": {
+    "file": "results/v4/mutation.json",
+    "sha256": "84405738a5a36124e12b374f7d7adb3d976c3feba97de8b99883da45fee3bf40",
+    "keyLabel": "dev",
+    "run": "campaign 5"
+  },
+  "next": {
+    "file": "results/v4/fixcheck/2026-10-03/mutation/mutation.json",
+    "keyLabel": "dev"
+  },
+  "keySwitch": {
+    "method": "none: the pinned dev key is the default of packages/v4/src/paths.ts, so the children run without the rekey loader (rekey_probe.ts without the loader checks that they resolve the pinned dev files)",
+    "packageDefaultKey": "dev"
+  },
+  "rule": "per defence: routes let through, controls broken, routes stopped elsewhere, harness errors, run errors and the exit code; post-fix rerun (D-034): any difference is review",
+  "defencesBase": 59,
+  "defencesNew": 59,
+  "missing": [],
+  "extra": [],
+  "differing": [],
+  "noEffectBase": [
+    "circuit:G09_predicate_code",
+    "circuit:G11_ranges",
+    "circuit:G16_stmt",
+    "circuit:G17_nonce",
+    "verifier:issuerKeyHash",
+    "verifier:issuerPop",
+    "verifier:issuerRecord",
+    "verifier:sessionKnown",
+    "verifier:shape",
+    "verifier:stmtCode",
+    "verifier:transcriptDecrypts",
+    "wallet:credentialSignature",
+    "wallet:dateInWindow",
+    "wallet:issuerPop",
+    "wallet:issuerRecord",
+    "wallet:predicateHolds",
+    "wallet:requestShape",
+    "wallet:typeHeld",
+    "wallet:verifierRecord"
+  ],
+  "noEffectNew": [
+    "circuit:G09_predicate_code",
+    "circuit:G11_ranges",
+    "circuit:G16_stmt",
+    "circuit:G17_nonce",
+    "verifier:issuerKeyHash",
+    "verifier:issuerPop",
+    "verifier:issuerRecord",
+    "verifier:sessionKnown",
+    "verifier:shape",
+    "verifier:stmtCode",
+    "verifier:transcriptDecrypts",
+    "wallet:credentialSignature",
+    "wallet:dateInWindow",
+    "wallet:issuerPop",
+    "wallet:issuerRecord",
+    "wallet:predicateHolds",
+    "wallet:requestShape",
+    "wallet:typeHeld",
+    "wallet:verifierRecord"
+  ],
+  "identical": true
+}

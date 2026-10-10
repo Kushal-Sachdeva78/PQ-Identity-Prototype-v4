@@ -1,0 +1,26 @@
+{
+  "schema": "pqid/v4-fuzz-observation/v1",
+  "observation": "exoticObjectThrows",
+  "detail": "replyShapeErrors threw Error on Proxy whose ownKeys trap throws",
+  "target": "T-reply-shape",
+  "masterSeed": 20261022,
+  "targetSeed": 2119905311,
+  "caseIndex": 15,
+  "caseSeed": 1210009014,
+  "family": "exotic",
+  "recipe": [
+    "Proxy whose ownKeys trap throws"
+  ],
+  "meta": {
+    "$t": "object",
+    "entries": []
+  },
+  "input": {
+    "$t": "exotic",
+    "kind": "unreadable",
+    "note": "Error"
+  },
+  "inputTypedJsonBytes": 50,
+  "inputTypedJsonSha256": "a18a837ef7f98c6f9fb4f5661baa09d31477a9676e7fb870216737b98a66ca38",
+  "inputTruncated": false
+}

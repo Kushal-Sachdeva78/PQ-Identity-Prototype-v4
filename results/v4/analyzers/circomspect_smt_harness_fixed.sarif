@@ -1,0 +1,116 @@
+{
+  "runs": [
+    {
+      "results": [
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\v4\\research\\smt_isold0_harness_fixed.circom"
+                },
+                "region": {
+                  "endColumn": 26,
+                  "endLine": 13,
+                  "startColumn": 5,
+                  "startLine": 13
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\v4\\research\\smt_isold0_harness_fixed.circom"
+                },
+                "region": {
+                  "endColumn": 31,
+                  "endLine": 18,
+                  "startColumn": 28,
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element comparison here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\v4\\research\\smt_isold0_harness_fixed.circom"
+                },
+                "region": {
+                  "endColumn": 26,
+                  "endLine": 18,
+                  "startColumn": 21,
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Comparisons with field elements greater than `p/2` may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0003"
+          },
+          "ruleId": "CS0003"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "downloadUri": "https://github.com/trailofbits/circomspect",
+          "name": "Circomspect",
+          "organization": "Trail of Bits",
+          "rules": [
+            {
+              "id": "CS0003",
+              "name": "field-element-comparison"
+            },
+            {
+              "id": "CS0004",
+              "name": "field-element-arithmetic"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

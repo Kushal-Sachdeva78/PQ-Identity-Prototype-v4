@@ -1,0 +1,8 @@
+{
+  "name": "wallet:dateInWindow",
+  "port": 8646,
+  "out": "<repo>\\results\\v4\\mutation\\wallet__dateInWindow",
+  "walletDisabled": [
+    "dateInWindow"
+  ]
+}

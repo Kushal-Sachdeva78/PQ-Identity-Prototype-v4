@@ -1,0 +1,977 @@
+{
+  "schema": "pqid/v3-security-suite/v2",
+  "label": "[M] v2 vs v3 attack suite (same host, same chain, same issuers)",
+  "pass": true,
+  "summary": {
+    "controlsAccepted": {
+      "v2": "1/1",
+      "v3": "7/7"
+    },
+    "v3AttackRoutes": 32,
+    "v3AttackRoutesAccepted": 0,
+    "v3AttackRoutesStoppedBy": {
+      "verifierCheck": 17,
+      "proofSystem": 6,
+      "referenceWitnessGeneratorOnly": 9
+    },
+    "v2AttackRoutes": 11,
+    "v2AttackRoutesAccepted": 7,
+    "v2GapsReproduced": [
+      "A1",
+      "A2",
+      "A4",
+      "A5",
+      "T1",
+      "A3"
+    ],
+    "privacyChecksPass": true,
+    "knownLimitationsAccepted": [
+      "v2: victim's honest wallet answers the relayed request",
+      "v3: victim's honest wallet answers the relayed request"
+    ],
+    "invalidTests": 0
+  },
+  "privacy": {
+    "verifierViews": {
+      "holders": 4,
+      "distinctVerifierViews": {
+        "v2": 1,
+        "v3": 1
+      },
+      "allAccepted": true,
+      "pass": true,
+      "note": "view = public signals except the nonce, plus issuerDid and the attestation; proofs are re-randomized"
+    }
+  },
+  "trapdoor": {
+    "v2": {
+      "matchesDelta": true,
+      "gammaIsGenerator": true
+    },
+    "v3": {
+      "matchesDelta": false,
+      "gammaIsGenerator": true
+    }
+  },
+  "attackerWitnessGenerator": {
+    "sameWireLayout": true
+  },
+  "artifacts": {
+    "v2": {
+      "zkeySha256": "63529c2b8a3320ce352401b3bf89fa0cde4ff3d0c5354e6d5b6f28c83f9101cc",
+      "vkeySha256": "79d31eb1348bbae607819a1579200030a002b1f877d3151d72e53aeb978a5940",
+      "r1csSha256": "4f52c2841c40a4e56ea5a640be280f5a45c1617396d069190319a4d0c449517f"
+    },
+    "v3": {
+      "zkeySha256": "f0d412eb141e6ea0f9d9703ebd8b226175c63070c58ed1e0e7a332e865a0117f",
+      "vkeySha256": "bdb7b352657e4fdbace212c2df3b7656b49f39d4a8ce38a14bea02c15726771e",
+      "r1csSha256": "fe66790db13004b57c52169592228c95c025c0a627cb6f1c9c3afb24332c9314"
+    }
+  },
+  "harnessSha256": "4b885a8eb3565706ae266a1f27cc43bf713dd54d0323cc6cb3297771dadad747",
+  "mlDsa": "dilithium-py 1.4.0 (local venv)",
+  "attacks": [
+    {
+      "id": "C0",
+      "title": "Honest holders are accepted",
+      "finding": "control",
+      "kind": "control",
+      "attempts": [
+        {
+          "circuit": "v2",
+          "route": "honest wallet, adult (42), age >= 18",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v3",
+          "route": "honest wallet, adult (42), age >= 18",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v3",
+          "route": "honest wallet, minor (16), age < 18 (second predicate)",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        }
+      ]
+    },
+    {
+      "id": "A1",
+      "title": "Forged credential the issuer never issued (malicious-wallet probe)",
+      "finding": "9.1",
+      "kind": "attack",
+      "attempts": [
+        {
+          "circuit": "v2",
+          "route": "wallet skips the Dilithium check (harness/malicious_wallet_probe.ts)",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v3",
+          "route": "forged leaf + issuer A's anchored root + a real holder's path",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in CredentialAuthV3 line 143: iss.root === issRoot;"
+        },
+        {
+          "circuit": "v3",
+          "route": "attacker-built tree; presents issuer A's genuine attestation",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuanceRootCurrent"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "issRoot (public signal 5) is not the attested issuance root"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "attacker-built tree; root signed with the attacker's own ML-DSA key",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuanceRootCurrent"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "issRoot is not the issuer's current anchored root (proof: epoch 1; chain: epoch 1)"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "attacker-built tree; issRoot wire swapped to A's anchored root in the witness file",
+          "outcome": "proof does not verify (R1CS unsatisfied)",
+          "accepted": false,
+          "failedChecks": [
+            "proofValid"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "Groth16 proof verification failed"
+          ],
+          "r1csSatisfied": false
+        },
+        {
+          "circuit": "v3",
+          "route": "self-issued under the attacker's own registered but unaccredited DID",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuerResolvedAndAccredited"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "issuer is not accredited in the Issuer Registry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "title": "Holder of a genuine age-16 credential claims age 42",
+      "finding": "9.1",
+      "kind": "attack",
+      "attempts": [
+        {
+          "circuit": "v2",
+          "route": "malicious wallet sets claimAge = 42 with the minor's real credential",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v3",
+          "route": "claimAge = 42 with the minor's genuine path and A's anchored root",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in CredentialAuthV3 line 143: iss.root === issRoot;"
+        },
+        {
+          "circuit": "v3",
+          "route": "re-leafed with age 42 in an attacker-built tree; A's genuine attestation",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuanceRootCurrent"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "issRoot (public signal 5) is not the attested issuance root"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "attacker-built tree; issRoot wire swapped to A's anchored root",
+          "outcome": "proof does not verify (R1CS unsatisfied)",
+          "accepted": false,
+          "failedChecks": [
+            "proofValid"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "Groth16 proof verification failed"
+          ],
+          "r1csSatisfied": false
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "title": "Thief holds the victim's full credential and path, but not the holder secret",
+      "finding": "9.1 / 9.7",
+      "kind": "attack",
+      "attempts": [
+        {
+          "circuit": "v2",
+          "route": "victim's credential with the thief's own secret and holderCommit",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v3",
+          "route": "victim's genuine path, thief's secret",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in CredentialAuthV3 line 143: iss.root === issRoot;"
+        },
+        {
+          "circuit": "v3",
+          "route": "thief's leaf in an attacker-built tree; issRoot wire swapped",
+          "outcome": "proof does not verify (R1CS unsatisfied)",
+          "accepted": false,
+          "failedChecks": [
+            "proofValid"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "Groth16 proof verification failed"
+          ],
+          "r1csSatisfied": false
+        }
+      ]
+    },
+    {
+      "id": "A5",
+      "title": "Holder of issuer B's credential presents it as issuer A's",
+      "finding": "9.1",
+      "kind": "attack",
+      "attempts": [
+        {
+          "circuit": "v2",
+          "route": "B's holder claims issuerDid A (issuerKeyHash = A's)",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v3",
+          "route": "valid proof on B's tree, issuerDid A, B's attestation",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuerKeyHashMatches",
+            "issuanceRootCurrent"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "Poseidon(pk_issuer) does not match public signal 0",
+            "issuance-root attestation names a different issuer"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "valid proof on B's tree, B's attestation relabelled as issuer A",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuerKeyHashMatches",
+            "issuanceRootCurrent"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "Poseidon(pk_issuer) does not match public signal 0",
+            "issRoot is not the issuer's current anchored root (proof: epoch 1; chain: epoch 1)"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "witness uses A's issuerKeyHash with B's path",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in CredentialAuthV3 line 143: iss.root === issRoot;"
+        }
+      ]
+    },
+    {
+      "id": "A6",
+      "title": "Honest v3 proof with a tampered, foreign, missing or re-encoded root attestation",
+      "finding": "v3 verifier checks (v); review setup-1 / verifier-3",
+      "kind": "attack",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "attestation epoch changed after signing",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuanceRootCurrent"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "issRoot is not the issuer's current anchored root (proof: epoch 2; chain: epoch 1)"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "attestation omitted",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuanceRootCurrent"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "v3 presentation carries no issuance-root attestation"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "A's root signed by issuer B's key",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuanceRootCurrent"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "attestation signature bytes differ from the ones anchored on chain"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "issRoot re-encoded as hex in signal and attestation (canonical-signal check; the anchor comparison would also reject it)",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [],
+          "notEvaluated": [
+            "proofValid",
+            "issuerResolvedAndAccredited",
+            "issuerKeyHashMatches",
+            "revRootMatches",
+            "policyHashMatches",
+            "nonceFresh",
+            "stmtCodeValid",
+            "issuanceRootCurrent",
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "public signals must be canonical decimal strings below the BN254 scalar modulus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A7",
+      "title": "Attacker registers an accredited issuer's DID string with its own key first",
+      "finding": "review verifier-1",
+      "kind": "attack",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "self-consistent credential signed by the squatter's key under issuer C's DID",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuerResolvedAndAccredited",
+            "issuerKeyHashMatches"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "registered key does not match the did:pq identifier"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "T1",
+      "title": "Groth16 proof forged from the setup trapdoor (no credential at all)",
+      "finding": "9.3",
+      "kind": "attack",
+      "attempts": [
+        {
+          "circuit": "v2",
+          "route": "proof built from the public-beacon trapdoor: no credential, no witness",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": [],
+          "detail": "beacon-derived d matches the key's delta: true"
+        },
+        {
+          "circuit": "v3",
+          "route": "proof built from the public-beacon trapdoor: no credential, no witness",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "proofValid"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "Groth16 proof verification failed"
+          ],
+          "detail": "beacon-derived d matches the key's delta: false"
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "title": "First use of the presentation replayed in R1 is accepted",
+      "finding": "control",
+      "kind": "control",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "honest presentation, first use",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        }
+      ]
+    },
+    {
+      "id": "R1",
+      "title": "v3 keeps v2's replay, cross-verifier and policy protections",
+      "finding": "regression",
+      "kind": "attack",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "replay of the accepted presentation above",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "nonceFresh"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "nonce is stale, unknown, or already used"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "proof bound to verifier A presented to verifier B",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "stmtCodeValid"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "stmtCode does not bind this verifier's domain (cross-verifier replay?)"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "age >= 18 proof presented to a verifier requiring age >= 21",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "policyHashMatches"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "policy hash does not match the requested policy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KL1",
+      "title": "Relay: an intermediary forwards a verifier's request to a victim's honest wallet",
+      "finding": "review critic-2 (same in v2)",
+      "kind": "known-limitation",
+      "attempts": [
+        {
+          "circuit": "v2",
+          "route": "victim's honest wallet answers the relayed request",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v3",
+          "route": "victim's honest wallet answers the relayed request",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        }
+      ]
+    },
+    {
+      "id": "PV2",
+      "title": "Issuer tags one holder with re-signed signature bytes for the current root",
+      "finding": "review privacy-3; round-2 circuit2-1",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "holder's wallet is served a valid but differently-encoded signature of the current root",
+          "outcome": "no proof: honest component refused",
+          "accepted": false,
+          "detail": "issuer served signature bytes that differ from the anchored ones — refusing to present",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PV4",
+      "title": "Issuer tags one holder through the attestation object or an unanchored root",
+      "finding": "round-2 verifier2-2 / privacy2-1 / circuit2-1",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "attestation served with an extra per-holder field",
+          "outcome": "no proof: honest component refused",
+          "accepted": false,
+          "detail": "attestation must have exactly issuerDid, epoch, root, revRoot, signature",
+          "pass": true
+        },
+        {
+          "circuit": "v3",
+          "route": "holder served a root that is not the on-chain anchor",
+          "outcome": "no proof: honest component refused",
+          "accepted": false,
+          "detail": "issuer served a root that is not its current on-chain anchor — refusing to present",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PV5",
+      "title": "Key order of the served attestation does not reach the verifier",
+      "finding": "round-2 verifier2-2",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "attestation served with permuted key order",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": [],
+          "pass": true,
+          "detail": "view identical to other holders': true"
+        }
+      ]
+    },
+    {
+      "id": "PV6",
+      "title": "Issuer re-anchors immediately to give one holder a fresh epoch",
+      "finding": "round-2 privacy2-3",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "anchor epoch 2 submitted right after epoch 1",
+          "outcome": "rejected by the anchor registry",
+          "accepted": false,
+          "detail": "execution reverted: \"anchor too soon\" (action=\"estimateGas\", data=\"0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PV7",
+      "title": "Issuer tags one holder with its own revocation root",
+      "finding": "round-3 walletpriv-1 / evidence3-1",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "anchor a per-holder revRoot as the next epoch right away",
+          "outcome": "rejected by the anchor registry",
+          "accepted": false,
+          "pass": true
+        },
+        {
+          "circuit": "v3",
+          "route": "holder's wallet is served an opening against a per-holder revRoot that is not anchored",
+          "outcome": "no proof: honest component refused",
+          "accepted": false,
+          "detail": "revocation opening is not against the anchored revRoot — refusing to present",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PV8",
+      "title": "Issuer issues one holder's credential from its own unaccredited per-holder DID",
+      "finding": "round-3 walletpriv-2",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "holder's wallet checks the issuer's accreditation before presenting",
+          "outcome": "no proof: honest component refused",
+          "accepted": false,
+          "detail": "issuer is not an accredited, active issuer with this key — refusing to present",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "B0",
+      "title": "Revoked holder's honest wallet asks for a non-membership opening",
+      "finding": "baseline (attacker-controlled library; not a defence)",
+      "kind": "baseline",
+      "attempts": [
+        {
+          "circuit": "v2",
+          "route": "honest revocation service refuses",
+          "outcome": "no proof: honest component refused",
+          "accepted": false,
+          "detail": "credID is in the revoked set — no non-membership proof exists"
+        },
+        {
+          "circuit": "v3",
+          "route": "honest revocation service refuses",
+          "outcome": "no proof: honest component refused",
+          "accepted": false,
+          "detail": "credID is in the revoked set — no non-membership proof exists"
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "title": "Revoked holder tries to keep authenticating",
+      "finding": "9.2 (D) + paper A.5 (B, C) + v3 review circuit-1/2 (E, F, G)",
+      "kind": "attack",
+      "attempts": [
+        {
+          "circuit": "v2",
+          "route": "B: stale opening against the current root",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in ForceEqualIfEnabled line 56"
+        },
+        {
+          "circuit": "v2",
+          "route": "C: stale opening and stale root",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "revRootMatches"
+          ],
+          "notEvaluated": [],
+          "reasons": [
+            "revocation root mismatch: proof used 15989556354135587480322636806185315549728229374763804012644761492124955783933, chain has 13763080310229891739403346754605645628960899643080318663851132993473847949469"
+          ]
+        },
+        {
+          "circuit": "v2",
+          "route": "D: fresh credID not in the revoked set (9.2)",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v2",
+          "route": "E: same revoked credID, non-boolean smtIsOld0 (forged non-membership)",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v2",
+          "route": "F: isOld0 = 0 with oldKey = the revoked key itself",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in SMTVerifier line 128"
+        },
+        {
+          "circuit": "v2",
+          "route": "G: isOld0 = 1 claiming an empty slot above the revoked leaf",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in ForceEqualIfEnabled line 56"
+        },
+        {
+          "circuit": "v3",
+          "route": "B: stale opening against the current root",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in ForceEqualIfEnabled line 56"
+        },
+        {
+          "circuit": "v3",
+          "route": "C: stale opening and stale root",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "revRootMatches",
+            "issuanceRootCurrent"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "revocation root mismatch: proof used 15989556354135587480322636806185315549728229374763804012644761492124955783933, chain has 13763080310229891739403346754605645628960899643080318663851132993473847949469",
+            "revRoot (public signal 1) is not the attested revocation root"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "D1: fresh credID with the revoked credential's genuine path",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in CredentialAuthV3 line 143: iss.root === issRoot;"
+        },
+        {
+          "circuit": "v3",
+          "route": "D2: fresh credID in an attacker-built tree; A's genuine attestation",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuanceRootCurrent"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "issRoot (public signal 5) is not the attested issuance root"
+          ]
+        },
+        {
+          "circuit": "v3",
+          "route": "D3: fresh credID in an attacker-built tree; issRoot wire swapped",
+          "outcome": "proof does not verify (R1CS unsatisfied)",
+          "accepted": false,
+          "failedChecks": [
+            "proofValid"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "Groth16 proof verification failed"
+          ],
+          "r1csSatisfied": false
+        },
+        {
+          "circuit": "v3",
+          "route": "E1: non-boolean smtIsOld0 through the reference witness generator",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in CredentialAuthV3 line 155: smtIsOld0 * (smtIsOld0 - 1) === 0;"
+        },
+        {
+          "circuit": "v3",
+          "route": "E2: non-boolean smtIsOld0 through the attacker's own witness generator (circuit minus the booleanity line)",
+          "outcome": "proof does not verify (R1CS unsatisfied)",
+          "accepted": false,
+          "failedChecks": [
+            "proofValid"
+          ],
+          "notEvaluated": [
+            "issuanceRootSigned"
+          ],
+          "reasons": [
+            "Groth16 proof verification failed"
+          ],
+          "r1csSatisfied": false
+        },
+        {
+          "circuit": "v3",
+          "route": "F: isOld0 = 0 with oldKey = the revoked key itself",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in SMTVerifier line 128"
+        },
+        {
+          "circuit": "v3",
+          "route": "G: isOld0 = 1 claiming an empty slot above the revoked leaf",
+          "outcome": "no proof: witness generator refused",
+          "accepted": false,
+          "detail": "assertion failed in ForceEqualIfEnabled line 56"
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "title": "Honest holders keep presenting through open batches and signing windows; refreshed paths work",
+      "finding": "control (reviews lifecycle-2, lifecycle2-2)",
+      "kind": "control",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "adult presents while a newer leaf is still unsigned",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v3",
+          "route": "adult presents while epoch 3 is signed but not anchored",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v3",
+          "route": "adult with a path refreshed to epoch 3",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        },
+        {
+          "circuit": "v3",
+          "route": "late holder with its first path (epoch 3)",
+          "outcome": "ACCEPTED",
+          "accepted": true,
+          "failedChecks": [],
+          "notEvaluated": [],
+          "reasons": []
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "title": "A newly issued holder gets no path until its leaf is under an anchored root",
+      "finding": "baseline",
+      "kind": "baseline",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "late holder asks for a path before its leaf is anchored",
+          "outcome": "no proof: honest component refused",
+          "accepted": false,
+          "detail": "credential is not yet covered by an anchored issuance root"
+        }
+      ]
+    },
+    {
+      "id": "PV3",
+      "title": "Holder offered a path to an older root after a newer one is anchored",
+      "finding": "reviews privacy-1 / lifecycle-1; round-2 privacy2-2",
+      "kind": "privacy",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "adult's wallet is given its epoch-1 path after epoch 3 was anchored",
+          "outcome": "no proof: honest component refused",
+          "accepted": false,
+          "detail": "issuer served a root that is not its current on-chain anchor — refusing to present",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A8",
+      "title": "Adversary that can write issuer A's on-chain anchor publishes its own root and signature",
+      "finding": "review 9.4 (ECDSA-authorized registry writes)",
+      "kind": "attack",
+      "attempts": [
+        {
+          "circuit": "v3",
+          "route": "forged leaf under the adversary-anchored root and adversary signature",
+          "outcome": "rejected by verifier",
+          "accepted": false,
+          "failedChecks": [
+            "issuanceRootSigned"
+          ],
+          "notEvaluated": [],
+          "reasons": [
+            "issuance-root ML-DSA-44 signature does not verify under pk_issuer"
+          ]
+        }
+      ]
+    }
+  ],
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-26T16:06:26.141Z"
+  }
+}

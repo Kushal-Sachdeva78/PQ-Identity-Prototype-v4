@@ -1,0 +1,75 @@
+{
+  "schema": "pqid/v4-fuzz-target/v1",
+  "target": "T-pres-shape",
+  "title": "presentation shape",
+  "entryPoints": [
+    "presentationShapeError"
+  ],
+  "property": "presentationShapeError never throws on JSON data and returns null exactly when the reference shape predicate holds (oracles.ts refPresentationShapeOk); inputs with decimal strings of 10^5 or more digits are timed by the slow-input detector (hypothesis: the BigInt parse has no length cap)",
+  "documentedErrors": [],
+  "masterSeed": 20261022,
+  "targetSeed": 3307362781,
+  "budget": 100000,
+  "casesRun": 100000,
+  "complete": true,
+  "stoppedBy": null,
+  "outcomes": {
+    "valid/shape-ok": 18674,
+    "mutated/shape-ok": 12092,
+    "huge-digits/shape-rejected": 7608,
+    "text/shape-rejected": 4692,
+    "mutated/shape-rejected": 42059,
+    "text/shape-ok": 6964,
+    "tree/shape-rejected": 7753,
+    "huge-digits/shape-ok": 158
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [
+    {
+      "id": "longDecimalParse",
+      "count": 2609,
+      "examples": [
+        {
+          "index": 72,
+          "detail": "100000-digit decimal: presentationShapeError took 3.9 ms (not a timing result)",
+          "file": "results/v4/robustness/fuzz/fz1/observations/T-pres-shape/longDecimalParse.json"
+        },
+        {
+          "index": 96,
+          "detail": "100000-digit decimal: presentationShapeError took 2.7 ms (not a timing result)",
+          "file": null
+        },
+        {
+          "index": 111,
+          "detail": "100000-digit decimal: presentationShapeError took 3.1 ms (not a timing result)",
+          "file": null
+        },
+        {
+          "index": 123,
+          "detail": "400000-digit decimal: presentationShapeError took 17.8 ms (not a timing result)",
+          "file": null
+        },
+        {
+          "index": 186,
+          "detail": "400000-digit decimal: presentationShapeError took 18.9 ms (not a timing result)",
+          "file": null
+        }
+      ]
+    }
+  ],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0257,
+    "p99": 16.365003999999995,
+    "max": 22.1617
+  },
+  "startedUtc": "2026-10-03T09:16:15.019Z",
+  "finishedUtc": "2026-10-03T09:17:15.544Z"
+}

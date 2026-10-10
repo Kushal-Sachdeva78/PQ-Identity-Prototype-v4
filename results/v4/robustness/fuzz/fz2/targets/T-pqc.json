@@ -1,0 +1,53 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-pqc",
+  "title": "PQC and AEAD wrappers",
+  "entryPoints": [
+    "mlDsaVerify",
+    "mlDsaVerifyKey",
+    "mlKemDecaps",
+    "aes256gcmOpen",
+    "hkdfSha256Expand"
+  ],
+  "property": "mlDsaVerify and mlDsaVerifyKey never throw and accept only the exact (key, message, signature) signed in this run; aes256gcmOpen never throws and returns the plaintext only for the exact sealed (key, iv, aad, ciphertext, tag), null otherwise; mlKemDecaps throws Error only on a ciphertext that is not 1,088 bytes and returns the encapsulated secret exactly for the untouched ciphertext (implicit rejection otherwise); hkdfSha256Expand throws Error exactly for an output length outside [1, 8160] or a PRK under 32 bytes and otherwise equals Node's HKDF",
+  "documentedErrors": [
+    "Error"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 4004696430,
+  "budget": 20000,
+  "casesRun": 20000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "dsa-key/rejected": 2396,
+    "dsa-key/verified": 1074,
+    "aead/opened": 539,
+    "dsa/rejected": 4150,
+    "kem/implicit-rejection": 534,
+    "aead/rejected": 5046,
+    "kem/decapsulated": 2062,
+    "kem/refused": 1043,
+    "dsa/verified": 1362,
+    "hkdf/refused": 350,
+    "hkdf/derived": 1444
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0292,
+    "p99": 0.29540099999999986,
+    "max": 10.3676
+  },
+  "startedUtc": "2026-10-03T16:09:32.371Z",
+  "finishedUtc": "2026-10-03T16:09:38.483Z"
+}

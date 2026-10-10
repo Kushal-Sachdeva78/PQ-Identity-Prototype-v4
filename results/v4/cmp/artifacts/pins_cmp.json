@@ -1,0 +1,51 @@
+{
+  "v2o2/credential_auth.r1cs": {
+    "path": "results/v4/cmp/artifacts/v2_O2/credential_auth.r1cs",
+    "sha256": "874674369c653760f08b954a6a26096e6fe632166f18f5191dbff24eb2891756",
+    "bytes": 4631164,
+    "label": "cmp timing build",
+    "note": "frozen v2 circuit source, circom 2.2.3 --O2 (harness/v4/cmp/build_v2_o2.ts)"
+  },
+  "v2o2/credential_auth.wasm": {
+    "path": "results/v4/cmp/artifacts/v2_O2/credential_auth_js/credential_auth.wasm",
+    "sha256": "8e231ffc601899ee3a10f73f231228a5a25c9a2abe7bd350f775c823ae193fba",
+    "bytes": 2518778,
+    "label": "cmp timing build",
+    "note": "witness generator of the --O2 build"
+  },
+  "v2o2/credential_auth_v2_O2_timing.zkey": {
+    "path": "results/v4/cmp/artifacts/v2_O2/credential_auth_v2_O2_timing.zkey",
+    "sha256": "b14fcdb970becc5bf7e43cdea37699cf23d1e7faad11af7ee7d019e62f5ff49b",
+    "bytes": 6403385,
+    "label": "v2 --O2 dev timing key (v2 beacon recipe)",
+    "note": "newZKey(pinned 2^15 ptau) + public beacon of setup/groth16_setup.ts; deterministic, timing only, no soundness"
+  },
+  "v2o2/verification_key_v2_O2_timing.json": {
+    "path": "results/v4/cmp/artifacts/v2_O2/verification_key_v2_O2_timing.json",
+    "sha256": "f0d285822f63ed1d11de47d5b32990819af0d12226be030b2012984191c667d8",
+    "bytes": 3937,
+    "label": "v2 --O2 dev timing key (v2 beacon recipe)",
+    "note": "exported from the timing key"
+  },
+  "eddsa/eddsa_credential.wasm": {
+    "path": "circuits/build/baselines/eddsa_credential_js/eddsa_credential.wasm",
+    "sha256": "7eff1f754c5428a797a4d52c5adbf8ebe1e398202917f957302b685dd0f5eaad",
+    "bytes": 3094139,
+    "label": "throwaway baseline key",
+    "note": "committed; equals circuits/build/baselines/eddsa_credential_info.json wasmSha256"
+  },
+  "eddsa/eddsa_credential_throwaway.zkey": {
+    "path": "setup/out/baselines/eddsa_credential_throwaway.zkey",
+    "sha256": "72ff40c99b1c1aebb2d56b91ea8db946721b03542d66c602ab1a607197487c9d",
+    "bytes": 3753245,
+    "label": "throwaway baseline key",
+    "note": "committed; equals setup/out/baselines/eddsa_credential_throwaway_setup.json zkeySha256"
+  },
+  "eddsa/eddsa_credential_throwaway_vkey.json": {
+    "path": "setup/out/baselines/eddsa_credential_throwaway_vkey.json",
+    "sha256": "68a748f6975ba736f8794db8cf569a7198472e135a54c4ccc67d65290ac90f9d",
+    "bytes": 3739,
+    "label": "throwaway baseline key",
+    "note": "committed; equals setup/out/baselines/eddsa_credential_throwaway_setup.json vkeySha256"
+  }
+}

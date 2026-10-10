@@ -1,0 +1,1568 @@
+{
+  "schema": "pqid/v4-bench-summary/v1",
+  "generatedUtc": "2026-09-29T12:44:10+00:00",
+  "generator": "scripts/bench/analyze.py",
+  "root": "results/v4/bench_wsl",
+  "label": "[M] Phase D benchmark summary",
+  "keyNote": "v4 uses the dev key (label 'dev key'); v2 and v3 use their committed keys",
+  "statistics": {
+    "quantiles": "type 7 (numpy percentile method='linear')",
+    "ci": "percentile bootstrap 95%, statistic = median(numerator) / median(denominator), each condition resampled independently with replacement at its own n",
+    "B": 10000,
+    "seed": 20260927,
+    "perRatioStream": "numpy default_rng([seed, crc32(ratio id)])",
+    "phases": {
+      "witness": "witness generation",
+      "prove": "proving",
+      "verify": "verification",
+      "wp": "witness + proving, summed per run"
+    }
+  },
+  "campaigns": [
+    {
+      "campaign": "cold_rs_wsl",
+      "mode": "cold",
+      "label": "[M] cold series",
+      "protocolSha256": "d3883a2146e5b0f028f9668376367e7ff7d2406f7096dd87bfddb0aff67fa45f",
+      "recordsOk": 90,
+      "recordsUsed": 90,
+      "discardedBattery": 0,
+      "errors": 0,
+      "usedNotQuiesced": 0,
+      "complete": true,
+      "warmSession": null,
+      "env": {
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+        "logicalCores": 8,
+        "ramGiB": 15.3,
+        "platform": "linux",
+        "arch": "x64",
+        "osName": "Linux",
+        "osBuild": "6.18.33.2-microsoft-standard-WSL2",
+        "node": "v24.21.0",
+        "openssl": "3.5.8",
+        "v8": "13.6.233.17-node.53"
+      },
+      "artifacts": {
+        "v2": {
+          "wasm": {
+            "path": "circuits/build/credential_auth_js/credential_auth.wasm",
+            "sha256": "a055d9b488c2f57400e21fea88a23d3fe777fc3d434ff4f9c4ff466c358be6e4",
+            "bytes": 2563278,
+            "pinned": false,
+            "pinMatch": null
+          },
+          "zkey": {
+            "path": "setup/out/credential_auth_final.zkey",
+            "sha256": "63529c2b8a3320ce352401b3bf89fa0cde4ff3d0c5354e6d5b6f28c83f9101cc",
+            "bytes": 10081141,
+            "pinned": true,
+            "pinMatch": true
+          },
+          "vkey": {
+            "path": "setup/out/verification_key.json",
+            "sha256": "79d31eb1348bbae607819a1579200030a002b1f877d3151d72e53aeb978a5940",
+            "bytes": 3932,
+            "pinned": true,
+            "pinMatch": true
+          }
+        },
+        "v3": {
+          "wasm": {
+            "path": "circuits/build/v3/credential_auth_v3_js/credential_auth_v3.wasm",
+            "sha256": "04c2556fdd64b5ce6937f76471f782171b9b6419f480edd39a5792024964afe7",
+            "bytes": 3484936,
+            "pinned": true,
+            "pinMatch": true
+          },
+          "zkey": {
+            "path": "setup/out/v3/credential_auth_v3_final.zkey",
+            "sha256": "f0d412eb141e6ea0f9d9703ebd8b226175c63070c58ed1e0e7a332e865a0117f",
+            "bytes": 11783436,
+            "pinned": true,
+            "pinMatch": true
+          },
+          "vkey": {
+            "path": "setup/out/v3/verification_key.json",
+            "sha256": "bdb7b352657e4fdbace212c2df3b7656b49f39d4a8ce38a14bea02c15726771e",
+            "bytes": 4136,
+            "pinned": true,
+            "pinMatch": true
+          }
+        },
+        "v4": {
+          "wasm": {
+            "path": "circuits/build/v4/credential_auth_v4_js/credential_auth_v4.wasm",
+            "sha256": "678720322fc69048b40aa375ee7c9cc2eab5d0ce58f116d54ac1bab6957bd8ae",
+            "bytes": 4465314,
+            "pinned": true,
+            "pinMatch": true
+          },
+          "zkey": {
+            "path": "setup/out/v4/credential_auth_v4_dev.zkey",
+            "sha256": "b6f1675c3b8996f5165d54912bc9e7f592cd9ff3286c1a236ad375ea635635d4",
+            "bytes": 11426668,
+            "pinned": true,
+            "pinMatch": true
+          },
+          "vkey": {
+            "path": "setup/out/v4/verification_key_dev.json",
+            "sha256": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42",
+            "bytes": 4527,
+            "pinned": true,
+            "pinMatch": true
+          }
+        }
+      },
+      "inputs": {
+        "v2": {
+          "file": "results/v4/bench/inputs/v2_input.json",
+          "inputSha256": "6df4f5c290a5e43954c909a470074cac22d5601557daf1c12e28acef3b28380a",
+          "publicSignalsSha256": "77f33d89c907589195482a55d2f7f5b91157a02105dd10235eef87c5c537ba9f",
+          "source": "harness/fixture.ts buildFixtureProofInput() (the published v2 benchmark input)"
+        },
+        "v3": {
+          "file": "results/v4/bench/inputs/v3_input.json",
+          "inputSha256": "151f51af84b263de6fecfa4d1b79fe4f4819513de5f0f7bb356765bff296900f",
+          "publicSignalsSha256": "fe17d033497ec95303da85d51fedd3e73bea44fa12547fe345137dd5330b42ae",
+          "source": "harness/fixture.ts buildFixtureProofInputV3() (the input of harness/v3/compare_v2_v3.ts)"
+        },
+        "v4": {
+          "file": "results/v4/bench/inputs/v4_input.json",
+          "inputSha256": "726b9010786e510096c1c28b566de40fc40e552044a8bf1d1bb84a559ccb1e92",
+          "publicSignalsSha256": "11ce27b3962fbeb56f666a344936d2e560f0f4be81822c1b477d7b658cea8150",
+          "source": "harness/v4/bench/inputs.ts buildFixtureProofInputV4() (fixture twin of the v2/v3 inputs, @pqid/v4 encodings)"
+        }
+      }
+    },
+    {
+      "campaign": "warm_wsl",
+      "mode": "warm",
+      "label": "[M] warm series",
+      "protocolSha256": "d3883a2146e5b0f028f9668376367e7ff7d2406f7096dd87bfddb0aff67fa45f",
+      "recordsOk": 180,
+      "recordsUsed": 180,
+      "discardedBattery": 0,
+      "errors": 0,
+      "usedNotQuiesced": 0,
+      "complete": true,
+      "warmSession": {
+        "used": "2026-09-28T20:27:30.780Z",
+        "complete": true,
+        "sessions": 1
+      },
+      "env": {
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+        "logicalCores": 8,
+        "ramGiB": 15.3,
+        "platform": "linux",
+        "arch": "x64",
+        "osName": "Linux",
+        "osBuild": "6.18.33.2-microsoft-standard-WSL2",
+        "node": "v24.21.0",
+        "openssl": "3.5.8",
+        "v8": "13.6.233.17-node.53"
+      },
+      "artifacts": {
+        "v2": {
+          "wasm": {
+            "path": "circuits/build/credential_auth_js/credential_auth.wasm",
+            "sha256": "a055d9b488c2f57400e21fea88a23d3fe777fc3d434ff4f9c4ff466c358be6e4",
+            "bytes": 2563278,
+            "pinned": false,
+            "pinMatch": null
+          },
+          "zkey": {
+            "path": "setup/out/credential_auth_final.zkey",
+            "sha256": "63529c2b8a3320ce352401b3bf89fa0cde4ff3d0c5354e6d5b6f28c83f9101cc",
+            "bytes": 10081141,
+            "pinned": true,
+            "pinMatch": true
+          },
+          "vkey": {
+            "path": "setup/out/verification_key.json",
+            "sha256": "79d31eb1348bbae607819a1579200030a002b1f877d3151d72e53aeb978a5940",
+            "bytes": 3932,
+            "pinned": true,
+            "pinMatch": true
+          }
+        },
+        "v3": {
+          "wasm": {
+            "path": "circuits/build/v3/credential_auth_v3_js/credential_auth_v3.wasm",
+            "sha256": "04c2556fdd64b5ce6937f76471f782171b9b6419f480edd39a5792024964afe7",
+            "bytes": 3484936,
+            "pinned": true,
+            "pinMatch": true
+          },
+          "zkey": {
+            "path": "setup/out/v3/credential_auth_v3_final.zkey",
+            "sha256": "f0d412eb141e6ea0f9d9703ebd8b226175c63070c58ed1e0e7a332e865a0117f",
+            "bytes": 11783436,
+            "pinned": true,
+            "pinMatch": true
+          },
+          "vkey": {
+            "path": "setup/out/v3/verification_key.json",
+            "sha256": "bdb7b352657e4fdbace212c2df3b7656b49f39d4a8ce38a14bea02c15726771e",
+            "bytes": 4136,
+            "pinned": true,
+            "pinMatch": true
+          }
+        },
+        "v4": {
+          "wasm": {
+            "path": "circuits/build/v4/credential_auth_v4_js/credential_auth_v4.wasm",
+            "sha256": "678720322fc69048b40aa375ee7c9cc2eab5d0ce58f116d54ac1bab6957bd8ae",
+            "bytes": 4465314,
+            "pinned": true,
+            "pinMatch": true
+          },
+          "zkey": {
+            "path": "setup/out/v4/credential_auth_v4_dev.zkey",
+            "sha256": "b6f1675c3b8996f5165d54912bc9e7f592cd9ff3286c1a236ad375ea635635d4",
+            "bytes": 11426668,
+            "pinned": true,
+            "pinMatch": true
+          },
+          "vkey": {
+            "path": "setup/out/v4/verification_key_dev.json",
+            "sha256": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42",
+            "bytes": 4527,
+            "pinned": true,
+            "pinMatch": true
+          }
+        }
+      },
+      "inputs": {
+        "v2": {
+          "file": "results/v4/bench/inputs/v2_input.json",
+          "inputSha256": "6df4f5c290a5e43954c909a470074cac22d5601557daf1c12e28acef3b28380a",
+          "publicSignalsSha256": "77f33d89c907589195482a55d2f7f5b91157a02105dd10235eef87c5c537ba9f",
+          "source": "harness/fixture.ts buildFixtureProofInput() (the published v2 benchmark input)"
+        },
+        "v3": {
+          "file": "results/v4/bench/inputs/v3_input.json",
+          "inputSha256": "151f51af84b263de6fecfa4d1b79fe4f4819513de5f0f7bb356765bff296900f",
+          "publicSignalsSha256": "fe17d033497ec95303da85d51fedd3e73bea44fa12547fe345137dd5330b42ae",
+          "source": "harness/fixture.ts buildFixtureProofInputV3() (the input of harness/v3/compare_v2_v3.ts)"
+        },
+        "v4": {
+          "file": "results/v4/bench/inputs/v4_input.json",
+          "inputSha256": "726b9010786e510096c1c28b566de40fc40e552044a8bf1d1bb84a559ccb1e92",
+          "publicSignalsSha256": "11ce27b3962fbeb56f666a344936d2e560f0f4be81822c1b477d7b658cea8150",
+          "source": "harness/v4/bench/inputs.ts buildFixtureProofInputV4() (fixture twin of the v2/v3 inputs, @pqid/v4 encodings)"
+        }
+      }
+    }
+  ],
+  "blocked": [],
+  "conditions": [
+    {
+      "condition": "cold/v2/rapidsnark",
+      "mode": "cold",
+      "version": "v2",
+      "prover": "rapidsnark",
+      "campaign": "cold_rs_wsl",
+      "os": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "keyLabel": "committed v2 key",
+      "phases": {
+        "witness": {
+          "n": 30,
+          "median": 53.894499999999994,
+          "q1": 52.2025,
+          "q3": 55.32925,
+          "iqr": 3.1267500000000013,
+          "min": 48.826,
+          "max": 65.896
+        },
+        "prove": {
+          "n": 30,
+          "median": 140.161,
+          "q1": 133.87125,
+          "q3": 149.2515,
+          "iqr": 15.38024999999999,
+          "min": 124.562,
+          "max": 175.311
+        },
+        "verify": {
+          "n": 30,
+          "median": 25.6005,
+          "q1": 21.63425,
+          "q3": 28.992250000000002,
+          "iqr": 7.3580000000000005,
+          "min": 18.441,
+          "max": 37.742
+        },
+        "wp": {
+          "n": 30,
+          "median": 194.7205,
+          "q1": 187.11624999999998,
+          "q3": 206.82,
+          "iqr": 19.703750000000014,
+          "min": 175.396,
+          "max": 230.92
+        }
+      }
+    },
+    {
+      "condition": "cold/v3/rapidsnark",
+      "mode": "cold",
+      "version": "v3",
+      "prover": "rapidsnark",
+      "campaign": "cold_rs_wsl",
+      "os": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "keyLabel": "committed v3 key",
+      "phases": {
+        "witness": {
+          "n": 30,
+          "median": 77.622,
+          "q1": 74.9775,
+          "q3": 81.437,
+          "iqr": 6.459499999999991,
+          "min": 68.959,
+          "max": 86.9
+        },
+        "prove": {
+          "n": 30,
+          "median": 159.252,
+          "q1": 155.34875,
+          "q3": 167.24675,
+          "iqr": 11.897999999999996,
+          "min": 143.272,
+          "max": 200.412
+        },
+        "verify": {
+          "n": 30,
+          "median": 26.499499999999998,
+          "q1": 23.009999999999998,
+          "q3": 28.57675,
+          "iqr": 5.5667500000000025,
+          "min": 18.898,
+          "max": 32.283
+        },
+        "wp": {
+          "n": 30,
+          "median": 239.07850000000002,
+          "q1": 229.3305,
+          "q3": 248.67775,
+          "iqr": 19.347250000000003,
+          "min": 218.465,
+          "max": 278.987
+        }
+      }
+    },
+    {
+      "condition": "cold/v4/rapidsnark",
+      "mode": "cold",
+      "version": "v4",
+      "prover": "rapidsnark",
+      "campaign": "cold_rs_wsl",
+      "os": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "keyLabel": "dev key",
+      "phases": {
+        "witness": {
+          "n": 30,
+          "median": 98.0415,
+          "q1": 92.272,
+          "q3": 103.30924999999999,
+          "iqr": 11.037249999999986,
+          "min": 86.211,
+          "max": 111.258
+        },
+        "prove": {
+          "n": 30,
+          "median": 159.199,
+          "q1": 154.9425,
+          "q3": 167.043,
+          "iqr": 12.100500000000011,
+          "min": 137.963,
+          "max": 183.298
+        },
+        "verify": {
+          "n": 30,
+          "median": 25.698,
+          "q1": 22.539749999999998,
+          "q3": 30.409,
+          "iqr": 7.869250000000001,
+          "min": 19.291,
+          "max": 34.937
+        },
+        "wp": {
+          "n": 30,
+          "median": 258.332,
+          "q1": 249.64875,
+          "q3": 266.397,
+          "iqr": 16.748249999999985,
+          "min": 230.618,
+          "max": 292.917
+        }
+      }
+    },
+    {
+      "condition": "warm/v2/rapidsnark",
+      "mode": "warm",
+      "version": "v2",
+      "prover": "rapidsnark",
+      "campaign": "warm_wsl",
+      "os": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "keyLabel": "committed v2 key",
+      "phases": {
+        "witness": {
+          "n": 30,
+          "median": 46.016999999999996,
+          "q1": 43.9775,
+          "q3": 49.1275,
+          "iqr": 5.149999999999999,
+          "min": 41.472,
+          "max": 50.755
+        },
+        "prove": {
+          "n": 30,
+          "median": 132.9215,
+          "q1": 130.49175,
+          "q3": 135.8945,
+          "iqr": 5.4027499999999975,
+          "min": 127.961,
+          "max": 145.673
+        },
+        "verify": {
+          "n": 30,
+          "median": 8.883500000000002,
+          "q1": 8.41925,
+          "q3": 9.282499999999999,
+          "iqr": 0.863249999999999,
+          "min": 7.786,
+          "max": 14.185
+        },
+        "wp": {
+          "n": 30,
+          "median": 181.6875,
+          "q1": 174.8415,
+          "q3": 184.798,
+          "iqr": 9.956500000000005,
+          "min": 170.17,
+          "max": 193.016
+        }
+      }
+    },
+    {
+      "condition": "warm/v2/snarkjs",
+      "mode": "warm",
+      "version": "v2",
+      "prover": "snarkjs",
+      "campaign": "warm_wsl",
+      "os": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "keyLabel": "committed v2 key",
+      "phases": {
+        "witness": {
+          "n": 30,
+          "median": 46.522000000000006,
+          "q1": 44.241,
+          "q3": 48.551500000000004,
+          "iqr": 4.310500000000005,
+          "min": 42.83,
+          "max": 53.29
+        },
+        "prove": {
+          "n": 30,
+          "median": 652.9085,
+          "q1": 635.22675,
+          "q3": 671.34775,
+          "iqr": 36.12099999999998,
+          "min": 612.161,
+          "max": 772.176
+        },
+        "verify": {
+          "n": 30,
+          "median": 10.217,
+          "q1": 9.842,
+          "q3": 11.13475,
+          "iqr": 1.2927499999999998,
+          "min": 8.765,
+          "max": 16.354
+        },
+        "wp": {
+          "n": 30,
+          "median": 699.8050000000001,
+          "q1": 680.405,
+          "q3": 718.2529999999999,
+          "iqr": 37.847999999999956,
+          "min": 656.978,
+          "max": 816.728
+        }
+      }
+    },
+    {
+      "condition": "warm/v3/rapidsnark",
+      "mode": "warm",
+      "version": "v3",
+      "prover": "rapidsnark",
+      "campaign": "warm_wsl",
+      "os": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "keyLabel": "committed v3 key",
+      "phases": {
+        "witness": {
+          "n": 30,
+          "median": 65.757,
+          "q1": 63.39,
+          "q3": 67.81075,
+          "iqr": 4.420749999999998,
+          "min": 60.061,
+          "max": 74.932
+        },
+        "prove": {
+          "n": 30,
+          "median": 150.7165,
+          "q1": 146.99725,
+          "q3": 155.74925,
+          "iqr": 8.751999999999981,
+          "min": 140.809,
+          "max": 176.935
+        },
+        "verify": {
+          "n": 30,
+          "median": 9.911,
+          "q1": 9.1365,
+          "q3": 10.276250000000001,
+          "iqr": 1.1397500000000012,
+          "min": 8.732,
+          "max": 14.457
+        },
+        "wp": {
+          "n": 30,
+          "median": 216.27949999999998,
+          "q1": 209.963,
+          "q3": 223.25125,
+          "iqr": 13.288250000000005,
+          "min": 204.323,
+          "max": 240.919
+        }
+      }
+    },
+    {
+      "condition": "warm/v3/snarkjs",
+      "mode": "warm",
+      "version": "v3",
+      "prover": "snarkjs",
+      "campaign": "warm_wsl",
+      "os": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "keyLabel": "committed v3 key",
+      "phases": {
+        "witness": {
+          "n": 30,
+          "median": 67.8005,
+          "q1": 65.256,
+          "q3": 68.99925,
+          "iqr": 3.7432500000000033,
+          "min": 60.366,
+          "max": 89.129
+        },
+        "prove": {
+          "n": 30,
+          "median": 812.8785,
+          "q1": 805.16125,
+          "q3": 834.769,
+          "iqr": 29.60775000000001,
+          "min": 763.858,
+          "max": 876.793
+        },
+        "verify": {
+          "n": 30,
+          "median": 10.5185,
+          "q1": 10.048,
+          "q3": 11.308,
+          "iqr": 1.2599999999999998,
+          "min": 9.099,
+          "max": 15.079
+        },
+        "wp": {
+          "n": 30,
+          "median": 883.6705,
+          "q1": 872.4635000000001,
+          "q3": 902.452,
+          "iqr": 29.98849999999993,
+          "min": 826.25,
+          "max": 947.852
+        }
+      }
+    },
+    {
+      "condition": "warm/v4/rapidsnark",
+      "mode": "warm",
+      "version": "v4",
+      "prover": "rapidsnark",
+      "campaign": "warm_wsl",
+      "os": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "keyLabel": "dev key",
+      "phases": {
+        "witness": {
+          "n": 30,
+          "median": 80.916,
+          "q1": 76.2085,
+          "q3": 85.13975,
+          "iqr": 8.931250000000006,
+          "min": 72.492,
+          "max": 98.393
+        },
+        "prove": {
+          "n": 30,
+          "median": 148.50650000000002,
+          "q1": 143.90475,
+          "q3": 156.68725,
+          "iqr": 12.782499999999999,
+          "min": 137.7,
+          "max": 168.762
+        },
+        "verify": {
+          "n": 30,
+          "median": 12.278500000000001,
+          "q1": 11.92075,
+          "q3": 13.2225,
+          "iqr": 1.3017500000000002,
+          "min": 11.152,
+          "max": 14.267
+        },
+        "wp": {
+          "n": 30,
+          "median": 232.0265,
+          "q1": 223.93400000000003,
+          "q3": 239.60025,
+          "iqr": 15.666249999999962,
+          "min": 211.605,
+          "max": 255.188
+        }
+      }
+    },
+    {
+      "condition": "warm/v4/snarkjs",
+      "mode": "warm",
+      "version": "v4",
+      "prover": "snarkjs",
+      "campaign": "warm_wsl",
+      "os": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "keyLabel": "dev key",
+      "phases": {
+        "witness": {
+          "n": 30,
+          "median": 82.4125,
+          "q1": 79.68225000000001,
+          "q3": 84.92025000000001,
+          "iqr": 5.2379999999999995,
+          "min": 73.191,
+          "max": 88.712
+        },
+        "prove": {
+          "n": 30,
+          "median": 808.55,
+          "q1": 788.88525,
+          "q3": 824.67075,
+          "iqr": 35.785499999999956,
+          "min": 753.486,
+          "max": 874.338
+        },
+        "verify": {
+          "n": 30,
+          "median": 10.526,
+          "q1": 10.1095,
+          "q3": 11.26925,
+          "iqr": 1.159749999999999,
+          "min": 9.116,
+          "max": 14.617
+        },
+        "wp": {
+          "n": 30,
+          "median": 893.204,
+          "q1": 868.77225,
+          "q3": 907.4975,
+          "iqr": 38.72524999999996,
+          "min": 826.677,
+          "max": 959.923
+        }
+      }
+    }
+  ],
+  "ratios": [
+    {
+      "id": "speedup/cold/v2/prove",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "prove",
+      "numerator": "cold/v2/snarkjs",
+      "denominator": "cold/v2/rapidsnark",
+      "status": "no data: cold/v2/snarkjs"
+    },
+    {
+      "id": "speedup/cold/v2/wp",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "wp",
+      "numerator": "cold/v2/snarkjs",
+      "denominator": "cold/v2/rapidsnark",
+      "status": "no data: cold/v2/snarkjs"
+    },
+    {
+      "id": "speedup/cold/v3/prove",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "prove",
+      "numerator": "cold/v3/snarkjs",
+      "denominator": "cold/v3/rapidsnark",
+      "status": "no data: cold/v3/snarkjs"
+    },
+    {
+      "id": "speedup/cold/v3/wp",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "wp",
+      "numerator": "cold/v3/snarkjs",
+      "denominator": "cold/v3/rapidsnark",
+      "status": "no data: cold/v3/snarkjs"
+    },
+    {
+      "id": "speedup/cold/v4/prove",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "prove",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "cold/v4/rapidsnark",
+      "status": "no data: cold/v4/snarkjs"
+    },
+    {
+      "id": "speedup/cold/v4/wp",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "wp",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "cold/v4/rapidsnark",
+      "status": "no data: cold/v4/snarkjs"
+    },
+    {
+      "id": "speedup/warm/v2/prove",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "prove",
+      "numerator": "warm/v2/snarkjs",
+      "denominator": "warm/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 4.911985645663042,
+      "ci95": [
+        4.8124563702268555,
+        5.00343380657733
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "speedup/warm/v2/wp",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "wp",
+      "numerator": "warm/v2/snarkjs",
+      "denominator": "warm/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 3.8516959064327487,
+      "ci95": [
+        3.7736053394582405,
+        4.011876524899377
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "speedup/warm/v3/prove",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "prove",
+      "numerator": "warm/v3/snarkjs",
+      "denominator": "warm/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 5.393427395142536,
+      "ci95": [
+        5.284159120604812,
+        5.554170237749779
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "speedup/warm/v3/wp",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "wp",
+      "numerator": "warm/v3/snarkjs",
+      "denominator": "warm/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 4.085780205706042,
+      "ci95": [
+        3.988585410265164,
+        4.188974074928834
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "speedup/warm/v4/prove",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "prove",
+      "numerator": "warm/v4/snarkjs",
+      "denominator": "warm/v4/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 5.444542831458555,
+      "ci95": [
+        5.24384602943555,
+        5.567791924111236
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "speedup/warm/v4/wp",
+      "kind": "prover speedup snarkjs/rapidsnark",
+      "phase": "wp",
+      "numerator": "warm/v4/snarkjs",
+      "denominator": "warm/v4/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 3.8495775267049237,
+      "ci95": [
+        3.733883301720364,
+        3.939280237600028
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/cold/snarkjs/v4_over_v2/witness",
+      "kind": "v4/v2",
+      "phase": "witness",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "cold/v2/snarkjs",
+      "status": "no data: cold/v4/snarkjs, cold/v2/snarkjs"
+    },
+    {
+      "id": "version/cold/snarkjs/v4_over_v2/prove",
+      "kind": "v4/v2",
+      "phase": "prove",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "cold/v2/snarkjs",
+      "status": "no data: cold/v4/snarkjs, cold/v2/snarkjs"
+    },
+    {
+      "id": "version/cold/snarkjs/v4_over_v2/verify",
+      "kind": "v4/v2",
+      "phase": "verify",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "cold/v2/snarkjs",
+      "status": "no data: cold/v4/snarkjs, cold/v2/snarkjs"
+    },
+    {
+      "id": "version/cold/snarkjs/v4_over_v2/wp",
+      "kind": "v4/v2",
+      "phase": "wp",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "cold/v2/snarkjs",
+      "status": "no data: cold/v4/snarkjs, cold/v2/snarkjs"
+    },
+    {
+      "id": "version/cold/snarkjs/v4_over_v3/witness",
+      "kind": "v4/v3",
+      "phase": "witness",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "cold/v3/snarkjs",
+      "status": "no data: cold/v4/snarkjs, cold/v3/snarkjs"
+    },
+    {
+      "id": "version/cold/snarkjs/v4_over_v3/prove",
+      "kind": "v4/v3",
+      "phase": "prove",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "cold/v3/snarkjs",
+      "status": "no data: cold/v4/snarkjs, cold/v3/snarkjs"
+    },
+    {
+      "id": "version/cold/snarkjs/v4_over_v3/verify",
+      "kind": "v4/v3",
+      "phase": "verify",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "cold/v3/snarkjs",
+      "status": "no data: cold/v4/snarkjs, cold/v3/snarkjs"
+    },
+    {
+      "id": "version/cold/snarkjs/v4_over_v3/wp",
+      "kind": "v4/v3",
+      "phase": "wp",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "cold/v3/snarkjs",
+      "status": "no data: cold/v4/snarkjs, cold/v3/snarkjs"
+    },
+    {
+      "id": "version/cold/rapidsnark/v4_over_v2/witness",
+      "kind": "v4/v2",
+      "phase": "witness",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "cold/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.8191373887873532,
+      "ci95": [
+        1.7468502186318835,
+        1.896368172468957
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/cold/rapidsnark/v4_over_v2/prove",
+      "kind": "v4/v2",
+      "phase": "prove",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "cold/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.1358295103488132,
+      "ci95": [
+        1.0595913541574655,
+        1.1871534771304062
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/cold/rapidsnark/v4_over_v2/verify",
+      "kind": "v4/v2",
+      "phase": "verify",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "cold/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.0038085193648563,
+      "ci95": [
+        0.8866241745064265,
+        1.204547296749615
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/cold/rapidsnark/v4_over_v2/wp",
+      "kind": "v4/v2",
+      "phase": "wp",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "cold/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.326681063370318,
+      "ci95": [
+        1.2514203589513053,
+        1.3737362044698174
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/cold/rapidsnark/v4_over_v3/witness",
+      "kind": "v4/v3",
+      "phase": "witness",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "cold/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.2630633067944654,
+      "ci95": [
+        1.1896994700890597,
+        1.317402626068211
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/cold/rapidsnark/v4_over_v3/prove",
+      "kind": "v4/v3",
+      "phase": "prove",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "cold/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 0.9996671941325698,
+      "ci95": [
+        0.9538301708069791,
+        1.0307715604405312
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/cold/rapidsnark/v4_over_v3/verify",
+      "kind": "v4/v3",
+      "phase": "verify",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "cold/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 0.9697541463046474,
+      "ci95": [
+        0.8930164495142721,
+        1.1580750661890673
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/cold/rapidsnark/v4_over_v3/wp",
+      "kind": "v4/v3",
+      "phase": "wp",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "cold/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.0805321264772867,
+      "ci95": [
+        1.0456055795897554,
+        1.1180828683801336
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/snarkjs/v4_over_v2/witness",
+      "kind": "v4/v2",
+      "phase": "witness",
+      "numerator": "warm/v4/snarkjs",
+      "denominator": "warm/v2/snarkjs",
+      "status": "ok",
+      "ratioOfMedians": 1.7714737113623658,
+      "ci95": [
+        1.7251383400420224,
+        1.8495751787835992
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/snarkjs/v4_over_v2/prove",
+      "kind": "v4/v2",
+      "phase": "prove",
+      "numerator": "warm/v4/snarkjs",
+      "denominator": "warm/v2/snarkjs",
+      "status": "ok",
+      "ratioOfMedians": 1.2383817946925182,
+      "ci95": [
+        1.2072189303222516,
+        1.2610147389133302
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/snarkjs/v4_over_v2/verify",
+      "kind": "v4/v2",
+      "phase": "verify",
+      "numerator": "warm/v4/snarkjs",
+      "denominator": "warm/v2/snarkjs",
+      "status": "ok",
+      "ratioOfMedians": 1.03024371146129,
+      "ci95": [
+        0.9576752685472393,
+        1.0760452433851748
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/snarkjs/v4_over_v2/wp",
+      "kind": "v4/v2",
+      "phase": "wp",
+      "numerator": "warm/v4/snarkjs",
+      "denominator": "warm/v2/snarkjs",
+      "status": "ok",
+      "ratioOfMedians": 1.2763612720686475,
+      "ci95": [
+        1.2407282927337258,
+        1.2991319158088401
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/snarkjs/v4_over_v3/witness",
+      "kind": "v4/v3",
+      "phase": "witness",
+      "numerator": "warm/v4/snarkjs",
+      "denominator": "warm/v3/snarkjs",
+      "status": "ok",
+      "ratioOfMedians": 1.2155146348478256,
+      "ci95": [
+        1.1889731442232945,
+        1.2480849769177296
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/snarkjs/v4_over_v3/prove",
+      "kind": "v4/v3",
+      "phase": "prove",
+      "numerator": "warm/v4/snarkjs",
+      "denominator": "warm/v3/snarkjs",
+      "status": "ok",
+      "ratioOfMedians": 0.9946750959706769,
+      "ci95": [
+        0.9702331202990064,
+        1.0046792734376657
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/snarkjs/v4_over_v3/verify",
+      "kind": "v4/v3",
+      "phase": "verify",
+      "numerator": "warm/v4/snarkjs",
+      "denominator": "warm/v3/snarkjs",
+      "status": "ok",
+      "ratioOfMedians": 1.0007130294243476,
+      "ci95": [
+        0.9558651282972974,
+        1.045663852647736
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/snarkjs/v4_over_v3/wp",
+      "kind": "v4/v3",
+      "phase": "wp",
+      "numerator": "warm/v4/snarkjs",
+      "denominator": "warm/v3/snarkjs",
+      "status": "ok",
+      "ratioOfMedians": 1.0107885235503504,
+      "ci95": [
+        0.9841121458374872,
+        1.0220298315369836
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/rapidsnark/v4_over_v2/witness",
+      "kind": "v4/v2",
+      "phase": "witness",
+      "numerator": "warm/v4/rapidsnark",
+      "denominator": "warm/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.7583936371341027,
+      "ci95": [
+        1.6411826777844445,
+        1.8313773167107155
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/rapidsnark/v4_over_v2/prove",
+      "kind": "v4/v2",
+      "phase": "prove",
+      "numerator": "warm/v4/rapidsnark",
+      "denominator": "warm/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.1172496548714843,
+      "ci95": [
+        1.0906154654220386,
+        1.1550138470201137
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/rapidsnark/v4_over_v2/verify",
+      "kind": "v4/v2",
+      "phase": "verify",
+      "numerator": "warm/v4/rapidsnark",
+      "denominator": "warm/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.3821691900714808,
+      "ci95": [
+        1.337047353760446,
+        1.4730212765957447
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/rapidsnark/v4_over_v2/wp",
+      "kind": "v4/v2",
+      "phase": "wp",
+      "numerator": "warm/v4/rapidsnark",
+      "denominator": "warm/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.277063639490884,
+      "ci95": [
+        1.2418721988431463,
+        1.3287504543127984
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/rapidsnark/v4_over_v3/witness",
+      "kind": "v4/v3",
+      "phase": "witness",
+      "numerator": "warm/v4/rapidsnark",
+      "denominator": "warm/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.230530589899174,
+      "ci95": [
+        1.1723093292349525,
+        1.2923467395548613
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/rapidsnark/v4_over_v3/prove",
+      "kind": "v4/v3",
+      "phase": "prove",
+      "numerator": "warm/v4/rapidsnark",
+      "denominator": "warm/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 0.9853367083232428,
+      "ci95": [
+        0.9590475500335973,
+        1.0244053114875187
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/rapidsnark/v4_over_v3/verify",
+      "kind": "v4/v3",
+      "phase": "verify",
+      "numerator": "warm/v4/rapidsnark",
+      "denominator": "warm/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.2388759963676725,
+      "ci95": [
+        1.206747139023743,
+        1.332596233142987
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "version/warm/rapidsnark/v4_over_v3/wp",
+      "kind": "v4/v3",
+      "phase": "wp",
+      "numerator": "warm/v4/rapidsnark",
+      "denominator": "warm/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.0728085648431775,
+      "ci95": [
+        1.0376495156283045,
+        1.1028372584648638
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": true
+    },
+    {
+      "id": "coldwarm/v2/snarkjs/witness",
+      "kind": "cold/warm",
+      "phase": "witness",
+      "numerator": "cold/v2/snarkjs",
+      "denominator": "warm/v2/snarkjs",
+      "status": "no data: cold/v2/snarkjs"
+    },
+    {
+      "id": "coldwarm/v2/snarkjs/prove",
+      "kind": "cold/warm",
+      "phase": "prove",
+      "numerator": "cold/v2/snarkjs",
+      "denominator": "warm/v2/snarkjs",
+      "status": "no data: cold/v2/snarkjs"
+    },
+    {
+      "id": "coldwarm/v2/snarkjs/verify",
+      "kind": "cold/warm",
+      "phase": "verify",
+      "numerator": "cold/v2/snarkjs",
+      "denominator": "warm/v2/snarkjs",
+      "status": "no data: cold/v2/snarkjs"
+    },
+    {
+      "id": "coldwarm/v2/snarkjs/wp",
+      "kind": "cold/warm",
+      "phase": "wp",
+      "numerator": "cold/v2/snarkjs",
+      "denominator": "warm/v2/snarkjs",
+      "status": "no data: cold/v2/snarkjs"
+    },
+    {
+      "id": "coldwarm/v2/rapidsnark/witness",
+      "kind": "cold/warm",
+      "phase": "witness",
+      "numerator": "cold/v2/rapidsnark",
+      "denominator": "warm/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.1711867353369407,
+      "ci95": [
+        1.105735830688957,
+        1.206398998431033
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v2/rapidsnark/prove",
+      "kind": "cold/warm",
+      "phase": "prove",
+      "numerator": "cold/v2/rapidsnark",
+      "denominator": "warm/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.0544644771538088,
+      "ci95": [
+        1.0179550634482448,
+        1.1171686043445173
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v2/rapidsnark/verify",
+      "kind": "cold/warm",
+      "phase": "verify",
+      "numerator": "cold/v2/rapidsnark",
+      "denominator": "warm/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 2.8818033432768613,
+      "ci95": [
+        2.580960357342267,
+        3.2379922604142957
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v2/rapidsnark/wp",
+      "kind": "cold/warm",
+      "phase": "wp",
+      "numerator": "cold/v2/rapidsnark",
+      "denominator": "warm/v2/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.0717330581355349,
+      "ci95": [
+        1.0371026168884294,
+        1.1465984094132757
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v3/snarkjs/witness",
+      "kind": "cold/warm",
+      "phase": "witness",
+      "numerator": "cold/v3/snarkjs",
+      "denominator": "warm/v3/snarkjs",
+      "status": "no data: cold/v3/snarkjs"
+    },
+    {
+      "id": "coldwarm/v3/snarkjs/prove",
+      "kind": "cold/warm",
+      "phase": "prove",
+      "numerator": "cold/v3/snarkjs",
+      "denominator": "warm/v3/snarkjs",
+      "status": "no data: cold/v3/snarkjs"
+    },
+    {
+      "id": "coldwarm/v3/snarkjs/verify",
+      "kind": "cold/warm",
+      "phase": "verify",
+      "numerator": "cold/v3/snarkjs",
+      "denominator": "warm/v3/snarkjs",
+      "status": "no data: cold/v3/snarkjs"
+    },
+    {
+      "id": "coldwarm/v3/snarkjs/wp",
+      "kind": "cold/warm",
+      "phase": "wp",
+      "numerator": "cold/v3/snarkjs",
+      "denominator": "warm/v3/snarkjs",
+      "status": "no data: cold/v3/snarkjs"
+    },
+    {
+      "id": "coldwarm/v3/rapidsnark/witness",
+      "kind": "cold/warm",
+      "phase": "witness",
+      "numerator": "cold/v3/rapidsnark",
+      "denominator": "warm/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.1804370637346593,
+      "ci95": [
+        1.1330715822630377,
+        1.256910859422911
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v3/rapidsnark/prove",
+      "kind": "cold/warm",
+      "phase": "prove",
+      "numerator": "cold/v3/rapidsnark",
+      "denominator": "warm/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.0566328172429695,
+      "ci95": [
+        1.0302346424909892,
+        1.1016133216098856
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v3/rapidsnark/verify",
+      "kind": "cold/warm",
+      "phase": "verify",
+      "numerator": "cold/v3/rapidsnark",
+      "denominator": "warm/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 2.673746342447785,
+      "ci95": [
+        2.424341773428831,
+        2.9018093323457834
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v3/rapidsnark/wp",
+      "kind": "cold/warm",
+      "phase": "wp",
+      "numerator": "cold/v3/rapidsnark",
+      "denominator": "warm/v3/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.1054145214872424,
+      "ci95": [
+        1.0643698860466466,
+        1.1369084114502588
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v4/snarkjs/witness",
+      "kind": "cold/warm",
+      "phase": "witness",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "warm/v4/snarkjs",
+      "status": "no data: cold/v4/snarkjs"
+    },
+    {
+      "id": "coldwarm/v4/snarkjs/prove",
+      "kind": "cold/warm",
+      "phase": "prove",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "warm/v4/snarkjs",
+      "status": "no data: cold/v4/snarkjs"
+    },
+    {
+      "id": "coldwarm/v4/snarkjs/verify",
+      "kind": "cold/warm",
+      "phase": "verify",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "warm/v4/snarkjs",
+      "status": "no data: cold/v4/snarkjs"
+    },
+    {
+      "id": "coldwarm/v4/snarkjs/wp",
+      "kind": "cold/warm",
+      "phase": "wp",
+      "numerator": "cold/v4/snarkjs",
+      "denominator": "warm/v4/snarkjs",
+      "status": "no data: cold/v4/snarkjs"
+    },
+    {
+      "id": "coldwarm/v4/rapidsnark/witness",
+      "kind": "cold/warm",
+      "phase": "witness",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "warm/v4/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.2116454100548717,
+      "ci95": [
+        1.1532442268921566,
+        1.2773292838288202
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v4/rapidsnark/prove",
+      "kind": "cold/warm",
+      "phase": "prove",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "warm/v4/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.0720002154787838,
+      "ci95": [
+        1.0299142810933206,
+        1.1058775995713033
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v4/rapidsnark/verify",
+      "kind": "cold/warm",
+      "phase": "verify",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "warm/v4/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 2.0929266604226897,
+      "ci95": [
+        1.9346968411941945,
+        2.42450890879364
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    },
+    {
+      "id": "coldwarm/v4/rapidsnark/wp",
+      "kind": "cold/warm",
+      "phase": "wp",
+      "numerator": "cold/v4/rapidsnark",
+      "denominator": "warm/v4/rapidsnark",
+      "status": "ok",
+      "ratioOfMedians": 1.11337282594876,
+      "ci95": [
+        1.0784832151024373,
+        1.146851975887475
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30,
+      "sameCampaign": false
+    }
+  ],
+  "numpy": "2.5.3"
+}

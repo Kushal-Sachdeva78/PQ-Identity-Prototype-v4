@@ -1,0 +1,49 @@
+# liboqs 0.15.0 (reference optimized-C + AVX2 dist) + liboqs-python + dilithium-py.
+# Produces the PQC measurement environment (Table IV) on a clean Linux host.
+#
+#   docker build -f docker/Dockerfile.liboqs -t pqid/liboqs .
+#   docker run --rm -v "$PWD:/work" -w /work pqid/liboqs \
+#     bash -lc 'OQS_INSTALL_PATH=/opt/liboqs-generic python3 packages/pqc/bench_pqc.py --n 1000'
+FROM ubuntu:24.04
+
+ARG LIBOQS_VERSION=0.15.0
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      build-essential cmake ninja-build git ca-certificates \
+      python3 python3-pip python3-venv python3-dev libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /src
+RUN git clone --depth 1 --branch ${LIBOQS_VERSION} \
+      https://github.com/open-quantum-safe/liboqs.git
+
+# Build 1: reference optimized-C, AVX2 OFF — matches the paper's Table IV config.
+RUN cmake -S liboqs -B /src/build-generic -GNinja \
+      -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DOQS_BUILD_ONLY_LIB=ON \
+      -DOQS_DIST_BUILD=OFF -DOQS_OPT_TARGET=generic \
+      -DOQS_MINIMAL_BUILD="KEM_ml_kem_512;SIG_ml_dsa_44" \
+      -DCMAKE_INSTALL_PREFIX=/opt/liboqs-generic \
+ && ninja -C /src/build-generic && ninja -C /src/build-generic install
+
+# Build 2: dist build with runtime AVX2 dispatch — the paper's "[A]" upgrade.
+RUN cmake -S liboqs -B /src/build-avx2 -GNinja \
+      -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DOQS_BUILD_ONLY_LIB=ON \
+      -DOQS_DIST_BUILD=ON \
+      -DOQS_MINIMAL_BUILD="KEM_ml_kem_512;SIG_ml_dsa_44" \
+      -DCMAKE_INSTALL_PREFIX=/opt/liboqs-avx2 \
+ && ninja -C /src/build-avx2 && ninja -C /src/build-avx2 install
+
+# Python bindings + dilithium-py (E2E issuance only; excluded from timing tables).
+RUN python3 -m venv /opt/venv \
+ && /opt/venv/bin/pip install --no-cache-dir --upgrade pip \
+ && /opt/venv/bin/pip install --no-cache-dir pytest "dilithium-py==1.4.0" \
+ && git clone --depth 1 --branch ${LIBOQS_VERSION} \
+      https://github.com/open-quantum-safe/liboqs-python.git || \
+    git clone --depth 1 https://github.com/open-quantum-safe/liboqs-python.git \
+ && /opt/venv/bin/pip install --no-cache-dir ./liboqs-python
+
+ENV PATH="/opt/venv/bin:${PATH}"
+ENV OQS_INSTALL_PATH=/opt/liboqs-generic
+WORKDIR /work
+CMD ["bash"]

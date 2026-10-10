@@ -1,0 +1,8 @@
+{
+  "name": "verifier:stmtCode, dev key, post-fix rerun (D-034)",
+  "port": 8829,
+  "out": "results/v4/fixcheck/2026-10-03/mutation/verifier__stmtCode",
+  "verifierDisabled": [
+    "stmtCode"
+  ]
+}

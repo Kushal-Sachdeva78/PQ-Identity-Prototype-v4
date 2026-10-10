@@ -1,0 +1,794 @@
+[
+  {
+    "kind": "circuit",
+    "name": "G03_leaf",
+    "exit": 1,
+    "seconds": 197,
+    "routesNowAccepted": [
+      "A1|A1-a forged leaf with a real holder's path under A's anchored root",
+      "A2|A2-a genuine path, earlier birthDate",
+      "A4|A4-a victim's genuine path, thief's secret",
+      "A3|A3-D1 fresh credID with the revoked credential's genuine path"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A5|A5-b A's issuerKeyHash with B's path: circuit:G04_issuance_membership -> verifier:epochAnchorCurrent"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G02_holder_commit",
+    "exit": 1,
+    "seconds": 198,
+    "routesNowAccepted": [
+      "A4|A4-a victim's genuine path, thief's secret"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G05_revkey",
+    "exit": 1,
+    "seconds": 159,
+    "routesNowAccepted": [
+      "A3|A3-F the revoked key's own leaf as low leaf (lowValue = key)",
+      "A3|A3-G the predecessor leaf, whose next is now the revoked key"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G04_issuance_membership",
+    "exit": 1,
+    "seconds": 161,
+    "routesNowAccepted": [
+      "A1|A1-a forged leaf with a real holder's path under A's anchored root",
+      "A2|A2-a genuine path, earlier birthDate",
+      "A4|A4-a victim's genuine path, thief's secret",
+      "A3|A3-D1 fresh credID with the revoked credential's genuine path"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A5|A5-b A's issuerKeyHash with B's path: circuit:G04_issuance_membership -> verifier:epochAnchorCurrent"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G06_rev_low_membership",
+    "exit": 1,
+    "seconds": 159,
+    "routesNowAccepted": [
+      "A3|A3-B stale low leaf against the current root",
+      "NL|NL-a fabricated bracketing leaf with a real leaf's path",
+      "NL|NL-b fabricated leaf at an empty index",
+      "NL|NL-c real predecessor leaf with lowNext edited to bracket the key",
+      "NL|NL-d stale sentinel (0, 2^251), which brackets every key, with index 0's current path"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G07_rev_bracket",
+    "exit": 1,
+    "seconds": 159,
+    "routesNowAccepted": [
+      "A3|A3-F the revoked key's own leaf as low leaf (lowValue = key)",
+      "A3|A3-G the predecessor leaf, whose next is now the revoked key"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G08_policy_hash",
+    "exit": 1,
+    "seconds": 152,
+    "routesNowAccepted": [
+      "PH|PH-a minor flips the private predicate to age_lt under the age_gte 18 policyHash",
+      "PH|PH-b minor lowers the private threshold to 16 under the age_gte 18 policyHash",
+      "PH|PH-c holder of another type sets the private requiredType to its own type"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "EX|EX-b older date inside the proof (before expiry): circuit:G15_epoch_window+G08_policy_hash -> circuit:G15_epoch_window",
+      "SD|SD-a prover uses yesterday's date to stay under 18 after turning 18: circuit:G15_epoch_window+G08_policy_hash -> circuit:G15_epoch_window"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G09_predicate_code",
+    "exit": 0,
+    "seconds": 152,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G10_standard_threshold",
+    "exit": 1,
+    "seconds": 157,
+    "routesNowAccepted": [
+      "TP|TP-b buggy wallet (threshold check off), threshold 17"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G11_ranges",
+    "exit": 0,
+    "seconds": 158,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G12_age",
+    "exit": 1,
+    "seconds": 152,
+    "routesNowAccepted": [
+      "A2|A2-b genuine leaf and birthDate, age_gte 18",
+      "LD-forge|LD-b age_gte t on 28 Feb with the attacker's generator"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G13_expiry",
+    "exit": 1,
+    "seconds": 151,
+    "routesNowAccepted": [
+      "EX|EX-a verifier's today after expiryDate"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G14_type",
+    "exit": 1,
+    "seconds": 157,
+    "routesNowAccepted": [
+      "TY|TY-a requiredType = verifier's type, credential of another type"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G15_epoch_window",
+    "exit": 1,
+    "seconds": 158,
+    "routesNowAccepted": [
+      "SD|SD-c buggy wallet (date check off): date outside the signed epoch window"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "EX|EX-b older date inside the proof (before expiry): circuit:G15_epoch_window+G08_policy_hash -> circuit:G08_policy_hash",
+      "SD|SD-a prover uses yesterday's date to stay under 18 after turning 18: circuit:G15_epoch_window+G08_policy_hash -> circuit:G08_policy_hash"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G16_stmt",
+    "exit": 0,
+    "seconds": 181,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G17_nonce",
+    "exit": 0,
+    "seconds": 179,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "shape",
+    "exit": 0,
+    "seconds": 142,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "sessionKnown",
+    "exit": 1,
+    "seconds": 142,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "R1|R1-a replay of the accepted reply: verifier:sessionKnown -> verifier:transcriptDecrypts",
+      "RL|RL-b captured reply replayed later: verifier:sessionKnown -> verifier:transcriptDecrypts"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "transcriptDecrypts",
+    "exit": 1,
+    "seconds": 145,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "R1|R1-b reply moved into a new session: verifier:transcriptDecrypts -> verifier:shape",
+      "RL|RL-e relay lowers the threshold (21 -> 18) before forwarding: verifier:transcriptDecrypts -> verifier:shape"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "issuerRecord",
+    "exit": 0,
+    "seconds": 145,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerPop+accreditation"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "issuerPop",
+    "exit": 0,
+    "seconds": 151,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+accreditation+issuerKeyHash",
+      "SQ|SQ-c presentation through the squatter's record with its own epoch (old revRoot): verifier:issuerPop+accreditation -> verifier:accreditation"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "accreditation",
+    "exit": 1,
+    "seconds": 151,
+    "routesNowAccepted": [
+      "A1|A1-d self-issued under the attacker's own PoP-registered, unaccredited DID",
+      "RA|RA-a accreditation signed with the attacker's ML-DSA key",
+      "RA|RA-b accreditation with a garbage signature",
+      "KL3-b|KL3-b after the accreditation window: verifier rejects"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+issuerPop+issuerKeyHash",
+      "SQ|SQ-c presentation through the squatter's record with its own epoch (old revRoot): verifier:issuerPop+accreditation -> verifier:issuerPop"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "issuerKeyHash",
+    "exit": 0,
+    "seconds": 139,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A5|A5-a proof on B's tree, issuerDid A, B's statement: verifier:issuerKeyHash+epochAnchorCurrent -> verifier:epochAnchorCurrent",
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+issuerPop+accreditation"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "epochAnchorCurrent",
+    "exit": 1,
+    "seconds": 140,
+    "routesNowAccepted": [
+      "A1|A1-b attacker-built tree, valid proof, A's genuine statement",
+      "A2|A2-c attacker-built tree with a fake birthDate, A's statement",
+      "A3|A3-C stale low leaf, stale revRoot and the old statement",
+      "A3|A3-D2 fresh credID in an attacker-built tree, A's statement"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A1|A1-c attacker-built tree, statement signed with the attacker's key naming A: verifier:epochAnchorCurrent -> verifier:epochSignature",
+      "A5|A5-a proof on B's tree, issuerDid A, B's statement: verifier:issuerKeyHash+epochAnchorCurrent -> verifier:issuerKeyHash",
+      "A6|A6-a epoch changed after signing: verifier:epochAnchorCurrent -> verifier:epochSignature",
+      "A6|A6-c A's root signed by B's key: verifier:epochAnchorCurrent -> verifier:epochSignature",
+      "A6|A6-d notAfter extended after signing: verifier:epochAnchorCurrent+epochWindow -> verifier:epochWindow"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "epochWindow",
+    "exit": 1,
+    "seconds": 145,
+    "routesNowAccepted": [
+      "FA|FA-b after notAfter: verifier rejects the frozen statement"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A6|A6-d notAfter extended after signing: verifier:epochAnchorCurrent+epochWindow -> verifier:epochAnchorCurrent"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "revRoot",
+    "exit": 0,
+    "seconds": 145,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "policyHash",
+    "exit": 1,
+    "seconds": 145,
+    "routesNowAccepted": [
+      "R1|R1-d age_gte 18 proof where 21 is required",
+      "TY|TY-b requiredType = own type inside the proof"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "nonceBinding",
+    "exit": 1,
+    "seconds": 145,
+    "routesNowAccepted": [
+      "R1|R1-e leaked presentation replayed by a third party into a new session at the same verifier"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "R1|R1-c presentation for V re-sealed to V2: verifier:nonceBinding+stmtCode -> verifier:stmtCode",
+      "RL|RL-c relay presents its own verifier identity to the victim: verifier:nonceBinding+stmtCode -> verifier:stmtCode"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "stmtCode",
+    "exit": 0,
+    "seconds": 140,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "R1|R1-c presentation for V re-sealed to V2: verifier:nonceBinding+stmtCode -> verifier:nonceBinding",
+      "RL|RL-c relay presents its own verifier identity to the victim: verifier:nonceBinding+stmtCode -> verifier:nonceBinding"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "groth16",
+    "exit": 1,
+    "seconds": 140,
+    "routesNowAccepted": [
+      "A1|A1-a forged leaf with a real holder's path under A's anchored root",
+      "A2|A2-a genuine path, earlier birthDate",
+      "A2|A2-b genuine leaf and birthDate, age_gte 18",
+      "A4|A4-a victim's genuine path, thief's secret",
+      "T1|T1-a public-beacon trapdoor applied to the v4 dev key",
+      "A3|A3-B stale low leaf against the current root",
+      "A3|A3-D1 fresh credID with the revoked credential's genuine path",
+      "A3|A3-F the revoked key's own leaf as low leaf (lowValue = key)",
+      "A3|A3-G the predecessor leaf, whose next is now the revoked key",
+      "NL|NL-a fabricated bracketing leaf with a real leaf's path",
+      "NL|NL-b fabricated leaf at an empty index",
+      "NL|NL-c real predecessor leaf with lowNext edited to bracket the key",
+      "NL|NL-d stale sentinel (0, 2^251), which brackets every key, with index 0's current path",
+      "EX|EX-a verifier's today after expiryDate",
+      "EX|EX-b older date inside the proof (before expiry)",
+      "TY|TY-a requiredType = verifier's type, credential of another type",
+      "PH|PH-a minor flips the private predicate to age_lt under the age_gte 18 policyHash",
+      "PH|PH-b minor lowers the private threshold to 16 under the age_gte 18 policyHash",
+      "PH|PH-c holder of another type sets the private requiredType to its own type",
+      "SD|SD-a prover uses yesterday's date to stay under 18 after turning 18",
+      "SD|SD-c buggy wallet (date check off): date outside the signed epoch window",
+      "TP|TP-b buggy wallet (threshold check off), threshold 17",
+      "LD-forge|LD-b age_gte t on 28 Feb with the attacker's generator"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "sessionFresh",
+    "exit": 0,
+    "seconds": 139,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "epochSignature",
+    "exit": 1,
+    "seconds": 139,
+    "routesNowAccepted": [
+      "A8|A8-a forged leaf under the adversary-anchored root"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "requestShape",
+    "exit": 1,
+    "seconds": 140,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "RL|RL-d1 relay adds its own KEM key to the request: wallet:requestShape -> accepted:"
+    ],
+    "harnessErrors": [
+      "RL|RL-d1 relay adds its own KEM key to the request: unexpected exception: invalid request: request.kemPk is not an allowed field"
+    ]
+  },
+  {
+    "kind": "wallet",
+    "name": "verifierRecord",
+    "exit": 0,
+    "seconds": 140,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "verifierKemKey",
+    "exit": 0,
+    "seconds": 139,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "verifierPop",
+    "exit": 1,
+    "seconds": 140,
+    "routesNowAccepted": [
+      "SQ-d|SQ-d controller EVM account registers the verifier DID under a relay origin"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "originBinding",
+    "exit": 1,
+    "seconds": 141,
+    "routesNowAccepted": [
+      "RL-f+|RL-f with origin binding: caller origin is the relay's"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "dateCurrent",
+    "exit": 1,
+    "seconds": 141,
+    "routesNowAccepted": [
+      "SD-d|SD-d second request for 1 Mar right after answering 28 Feb"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "SD|SD-b verifier supplies a stale date (probe / accept expired): wallet-enforced:dateCurrent -> wallet-enforced:dateInWindow"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "typeAllowed",
+    "exit": 1,
+    "seconds": 141,
+    "routesNowAccepted": [
+      "PV13|PV13 wallet refuses a credential type outside its allow-list at issuance"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "TY|TY-c verifier asks for a credential type outside the wallet's allow-list: wallet-enforced:typeAllowed -> wallet-enforced:typeHeld"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "thresholdStandard",
+    "exit": 1,
+    "seconds": 142,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "TP|TP-a verifier asks threshold 17: wallet-enforced:thresholdStandard -> wallet-enforced:proofFailed",
+      "TP|TP-a verifier asks threshold 19: wallet-enforced:thresholdStandard -> wallet-enforced:proofFailed",
+      "TP|TP-a verifier asks threshold 20: wallet-enforced:thresholdStandard -> wallet-enforced:proofFailed"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "typeHeld",
+    "exit": 0,
+    "seconds": 140,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "issuerRecord",
+    "exit": 0,
+    "seconds": 140,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "issuerPop",
+    "exit": 0,
+    "seconds": 143,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "accreditation",
+    "exit": 1,
+    "seconds": 144,
+    "routesNowAccepted": [
+      "PV8|PV8 honest wallet checks accreditation"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "epochWindow",
+    "exit": 1,
+    "seconds": 145,
+    "routesNowAccepted": [
+      "FA|FA-c after notAfter: honest wallet refuses"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "anchorMatches",
+    "exit": 1,
+    "seconds": 150,
+    "routesNowAccepted": [
+      "PV2|PV2 re-signed statement (different ML-DSA bytes)",
+      "PV4|PV4 extra field",
+      "PV9|PV9 credential naming a second, PoP-valid controller of issuer A",
+      "PV11|PV11 statement with type = the epoch statement type"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "PV3|PV3 older statement and path: wallet:anchorMatches -> wallet:proofFailed",
+      "PV10|PV10 upper-case signature with a trailing tag: wallet:anchorMatches -> wallet:proofFailed"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "dateInWindow",
+    "exit": 0,
+    "seconds": 141,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "anchorCadence",
+    "exit": 0,
+    "seconds": 141,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "credentialSignature",
+    "exit": 0,
+    "seconds": 142,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "predicateHolds",
+    "exit": 1,
+    "seconds": 142,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "B2-boundary|honest wallet, age_gte 18 one day before the 18th birthday: wallet:predicateHolds -> wallet:proofFailed",
+      "B3-65|C0-c65 adult (born 1990), age_gte 65: wallet:predicateHolds -> wallet:proofFailed",
+      "LD-refuse|LD-a age_gte t on 28 Feb: honest wallet refuses: wallet:predicateHolds -> wallet:proofFailed",
+      "LD-refuse|LD-e age_lt t on 1 Mar: honest wallet refuses: wallet:predicateHolds -> wallet:proofFailed"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "registry",
+    "name": "recordUnique",
+    "exit": 0,
+    "seconds": 141,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "registry",
+    "name": "controllerOnly",
+    "exit": 0,
+    "seconds": 141,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "registry",
+    "name": "anchorCadence",
+    "exit": 1,
+    "seconds": 149,
+    "routesNowAccepted": [
+      "PV6|PV6 immediate re-anchor",
+      "PV7|PV7 second revocation root five seconds after an anchor"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "PV5|PV5 permuted key order: verifier view identical to the canonical one: wallet:identicalViews -> accepted:",
+      "PV12|PV12 issuer contacts during a presentation (published-tree default): wallet:publishedTree -> accepted:"
+    ],
+    "harnessErrors": [
+      "PV5|PV5 permuted key order: verifier view identical to the canonical one: unexpected exception: wallet refuses (anchorMatches): issuer served a statement or path that is not its current signed on-chain anchor",
+      "PV12|PV12 issuer contacts during a presentation (published-tree default): unexpected exception: wallet refuses (anchorMatches): issuer served a statement or path that is not its current signed on-chain anchor"
+    ]
+  },
+  {
+    "kind": "registry",
+    "name": "epochIncrement",
+    "exit": 0,
+    "seconds": 154,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "registry",
+    "name": "windowBounds",
+    "exit": 0,
+    "seconds": 163,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "registry",
+    "name": "governanceWriter",
+    "exit": 0,
+    "seconds": 163,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "registry",
+    "name": "accreditationSerial",
+    "exit": 1,
+    "seconds": 164,
+    "routesNowAccepted": [
+      "RA|RA-c replay of an older genuine accreditation after revocation (serial rollback)"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "registry",
+    "name": "kemMonotonic",
+    "exit": 1,
+    "seconds": 162,
+    "routesNowAccepted": [
+      "RL-g|RL-g re-post the previous KEM statement after a rotation"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "governance",
+    "name": "issuerPopBeforeAccreditation",
+    "exit": 1,
+    "seconds": 111,
+    "routesNowAccepted": [
+      "SQ|SQ-a asks governance to accredit (garbage PoP)",
+      "SQ|SQ-b replays A's genuine PoP signature under its own controller"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "RL|RL-a passive capture: read the reply without the KEM secret: transport:aeadConfidentiality -> accepted:",
+      "RL|RL-b captured reply replayed later: verifier:sessionKnown -> accepted:",
+      "RL|RL-c relay presents its own verifier identity to the victim: verifier:nonceBinding+stmtCode -> accepted:",
+      "RL|RL-d2 relay forwards V's request and tries to read the reply with its own KEM key: transport:kemKeyFromChain -> accepted:",
+      "RL|RL-e relay lowers the threshold (21 -> 18) before forwarding: verifier:transcriptDecrypts -> accepted:",
+      "PV1|PV1 views equal except the session nonce: wallet:identicalViews -> accepted:",
+      "PV2|PV2 re-signed statement (different ML-DSA bytes): wallet:anchorMatches -> wallet:issuerPop",
+      "PV3|PV3 older statement and path: wallet:anchorMatches -> wallet:issuerPop",
+      "PV4|PV4 extra field: wallet:anchorMatches -> wallet:issuerPop",
+      "PV5|PV5 permuted key order: verifier view identical to the canonical one: wallet:identicalViews -> accepted:",
+      "PV9|PV9 credential naming a second, PoP-valid controller of issuer A: wallet:anchorMatches -> wallet:issuerPop",
+      "PV10|PV10 upper-case signature with a trailing tag: wallet:anchorMatches -> wallet:issuerPop",
+      "PV11|PV11 statement with type = the epoch statement type: wallet:anchorMatches -> wallet:issuerPop",
+      "PV12|PV12 issuer contacts during a presentation (published-tree default): wallet:publishedTree -> accepted:"
+    ],
+    "harnessErrors": [
+      "RL|RL-a passive capture: read the reply without the KEM secret: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "RL|RL-b captured reply replayed later: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "RL|RL-c relay presents its own verifier identity to the victim: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "RL|RL-d2 relay forwards V's request and tries to read the reply with its own KEM key: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "RL|RL-e relay lowers the threshold (21 -> 18) before forwarding: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "KL1|RL-f victim's honest wallet answers the relayed request: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "PV1|PV1 views equal except the session nonce: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "PV5|PV5 permuted key order: verifier view identical to the canonical one: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "PV12|PV12 issuer contacts during a presentation (published-tree default): unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "KL4|KL4 online-mode wallet contacts the issuer while presenting: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)"
+    ]
+  }
+]

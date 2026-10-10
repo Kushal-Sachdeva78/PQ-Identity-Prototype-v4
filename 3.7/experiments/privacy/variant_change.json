@@ -1,0 +1,12 @@
+{
+  "schema": "privacy-variant-diff/v1",
+  "source": "packages/v4/src/wallet.ts",
+  "originalSha256": "8f4a0a4062449f1f5ca665db492b3b3a8d41e123e1ae2b053653121276975a09",
+  "variantSha256": "e7b4f67c1a6812535ca92683f94a5cfef35cdd7cc37a9cca4cd46b1a97e455d8",
+  "importRelocation": "./<module>.ts -> ../../../packages/v4/src/<module>.ts",
+  "removedState": "  /** Dates the wallet has committed to answering (B5 CIR-1): at most one date per 2 x skew window. */\n  private readonly dateLog: Array<{ date: number; atSec: number }> = [];\n",
+  "removedDateBlock": "    const skew = this.cfg.skewSec ?? WALLET_CLOCK_SKEW_SEC;\n    const otherDateRecently = this.dateLog.some((e) => now - e.atSec <= 2 * skew && e.date !== request.policy.today);\n    this.check(\n      \"dateCurrent\",\n      acceptableTodays(now, skew).includes(request.policy.today) && !otherDateRecently,\n      otherDateRecently\n        ? `the wallet answered another date within the last ${2 * skew} s`\n        : `verifier date ${request.policy.today} is not the wallet's current UTC date ${utcDateOf(now)}`\n    );\n    // Reserve the date in the same synchronous step as the check (no await in between), so two\n    // concurrent requests with different dates cannot both pass before either is recorded (C3\n    // classification review: a race in the D-017 fix). An answer and a refusal are both\n    // observable, so any request that passes the date check commits the wallet to that date.\n    this.dateLog.push({ date: request.policy.today, atSec: now });\n    while (this.dateLog.length > 64) this.dateLog.shift();\n",
+  "addedDateBlock": "    this.check(\"dateCurrent\", statelessDateAllowed(now, request.policy.today), \"stateless policy: date unavailable\");\n",
+  "policySource": "date_policy.ts",
+  "policySha256": "abdcbe055eeacd428c1d690dab1ab03ef9d600098381419b25961935ee29f428"
+}

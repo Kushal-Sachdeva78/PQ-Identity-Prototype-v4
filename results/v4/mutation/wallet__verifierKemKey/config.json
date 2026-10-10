@@ -1,0 +1,8 @@
+{
+  "name": "wallet:verifierKemKey",
+  "port": 8635,
+  "out": "<repo>\\results\\v4\\mutation\\wallet__verifierKemKey",
+  "walletDisabled": [
+    "verifierKemKey"
+  ]
+}

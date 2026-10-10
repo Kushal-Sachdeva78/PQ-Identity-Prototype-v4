@@ -1,0 +1,303 @@
+{
+  "schema": "pqid/v4-fuzz-plan/v1",
+  "campaign": "fz1",
+  "smoke": false,
+  "preRegistration": "docs/v4/ROBUSTNESS.md",
+  "protocol": {
+    "normative": "13312f857b9165c882458e00aa1c47ee0d8432891ed3ffafec645514502cfd15",
+    "file": "da4786a0964848d9a84a0ab124a5746ace8f058c636d141c9a3d368df7f4a94f"
+  },
+  "masterSeed": 20261022,
+  "seedRule": "target seed = (master XOR crc32(targetId)) >>> 0; case i draws from caseSeed(targetSeed, i) (harness/v4/robustness/rng.ts)",
+  "generator": "in-repo seeded generator (sfc32 seeded by splitmix32), no shrinking (D-034: no property-testing package)",
+  "scale": 1,
+  "caseCapSec": 120,
+  "targetCapMin": 90,
+  "registered": {
+    "scale": 1,
+    "caseCapSec": 120,
+    "targetCapMin": 90
+  },
+  "deviation": null,
+  "gitClean": true,
+  "commitChecked": [
+    "docs/v4/ROBUSTNESS.md",
+    "docs/v4/BENCH_PROTOCOL.md",
+    "harness/v4/robustness",
+    "harness/v4/lib",
+    "harness/v4/bench/lib.ts",
+    "harness/v4/bench/guard.ts",
+    "harness/v4/scale_lib.ts",
+    "harness/v4/r1cs_tools.ts",
+    "scripts/robustness",
+    "onchain/test/v4",
+    "onchain/foundry.toml",
+    "onchain/contracts/v4",
+    "packages/v4/src"
+  ],
+  "chainPort": 8781,
+  "targets": [
+    {
+      "id": "T-dates",
+      "kind": "pure",
+      "title": "date encoding and age arithmetic",
+      "entryPoints": [
+        "isValidYmd",
+        "utcDateOf",
+        "unixOfUtcDate",
+        "addDays",
+        "acceptableTodays",
+        "predicateHolds",
+        "ageOn"
+      ],
+      "property": "isValidYmd equals an integer civil-calendar reference (D-010 range); utcDateOf, unixOfUtcDate and addDays equal the reference; unixOfUtcDate and addDays throw Error exactly on invalid dates; acceptableTodays holds exactly the UTC dates of now and now - skew, sorted, never a date after today; predicateHolds equals calendar age with the 29 February rule (anniversary on 1 March in common years), ageOn equals completed years",
+      "documentedErrors": [
+        "Error"
+      ],
+      "budget": 200000,
+      "targetSeed": 2644972207
+    },
+    {
+      "id": "T-encoding",
+      "kind": "pure",
+      "title": "field encodings",
+      "entryPoints": [
+        "credTypeField",
+        "fieldFrom31Bytes",
+        "policyHashV4",
+        "revKeyFromCredId",
+        "fieldDec"
+      ],
+      "property": "outputs are field elements (< p); revKey < 2^251 and equals hi * 2^123 + floor(lo / 32) of the credID limbs; fieldFrom31Bytes equals the big-endian integer of exactly 31 bytes; each throws Error exactly on its documented bad input (empty or non-string typeId, length other than 31 or 32, threshold outside [0, 255], invalid date, unknown predicate, value outside [0, p)); typeIds that differ only in lone surrogates are recorded as an observation when they collide",
+      "documentedErrors": [
+        "Error"
+      ],
+      "budget": 100000,
+      "targetSeed": 747906312
+    },
+    {
+      "id": "T-stmt-json",
+      "kind": "pure",
+      "title": "statement validation (values)",
+      "entryPoints": [
+        "validateStatement",
+        "statementBytes",
+        "tryParseStatement",
+        "parseStatement",
+        "detachSignature"
+      ],
+      "property": "validateStatement never throws on JSON data and accepts exactly the values the reference accepts (all 4 types, with and without an expected type); for an accepted value, statementBytes gives the reference canonical bytes, parsing them returns an equal value, and they parse as no other type; detachSignature accepts {statement, signature} exactly when the statement is valid and the signature is 4,840 lower-case hex characters. Exotic in-process objects (getters, Proxy, class instances) may throw; that is recorded as an observation",
+      "documentedErrors": [
+        "StatementError"
+      ],
+      "budget": 100000,
+      "targetSeed": 4035095760
+    },
+    {
+      "id": "T-stmt-bytes",
+      "kind": "pure",
+      "title": "statement parsing (bytes)",
+      "entryPoints": [
+        "tryParseStatement",
+        "parseStatement"
+      ],
+      "property": "tryParseStatement never throws and accepts exactly the byte strings that are strict UTF-8, valid JSON, a valid statement (of the expected type, if given) and byte-identical to the canonical encoding (so duplicate keys, whitespace, -0, other number spellings, \\u escapes, BOM and invalid UTF-8 are rejected); parseStatement throws StatementError exactly when tryParseStatement rejects",
+      "documentedErrors": [
+        "StatementError"
+      ],
+      "budget": 100000,
+      "targetSeed": 669254265
+    },
+    {
+      "id": "T-stmt-sig",
+      "kind": "pure",
+      "title": "statement signatures",
+      "entryPoints": [
+        "verifyStatement",
+        "signStatement"
+      ],
+      "property": "verifyStatement never throws and returns true exactly for an original (public key, canonical statement bytes, signature) triple signed in this run (ML-DSA-44 keys generated in memory, never written): any change to the key, the bytes or the signature, a wrong expected type or a non-byte argument gives false; signStatement refuses (StatementError) exactly the bytes that are not a valid canonical statement, and what it signs verifies",
+      "documentedErrors": [
+        "StatementError"
+      ],
+      "budget": 10000,
+      "targetSeed": 3224944145
+    },
+    {
+      "id": "T-req-shape",
+      "kind": "pure",
+      "title": "proof request shape",
+      "entryPoints": [
+        "requestShapeErrors",
+        "isProofRequestV4",
+        "newRequest"
+      ],
+      "property": "requestShapeErrors never throws on JSON data and returns no error exactly for the requests the V4_DESIGN section 5 reference accepts (exact keys at both levels, did:pq, lower-case address, positive chainId, threshold 0..255, typeId of 1..256 characters, valid date, non-negative issuedAt); isProofRequestV4 agrees; newRequest returns a reference-valid request carrying the given fields, or throws, exactly as the reference decides for those fields",
+      "documentedErrors": [
+        "Error",
+        "TypeError"
+      ],
+      "budget": 200000,
+      "targetSeed": 3021422474
+    },
+    {
+      "id": "T-reply-shape",
+      "kind": "pure",
+      "title": "session reply shape",
+      "entryPoints": [
+        "replyShapeErrors",
+        "isSessionReplyV4"
+      ],
+      "property": "replyShapeErrors never throws on JSON data and returns no error exactly for replies the reference accepts (exact keys, type, 64-hex sessionId, ct of 2,176 lower-case hex characters, box of lower-case hex of whole bytes between 32 characters and 2 x (1 MiB + 16)); isSessionReplyV4 agrees",
+      "documentedErrors": [],
+      "budget": 200000,
+      "targetSeed": 2119905311
+    },
+    {
+      "id": "T-open",
+      "kind": "pure",
+      "title": "verifier transport (open reply)",
+      "entryPoints": [
+        "verifierOpenReply"
+      ],
+      "property": "verifierOpenReply (in-memory session store, ML-KEM-768 pair generated in memory) never throws on a reply given as an object, a JSON string or UTF-8 bytes; its result is the one the reference decides: malformed for a reply that is not JSON or not of the reply shape, unknownSession or expiredSession for the session state, decryptFailed whenever ct or box differ from what the wallet sealed, malformed for a plaintext that is not strict UTF-8 canonical JSON of an object nesting at most 8 levels, else ok with a presentation equal to the sealed one; ok never consumes the session",
+      "documentedErrors": [],
+      "budget": 50000,
+      "targetSeed": 2609738961
+    },
+    {
+      "id": "T-depth",
+      "kind": "pure",
+      "title": "JSON nesting bound",
+      "entryPoints": [
+        "jsonDepthExceeds"
+      ],
+      "property": "jsonDepthExceeds(v, max) equals (reference depth of v, computed in full with an explicit stack) > max for random trees and chains up to depth 1,000, and never throws on chains of depth 10^5 and 10^6 (iterative implementation)",
+      "documentedErrors": [],
+      "budget": 20000,
+      "targetSeed": 3429943256
+    },
+    {
+      "id": "T-pres-shape",
+      "kind": "pure",
+      "title": "presentation shape",
+      "entryPoints": [
+        "presentationShapeError"
+      ],
+      "property": "presentationShapeError never throws on JSON data and returns null exactly when the reference shape predicate holds (oracles.ts refPresentationShapeOk); inputs with decimal strings of 10^5 or more digits are timed by the slow-input detector (hypothesis: the BigInt parse has no length cap)",
+      "documentedErrors": [],
+      "budget": 100000,
+      "targetSeed": 3307362781
+    },
+    {
+      "id": "T-witness",
+      "kind": "pure",
+      "title": "circuit input assembly",
+      "entryPoints": [
+        "buildCircuitInputV4"
+      ],
+      "property": "buildCircuitInputV4 either throws an Error (any subclass) or returns exactly the reference assembly: the 25 circuit inputs, every value a canonical decimal below p, issPathElements of 32 and revLowPath of 30 elements; it returns exactly when the reference says the inputs are well formed",
+      "documentedErrors": [
+        "Error",
+        "TypeError",
+        "RangeError",
+        "SyntaxError"
+      ],
+      "budget": 50000,
+      "targetSeed": 4167839421
+    },
+    {
+      "id": "T-pqc",
+      "kind": "pure",
+      "title": "PQC and AEAD wrappers",
+      "entryPoints": [
+        "mlDsaVerify",
+        "mlDsaVerifyKey",
+        "mlKemDecaps",
+        "aes256gcmOpen",
+        "hkdfSha256Expand"
+      ],
+      "property": "mlDsaVerify and mlDsaVerifyKey never throw and accept only the exact (key, message, signature) signed in this run; aes256gcmOpen never throws and returns the plaintext only for the exact sealed (key, iv, aad, ciphertext, tag), null otherwise; mlKemDecaps throws Error only on a ciphertext that is not 1,088 bytes and returns the encapsulated secret exactly for the untouched ciphertext (implicit rejection otherwise); hkdfSha256Expand throws Error exactly for an output length outside [1, 8160] or a PRK under 32 bytes and otherwise equals Node's HKDF",
+      "documentedErrors": [
+        "Error"
+      ],
+      "budget": 20000,
+      "targetSeed": 4004696430
+    },
+    {
+      "id": "T-imt",
+      "kind": "pure",
+      "title": "revocation tree (IMT) bytes and witnesses",
+      "entryPoints": [
+        "IndexedMerkleTree.deserialize",
+        "IndexedMerkleTree.verifyNonMembership"
+      ],
+      "property": "deserialize(serialize(t)) equals t (depth, keys in leaf order, root) for random trees of depth 1 to 12 (and 1 % at depth 30); any byte string deserialize accepts serialises back to exactly the same bytes (only canonical encodings are accepted), and everything else throws Error; verifyNonMembership never throws, accepts the honest witness of every non-member key, and when it accepts a witness whose root is the tree's root, the opened leaf is the tree's leaf at lowIndex and strictly brackets a key that is not in the tree",
+      "documentedErrors": [
+        "Error"
+      ],
+      "budget": 20000,
+      "targetSeed": 2564919563
+    },
+    {
+      "id": "T-pub",
+      "kind": "pure",
+      "title": "published-tree blob",
+      "entryPoints": [
+        "parsePublication"
+      ],
+      "property": "parsePublication never hangs (per-case time recorded, watchdog in the runner), accepts every honest blob of the documented layout (n <= 64 leaves, depth 32, r <= 16 revocations), and when it returns, the statement's root equals an independent Merkle rebuild of the returned leaves at the blob's depth and revRoot equals the returned revocation tree's root. Throwing on a malformed blob is allowed (any error class is recorded). Blobs that differ from the canonical encoding of what they parse to (trailing bytes, a depth other than 32, a leaf >= p, another statement spelling) are recorded as observations",
+      "documentedErrors": [
+        "Error",
+        "TypeError",
+        "RangeError",
+        "SyntaxError"
+      ],
+      "budget": 20000,
+      "targetSeed": 4258866428
+    },
+    {
+      "id": "T-verify",
+      "kind": "chain",
+      "title": "verifier decision (full)",
+      "entryPoints": [
+        "VerifierV4.verifyReply"
+      ],
+      "property": "verifyReply never throws, and accepts exactly when the transport is intact (same sessionId and ct, box = the session's seal of strict canonical JSON), the presentation's publicSignals, issuerDid, issuerController and epochStatement equal the honest values, the proof passes the shape rules and Groth16 verification (so a re-randomised proof is a legitimate acceptance) and the session is open; a rejected reply that failed any of the first 14 checks leaves the session open, and the honest reply of that session is still accepted afterwards. 1 case in 20 uses the as-shipped chain client, the rest the read cache",
+      "documentedErrors": [],
+      "budget": 20000,
+      "targetSeed": 200726903
+    },
+    {
+      "id": "T-wallet-req",
+      "kind": "chain",
+      "title": "wallet request checks",
+      "entryPoints": [
+        "HolderWalletV4.checkRequest",
+        "HolderWalletV4.present (exotic requests only)"
+      ],
+      "property": "checkRequest (a fresh wallet per case, so the date log is empty) either returns the verifier's registered KEM key or throws WalletRefusal naming a WALLET_CHECKS check; it returns only for a request that the reference accepts and that names this chain, the registered verifier, a standard threshold, an allowed type and an acceptable date; present() on a Proxy or a throwing getter refuses with requestShape before any other check",
+      "documentedErrors": [
+        "WalletRefusal"
+      ],
+      "budget": 5000,
+      "targetSeed": 4068743234
+    },
+    {
+      "id": "T-wallet-iss",
+      "kind": "chain",
+      "title": "wallet checks of served issuer data",
+      "entryPoints": [
+        "HolderWalletV4.checkIssuerData"
+      ],
+      "property": "checkIssuerData through a mutating IssuerDataSource returns only for the exact anchored canonical epoch statement with a path whose root is the anchored root and a revocation opening against the anchored revRoot; otherwise it throws WalletRefusal naming a WALLET_CHECKS check, and the refusal text never contains the credID, the leaf index or the data source's own error text (review round 2, VRA-1)",
+      "documentedErrors": [
+        "WalletRefusal"
+      ],
+      "budget": 5000,
+      "targetSeed": 274825256
+    }
+  ],
+  "coverage": true,
+  "createdUtc": "2026-10-03T09:11:14.805Z"
+}

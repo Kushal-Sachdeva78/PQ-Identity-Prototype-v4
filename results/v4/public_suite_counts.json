@@ -1,0 +1,215 @@
+{
+  "schema": "pqid/v4-public-suite-counts/v1",
+  "generatedBy": "scripts/figures/public_suite_view.py",
+  "source": "results/v3/security_suite.json",
+  "summary": {
+    "v2AttackRoutes": 10,
+    "v2AttackRoutesAccepted": 6,
+    "v3AttackRoutes": 30,
+    "v3AttackRoutesAccepted": 0,
+    "v3AttackRoutesStoppedBy": {
+      "verifierCheck": 17,
+      "proofSystem": 5,
+      "referenceWitnessGeneratorOnly": 8
+    }
+  },
+  "attacks": [
+    {
+      "id": "C0",
+      "v2": {
+        "routes": 1,
+        "accepted": 1
+      },
+      "v3": {
+        "routes": 2,
+        "accepted": 2
+      }
+    },
+    {
+      "id": "A1",
+      "v2": {
+        "routes": 1,
+        "accepted": 1
+      },
+      "v3": {
+        "routes": 5,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "A2",
+      "v2": {
+        "routes": 1,
+        "accepted": 1
+      },
+      "v3": {
+        "routes": 3,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "A4",
+      "v2": {
+        "routes": 1,
+        "accepted": 1
+      },
+      "v3": {
+        "routes": 2,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "A5",
+      "v2": {
+        "routes": 1,
+        "accepted": 1
+      },
+      "v3": {
+        "routes": 3,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "A6",
+      "v3": {
+        "routes": 4,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "A7",
+      "v3": {
+        "routes": 1,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "T1",
+      "v2": {
+        "routes": 1,
+        "accepted": 1
+      },
+      "v3": {
+        "routes": 1,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "C1",
+      "v3": {
+        "routes": 1,
+        "accepted": 1
+      }
+    },
+    {
+      "id": "R1",
+      "v3": {
+        "routes": 3,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "KL1",
+      "v2": {
+        "routes": 1,
+        "accepted": 1
+      },
+      "v3": {
+        "routes": 1,
+        "accepted": 1
+      }
+    },
+    {
+      "id": "PV2",
+      "v3": {
+        "routes": 1,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "PV4",
+      "v3": {
+        "routes": 2,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "PV5",
+      "v3": {
+        "routes": 1,
+        "accepted": 1
+      }
+    },
+    {
+      "id": "PV6",
+      "v3": {
+        "routes": 1,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "PV7",
+      "v3": {
+        "routes": 2,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "PV8",
+      "v3": {
+        "routes": 1,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "B0",
+      "v2": {
+        "routes": 1,
+        "accepted": 0
+      },
+      "v3": {
+        "routes": 1,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "A3",
+      "v2": {
+        "routes": 5,
+        "accepted": 1
+      },
+      "v3": {
+        "routes": 7,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "C2",
+      "v3": {
+        "routes": 4,
+        "accepted": 4
+      }
+    },
+    {
+      "id": "B1",
+      "v3": {
+        "routes": 1,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "PV3",
+      "v3": {
+        "routes": 1,
+        "accepted": 0
+      }
+    },
+    {
+      "id": "A8",
+      "v3": {
+        "routes": 1,
+        "accepted": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+PQ-ID prototype demo — IEEE Access-2026-15409 reference implementation
+started 2026-06-11T12:39:09.142Z
+
+━━ Phase 0 · Local ledger (single-node EVM; multi-node BFT is [F]) ━━
+  ✓ ledger: start single-node EVM (Anvil)  (307 ms)
+  ✓ ledger: deploy DID/Issuer/Revocation/Schema registries  (2077 ms)
+
+━━ Phase 1 · DID registration (Algorithm 1) ━━
+  ✓ issuer: ML-DSA-44 keygen (dilithium-py 1.4.0, harness issuance step per paper A.5)  (5226 ms)
+  ✓ wallet: ML-DSA-44 keygen (liboqs) + holder secret/commitment  (1387 ms)
+  ✓ ledger: register issuer DID Document  (422 ms)
+  ✓ ledger: register holder DID Document  (299 ms)
+  ✓ ledger: accredit issuer in Issuer Registry  (296 ms)
+  ✓ ledger: register credential schema  (307 ms)
+
+━━ Phase 2 · Revocation accumulator (depth-32 Poseidon SMT) ━━
+  ✓ revocation: build depth-32 SMT with 8 revoked fixture credIDs  (494 ms)
+  ✓ ledger: publish initial revocation root (Algorithm 4)  (488 ms)
+
+━━ Phase 3 · Credential issuance (Algorithm 2) ━━
+  ✓ issuer: issue VC — credID = SHA3-256(cred ‖ pk_issuer), Dilithium sign (dilithium-py)  (1007 ms)
+
+━━ Phase 4 · Two-phase authentication (Algorithm 3) ━━
+  ✓ wallet: OFF-CIRCUIT Dilithium verify (liboqs ← dilithium-py sig: live interop) + holder binding + policy  (944 ms)
+  ✓ wallet: witness (incl. depth-32 non-membership) + Groth16 prove [rapidsnark native]  (2013 ms)
+  ✓ wallet: Groth16 prove [snarkJS] on the same statement  (2567 ms)
+  ✓ verifier: resolve pk_issuer + revRoot on-chain, equality, Groth16.verify, nonce (rapidsnark proof)  (66 ms)
+  ✓ wallet: fresh proof for second session [snarkJS]  (2482 ms)
+  ✓ verifier: accept snarkJS proof (second session)  (83 ms)
+
+━━ Phase 5 · Revocation (Algorithm 4) + post-revocation rejection ━━
+  ✓ issuer: REVOKE credential — insert credID into SMT, publish new root  (517 ms)
+  ✓ wallet: attempt to build a fresh proof — REFUSED (no non-membership opening exists)  (1 ms)
+  ✓ verifier: REJECT replay of the pre-revocation proof (revRoot equality fails)  (92 ms)
+
+━━ Summary ━━
+  steps: 20, all passed: true
+  VC size (canonical JSON incl. Dilithium signature): 5250 B
+  proof size: 727 B (snarkJS) / 703 B (rapidsnark)
+  issuance signer: dilithium-py (verified by liboqs in the wallet — live interop)
+
+LIFECYCLE COMPLETE — including the required post-revocation rejection.

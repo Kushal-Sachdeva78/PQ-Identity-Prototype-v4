@@ -1,0 +1,144 @@
+{
+  "schema": "pqid/v4-forge-fuzz-summary/v1",
+  "campaign": "fz2",
+  "smoke": false,
+  "note": "untimed; counts only",
+  "seed": 20261024,
+  "budgets": {
+    "fuzzRuns": 10000,
+    "invariantRuns": 256,
+    "invariantDepth": 100
+  },
+  "totals": {
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "fuzzRuns": 80000,
+    "invariantCalls": 51200
+  },
+  "tests": [
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_accreditationSerial(string,uint256,uint256,uint256,address,bytes,bytes)",
+      "kind": "Fuzz",
+      "status": "Success",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_deactivateOnlyOwn(string,address,address)",
+      "kind": "Fuzz",
+      "status": "Success",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_epochNeedsOwnRecord(string,address,address,uint64)",
+      "kind": "Fuzz",
+      "status": "Success",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_epochRules(string,address,uint8,uint256[3],uint32[3])",
+      "kind": "Fuzz",
+      "status": "Success",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_kemRules(string,address,uint8,uint256[3],bytes)",
+      "kind": "Fuzz",
+      "status": "Success",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_recordKeyInjective(string,address,string,address)",
+      "kind": "Fuzz",
+      "status": "Success",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_recordKeyIsPackedHash(string,address)",
+      "kind": "Fuzz",
+      "status": "Success",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "testFuzz_registerResolveUnique(string,bytes,bytes32,bytes,string,address,address,uint32)",
+      "kind": "Fuzz",
+      "status": "Success",
+      "runs": 10000,
+      "calls": null,
+      "reverts": null,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4FuzzTest",
+      "test": "test_constructorGuards()",
+      "kind": "Unit",
+      "status": "Success",
+      "runs": null,
+      "calls": null,
+      "reverts": null,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4InvariantTest",
+      "test": "invariant_callsMatchModel()",
+      "kind": "Invariant",
+      "status": "Success",
+      "runs": 256,
+      "calls": 25600,
+      "reverts": 0,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4InvariantTest",
+      "test": "invariant_stateMatchesModel()",
+      "kind": "Invariant",
+      "status": "Success",
+      "runs": 256,
+      "calls": 25600,
+      "reverts": 0,
+      "reason": null
+    },
+    {
+      "suite": "test/v4/RegistriesV4.fuzz.t.sol:RegistriesV4InvariantTest",
+      "test": "test_handlerReachesEveryAcceptance()",
+      "kind": "Unit",
+      "status": "Success",
+      "runs": null,
+      "calls": null,
+      "reverts": null,
+      "reason": null
+    }
+  ],
+  "failures": [],
+  "persisted": [],
+  "finishedUtc": "2026-10-03T16:27:31.053Z"
+}

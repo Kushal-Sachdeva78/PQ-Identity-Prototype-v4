@@ -1,0 +1,30 @@
+{
+  "schema": "pqid/v4-fuzz-observation/v1",
+  "observation": "credType:loneSurrogateCollision",
+  "detail": "typeIds \"pqid:type:a\\udbffge-credential:v1\" and its well-formed form map to the same credType field",
+  "target": "T-encoding",
+  "masterSeed": 20261022,
+  "targetSeed": 747906312,
+  "caseIndex": 0,
+  "caseSeed": 605108927,
+  "family": "credType",
+  "recipe": [
+    "insert lone surrogate U+dbff at 11"
+  ],
+  "meta": {
+    "$t": "object",
+    "entries": []
+  },
+  "input": {
+    "$t": "object",
+    "entries": [
+      [
+        "typeId",
+        "pqid:type:a\udbffge-credential:v1"
+      ]
+    ]
+  },
+  "inputTypedJsonBytes": 74,
+  "inputTypedJsonSha256": "bcebcbfb3924532e55838a54f5df0d4c47c4eaea969952b37bdd9d4de6ad10d8",
+  "inputTruncated": false
+}

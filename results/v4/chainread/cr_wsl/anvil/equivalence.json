@@ -1,0 +1,268 @@
+{
+  "schema": "pqid/v4-chainread-equivalence/v1",
+  "rule": "as-shipped variant A gives the references (decision and check vector; wallet outputs per holder; JSON-RPC multiset without eth_chainId); every other variant must match them with drained prefetch queues and no unplanned read; multicall must aggregate",
+  "rows": [
+    {
+      "role": "verifier",
+      "variant": "A",
+      "ok": true,
+      "problems": [],
+      "posts": 7,
+      "requests": 14,
+      "depth": 7,
+      "multicall": null
+    },
+    {
+      "role": "verifier",
+      "variant": "B",
+      "ok": true,
+      "problems": [],
+      "posts": 7,
+      "requests": 14,
+      "depth": 7,
+      "multicall": null
+    },
+    {
+      "role": "verifier",
+      "variant": "C",
+      "ok": true,
+      "problems": [],
+      "posts": 7,
+      "requests": 7,
+      "depth": 7,
+      "multicall": null
+    },
+    {
+      "role": "verifier",
+      "variant": "D",
+      "ok": true,
+      "problems": [],
+      "posts": 7,
+      "requests": 7,
+      "depth": 7,
+      "multicall": null
+    },
+    {
+      "role": "verifier",
+      "variant": "E",
+      "ok": true,
+      "problems": [],
+      "posts": 2,
+      "requests": 9,
+      "depth": 2,
+      "multicall": null
+    },
+    {
+      "role": "verifier",
+      "variant": "F",
+      "ok": true,
+      "problems": [],
+      "posts": 7,
+      "requests": 7,
+      "depth": 2,
+      "multicall": null
+    },
+    {
+      "role": "verifier",
+      "variant": "G",
+      "ok": true,
+      "problems": [],
+      "posts": 2,
+      "requests": 7,
+      "depth": 2,
+      "multicall": null
+    },
+    {
+      "role": "verifier",
+      "variant": "H",
+      "ok": true,
+      "problems": [],
+      "posts": 2,
+      "requests": 3,
+      "depth": 2,
+      "multicall": {
+        "aggregates": 1,
+        "subCalls": 5,
+        "fallbacks": 0,
+        "sizes": [
+          5
+        ]
+      }
+    },
+    {
+      "role": "verifier",
+      "variant": "I",
+      "ok": true,
+      "problems": [],
+      "posts": 5,
+      "requests": 10,
+      "depth": 5,
+      "multicall": null
+    },
+    {
+      "role": "wallet",
+      "variant": "A",
+      "ok": true,
+      "problems": [],
+      "posts": 16,
+      "requests": 32,
+      "depth": 16,
+      "multicall": null
+    },
+    {
+      "role": "wallet",
+      "variant": "B",
+      "ok": true,
+      "problems": [],
+      "posts": 16,
+      "requests": 32,
+      "depth": 16,
+      "multicall": null
+    },
+    {
+      "role": "wallet",
+      "variant": "C",
+      "ok": true,
+      "problems": [],
+      "posts": 16,
+      "requests": 16,
+      "depth": 16,
+      "multicall": null
+    },
+    {
+      "role": "wallet",
+      "variant": "D",
+      "ok": true,
+      "problems": [],
+      "posts": 16,
+      "requests": 16,
+      "depth": 16,
+      "multicall": null
+    },
+    {
+      "role": "wallet",
+      "variant": "E",
+      "ok": true,
+      "problems": [],
+      "posts": 4,
+      "requests": 20,
+      "depth": 4,
+      "multicall": null
+    },
+    {
+      "role": "wallet",
+      "variant": "F",
+      "ok": true,
+      "problems": [],
+      "posts": 16,
+      "requests": 16,
+      "depth": 4,
+      "multicall": null
+    },
+    {
+      "role": "wallet",
+      "variant": "G",
+      "ok": true,
+      "problems": [],
+      "posts": 4,
+      "requests": 16,
+      "depth": 4,
+      "multicall": null
+    },
+    {
+      "role": "wallet",
+      "variant": "H",
+      "ok": true,
+      "problems": [],
+      "posts": 4,
+      "requests": 7,
+      "depth": 4,
+      "multicall": {
+        "aggregates": 2,
+        "subCalls": 11,
+        "fallbacks": 0,
+        "sizes": [
+          7,
+          4
+        ]
+      }
+    },
+    {
+      "role": "wallet",
+      "variant": "I",
+      "ok": true,
+      "problems": [],
+      "posts": 10,
+      "requests": 20,
+      "depth": 10,
+      "multicall": null
+    }
+  ],
+  "references": {
+    "verifierRequests": 7,
+    "verifierReadKeys": [
+      {
+        "n": 3,
+        "method": "eth_call"
+      },
+      {
+        "n": 1,
+        "method": "eth_getLogs"
+      },
+      {
+        "n": 1,
+        "method": "eth_call"
+      },
+      {
+        "n": 1,
+        "method": "eth_getLogs"
+      },
+      {
+        "n": 1,
+        "method": "eth_call"
+      }
+    ],
+    "walletReadKeys": [
+      {
+        "n": 3,
+        "method": "eth_call"
+      },
+      {
+        "n": 1,
+        "method": "eth_getLogs"
+      },
+      {
+        "n": 1,
+        "method": "eth_call"
+      },
+      {
+        "n": 1,
+        "method": "eth_getLogs"
+      },
+      {
+        "n": 2,
+        "method": "eth_call"
+      },
+      {
+        "n": 2,
+        "method": "eth_getLogs"
+      },
+      {
+        "n": 3,
+        "method": "eth_call"
+      },
+      {
+        "n": 1,
+        "method": "eth_getLogs"
+      },
+      {
+        "n": 1,
+        "method": "eth_call"
+      },
+      {
+        "n": 1,
+        "method": "eth_call"
+      }
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PQID v4 Safari prover</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #ffffff; --fg: #111111; --muted: #555555; --line: #cccccc; --accent: #0a58ca; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #111111; --fg: #eeeeee; --muted: #aaaaaa; --line: #333333; --accent: #6ea8fe; } }
+    body { margin: 0; padding: 16px; background: var(--bg); color: var(--fg); font: 15px/1.4 -apple-system, system-ui, sans-serif; }
+    h1 { font-size: 18px; margin: 0 0 4px; }
+    p.small { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+    fieldset { border: 1px solid var(--line); border-radius: 8px; margin: 0 0 12px; padding: 8px 12px; }
+    label { display: flex; justify-content: space-between; gap: 8px; margin: 6px 0; }
+    input[type=number] { width: 80px; }
+    button { font: inherit; padding: 10px 14px; margin: 4px 4px 4px 0; border-radius: 8px; border: 1px solid var(--accent); background: transparent; color: var(--accent); }
+    button:disabled { opacity: 0.4; }
+    #status { font-weight: 600; margin: 8px 0; }
+    #log { font: 12px/1.35 ui-monospace, Menlo, monospace; white-space: pre-wrap; border-top: 1px solid var(--line); padding-top: 8px; }
+    #flash { position: fixed; inset: 0; background: #ffffff; display: none; z-index: 10; }
+  </style>
+</head>
+<body>
+  <div id="flash"></div>
+  <h1>PQ-Identity v4, Safari path (snarkJS 0.7.4), dev key</h1>
+  <p class="small">Cold = first proof after this page loads. Warm = later proofs on the same page.
+    Keep the screen on and this tab in front while a run is going. Protocol: docs/v4/PHONE_PROTOCOL.md.</p>
+
+  <fieldset>
+    <legend>Run</legend>
+    <button id="btnCold">Cold proof (this page load)</button>
+    <button id="btnWarm">Warm series</button>
+    <button id="btnPost">Post results again</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>Settings (also accepted as URL parameters)</legend>
+    <label>Settle after load before the cold proof (s) <input id="settle" type="number" min="0" value="10"></label>
+    <label>Warm-up proofs <input id="warmup" type="number" min="0" value="5"></label>
+    <label>Warm proofs <input id="n" type="number" min="1" value="30"></label>
+    <label>Gap between proofs (s) <input id="gap" type="number" min="0" value="10"></label>
+    <label>Idle before proof, energy (s) <input id="pre" type="number" min="0" value="0"></label>
+    <label>Idle after proof, energy (s) <input id="post" type="number" min="0" value="0"></label>
+    <label>Screen flash markers (energy) <input id="flashOn" type="checkbox"></label>
+    <label>Cold campaign: runs (auto reload) <input id="runs" type="number" min="1" value="1"></label>
+    <label>Cold campaign: idle before reload (s) <input id="idle" type="number" min="0" value="120"></label>
+  </fieldset>
+
+  <div id="status">Loading...</div>
+  <div id="log"></div>
+
+  <script src="snarkjs.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

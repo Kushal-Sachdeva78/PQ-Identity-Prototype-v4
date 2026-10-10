@@ -1,0 +1,16 @@
+{
+  "name": "circuit:G11_ranges, dev key, post-fix rerun (D-034)",
+  "port": 8810,
+  "out": "results/v4/fixcheck/2026-10-03/mutation/circuit__G11_ranges",
+  "mutantGroup": "G11_ranges",
+  "artifacts": {
+    "r1cs": "circuits/build/v4/mutants/G11_ranges/credential_auth_v4.r1cs",
+    "sym": "circuits/build/v4/mutants/G11_ranges/credential_auth_v4.sym",
+    "zkey": "circuits/build/v4/mutants/G11_ranges/mutant_throwaway.zkey",
+    "wasm": "circuits/build/v4/mutants/G11_ranges/credential_auth_v4_js/credential_auth_v4.wasm",
+    "vkeyFile": "circuits/build/v4/mutants/G11_ranges/mutant_throwaway_vkey.json",
+    "src": "circuits/build/v4/mutants/G11_ranges/credential_auth_v4.circom",
+    "attackerDir": "circuits/build/v4/mutants/G11_ranges/attacker",
+    "keyLabel": "mutant-throwaway"
+  }
+}

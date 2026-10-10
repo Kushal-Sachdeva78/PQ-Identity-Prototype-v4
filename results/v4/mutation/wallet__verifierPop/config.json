@@ -1,0 +1,8 @@
+{
+  "name": "wallet:verifierPop",
+  "port": 8634,
+  "out": "<repo>\\results\\v4\\mutation\\wallet__verifierPop",
+  "walletDisabled": [
+    "verifierPop"
+  ]
+}

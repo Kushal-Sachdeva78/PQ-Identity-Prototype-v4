@@ -1,0 +1,74 @@
+--- packages/v4/src/wallet.ts
++++ 3.7/experiments/privacy/wallet_stateless_v1.ts
+@@ -1,3 +1,4 @@
++import { statelessDateAllowed } from "./date_policy.ts";
+ import { randomBytes } from "node:crypto";
+ import { sha3_256 } from "@pqid/common/hash";
+ import { didFromPublicKey } from "@pqid/common/did";
+@@ -10,20 +11,20 @@
+   stmtCodeV4,
+   isStandardThreshold,
+   revKeyFromCredId,
+-} from "./encoding.ts";
+-import { acceptableTodays, isValidYmd, predicateHolds, utcDateOf } from "./dates.ts";
+-import { DEFAULT_TYPE_ID, KEM_ALG, MIN_ANCHOR_INTERVAL_SEC, TYPE_ACCREDITATION, TYPE_VERIFIER_KEM, WALLET_CLOCK_SKEW_SEC } from "./constants.ts";
+-import { mlDsaVerify } from "./pqc.ts";
+-import { epochMessage, tryParseStatement, type VerifierKemStatement, type AccreditationStatement } from "./statements.ts";
+-import { checkRecordAndPop, checkAccreditation } from "./governance.ts";
+-import { walletOpenSession, walletSealReply, requestShapeErrors, type ProofRequestV4, type SessionReplyV4 } from "./session.ts";
+-import { buildCircuitInputV4 } from "./witness.ts";
+-import { proveV4, type ProverBackendV4, type CircuitArtifactsV4 } from "./prove.ts";
+-import { IndexedMerkleTree } from "./imt.ts";
+-import { computeCredIdV4, type VerifiableCredentialV4, type EpochStatementV4, type IssuanceServiceReply } from "./issuer.ts";
+-import { presentationShapeError, EPOCH_KEYS, SIG_HEX, type PresentationV4 } from "./verifier.ts";
+-import type { LedgerV4 } from "./ledger.ts";
+-import type { Clock } from "./clock.ts";
++} from "../../../packages/v4/src/encoding.ts";
++import { acceptableTodays, isValidYmd, predicateHolds, utcDateOf } from "../../../packages/v4/src/dates.ts";
++import { DEFAULT_TYPE_ID, KEM_ALG, MIN_ANCHOR_INTERVAL_SEC, TYPE_ACCREDITATION, TYPE_VERIFIER_KEM, WALLET_CLOCK_SKEW_SEC } from "../../../packages/v4/src/constants.ts";
++import { mlDsaVerify } from "../../../packages/v4/src/pqc.ts";
++import { epochMessage, tryParseStatement, type VerifierKemStatement, type AccreditationStatement } from "../../../packages/v4/src/statements.ts";
++import { checkRecordAndPop, checkAccreditation } from "../../../packages/v4/src/governance.ts";
++import { walletOpenSession, walletSealReply, requestShapeErrors, type ProofRequestV4, type SessionReplyV4 } from "../../../packages/v4/src/session.ts";
++import { buildCircuitInputV4 } from "../../../packages/v4/src/witness.ts";
++import { proveV4, type ProverBackendV4, type CircuitArtifactsV4 } from "../../../packages/v4/src/prove.ts";
++import { IndexedMerkleTree } from "../../../packages/v4/src/imt.ts";
++import { computeCredIdV4, type VerifiableCredentialV4, type EpochStatementV4, type IssuanceServiceReply } from "../../../packages/v4/src/issuer.ts";
++import { presentationShapeError, EPOCH_KEYS, SIG_HEX, type PresentationV4 } from "../../../packages/v4/src/verifier.ts";
++import type { LedgerV4 } from "../../../packages/v4/src/ledger.ts";
++import type { Clock } from "../../../packages/v4/src/clock.ts";
+ 
+ /**
+  * Honest v4 wallet (V4_DESIGN section 6.2). It is the defence for routes where the
+@@ -122,8 +123,6 @@
+   holderCommit = 0n;
+   readonly credentials: HeldCredentialV4[] = [];
+   private readonly highestSerial = new Map<string, number>();
+-  /** Dates the wallet has committed to answering (B5 CIR-1): at most one date per 2 x skew window. */
+-  private readonly dateLog: Array<{ date: number; atSec: number }> = [];
+   /** Newest KEM statement notBefore accepted per verifier record (B5 REG-5: no rollback). */
+   private readonly kemNotBefore = new Map<string, number>();
+   readonly disabled: ReadonlySet<WalletCheck>;
+@@ -228,21 +227,7 @@
+         `caller origin ${String(ctx.callerOrigin)} is not the verifier's registered origin`
+       );
+     }
+-    const skew = this.cfg.skewSec ?? WALLET_CLOCK_SKEW_SEC;
+-    const otherDateRecently = this.dateLog.some((e) => now - e.atSec <= 2 * skew && e.date !== request.policy.today);
+-    this.check(
+-      "dateCurrent",
+-      acceptableTodays(now, skew).includes(request.policy.today) && !otherDateRecently,
+-      otherDateRecently
+-        ? `the wallet answered another date within the last ${2 * skew} s`
+-        : `verifier date ${request.policy.today} is not the wallet's current UTC date ${utcDateOf(now)}`
+-    );
+-    // Reserve the date in the same synchronous step as the check (no await in between), so two
+-    // concurrent requests with different dates cannot both pass before either is recorded (C3
+-    // classification review: a race in the D-017 fix). An answer and a refusal are both
+-    // observable, so any request that passes the date check commits the wallet to that date.
+-    this.dateLog.push({ date: request.policy.today, atSec: now });
+-    while (this.dateLog.length > 64) this.dateLog.shift();
++    this.check("dateCurrent", statelessDateAllowed(now, request.policy.today), "stateless policy: date unavailable");
+     this.check("thresholdStandard", isStandardThreshold(request.policy.threshold), `threshold ${request.policy.threshold} is not a standard threshold`);
+     this.check("typeAllowed", this.allowedTypes.includes(request.policy.typeId), "credential type not available");
+     if (!kem) throw new WalletRefusal("verifierKemKey", "no verifier KEM key");

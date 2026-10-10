@@ -1,0 +1,35 @@
+{
+  "name": "@pqid/v4",
+  "version": "4.0.0-dev",
+  "private": true,
+  "type": "module",
+  "description": "PQ-Identity v4 protocol code (additive; v2/v3 packages are imported read-only)",
+  "exports": {
+    "./constants": "./src/constants.ts",
+    "./encoding": "./src/encoding.ts",
+    "./dates": "./src/dates.ts",
+    "./paths": "./src/paths.ts",
+    "./pqc": "./src/pqc.ts",
+    "./session": "./src/session.ts",
+    "./imt": "./src/imt.ts",
+    "./statements": "./src/statements.ts",
+    "./ledger": "./src/ledger.ts",
+    "./issuer": "./src/issuer.ts",
+    "./governance": "./src/governance.ts",
+    "./wallet": "./src/wallet.ts",
+    "./verifier": "./src/verifier.ts",
+    "./witness": "./src/witness.ts",
+    "./prove": "./src/prove.ts",
+    "./world": "./src/world.ts",
+    "./published": "./src/published.ts",
+    "./clock": "./src/clock.ts"
+  },
+  "dependencies": {
+    "@pqid/common": "1.0.0",
+    "@pqid/issuer": "1.0.0",
+    "circomlibjs": "0.1.7",
+    "ethers": "6.13.4",
+    "snarkjs": "0.7.4",
+    "solc": "0.8.28"
+  }
+}

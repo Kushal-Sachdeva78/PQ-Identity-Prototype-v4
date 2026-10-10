@@ -1,0 +1,162 @@
+circomspect: analyzing template 'CredentialAuthV4'
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:104:36
+    │
+104 │     for (var i = 0; i < issLevels; i++) {
+    │                                    ^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:119:9
+    │
+119 │         rk += hiBits.out[i] * (2 ** (123 + i));
+    │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:118:30
+    │
+118 │     for (var i = 0; i < 128; i++) {
+    │                              ^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:122:9
+    │
+122 │         rk += loBits.out[i] * (2 ** (i - 5));
+    │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:121:30
+    │
+121 │     for (var i = 5; i < 128; i++) {
+    │                              ^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:135:36
+    │
+135 │     for (var i = 0; i < revLevels; i++) {
+    │                                    ^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:161:5
+    │
+161 │     (predicateCode - 1) * (predicateCode - 2) === 0; // @check
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:168:19
+    │
+168 │     thrAcc[0] <== threshold - std[0];
+    │                   ^^^^^^^^^^^^^^^^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:170:23
+    │
+170 │         thrAcc[i] <== thrAcc[i - 1] * (threshold - std[i]);
+    │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:169:28
+    │
+169 │     for (var i = 1; i < 7; i++) {
+    │                            ^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:195:23
+    │
+195 │     reached.in[0] <== birthDate + 10000 * threshold;
+    │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:197:21
+    │
+197 │     reached.out === 2 - predicateCode; // @check
+    │                     ^^^^^^^^^^^^^^^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Field element arithmetic could overflow, which may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:232:17
+    │
+232 │     nonceSq <== nonce * nonce;
+    │                 ^^^^^^^^^^^^^ Field element arithmetic here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-arithmetic.
+
+note: Comparisons with field elements greater than `p/2` may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:104:21
+    │
+104 │     for (var i = 0; i < issLevels; i++) {
+    │                     ^^^^^^^^^^^^^ Field element comparison here.
+    │
+    = Field elements are always normalized to the interval `(-p/2, p/2]` before they are compared.
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-comparison.
+
+note: Comparisons with field elements greater than `p/2` may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:118:21
+    │
+118 │     for (var i = 0; i < 128; i++) {
+    │                     ^^^^^^^ Field element comparison here.
+    │
+    = Field elements are always normalized to the interval `(-p/2, p/2]` before they are compared.
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-comparison.
+
+note: Comparisons with field elements greater than `p/2` may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:121:21
+    │
+121 │     for (var i = 5; i < 128; i++) {
+    │                     ^^^^^^^ Field element comparison here.
+    │
+    = Field elements are always normalized to the interval `(-p/2, p/2]` before they are compared.
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-comparison.
+
+note: Comparisons with field elements greater than `p/2` may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:135:21
+    │
+135 │     for (var i = 0; i < revLevels; i++) {
+    │                     ^^^^^^^^^^^^^ Field element comparison here.
+    │
+    = Field elements are always normalized to the interval `(-p/2, p/2]` before they are compared.
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-comparison.
+
+note: Comparisons with field elements greater than `p/2` may produce unexpected results.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:169:21
+    │
+169 │     for (var i = 1; i < 7; i++) {
+    │                     ^^^^^ Field element comparison here.
+    │
+    = Field elements are always normalized to the interval `(-p/2, p/2]` before they are compared.
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#field-element-comparison.
+
+warning: Intermediate signals should typically occur in at least two separate constraints.
+    ┌─ <repo>\circuits\credential_auth_v4.circom:231:5
+    │
+231 │     signal nonceSq;
+    │     ^^^^^^^^^^^^^^ The intermediate signal `nonceSq` is declared here.
+232 │     nonceSq <== nonce * nonce;
+    │     ------------------------- The intermediate signal `nonceSq` is constrained here.
+    │
+    = For more details, see https://github.com/trailofbits/circomspect/blob/main/doc/analysis_passes.md#under-constrained-signal.
+
+circomspect: Result written to `results/v4/analyzers/circomspect_v4.sarif`.
+circomspect: 19 issues found.

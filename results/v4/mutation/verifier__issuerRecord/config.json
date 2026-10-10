@@ -1,0 +1,8 @@
+{
+  "name": "verifier:issuerRecord",
+  "port": 8619,
+  "out": "<repo>\\results\\v4\\mutation\\verifier__issuerRecord",
+  "verifierDisabled": [
+    "issuerRecord"
+  ]
+}

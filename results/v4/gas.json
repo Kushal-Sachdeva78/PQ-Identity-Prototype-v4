@@ -1,0 +1,55 @@
+{
+  "schema": "pqid/v4-gas/v1",
+  "label": "[M] local Anvil, one transaction each; gas is deterministic for fixed calldata",
+  "keyLabel": "dev",
+  "verifier": {
+    "file": "setup/out/v4/Groth16VerifierV4_dev.sol",
+    "sha256": "bf2a0918213eac2a40b0fa85b4ee167a2b207aa62ee8105dc16724ac1b9d33a7"
+  },
+  "verifyProofDirectTxGasUsed": 264048,
+  "verifyProofGasPerProof": {
+    "n": 10,
+    "median": 264048,
+    "min": 264036,
+    "max": 264060,
+    "values": [
+      264060,
+      264060,
+      264048,
+      264048,
+      264048,
+      264036,
+      264048,
+      264048,
+      264036,
+      264048
+    ],
+    "note": "one fresh presentation per transaction; the spread comes from zero bytes in the proof calldata"
+  },
+  "verifyProofCalldataBytes": 516,
+  "calldata": {
+    "zeroBytes": 59,
+    "nonZeroBytes": 457,
+    "eip7623FloorGas": 39870,
+    "floorBinds": false,
+    "ofFirstProof": true,
+    "note": "[S] EIP-7623 floor = 21000 + 10 x (zero bytes + 4 x non-zero bytes)"
+  },
+  "staticCallValidProof": true,
+  "staticCallTamperedNonceRejected": true,
+  "registryWrites": {
+    "publishEpoch_first": 145231,
+    "publishEpoch_later": 57169
+  },
+  "evm": "Anvil default hardfork (see tools/foundry version in host meta)",
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-27T09:15:14.101Z"
+  }
+}

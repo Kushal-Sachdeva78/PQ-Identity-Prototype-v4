@@ -1,0 +1,41 @@
+{
+  "controls": {
+    "honestInputRefused": false,
+    "tamperedSignatureRefused": true,
+    "underAgeRefused": true,
+    "wrongHolderSecretRefused": true
+  },
+  "journalBytes": 268,
+  "label": "[M] measured on this laptop (WSL2 Ubuntu 24.04), CPU prover, succinct receipts",
+  "proveMs": {
+    "all": [
+      969449.869739,
+      909135.480238,
+      772782.164692
+    ],
+    "median": 909135.480238
+  },
+  "receiptBytes": [
+    223762,
+    223762,
+    223762
+  ],
+  "runs": 3,
+  "schema": "pqid/v4-h1-zkvm/v1",
+  "statement": "ML-DSA-44 issuer signature over a credential, holder-secret commitment, expiry and age-at-least, proved inside the RISC Zero zkVM; journal = issuer key hash, date, threshold, type, nonce",
+  "stats": {
+    "pagingCycles": 289251,
+    "reservedCycles": 161877,
+    "segments": 5,
+    "totalCycles": 4325376,
+    "userCycles": 3874248
+  },
+  "verifyMs": {
+    "all": [
+      14.077162000000001,
+      11.571253,
+      10.758194
+    ],
+    "median": 11.571253
+  }
+}

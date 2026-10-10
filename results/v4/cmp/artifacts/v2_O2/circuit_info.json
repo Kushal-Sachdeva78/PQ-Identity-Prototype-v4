@@ -1,0 +1,56 @@
+{
+  "schema": "pqid/v4-cmp-v2o2-circuit/v1",
+  "label": "[M] compiler counts of the frozen v2 circuit at --O2 (cmp series build; not a v2 artifact)",
+  "createdUtc": "2026-10-01T11:23:19.523Z",
+  "source": "circuits/credential_auth.circom",
+  "sourceSha256": "9017e4ccdcc5a5f145d49627f9ebc999bce127de6535860fd1dae1bd69f7bcd0",
+  "compiler": "circom compiler 2.2.3",
+  "optimization": "--O2",
+  "command": "circom circuits/credential_auth.circom --O2 --r1cs --wasm -o results/v4/cmp/artifacts/v2_O2",
+  "nConstraints": 10588,
+  "nWires": 10620,
+  "nPubInputs": 5,
+  "nPrvInputs": 43,
+  "nOutputs": 0,
+  "nLabels": 33767,
+  "expected": {
+    "nConstraints": 10588,
+    "nWires": 10620,
+    "source": "results/v3/compare_v2_v3.json $.constraints.v2_O2"
+  },
+  "matchesExpected": true,
+  "circomSummary": {
+    "template instances": "233",
+    "non-linear constraints": "10588",
+    "linear constraints": "0",
+    "public inputs": "5",
+    "private inputs": "43 (42 belong to witness)",
+    "public outputs": "0",
+    "wires": "10620",
+    "labels": "33767"
+  },
+  "r1cs": {
+    "path": "results/v4/cmp/artifacts/v2_O2/credential_auth.r1cs",
+    "sha256": "874674369c653760f08b954a6a26096e6fe632166f18f5191dbff24eb2891756",
+    "bytes": 4631164
+  },
+  "wasm": {
+    "path": "results/v4/cmp/artifacts/v2_O2/credential_auth_js/credential_auth.wasm",
+    "sha256": "8e231ffc601899ee3a10f73f231228a5a25c9a2abe7bd350f775c823ae193fba",
+    "bytes": 2518778
+  },
+  "noSym": "no .sym file: not needed to prove or verify",
+  "compileWallMs": 1767,
+  "env": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "ramGiB": 31.4,
+    "platform": "win32",
+    "arch": "x64",
+    "osName": "Windows 11 Home Single Language",
+    "osBuild": "10.0.26200",
+    "node": "v24.18.0",
+    "openssl": "3.5.7",
+    "v8": "13.6.233.17-node.50"
+  }
+}

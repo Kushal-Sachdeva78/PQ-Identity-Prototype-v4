@@ -1,0 +1,8 @@
+{
+  "name": "verifier:issuerPop",
+  "port": 8620,
+  "out": "<repo>\\results\\v4\\mutation\\verifier__issuerPop",
+  "verifierDisabled": [
+    "issuerPop"
+  ]
+}

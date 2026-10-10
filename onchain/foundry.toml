@@ -1,0 +1,42 @@
+# Foundry configuration for the v4 registry fuzz and invariant tests (robustness row,
+# DECISIONS D-034; docs/v4/ROBUSTNESS.md section 6). Contracts are read, never changed.
+#
+# Run through the driver, which holds results/v4/BUSY, passes the seed and budgets and writes
+# results: node --import tsx harness/v4/robustness/forge_fuzz.ts --campaign <name> (or --smoke).
+# By hand (from the repository root, no downloads):
+#   tools/foundry/forge.exe test --root onchain --use scripts/robustness/solc_shim.cmd --offline --fuzz-seed 20261024
+# The solc shim runs the repository's pinned solc-js 0.8.28 (node_modules/solc), the compiler
+# packages/v4/src/ledger.ts uses (optimizer 200). forge-std is not vendored: the tests declare
+# the few cheatcodes they use.
+
+[profile.default]
+src = "contracts/v4"
+test = "test/v4"
+script = "test/v4/no-scripts"
+libs = []
+# build output and caches stay outside the tracked tree (.scratch-v4/ is gitignored)
+out = "../.scratch-v4/forge/out"
+cache_path = "../.scratch-v4/forge/cache"
+offline = true
+auto_detect_solc = false
+optimizer = true
+optimizer_runs = 200
+# as the ledger's compileSolidityV4 (packages/v4/src/ledger.ts sets no evmVersion: solc 0.8.28's
+# default, cancun); forge's own default would be prague
+evm_version = "cancun"
+fs_permissions = []
+
+[fuzz]
+runs = 256
+# 20261024 (DECISIONS D-034, robustness.forgeFuzz); the driver also passes --fuzz-seed
+seed = "0x13528A0"
+failure_persist_dir = "../.scratch-v4/forge/fuzz-failures"
+
+[invariant]
+runs = 64
+depth = 64
+fail_on_revert = false
+failure_persist_dir = "../.scratch-v4/forge/invariant-failures"
+
+[lint]
+lint_on_build = false

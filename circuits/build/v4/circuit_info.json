@@ -1,0 +1,94 @@
+{
+  "schema": "pqid/v4-circuit-info/v1",
+  "source": "circuits/credential_auth_v4.circom",
+  "includes": [
+    "circuits/v4/lib_v4.circom",
+    "node_modules/circomlib/circuits (circomlib 2.0.5)"
+  ],
+  "sourceSha256": {
+    "circuits/credential_auth_v4.circom": "c3a5f68d045620e58199d98ff8e06f251fb6dc527b85bc5579c3067753ce5c91",
+    "circuits/v4/lib_v4.circom": "0637b51c756514ed39d9ccb34177426a55bf2551fc8b90461716eadfbc20ec5e"
+  },
+  "compiler": "circom compiler 2.2.3",
+  "curve": "BN254",
+  "optimization": "--O2",
+  "nConstraints": 17450,
+  "nWires": 17512,
+  "nPubInputs": 8,
+  "nPrvInputs": 77,
+  "nOutputs": 0,
+  "nLabels": 54616,
+  "r1csSha256": "c593e9f29094c44efa2b0bf1805715b96e5b3a6815b39c761cdb25c18c9e87b5",
+  "wasmSha256": "678720322fc69048b40aa375ee7c9cc2eab5d0ce58f116d54ac1bab6957bd8ae",
+  "symSha256": "4b56008b59fa0db0b24db9e6ae2ccd0b91ad4fb246d207068f397a5509d30645",
+  "circomSummaryO2": {
+    "template instances": 376,
+    "non-linear constraints": 17450,
+    "linear constraints": 0,
+    "public inputs": 8,
+    "private inputs": 77,
+    "public outputs": 0,
+    "wires": 17512,
+    "labels": 54616
+  },
+  "compileWallMsO2": 3770,
+  "o1": {
+    "optimization": "--O1",
+    "nConstraints": 36907,
+    "nWires": 36964,
+    "circomSummary": {
+      "template instances": 376,
+      "non-linear constraints": 17668,
+      "linear constraints": 19239,
+      "public inputs": 8,
+      "private inputs": 77,
+      "public outputs": 0,
+      "wires": 36964,
+      "labels": 54616
+    },
+    "note": "compiled to a temp dir only to record the count (TASKS T9); the O1 build is not used"
+  },
+  "ptau": {
+    "power": 15,
+    "capacity": 32768,
+    "needed": 17459,
+    "fits": true,
+    "rule": "nConstraints + nPublic + 1 <= 2^power (snarkjs newZKey)"
+  },
+  "constraintGroups": {
+    "circuits/credential_auth_v4.circom": [
+      "G02_holder_commit",
+      "G03_leaf",
+      "G04_issuance_membership",
+      "G05_revkey",
+      "G06_rev_low_membership",
+      "G07_rev_bracket",
+      "G08_policy_hash",
+      "G09_predicate_code",
+      "G10_standard_threshold",
+      "G11_ranges",
+      "G12_age",
+      "G13_expiry",
+      "G14_type",
+      "G15_epoch_window",
+      "G16_stmt",
+      "G17_nonce"
+    ],
+    "circuits/v4/lib_v4.circom": []
+  },
+  "inspect": {
+    "flag": "--inspect",
+    "warningLines": 10
+  },
+  "circomStdoutO2": "template instances: 376\nnon-linear constraints: 17450\nlinear constraints: 0\npublic inputs: 8\nprivate inputs: 77 (76 belong to witness)\npublic outputs: 0\nwires: 17512\nlabels: 54616\nWritten successfully: <repo>\\circuits\\build\\v4\\credential_auth_v4.r1cs\nWritten successfully: <repo>\\circuits\\build\\v4\\credential_auth_v4.sym\nWritten successfully: <repo>\\circuits\\build\\v4\\credential_auth_v4_js\\credential_auth_v4.wasm\nEverything went okay\n",
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-27T06:52:44.481Z"
+  }
+}

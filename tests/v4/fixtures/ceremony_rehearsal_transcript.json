@@ -1,0 +1,137 @@
+{
+  "schema": "pqid/ceremony-transcript/v1",
+  "label": "rehearsal",
+  "warning": "REHEARSAL ONLY: throwaway circuit and key; says nothing about any PQ-Identity key",
+  "title": "REHEARSAL ONLY: PQ-Identity ceremony rehearsal on a tiny circuit",
+  "circuit": {
+    "name": "tiny",
+    "r1cs": {
+      "file": "ceremony/rehearsal/_out/build/tiny.r1cs",
+      "sha256": "ede3af8685e6ff6feea0c3ef30588d02d310361764f3b6a5d1b3de9792ee695c",
+      "nConstraints": 35,
+      "nPubInputs": 2,
+      "nPrvInputs": 2,
+      "nOutputs": 0,
+      "compiler": "circom compiler 2.2.3 --O2",
+      "freeze": {
+        "source": null,
+        "match": false,
+        "note": "rehearsal: no freeze applies"
+      }
+    },
+    "circuitHash": "c418e39558d264b4b72b9a561cfaadf5a52df2f9956e68d28c76d5f671ec44f35fa84698cef4f6e4dfe565f153b3445fd0b6478bb1f9608ece9668ad1c817982",
+    "circuitHashNote": "snarkjs csHash (BLAKE2b-512 over the circuit's phase-2 constraint data), printed by snarkjs zkey verify"
+  },
+  "ptau": {
+    "file": "ceremony/rehearsal/_out/ptau/pot8_final.ptau",
+    "sha256": "b09d44778809e725cd85567c491b3a1bb6b39cad919564b5af87479c883cb277",
+    "pin": {
+      "checked": false,
+      "reason": "rehearsal: locally generated throwaway ptau, not pinned"
+    },
+    "needed": 38
+  },
+  "initialZkey": {
+    "file": "ceremony/rehearsal/_out/ceremony/tiny_0000.zkey",
+    "sha256": "deb7d61c466e151a136c53cbd1868382d562f294cb047b7b2187fd9c2782bfd3"
+  },
+  "contributions": [
+    {
+      "index": 1,
+      "name": "REHEARSAL ONLY contributor 1 (contribute.ps1)",
+      "contributionHash": "3c772a055412618ca124a20f99b30d31f867b32952acf576a074cb2f2e55348c7e910d14e3e0ab1621f43024c30fcaaf01438bc3bcf7a1596b16d1fcd350bbe8",
+      "zkey": {
+        "file": "ceremony/rehearsal/_out/ceremony/tiny_0001.zkey",
+        "sha256": "a4e78bb2f9dfd808729c5c96a4178d868e88d5b4897f6d9c2ae73da5b354c850"
+      },
+      "acceptedAtUtc": "2026-09-27T07:34:46.523Z",
+      "reportedHashMatched": true,
+      "receiptMatched": true,
+      "verifiedByContributor": true
+    },
+    {
+      "index": 2,
+      "name": "REHEARSAL ONLY contributor 2 (contribute.sh)",
+      "contributionHash": "57e348857ccc645d63af352c6a44e0097bc8f495753af26f4286d861ca8c1a73f65ec52ec5e37db736d05f8057eed86410efc12d701de5e9c3bbf9a5a2899552",
+      "zkey": {
+        "file": "ceremony/rehearsal/_out/ceremony/tiny_0002.zkey",
+        "sha256": "d29ca57fe9b29db3a1806db955e69f1095538c94158d060dd161dbdfc2676668"
+      },
+      "acceptedAtUtc": "2026-09-27T07:34:47.663Z",
+      "reportedHashMatched": true,
+      "receiptMatched": true,
+      "verifiedByContributor": false
+    },
+    {
+      "index": 3,
+      "name": "REHEARSAL ONLY contributor 3 (contribute.ps1)",
+      "contributionHash": "f950b314bcf93b2ef8204830ea4c1247a1a7f5c7873a6552c4afaa4ce223a9f6dd508b560b1fd1f20163199adfae27cc971fd9e98e52d56f2bcddc47ab678d4c",
+      "zkey": {
+        "file": "ceremony/rehearsal/_out/ceremony/tiny_0003.zkey",
+        "sha256": "68e08b21743bebd66afbdedcaaf9c5d7b320b8f2925454faa73626d20ff931a0"
+      },
+      "acceptedAtUtc": "2026-09-27T07:34:49.350Z",
+      "reportedHashMatched": true,
+      "receiptMatched": true,
+      "verifiedByContributor": true
+    }
+  ],
+  "beacon": {
+    "index": 4,
+    "name": "REHEARSAL ONLY dummy beacon",
+    "value": "5123ef05b95eb9e8b63b54dde02dd7158bd1dea923f9ce28727cdc6451575fc1",
+    "numIterationsExp": 10,
+    "iterations": 1024,
+    "source": {
+      "kind": "dummy",
+      "description": "REHEARSAL ONLY: dummy beacon = sha256 of a fixed string, not a public randomness source"
+    },
+    "check": "none (dummy value, rehearsal only)",
+    "contributionHash": "75d17c5ebfaafd05367964cdb09e0606a57c03a8c858e0ecb1b99b1e11dea8ceb5c151d0af3b7fd86346f3d85db2806650231b10990605984c8ce8214d52b587",
+    "appliedAtUtc": "2026-09-27T07:34:52.832Z"
+  },
+  "final": {
+    "zkey": {
+      "file": "ceremony/rehearsal/_out/ceremony/final/tiny_final.zkey",
+      "sha256": "c10827fe570d7080a0f36c8defd97a69b746ec6f14cebdf130970f6491222a11"
+    },
+    "verificationKey": {
+      "file": "ceremony/rehearsal/_out/ceremony/final/verification_key.json",
+      "sha256": "901a562670b0b1efb65debdece51687976b35a0b5856798b215f5d6e26126f6a"
+    },
+    "solidityVerifier": {
+      "file": "ceremony/rehearsal/_out/ceremony/final/Groth16Verifier.sol",
+      "sha256": "6654b71d8f6135fcc92174249c777234e845619f0067a2cf661c5bd27ae755f2",
+      "contract": "Groth16Verifier (snarkjs template)"
+    },
+    "verifiedFromR1cs": true,
+    "verifiedAtUtc": "2026-09-27T07:34:53.416Z"
+  },
+  "honesty": "The key is sound if at least one listed non-beacon contribution kept its randomness secret (1-of-N), on top of the phase-1 powers of tau. See ceremony/README.md.",
+  "tools": {
+    "snarkjs": "0.7.4",
+    "snarkjsExpected": "0.7.4",
+    "node": "v24.18.0",
+    "compiler": "circom compiler 2.2.3 --O2",
+    "kitFilesSha256": {
+      "contribute.ps1": "65a0b9bcb07c1c26e17ab414404eab83af01fad270cf8a28a0b6ec6b9a6895b6",
+      "contribute.sh": "218095b641539bc08902f62da25db58c42140bdc1e8c095c6a22e0e89b45fbe2",
+      "contribute_core.mjs": "526c2c85d17123fae4c48081820a32d0173f621cde217c7f32979ea6cd56ded6",
+      "lib.mjs": "647fece74b82ea8af09195e811e1c1b26f18c47adff79b7213548afd5c23099a",
+      "coordinator.mjs": "1a580f528aff8f1e12e672cb59541fe53b48e727fe4a857632d48e20ab6f4dfa",
+      "package.json": "766fce7870976673f8dab7b3a5bde4739dc11e32e2a7084085e62226321fc852",
+      "CONTRIBUTE.md": "3dcc70e48452adf2da81e3736898d2dfd0cfc651aecfc6002b0fca3f996d188f"
+    }
+  },
+  "environment": {
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "node": "v24.18.0"
+  },
+  "dates": {
+    "initUtc": "2026-09-27T07:34:44.710Z",
+    "beaconPlannedUtc": null,
+    "beaconAppliedUtc": "2026-09-27T07:34:52.832Z",
+    "finalizedUtc": "2026-09-27T07:34:53.418Z"
+  }
+}

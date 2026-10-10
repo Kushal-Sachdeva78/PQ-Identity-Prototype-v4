@@ -1,0 +1,16 @@
+{
+  "name": "circuit:G14_type",
+  "port": 8612,
+  "out": "<repo>\\results\\v4\\mutation\\circuit__G14_type",
+  "mutantGroup": "G14_type",
+  "artifacts": {
+    "r1cs": "<repo>\\circuits\\build\\v4\\mutants\\G14_type\\credential_auth_v4.r1cs",
+    "sym": "<repo>\\circuits\\build\\v4\\mutants\\G14_type\\credential_auth_v4.sym",
+    "zkey": "<repo>\\circuits\\build\\v4\\mutants\\G14_type\\mutant_throwaway.zkey",
+    "wasm": "<repo>\\circuits\\build\\v4\\mutants\\G14_type\\credential_auth_v4_js\\credential_auth_v4.wasm",
+    "vkeyFile": "<repo>\\circuits\\build\\v4\\mutants\\G14_type\\mutant_throwaway_vkey.json",
+    "src": "<repo>\\circuits\\build\\v4\\mutants\\G14_type\\credential_auth_v4.circom",
+    "attackerDir": "<repo>\\circuits\\build\\v4\\mutants\\G14_type\\attacker",
+    "keyLabel": "mutant-throwaway"
+  }
+}

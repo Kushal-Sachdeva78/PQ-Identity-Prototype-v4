@@ -1,0 +1,35 @@
+{
+  "v4/credential_auth_v4.r1cs": {
+    "sha256": "c593e9f29094c44efa2b0bf1805715b96e5b3a6815b39c761cdb25c18c9e87b5",
+    "label": "dev",
+    "path": "circuits/build/v4/credential_auth_v4.r1cs",
+    "note": "circuit v4, circom 2.2.3 --O2"
+  },
+  "v4/credential_auth_v4.wasm": {
+    "sha256": "678720322fc69048b40aa375ee7c9cc2eab5d0ce58f116d54ac1bab6957bd8ae",
+    "label": "dev",
+    "path": "circuits/build/v4/credential_auth_v4_js/credential_auth_v4.wasm"
+  },
+  "v4/credential_auth_v4_dev.zkey": {
+    "sha256": "b6f1675c3b8996f5165d54912bc9e7f592cd9ff3286c1a236ad375ea635635d4",
+    "label": "dev",
+    "path": "setup/out/v4/credential_auth_v4_dev.zkey",
+    "note": "v4 dev key: one secret phase-2 contribution (entropy discarded) + public beacon; not byte-reproducible; audited by setup/groth16_setup_v4.ts; replaced by the ceremony key later"
+  },
+  "v4/verification_key_dev.json": {
+    "sha256": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42",
+    "label": "dev",
+    "path": "setup/out/v4/verification_key_dev.json"
+  },
+  "v4/Groth16VerifierV4_dev.sol": {
+    "sha256": "bf2a0918213eac2a40b0fa85b4ee167a2b207aa62ee8105dc16724ac1b9d33a7",
+    "label": "dev",
+    "path": "setup/out/v4/Groth16VerifierV4_dev.sol",
+    "note": "contract Groth16Verifier (snarkjs 0.7.4 template)"
+  },
+  "v4/setup_transcript_dev.json": {
+    "sha256": "1fe062e8732ca113e9e46cae3de955c7c77541297a8b99125b66101871a9c227",
+    "label": "dev",
+    "path": "setup/out/v4/setup_transcript_dev.json"
+  }
+}

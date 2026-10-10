@@ -1,0 +1,10 @@
+{
+  "name": "@pqid/cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@pqid/common": "1.0.0",
+    "@pqid/harness": "1.0.0"
+  }
+}

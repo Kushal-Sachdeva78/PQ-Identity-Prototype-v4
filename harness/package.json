@@ -1,0 +1,19 @@
+{
+  "name": "@pqid/harness",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./e2e-core": "./e2e_core.ts",
+    "./fixture": "./fixture.ts"
+  },
+  "dependencies": {
+    "@pqid/common": "1.0.0",
+    "@pqid/issuer": "1.0.0",
+    "@pqid/ledger": "1.0.0",
+    "@pqid/pqc": "1.0.0",
+    "@pqid/revocation": "1.0.0",
+    "@pqid/verifier": "1.0.0",
+    "@pqid/wallet": "1.0.0"
+  }
+}

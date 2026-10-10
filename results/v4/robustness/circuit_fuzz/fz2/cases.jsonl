@@ -1,0 +1,300 @@
+{"index":0,"aims":["type","credType = requiredType"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":1,"aims":["threshold","threshold 19"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}},"groth16":"does not verify"}
+{"index":2,"aims":["age","birth at today - 10000t -1 day (29 Feb)"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}},"groth16":"does not verify"}
+{"index":3,"aims":["threshold","threshold 20"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}},"groth16":"does not verify"}
+{"index":4,"aims":["threshold","threshold 16"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":5,"aims":["age","birth at today - 10000t +2 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":6,"aims":["age","birth at today - 10000t -2 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":7,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":8,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":9,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":10,"aims":["expiry","expiry before today"],"model":{"satisfiable":false,"failing":["G13_expiry"]},"reference":"refused (CredentialAuthV4 line 204)","attacker":{"violated":1,"byGroup":{"G13_expiry":1}},"groth16":"does not verify"}
+{"index":11,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}},"groth16":"does not verify"}
+{"index":12,"aims":["age","birth at today - 10000t +1 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":13,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":14,"aims":["holder","holder secret mismatch"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}},"groth16":"does not verify"}
+{"index":15,"aims":["window","today at to+1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 219)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}},"groth16":"does not verify"}
+{"index":16,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}},"groth16":"does not verify"}
+{"index":17,"aims":["threshold","threshold 14"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":18,"aims":["predicateCode","predicateCode 0"],"model":{"satisfiable":false,"failing":["G09_predicate_code","G12_age"]},"reference":"refused (CredentialAuthV4 line 161)","attacker":{"violated":3,"byGroup":{"G09_predicate_code":2,"G12_age":1}},"groth16":"does not verify"}
+{"index":19,"aims":["stmt","stmtCode inconsistent"],"model":{"satisfiable":false,"failing":["G16_stmt"]},"reference":"refused (CredentialAuthV4 line 226)","attacker":{"violated":1,"byGroup":{"G16_stmt":1}},"groth16":"does not verify"}
+{"index":20,"aims":["predicateCode","predicateCode 0"],"model":{"satisfiable":false,"failing":["G09_predicate_code","G12_age"]},"reference":"refused (CredentialAuthV4 line 161)","attacker":{"violated":3,"byGroup":{"G09_predicate_code":2,"G12_age":1}},"groth16":"does not verify"}
+{"index":21,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":22,"aims":["age","birth at today - 10000t +2 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":23,"aims":["type","credType = requiredType"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":24,"aims":["policy","policyHash inconsistent"],"model":{"satisfiable":false,"failing":["G08_policy_hash"]},"reference":"refused (CredentialAuthV4 line 157)","attacker":{"violated":1,"byGroup":{"G08_policy_hash":1}},"groth16":"does not verify"}
+{"index":25,"aims":["window","today at to+1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 219)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}},"groth16":"does not verify"}
+{"index":26,"aims":["age","birth at today - 10000t +0 day (29 Feb)"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":27,"aims":["age","birth at today - 10000t +2 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS","groth16":"verifies"}
+{"index":28,"aims":["predicateCode","predicateCode 210627626961"],"model":{"satisfiable":false,"failing":["G09_predicate_code","G12_age"]},"reference":"refused (CredentialAuthV4 line 161)","attacker":{"violated":3,"byGroup":{"G09_predicate_code":2,"G12_age":1}},"groth16":"does not verify"}
+{"index":29,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":30,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":31,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":32,"aims":["predicateCode","predicateCode 0"],"model":{"satisfiable":false,"failing":["G09_predicate_code","G12_age"]},"reference":"refused (CredentialAuthV4 line 161)","attacker":{"violated":3,"byGroup":{"G09_predicate_code":2,"G12_age":1}},"groth16":"does not verify"}
+{"index":33,"aims":["revocation","IMT opening stale"],"model":{"satisfiable":false,"failing":["G06_rev_low_membership"]},"reference":"refused (CredentialAuthV4 line 138)","attacker":{"violated":1,"byGroup":{"G06_rev_low_membership":1}}}
+{"index":34,"aims":["expiry","expiry before today"],"model":{"satisfiable":false,"failing":["G13_expiry"]},"reference":"refused (CredentialAuthV4 line 204)","attacker":{"violated":1,"byGroup":{"G13_expiry":1}}}
+{"index":35,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":36,"aims":["revocation","IMT opening nonBracketing"],"model":{"satisfiable":false,"failing":["G07_rev_bracket"]},"reference":"refused (CredentialAuthV4 line 147)","attacker":{"violated":1,"byGroup":{"G07_rev_bracket":1}}}
+{"index":37,"aims":["window","today at to"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":38,"aims":["stmt","stmtCode inconsistent"],"model":{"satisfiable":false,"failing":["G16_stmt"]},"reference":"refused (CredentialAuthV4 line 226)","attacker":{"violated":1,"byGroup":{"G16_stmt":1}}}
+{"index":39,"aims":["stmt","stmtCode consistent"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":40,"aims":["threshold","threshold 14"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":41,"aims":["revocation","IMT opening forged"],"model":{"satisfiable":false,"failing":["G06_rev_low_membership"]},"reference":"refused (CredentialAuthV4 line 138)","attacker":{"violated":1,"byGroup":{"G06_rev_low_membership":1}}}
+{"index":42,"aims":["threshold","threshold 17"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":43,"aims":["age","birth at today - 10000t +0 day (29 Feb)"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":44,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":45,"aims":["threshold","threshold 22"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":46,"aims":["age","birth at today - 10000t -2 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":47,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":48,"aims":["policy","policyHash consistent"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":49,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":50,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":51,"aims":["policy","policyHash consistent"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":52,"aims":["threshold","threshold 15"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":53,"aims":["issRoot","foreign issRoot"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":54,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":55,"aims":["predicateCode","predicateCode 2"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":56,"aims":["threshold","threshold 64"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":57,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":58,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":59,"aims":["threshold","threshold 13"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":60,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":61,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":62,"aims":["expiry","expiry before today"],"model":{"satisfiable":false,"failing":["G13_expiry"]},"reference":"refused (CredentialAuthV4 line 204)","attacker":{"violated":1,"byGroup":{"G13_expiry":1}}}
+{"index":63,"aims":["threshold","threshold 21"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":64,"aims":["stmt","stmtCode inconsistent"],"model":{"satisfiable":false,"failing":["G16_stmt"]},"reference":"refused (CredentialAuthV4 line 226)","attacker":{"violated":1,"byGroup":{"G16_stmt":1}}}
+{"index":65,"aims":["age","birth at today - 10000t -2 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":66,"aims":["threshold","threshold 14"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":67,"aims":["policy","policyHash inconsistent"],"model":{"satisfiable":false,"failing":["G08_policy_hash"]},"reference":"refused (CredentialAuthV4 line 157)","attacker":{"violated":1,"byGroup":{"G08_policy_hash":1}}}
+{"index":68,"aims":["threshold","threshold 1000"],"model":{"satisfiable":false,"failing":["G10_standard_threshold","G11_ranges"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":"refused (Num2Bits line 38)"}
+{"index":69,"aims":["revocation","IMT opening stale"],"model":{"satisfiable":false,"failing":["G06_rev_low_membership"]},"reference":"refused (CredentialAuthV4 line 138)","attacker":{"violated":1,"byGroup":{"G06_rev_low_membership":1}}}
+{"index":70,"aims":["predicateCode","predicateCode 2"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":71,"aims":["threshold","threshold 255"],"model":{"satisfiable":false,"failing":["G10_standard_threshold","G12_age"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":2,"byGroup":{"G10_standard_threshold":1,"G12_age":1}}}
+{"index":72,"aims":["predicateCode","predicateCode 1"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":73,"aims":["threshold","threshold 19"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":74,"aims":["ranges","today >= 2^27"],"model":{"satisfiable":false,"failing":["G11_ranges","G13_expiry","G15_epoch_window"]},"reference":"refused (Num2Bits line 38)","attacker":"refused (Num2Bits line 38)"}
+{"index":75,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":76,"aims":["window","today at to"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":77,"aims":["ranges","ranges respected"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":78,"aims":["age","birth at today - 10000t +1 day (29 Feb)"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":79,"aims":["window","today at to"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":80,"aims":["stmt","stmtCode consistent"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":81,"aims":["window","today at to"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":82,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":83,"aims":["threshold","threshold 12"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":84,"aims":["threshold","threshold 21"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":85,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":86,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":87,"aims":["holder","holder secret mismatch"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":88,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":89,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":90,"aims":["holder","holder secret mismatch"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":91,"aims":["ranges","today >= 2^27"],"model":{"satisfiable":false,"failing":["G11_ranges","G13_expiry","G15_epoch_window"]},"reference":"refused (Num2Bits line 38)","attacker":"refused (Num2Bits line 38)"}
+{"index":92,"aims":["stmt","stmtCode inconsistent"],"model":{"satisfiable":false,"failing":["G16_stmt"]},"reference":"refused (CredentialAuthV4 line 226)","attacker":{"violated":1,"byGroup":{"G16_stmt":1}}}
+{"index":93,"aims":["expiry","expiry before today"],"model":{"satisfiable":false,"failing":["G13_expiry"]},"reference":"refused (CredentialAuthV4 line 204)","attacker":{"violated":1,"byGroup":{"G13_expiry":1}}}
+{"index":94,"aims":["predicateCode","predicateCode 2"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":95,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":96,"aims":["threshold","threshold 19"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":97,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":98,"aims":["predicateCode","predicateCode 1"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":99,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":100,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":101,"aims":["stmt","stmtCode inconsistent"],"model":{"satisfiable":false,"failing":["G16_stmt"]},"reference":"refused (CredentialAuthV4 line 226)","attacker":{"violated":1,"byGroup":{"G16_stmt":1}}}
+{"index":102,"aims":["policy","policyHash inconsistent"],"model":{"satisfiable":false,"failing":["G08_policy_hash"]},"reference":"refused (CredentialAuthV4 line 157)","attacker":{"violated":1,"byGroup":{"G08_policy_hash":1}}}
+{"index":103,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":104,"aims":["ranges","today >= 2^27"],"model":{"satisfiable":false,"failing":["G11_ranges","G12_age","G13_expiry","G15_epoch_window"]},"reference":"refused (Num2Bits line 38)","attacker":"refused (Num2Bits line 38)"}
+{"index":105,"aims":["threshold","threshold 65"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":106,"aims":["threshold","threshold 0"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":107,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":108,"aims":["window","today at to"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":109,"aims":["window","today at to"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":110,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":111,"aims":["predicateCode","predicateCode 193294428663"],"model":{"satisfiable":false,"failing":["G09_predicate_code","G12_age"]},"reference":"refused (CredentialAuthV4 line 161)","attacker":{"violated":3,"byGroup":{"G09_predicate_code":2,"G12_age":1}}}
+{"index":112,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":113,"aims":["age","birth at today - 10000t -1 day (29 Feb)"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":114,"aims":["expiry","expiry before today"],"model":{"satisfiable":false,"failing":["G13_expiry"]},"reference":"refused (CredentialAuthV4 line 204)","attacker":{"violated":1,"byGroup":{"G13_expiry":1}}}
+{"index":115,"aims":["ranges","ranges respected"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":116,"aims":["predicateCode","predicateCode 3"],"model":{"satisfiable":false,"failing":["G09_predicate_code","G12_age"]},"reference":"refused (CredentialAuthV4 line 161)","attacker":{"violated":3,"byGroup":{"G09_predicate_code":2,"G12_age":1}}}
+{"index":117,"aims":["age","birth at today - 10000t +2 day (29 Feb)"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":118,"aims":["predicateCode","predicateCode 1"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":119,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":120,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":121,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":122,"aims":["threshold","threshold 18"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":123,"aims":["type","credType = requiredType"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":124,"aims":["policy","policyHash inconsistent"],"model":{"satisfiable":false,"failing":["G08_policy_hash"]},"reference":"refused (CredentialAuthV4 line 157)","attacker":{"violated":1,"byGroup":{"G08_policy_hash":1}}}
+{"index":125,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":126,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":127,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":128,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":129,"aims":["issRoot","own issRoot"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":130,"aims":["expiry","expiry before today"],"model":{"satisfiable":false,"failing":["G13_expiry"]},"reference":"refused (CredentialAuthV4 line 204)","attacker":{"violated":1,"byGroup":{"G13_expiry":1}}}
+{"index":131,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":132,"aims":["issRoot","foreign issRoot"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":133,"aims":["issRoot","foreign issRoot"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":134,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":135,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":136,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":137,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":138,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":139,"aims":["policy","policyHash consistent"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":140,"aims":["threshold","threshold 22"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":141,"aims":["revocation","IMT opening stale"],"model":{"satisfiable":false,"failing":["G06_rev_low_membership"]},"reference":"refused (CredentialAuthV4 line 138)","attacker":{"violated":1,"byGroup":{"G06_rev_low_membership":1}}}
+{"index":142,"aims":["predicateCode","predicateCode 0"],"model":{"satisfiable":false,"failing":["G09_predicate_code","G12_age"]},"reference":"refused (CredentialAuthV4 line 161)","attacker":{"violated":3,"byGroup":{"G09_predicate_code":2,"G12_age":1}}}
+{"index":143,"aims":["threshold","threshold 19"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":144,"aims":["threshold","threshold 18"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":145,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":146,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":147,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":148,"aims":["threshold","threshold 15"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":149,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":150,"aims":["threshold","threshold 13"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":151,"aims":["policy","policyHash inconsistent"],"model":{"satisfiable":false,"failing":["G08_policy_hash"]},"reference":"refused (CredentialAuthV4 line 157)","attacker":{"violated":1,"byGroup":{"G08_policy_hash":1}}}
+{"index":152,"aims":["revocation","IMT opening nonBracketing"],"model":{"satisfiable":false,"failing":["G07_rev_bracket"]},"reference":"refused (CredentialAuthV4 line 146)","attacker":{"violated":1,"byGroup":{"G07_rev_bracket":1}}}
+{"index":153,"aims":["expiry","expiry before today"],"model":{"satisfiable":false,"failing":["G13_expiry"]},"reference":"refused (CredentialAuthV4 line 204)","attacker":{"violated":1,"byGroup":{"G13_expiry":1}}}
+{"index":154,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":155,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":156,"aims":["predicateCode","predicateCode 1"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":157,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":158,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":159,"aims":["age","birth at today - 10000t +0 day (29 Feb)"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":160,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":161,"aims":["threshold","threshold 256"],"model":{"satisfiable":false,"failing":["G10_standard_threshold","G11_ranges"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":"refused (Num2Bits line 38)"}
+{"index":162,"aims":["revocation","IMT opening forged"],"model":{"satisfiable":false,"failing":["G06_rev_low_membership"]},"reference":"refused (CredentialAuthV4 line 138)","attacker":{"violated":1,"byGroup":{"G06_rev_low_membership":1}}}
+{"index":163,"aims":["threshold","threshold 21"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":164,"aims":["issRoot","foreign issRoot"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":165,"aims":["threshold","threshold 21"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":166,"aims":["issRoot","foreign issRoot"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":167,"aims":["threshold","threshold 0"],"model":{"satisfiable":false,"failing":["G10_standard_threshold","G12_age"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":2,"byGroup":{"G10_standard_threshold":1,"G12_age":1}}}
+{"index":168,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":169,"aims":["policy","policyHash inconsistent"],"model":{"satisfiable":false,"failing":["G08_policy_hash"]},"reference":"refused (CredentialAuthV4 line 157)","attacker":{"violated":1,"byGroup":{"G08_policy_hash":1}}}
+{"index":170,"aims":["ranges","birth >= 2^27"],"model":{"satisfiable":false,"failing":["G11_ranges"]},"reference":"refused (Num2Bits line 38)","attacker":"refused (Num2Bits line 38)"}
+{"index":171,"aims":["age","birth at today - 10000t +1 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":172,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":173,"aims":["policy","policyHash inconsistent"],"model":{"satisfiable":false,"failing":["G08_policy_hash"]},"reference":"refused (CredentialAuthV4 line 157)","attacker":{"violated":1,"byGroup":{"G08_policy_hash":1}}}
+{"index":174,"aims":["revocation","IMT opening nonBracketing"],"model":{"satisfiable":false,"failing":["G07_rev_bracket"]},"reference":"refused (CredentialAuthV4 line 146)","attacker":{"violated":1,"byGroup":{"G07_rev_bracket":1}}}
+{"index":175,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":176,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":177,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":178,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":179,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":180,"aims":["age","birth at today - 10000t -2 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":181,"aims":["threshold","threshold 13"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":182,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":183,"aims":["threshold","threshold 256"],"model":{"satisfiable":false,"failing":["G10_standard_threshold","G11_ranges","G12_age"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":"refused (Num2Bits line 38)"}
+{"index":184,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":185,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":186,"aims":["window","today at to+1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 219)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":187,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":188,"aims":["predicateCode","predicateCode 2"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":189,"aims":["stmt","stmtCode inconsistent"],"model":{"satisfiable":false,"failing":["G16_stmt"]},"reference":"refused (CredentialAuthV4 line 226)","attacker":{"violated":1,"byGroup":{"G16_stmt":1}}}
+{"index":190,"aims":["revocation","IMT opening stale"],"model":{"satisfiable":false,"failing":["G06_rev_low_membership"]},"reference":"refused (CredentialAuthV4 line 138)","attacker":{"violated":1,"byGroup":{"G06_rev_low_membership":1}}}
+{"index":191,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":192,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":193,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":194,"aims":["window","today at to+1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 219)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":195,"aims":["stmt","stmtCode inconsistent"],"model":{"satisfiable":false,"failing":["G16_stmt"]},"reference":"refused (CredentialAuthV4 line 226)","attacker":{"violated":1,"byGroup":{"G16_stmt":1}}}
+{"index":196,"aims":["predicateCode","predicateCode 0"],"model":{"satisfiable":false,"failing":["G09_predicate_code","G12_age"]},"reference":"refused (CredentialAuthV4 line 161)","attacker":{"violated":3,"byGroup":{"G09_predicate_code":2,"G12_age":1}}}
+{"index":197,"aims":["issRoot","foreign issRoot"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":198,"aims":["predicateCode","predicateCode 432620741050"],"model":{"satisfiable":false,"failing":["G09_predicate_code","G12_age"]},"reference":"refused (CredentialAuthV4 line 161)","attacker":{"violated":3,"byGroup":{"G09_predicate_code":2,"G12_age":1}}}
+{"index":199,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":200,"aims":["threshold","threshold 16"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":201,"aims":["type","credType = requiredType"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":202,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":203,"aims":["window","today at to+1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 219)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":204,"aims":["revocation","IMT opening nonBracketing"],"model":{"satisfiable":false,"failing":["G07_rev_bracket"]},"reference":"refused (CredentialAuthV4 line 146)","attacker":{"violated":1,"byGroup":{"G07_rev_bracket":1}}}
+{"index":205,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":206,"aims":["window","today at to+1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 219)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":207,"aims":["threshold","threshold 20"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":208,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":209,"aims":["ranges","ranges respected"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":210,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":211,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":212,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":213,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":214,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":215,"aims":["threshold","threshold 12"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":216,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":217,"aims":["age","birth at today - 10000t -2 day (29 Feb)"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":218,"aims":["stmt","stmtCode consistent"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":219,"aims":["age","birth at today - 10000t -2 day (29 Feb)"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":220,"aims":["ranges","ranges respected"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":221,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":222,"aims":["ranges","birth >= 2^27"],"model":{"satisfiable":false,"failing":["G11_ranges","G12_age"]},"reference":"refused (Num2Bits line 38)","attacker":"refused (Num2Bits line 38)"}
+{"index":223,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":224,"aims":["ranges","ranges respected"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":225,"aims":["window","today at to"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":226,"aims":["policy","policyHash inconsistent"],"model":{"satisfiable":false,"failing":["G08_policy_hash"]},"reference":"refused (CredentialAuthV4 line 157)","attacker":{"violated":1,"byGroup":{"G08_policy_hash":1}}}
+{"index":227,"aims":["ranges","today >= 2^27"],"model":{"satisfiable":false,"failing":["G11_ranges","G13_expiry","G15_epoch_window"]},"reference":"refused (Num2Bits line 38)","attacker":"refused (Num2Bits line 38)"}
+{"index":228,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":229,"aims":["policy","policyHash inconsistent"],"model":{"satisfiable":false,"failing":["G08_policy_hash"]},"reference":"refused (CredentialAuthV4 line 157)","attacker":{"violated":1,"byGroup":{"G08_policy_hash":1}}}
+{"index":230,"aims":["revocation","IMT opening stale"],"model":{"satisfiable":false,"failing":["G06_rev_low_membership"]},"reference":"refused (CredentialAuthV4 line 138)","attacker":{"violated":1,"byGroup":{"G06_rev_low_membership":1}}}
+{"index":231,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":232,"aims":["age","birth at today - 10000t +1 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":233,"aims":["stmt","stmtCode inconsistent"],"model":{"satisfiable":false,"failing":["G16_stmt"]},"reference":"refused (CredentialAuthV4 line 226)","attacker":{"violated":1,"byGroup":{"G16_stmt":1}}}
+{"index":234,"aims":["revocation","IMT opening forged"],"model":{"satisfiable":false,"failing":["G06_rev_low_membership"]},"reference":"refused (CredentialAuthV4 line 138)","attacker":{"violated":1,"byGroup":{"G06_rev_low_membership":1}}}
+{"index":235,"aims":["age","birth at today - 10000t +0 day (29 Feb)"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":236,"aims":["predicateCode","predicateCode 2"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":237,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":238,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":239,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":240,"aims":["type","credType = requiredType"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":241,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":242,"aims":["age","birth at today - 10000t +2 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":243,"aims":["age","birth at today - 10000t +2 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":244,"aims":["ranges","ranges respected"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":245,"aims":["issRoot","own issRoot"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":246,"aims":["threshold","threshold 255"],"model":{"satisfiable":false,"failing":["G10_standard_threshold","G12_age"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":2,"byGroup":{"G10_standard_threshold":1,"G12_age":1}}}
+{"index":247,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":248,"aims":["policy","policyHash inconsistent"],"model":{"satisfiable":false,"failing":["G08_policy_hash"]},"reference":"refused (CredentialAuthV4 line 157)","attacker":{"violated":1,"byGroup":{"G08_policy_hash":1}}}
+{"index":249,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":250,"aims":["age","birth at today - 10000t +2 day (29 Feb)"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":251,"aims":["predicateCode","predicateCode 1"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":252,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":253,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":254,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":255,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":256,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":257,"aims":["revocation","IMT opening forged"],"model":{"satisfiable":false,"failing":["G06_rev_low_membership"]},"reference":"refused (CredentialAuthV4 line 138)","attacker":{"violated":1,"byGroup":{"G06_rev_low_membership":1}}}
+{"index":258,"aims":["expiry","expiry before today"],"model":{"satisfiable":false,"failing":["G13_expiry"]},"reference":"refused (CredentialAuthV4 line 204)","attacker":{"violated":1,"byGroup":{"G13_expiry":1}}}
+{"index":259,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":260,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":261,"aims":["age","birth at today - 10000t +1 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":262,"aims":["age","birth at today - 10000t +2 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":263,"aims":["threshold","threshold 20"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":264,"aims":["revocation","IMT opening correct"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":265,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":266,"aims":["window","today at to+1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 219)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":267,"aims":["issRoot","foreign issRoot"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":268,"aims":["type","credType = requiredType"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":269,"aims":["ranges","ranges respected"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":270,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":271,"aims":["age","birth at today - 10000t -1 day"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":272,"aims":["holder","holder secret mismatch"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":273,"aims":["threshold","threshold 255"],"model":{"satisfiable":false,"failing":["G10_standard_threshold"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":1,"byGroup":{"G10_standard_threshold":1}}}
+{"index":274,"aims":["holder","holder secret mismatch"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":275,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":276,"aims":["holder","holder secret matches"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":277,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":278,"aims":["issRoot","foreign issRoot"],"model":{"satisfiable":false,"failing":["G04_issuance_membership"]},"reference":"refused (CredentialAuthV4 line 107)","attacker":{"violated":1,"byGroup":{"G04_issuance_membership":1}}}
+{"index":279,"aims":["window","today at from"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":280,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":281,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":282,"aims":["age","birth at today - 10000t +0 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":283,"aims":["window","today at from-1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 215)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":284,"aims":["issRoot","own issRoot"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":285,"aims":["age","birth at today - 10000t +1 day"],"model":{"satisfiable":false,"failing":["G12_age"]},"reference":"refused (CredentialAuthV4 line 197)","attacker":{"violated":1,"byGroup":{"G12_age":1}}}
+{"index":286,"aims":["revocation","IMT opening forged"],"model":{"satisfiable":false,"failing":["G06_rev_low_membership"]},"reference":"refused (CredentialAuthV4 line 138)","attacker":{"violated":1,"byGroup":{"G06_rev_low_membership":1}}}
+{"index":287,"aims":["window","today at to+1"],"model":{"satisfiable":false,"failing":["G15_epoch_window"]},"reference":"refused (CredentialAuthV4 line 219)","attacker":{"violated":1,"byGroup":{"G15_epoch_window":1}}}
+{"index":288,"aims":["threshold","threshold 22"],"model":{"satisfiable":false,"failing":["G10_standard_threshold","G12_age"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":{"violated":2,"byGroup":{"G10_standard_threshold":1,"G12_age":1}}}
+{"index":289,"aims":["stmt","stmtCode consistent"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":290,"aims":["type","credType != requiredType"],"model":{"satisfiable":false,"failing":["G14_type"]},"reference":"refused (CredentialAuthV4 line 208)","attacker":{"violated":2,"byGroup":{"G08_policy_hash":2}}}
+{"index":291,"aims":["expiry","expiry on/after today"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":292,"aims":["predicateCode","predicateCode 2"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":293,"aims":["stmt","stmtCode consistent"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":294,"aims":["threshold","threshold 1000"],"model":{"satisfiable":false,"failing":["G10_standard_threshold","G11_ranges","G12_age"]},"reference":"refused (CredentialAuthV4 line 172)","attacker":"refused (Num2Bits line 38)"}
+{"index":295,"aims":["revocation","IMT opening nonBracketing"],"model":{"satisfiable":false,"failing":["G07_rev_bracket"]},"reference":"refused (CredentialAuthV4 line 147)","attacker":{"violated":1,"byGroup":{"G07_rev_bracket":1}}}
+{"index":296,"aims":["age","birth at today - 10000t -1 day (29 Feb)"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}
+{"index":297,"aims":["ranges","today >= 2^27"],"model":{"satisfiable":false,"failing":["G11_ranges","G12_age","G13_expiry","G15_epoch_window"]},"reference":"refused (Num2Bits line 38)","attacker":"refused (Num2Bits line 38)"}
+{"index":298,"aims":["stmt","stmtCode inconsistent"],"model":{"satisfiable":false,"failing":["G16_stmt"]},"reference":"refused (CredentialAuthV4 line 226)","attacker":{"violated":1,"byGroup":{"G16_stmt":1}}}
+{"index":299,"aims":["window","today at to"],"model":{"satisfiable":true,"failing":[]},"reference":"witness","attacker":"satisfies real R1CS"}

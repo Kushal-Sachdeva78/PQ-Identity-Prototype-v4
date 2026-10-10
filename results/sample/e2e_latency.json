@@ -1,0 +1,90 @@
+{
+  "schema": "pqid/e2e-latency/v1",
+  "label": "core components [M] (from zk.json/pqc.json headline values); network components [S] (paper estimates)",
+  "components": {
+    "witnessGenerationMs": {
+      "value": 91.718,
+      "label": "[M]",
+      "source": "results/zk.json witnessGeneration",
+      "basis": "mean"
+    },
+    "proveRapidsnarkColdMs": {
+      "value": 258.6288,
+      "label": "[M]",
+      "source": "results/zk.json rapidsnarkProveCold (paper-comparable basis)"
+    },
+    "proveRapidsnarkAmortizedMs": {
+      "value": 239.8938,
+      "label": "[M]",
+      "source": "results/zk.json rapidsnarkProveAmortized (pure proving)"
+    },
+    "proveSnarkjsMs": {
+      "value": 2095.3275,
+      "label": "[M]",
+      "source": "results/zk.json snarkjsProveCold",
+      "basis": "mean"
+    },
+    "verifyMs": {
+      "value": 39.9451,
+      "label": "[M]",
+      "source": "results/zk.json snarkjsVerify"
+    },
+    "walletDilithiumVerifyMs": {
+      "value": 0.057786,
+      "label": "[M]",
+      "source": "results/pqc.json ML-DSA-44 verify"
+    },
+    "didLookupMs": {
+      "min": 20,
+      "max": 50,
+      "label": "[S]",
+      "source": "paper §VI-C (stitched estimate)"
+    },
+    "revRootRetrievalMs": {
+      "min": 5,
+      "max": 15,
+      "label": "[S]",
+      "source": "paper §VI-C"
+    },
+    "proofTransmissionMs": {
+      "min": 10,
+      "max": 50,
+      "label": "[S]",
+      "source": "paper §VI-C"
+    }
+  },
+  "totals": {
+    "coreRapidsnarkMs": 390.3,
+    "coreRapidsnarkCoolMs": 309.1,
+    "thermalNote": "coreRapidsnarkMs uses the campaign headline (sustained/heat-soaked state); coreRapidsnarkCoolMs uses the truly-cool first run from zk_rapidsnark_cool.json — the realistic single-authentication case (a wallet proves once, not 100× back-to-back)",
+    "coreSnarkjsMs": 2227,
+    "e2eRapidsnarkMs": {
+      "min": 425.4,
+      "max": 505.4
+    },
+    "e2eSnarkjsMs": {
+      "min": 2262.1,
+      "max": 2342.1
+    },
+    "subSecondCoreRapidsnark": true,
+    "subSecondCoreSnarkjs": false,
+    "qualifier": "the sub-second claim holds ONLY for the native (rapidsnark) prover path; the snarkJS-path total must always carry that qualifier"
+  },
+  "paperClaim": {
+    "manuscriptVersion": "V6.6",
+    "coreCoolMs": 309,
+    "coreSustainedMs": 390,
+    "coreBreakdown": "92 witness + 177 (cool) / 258.6 (sustained) rapidsnark + 40 verify (V6.6 §VI-C)",
+    "e2eRangeMs": "340–510 [S]"
+  },
+  "host": {
+    "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logicalCores": 12,
+    "totalMemGiB": 15.7,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.8655",
+    "nodeVersion": "v22.16.0",
+    "timestampUtc": "2026-06-11T12:32:31.900Z"
+  }
+}

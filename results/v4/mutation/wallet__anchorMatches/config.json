@@ -1,0 +1,8 @@
+{
+  "name": "wallet:anchorMatches",
+  "port": 8644,
+  "out": "<repo>\\results\\v4\\mutation\\wallet__anchorMatches",
+  "walletDisabled": [
+    "anchorMatches"
+  ]
+}

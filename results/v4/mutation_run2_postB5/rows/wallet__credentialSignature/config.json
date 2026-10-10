@@ -1,0 +1,8 @@
+{
+  "name": "wallet:credentialSignature",
+  "port": 8648,
+  "out": "<repo>\\results\\v4\\mutation\\wallet__credentialSignature",
+  "walletDisabled": [
+    "credentialSignature"
+  ]
+}

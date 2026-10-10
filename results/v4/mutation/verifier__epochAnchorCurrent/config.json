@@ -1,0 +1,8 @@
+{
+  "name": "verifier:epochAnchorCurrent",
+  "port": 8623,
+  "out": "<repo>\\results\\v4\\mutation\\verifier__epochAnchorCurrent",
+  "verifierDisabled": [
+    "epochAnchorCurrent"
+  ]
+}

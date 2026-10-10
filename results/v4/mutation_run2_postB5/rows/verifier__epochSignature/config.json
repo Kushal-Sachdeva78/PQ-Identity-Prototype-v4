@@ -1,0 +1,8 @@
+{
+  "name": "verifier:epochSignature",
+  "port": 8631,
+  "out": "<repo>\\results\\v4\\mutation\\verifier__epochSignature",
+  "verifierDisabled": [
+    "epochSignature"
+  ]
+}

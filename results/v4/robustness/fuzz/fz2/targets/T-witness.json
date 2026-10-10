@@ -1,0 +1,77 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-witness",
+  "title": "circuit input assembly",
+  "entryPoints": [
+    "buildCircuitInputV4"
+  ],
+  "property": "buildCircuitInputV4 either throws an Error (any subclass) or returns exactly the reference assembly: the 25 circuit inputs, every value a canonical decimal below p, issPathElements of 32 and revLowPath of 30 elements; it returns exactly when the reference says the inputs are well formed",
+  "documentedErrors": [
+    "Error",
+    "TypeError",
+    "RangeError",
+    "SyntaxError"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 4167839421,
+  "budget": 50000,
+  "casesRun": 50000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "mutated/assembled": 8322,
+    "mutated/refused": 26747,
+    "valid/assembled": 9858,
+    "huge-digits/refused": 5073
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [
+    {
+      "id": "longDecimalParse",
+      "count": 2507,
+      "examples": [
+        {
+          "index": 23,
+          "detail": "400000-digit decimal: buildCircuitInputV4 took 17.9 ms (not a timing result)",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-witness/longDecimalParse.json"
+        },
+        {
+          "index": 59,
+          "detail": "100000-digit decimal: buildCircuitInputV4 took 2.9 ms (not a timing result)",
+          "file": null
+        },
+        {
+          "index": 70,
+          "detail": "400000-digit decimal: buildCircuitInputV4 took 16.9 ms (not a timing result)",
+          "file": null
+        },
+        {
+          "index": 78,
+          "detail": "400000-digit decimal: buildCircuitInputV4 took 17.1 ms (not a timing result)",
+          "file": null
+        },
+        {
+          "index": 128,
+          "detail": "400000-digit decimal: buildCircuitInputV4 took 17.0 ms (not a timing result)",
+          "file": null
+        }
+      ]
+    }
+  ],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0217,
+    "p99": 16.489206000000003,
+    "max": 20.5399
+  },
+  "startedUtc": "2026-10-03T16:08:46.437Z",
+  "finishedUtc": "2026-10-03T16:09:29.751Z"
+}

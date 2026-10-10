@@ -1,0 +1,23 @@
+{
+  "source": "circuits/credential_auth_v3.circom",
+  "compiler": "circom 2.2.3",
+  "optimization": "--O2",
+  "curve": "BN254",
+  "nConstraints": 18683,
+  "nWires": 18746,
+  "nPubInputs": 6,
+  "nPrvInputs": 75,
+  "nOutputs": 0,
+  "nLabels": 60067,
+  "circomStdout": "template instances: 310\nnon-linear constraints: 18683\nlinear constraints: 0\npublic inputs: 6\nprivate inputs: 75 (74 belong to witness)\npublic outputs: 0\nwires: 18746\nlabels: 60067\nWritten successfully: <repo>\\circuits\\build\\v3\\credential_auth_v3.r1cs\nWritten successfully: <repo>\\circuits\\build\\v3\\credential_auth_v3.sym\nWritten successfully: <repo>\\circuits\\build\\v3\\credential_auth_v3_js\\credential_auth_v3.wasm\nEverything went okay\n",
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-26T13:19:20.188Z"
+  }
+}

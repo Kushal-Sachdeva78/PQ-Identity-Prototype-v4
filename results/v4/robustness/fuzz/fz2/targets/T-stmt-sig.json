@@ -1,0 +1,50 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-stmt-sig",
+  "title": "statement signatures",
+  "entryPoints": [
+    "verifyStatement",
+    "signStatement"
+  ],
+  "property": "verifyStatement never throws and returns true exactly for an original (public key, canonical statement bytes, signature) triple signed in this run (ML-DSA-44 keys generated in memory, never written): any change to the key, the bytes or the signature, a wrong expected type or a non-byte argument gives false; signStatement refuses (StatementError) exactly the bytes that are not a valid canonical statement, and what it signs verifies",
+  "documentedErrors": [
+    "StatementError"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 3224944145,
+  "budget": 10000,
+  "casesRun": 10000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "bytes/rejected": 2550,
+    "sign/refused": 1139,
+    "sig/rejected": 1770,
+    "sign/signed": 737,
+    "types/rejected": 852,
+    "original/verified": 909,
+    "pk/rejected": 922,
+    "type/rejected": 903,
+    "bytes/verified": 98,
+    "sig/verified": 97,
+    "pk/verified": 23
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.017,
+    "p99": 0.6220050000000001,
+    "max": 2.5852
+  },
+  "startedUtc": "2026-10-03T16:02:44.643Z",
+  "finishedUtc": "2026-10-03T16:02:45.766Z"
+}

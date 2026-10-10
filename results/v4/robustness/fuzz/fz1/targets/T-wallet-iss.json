@@ -1,0 +1,45 @@
+{
+  "schema": "pqid/v4-fuzz-target/v1",
+  "target": "T-wallet-iss",
+  "title": "wallet checks of served issuer data",
+  "entryPoints": [
+    "HolderWalletV4.checkIssuerData"
+  ],
+  "property": "checkIssuerData through a mutating IssuerDataSource returns only for the exact anchored canonical epoch statement with a path whose root is the anchored root and a revocation opening against the anchored revRoot; otherwise it throws WalletRefusal naming a WALLET_CHECKS check, and the refusal text never contains the credID, the leaf index or the data source's own error text (review round 2, VRA-1)",
+  "documentedErrors": [
+    "WalletRefusal"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 274825256,
+  "budget": 5000,
+  "casesRun": 5000,
+  "complete": true,
+  "stoppedBy": null,
+  "outcomes": {
+    "revocation-throws/refused:anchorMatches": 464,
+    "path-root/refused:anchorMatches": 507,
+    "statement/refused:anchorMatches": 1340,
+    "rev-root/refused:anchorMatches": 474,
+    "statement-type/accepted": 498,
+    "statement/accepted": 718,
+    "issuance-throws/refused:anchorMatches": 516,
+    "honest/accepted": 483
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.5505,
+    "p99": 1.4964880000000018,
+    "max": 17.6463
+  },
+  "startedUtc": "2026-10-03T09:34:33.968Z",
+  "finishedUtc": "2026-10-03T09:34:37.911Z"
+}

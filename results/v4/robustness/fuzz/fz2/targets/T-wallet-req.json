@@ -1,0 +1,47 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-wallet-req",
+  "title": "wallet request checks",
+  "entryPoints": [
+    "HolderWalletV4.checkRequest",
+    "HolderWalletV4.present (exotic requests only)"
+  ],
+  "property": "checkRequest (a fresh wallet per case, so the date log is empty) either returns the verifier's registered KEM key or throws WalletRefusal naming a WALLET_CHECKS check; it returns only for a request that the reference accepts and that names this chain, the registered verifier, a standard threshold, an allowed type and an acceptable date; present() on a Proxy or a throwing getter refuses with requestShape before any other check",
+  "documentedErrors": [
+    "WalletRefusal"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 4068743234,
+  "budget": 5000,
+  "casesRun": 5000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "mutated/refused:requestShape": 2512,
+    "mutated/accepted": 1085,
+    "honest/accepted": 643,
+    "exotic/refused:requestShape": 623,
+    "mutated/refused:typeAllowed": 69,
+    "mutated/refused:thresholdStandard": 38,
+    "mutated/refused:dateCurrent": 11,
+    "mutated/refused:verifierRecord": 19
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0277,
+    "p99": 0.6485180000000004,
+    "max": 64.5644
+  },
+  "startedUtc": "2026-10-03T16:24:41.094Z",
+  "finishedUtc": "2026-10-03T16:24:42.641Z"
+}

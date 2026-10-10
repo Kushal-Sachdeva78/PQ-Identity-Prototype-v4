@@ -1,0 +1,30 @@
+name: Publication validation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build pinned Linux environment
+        run: docker build -f artifact/Dockerfile -t pqid-publication .
+      - name: Validate artifacts, tests, and security verdicts
+        run: |
+          mkdir -p artifact/out
+          chmod 777 artifact/out
+          docker run --rm -v "$PWD/artifact/out:/work/artifact/out" \
+            pqid-publication bash artifact/rebuild.sh --ci --no-install
+      - name: Save validation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-validation
+          path: artifact/out/

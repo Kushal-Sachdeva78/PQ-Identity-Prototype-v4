@@ -1,0 +1,667 @@
+{
+  "schema": "pqid.v4.before_after/1",
+  "item": "F7 (TASKS.md): before/after table, v2 (published) vs v4",
+  "generatedBy": "scripts/changelog/before_after.py",
+  "label": "derived: every cell copies a value from the file named in its sources; nothing is measured here",
+  "labels": {
+    "[M]": "measured value copied from a results file",
+    "[S]": "computed from a stated model (copied from a results file that says so)",
+    "[code]": "read from source code, not a measured result",
+    "[design]": "stated in docs/v4/V4_DESIGN.md; not yet backed by a results file",
+    "pending": "the v4 results file does not exist yet or has no usable entry"
+  },
+  "v4Status": {
+    "circuit": "frozen (docs/v4/FREEZE.md)",
+    "key": "dev",
+    "pinsFile": "setup/pins_v4.json"
+  },
+  "v4SuiteState": {
+    "path": "results/v4/security_suite.json",
+    "exists": true,
+    "readable": true,
+    "timestampUtc": "2026-09-27T14:53:51.311Z",
+    "timestampField": "host.timestampUtc",
+    "pass": true,
+    "keyLabel": "dev",
+    "invalidTests": 0,
+    "summary": {
+      "controlsAccepted": "15/15",
+      "v4AttackRoutes": 86,
+      "v4AttackRoutesAccepted": 0,
+      "privacyRecords": 16,
+      "invalid": 0
+    },
+    "sha256": "be26ae2dacc53718b573592a474ee69e6535346acaf78e0190283a6441a2f2eb"
+  },
+  "rows": [
+    {
+      "id": "binds_issuer_signed_data",
+      "name": "Relation binds issuer-signed data (A1, A2, A4, A5)",
+      "v2": {
+        "value": "no: 4 of 4 v2 routes accepted (A1, A2, A4, A5)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v3/security_suite.json",
+            "field": "v2 attempts of A1, A2, A4, A5"
+          }
+        ],
+        "note": "v2 attempts re-run with the v3 suite on the v3/v4 host (2026-09-26); the malicious-wallet probe (2026-06-11, results/malicious_probe.json) is the original evidence for A1",
+        "counts": {}
+      },
+      "v4": {
+        "value": "yes: 0 of 11 valid v4 routes accepted (A1-a, A1-b, A1-c, A1-d, A2-a, A2-b, A2-d, A2-c, A4-a, A5-a, A5-b)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/security_suite.json",
+            "field": "v4 routes in groups A1, A2, A4, A5"
+          }
+        ],
+        "note": "",
+        "counts": {
+          "validRoutes": 11,
+          "acceptedRoutes": 0
+        }
+      }
+    },
+    {
+      "id": "forged_credential_A1",
+      "name": "Forged, never-issued credential (A1) accepted?",
+      "v2": {
+        "value": "yes: malicious-wallet probe (2026-06-11) accepted = true, 0 verifier rejection reasons; 1 of 1 v2 routes accepted in the v3 suite",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/malicious_probe.json",
+            "field": "forgedProofAccepted, verifierReasons, host.timestampUtc"
+          },
+          {
+            "path": "results/v3/security_suite.json",
+            "field": "A1 v2 attempts"
+          }
+        ],
+        "note": "",
+        "counts": {}
+      },
+      "v4": {
+        "value": "0 of 4 valid v4 routes accepted (A1-a, A1-b, A1-c, A1-d)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/security_suite.json",
+            "field": "v4 routes in groups A1"
+          }
+        ],
+        "note": "",
+        "counts": {
+          "validRoutes": 4,
+          "acceptedRoutes": 0
+        }
+      }
+    },
+    {
+      "id": "revoked_holder_bypass",
+      "name": "Revoked holder bypass accepted? (A3, forged neighbour leaf NL)",
+      "v2": {
+        "value": "yes: 1 of 5 v2 routes accepted: A3-D (fresh credID not in the revoked set)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v3/security_suite.json",
+            "field": "A3 v2 attempts (route letters only)"
+          }
+        ],
+        "note": "",
+        "counts": {}
+      },
+      "v4": {
+        "value": "0 of 11 valid v4 routes accepted (A3-B, A3-C, A3-D1, A3-D2, A3-F, A3-G, A3-H, NL-a, NL-b, NL-c, NL-d)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/security_suite.json",
+            "field": "v4 routes in groups A3, NL"
+          }
+        ],
+        "note": "",
+        "counts": {
+          "validRoutes": 11,
+          "acceptedRoutes": 0
+        }
+      }
+    },
+    {
+      "id": "trapdoor_forgery",
+      "name": "Trapdoor forgery (T1) accepted?",
+      "v2": {
+        "value": "yes: 1 of 1 v2 routes accepted; beacon-derived value equals delta: true",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v3/security_suite.json",
+            "field": "T1 v2 attempts; trapdoor.v2.matchesDelta"
+          }
+        ],
+        "note": "",
+        "counts": {}
+      },
+      "v4": {
+        "value": "0 of 1 valid v4 routes accepted (T1-a); beacon-derived value equals delta: false",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/security_suite.json",
+            "field": "v4 routes in groups T1"
+          },
+          {
+            "path": "results/v4/security_suite.json",
+            "field": "trapdoor.beaconDerivedDeltaMatchesKey"
+          }
+        ],
+        "note": "key label in the suite file: dev",
+        "counts": {
+          "validRoutes": 1,
+          "acceptedRoutes": 0
+        }
+      }
+    },
+    {
+      "id": "revocation_capacity",
+      "name": "Revocation capacity",
+      "v2": {
+        "value": "sparse Merkle tree, `SMTVerifier(32)`; 50% chance of a failed insertion at about 54,563 keys",
+        "status": "ok",
+        "label": "[S]",
+        "sources": [
+          {
+            "path": "circuits/credential_auth.circom",
+            "field": "component main"
+          },
+          {
+            "path": "results/v4/revocation_capacity.json",
+            "field": "v3CrossCheck.circuitLimit31Bits.fiftyPercentPointExact"
+          }
+        ],
+        "note": "same depth-32 sparse Merkle tree in v2 and v3; the figure is computed [S] in the v4 capacity file, not measured",
+        "counts": {}
+      },
+      "v4": {
+        "value": "IMT depth 30: 1,073,741,823 keys per issuer (target 1,000,000,000; 1.07x)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/revocation_capacity.json",
+            "field": "decision.chosen = imt_d30; options[imt_d30].capacityKeys"
+          }
+        ],
+        "note": "capacity [M] from the index boundary check; collision probability [S]",
+        "counts": {}
+      }
+    },
+    {
+      "id": "pq_signature_covers",
+      "name": "What the PQ (ML-DSA) signature covers",
+      "v2": {
+        "value": "the credential only; ML-DSA appears in end-to-end steps 3, 4, 11, 12 (issuer, wallet), in 0 verifier steps; probe: forged credential accepted = true, 0 verifier rejection reasons",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/e2e.json",
+            "field": "steps[].step"
+          },
+          {
+            "path": "results/malicious_probe.json",
+            "field": "forgedProofAccepted, verifierReasons"
+          }
+        ],
+        "note": "",
+        "counts": {}
+      },
+      "v4": {
+        "value": "ML-DSA-44 on DID PoP, accreditation, issuer epoch and verifier KEM key statements (V4_DESIGN.md section 3); 0 of 16 valid v4 routes accepted (A6-a, A6-b, A6-c, A6-e, A6-d, SQ-a, SQ-b, SQ-c, RA-a, RA-b, RA-c, RA-d, RA-f, RA-e, A8-a, SQ-d)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/security_suite.json",
+            "field": "v4 routes in groups A6, A8, SQ, RA"
+          },
+          {
+            "path": "docs/v4/V4_DESIGN.md",
+            "field": "section 3"
+          }
+        ],
+        "note": "",
+        "counts": {
+          "validRoutes": 16,
+          "acceptedRoutes": 0
+        }
+      }
+    },
+    {
+      "id": "ml_kem_role",
+      "name": "ML-KEM role",
+      "v2": {
+        "value": "benchmark only (ML-KEM-512 timings); 0 of 20 end-to-end steps use a KEM",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/pqc.json",
+            "field": "algorithms"
+          },
+          {
+            "path": "results/e2e.json",
+            "field": "steps[].step"
+          }
+        ],
+        "note": "",
+        "counts": {}
+      },
+      "v4": {
+        "value": "ML-KEM-768 session to the verifier's registered key; proof nonce from the KEM transcript (V4_DESIGN.md section 5); 0 of 17 valid v4 routes accepted (R1-a, R1-b, R1-c, R1-e, R1-d, R1-f, R1-g, RL-a, RL-b, RL-c, RL-d1, RL-d2, RL-e, RL-f+, RL-g, RL-h, RL-i)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/security_suite.json",
+            "field": "v4 routes in groups RL, R1"
+          },
+          {
+            "path": "docs/v4/V4_DESIGN.md",
+            "field": "section 5"
+          }
+        ],
+        "note": "known limitation, not counted: RL-f (accepted)",
+        "counts": {
+          "validRoutes": 17,
+          "acceptedRoutes": 0
+        }
+      }
+    },
+    {
+      "id": "registry_trust_basis",
+      "name": "Registry trust basis",
+      "v2": {
+        "value": "EVM account (ECDSA) authorization: registry writes check msg.sender (6 places); DID registration first come, first served; the ML-DSA public key is stored as data; 0 lines of the contract mention a verify call",
+        "status": "ok",
+        "label": "[code]",
+        "sources": [
+          {
+            "path": "onchain/contracts/Registries.sol",
+            "field": "msg.sender at lines 36, 47, 81, 85, 91, 111"
+          },
+          {
+            "path": "onchain/contracts/Registries.sol",
+            "field": "first-registration check at line 34"
+          },
+          {
+            "path": "onchain/contracts/Registries.sol",
+            "field": "ML-DSA public key field at line 16"
+          }
+        ],
+        "note": "code reading, not a measured result; v3's A7/A8 routes ran only against v3",
+        "counts": {}
+      },
+      "v4": {
+        "value": "DID proof of possession, governance ML-DSA accreditation, signed epoch windows (V4_DESIGN.md sections 3, 4); 0 of 14 valid v4 routes accepted (A7-a, SQ-a, SQ-b, SQ-c, RA-a, RA-b, RA-c, RA-d, RA-f, RA-e, A8-a, SQ-d, FA-b, FA-c)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/security_suite.json",
+            "field": "v4 routes in groups A7, A8, SQ, RA, FA"
+          },
+          {
+            "path": "docs/v4/V4_DESIGN.md",
+            "field": "sections 3, 4"
+          }
+        ],
+        "note": "known limitation, not counted: FA-a (accepted)",
+        "counts": {
+          "validRoutes": 14,
+          "acceptedRoutes": 0
+        }
+      }
+    },
+    {
+      "id": "age_semantics",
+      "name": "Age semantics",
+      "v2": {
+        "value": "claimed age is a free private input (range check only); age-16 credential proving age 42: 1 of 1 v2 routes accepted",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v3/security_suite.json",
+            "field": "A2 v2 attempts"
+          },
+          {
+            "path": "circuits/credential_auth.circom",
+            "field": "claimAge"
+          }
+        ],
+        "note": "",
+        "counts": {}
+      },
+      "v4": {
+        "value": "leaf commits birth date, expiry and type; verifier's date via policyHash; standard thresholds only (V4_DESIGN.md sections 1, 2); 0 of 20 valid v4 routes accepted (A2-a, A2-b, A2-d, A2-c, EX-a, EX-b, TY-a, TY-b, TY-c, SD-a, SD-b, SD-c, TP-a, TP-a#2, TP-a#3, TP-b, SD-g, TP-d, SD-d, SD-f)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/security_suite.json",
+            "field": "v4 routes in groups A2, EX, TY, SD, TP"
+          },
+          {
+            "path": "docs/v4/V4_DESIGN.md",
+            "field": "sections 1, 2"
+          }
+        ],
+        "note": "",
+        "counts": {
+          "validRoutes": 20,
+          "acceptedRoutes": 0
+        }
+      }
+    },
+    {
+      "id": "public_signals",
+      "name": "Public signals",
+      "v2": {
+        "value": "5",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "circuits/build/circuit_info.json",
+            "field": "nPubInputs"
+          }
+        ],
+        "note": "",
+        "counts": {}
+      },
+      "v4": {
+        "value": "8",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "circuits/build/v4/circuit_info.json",
+            "field": "nPubInputs"
+          }
+        ],
+        "note": "frozen (docs/v4/FREEZE.md)",
+        "counts": {}
+      }
+    },
+    {
+      "id": "constraints",
+      "name": "R1CS constraints",
+      "v2": {
+        "value": "21,715 (--O1, published); 10,588 at --O2",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "circuits/build/circuit_info.json",
+            "field": "nConstraints"
+          },
+          {
+            "path": "results/v3/compare_v2_v3.json",
+            "field": "constraints.v2_O2.nConstraints"
+          }
+        ],
+        "note": "",
+        "counts": {}
+      },
+      "v4": {
+        "value": "17,450 (--O2); 36,907 at --O1",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "circuits/build/v4/circuit_info.json",
+            "field": "nConstraints"
+          },
+          {
+            "path": "circuits/build/v4/circuit_info.json",
+            "field": "o1.nConstraints"
+          }
+        ],
+        "note": "frozen (docs/v4/FREEZE.md)",
+        "counts": {}
+      }
+    },
+    {
+      "id": "proving_time_snarkjs",
+      "name": "Proving time (snarkJS)",
+      "v2": {
+        "value": "published campaign: run-1 median 981 ms, headline mean 2,095 ms; re-run on the v3/v4 host 2026-09-26: median 714 ms (IQR 710 to 732 ms), n = 15; bench protocol: warm median 691 ms (IQR 18.4 ms, n = 30); cold median 964 ms (IQR 52.3 ms, n = 30)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/zk.json",
+            "field": "snarkjsProveCold.perRun.0.medianMs, snarkjsProveCold.headline.valueMs"
+          },
+          {
+            "path": "results/v3/compare_v2_v3.json",
+            "field": "timing.v2_published_O1.prove, controls.host"
+          },
+          {
+            "path": "results/v4/bench/summary.json",
+            "field": "conditions.3.phases.prove.median"
+          },
+          {
+            "path": "results/v4/bench/summary.json",
+            "field": "conditions.0.phases.prove.median"
+          }
+        ],
+        "note": "published campaign: n = 1000 per run, 3 runs; 13th Gen Intel(R) Core(TM) i7-1355U; power: battery; re-run: Intel(R) Core(TM) Ultra 7 355; power: AC; 15 rounds, 2 warm-up rounds discarded; v3 compare series, not a docs/v4/BENCH_PROTOCOL.md series; compare only numbers from the same host; the published campaign ran on a different laptop",
+        "counts": {}
+      },
+      "v4": {
+        "value": "warm median 830 ms (IQR 17.9 ms, n = 30); cold median 1,090 ms (IQR 43.6 ms, n = 30)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/bench/summary.json",
+            "field": "conditions.5.phases.prove.median"
+          },
+          {
+            "path": "results/v4/bench/summary.json",
+            "field": "conditions.2.phases.prove.median"
+          }
+        ],
+        "note": "path found by key search (schema not fixed when this generator was written); confirm",
+        "counts": {}
+      }
+    },
+    {
+      "id": "gas_verify",
+      "name": "On-chain verifyProof gas",
+      "v2": {
+        "value": "242,931 gas (verifyProof transaction); 242,919 in the re-run on the v3/v4 host (2026-09-26)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/gas.json",
+            "field": "verifyProofDirectTxGasUsed"
+          },
+          {
+            "path": "results/v3/compare_v2_v3.json",
+            "field": "gas.v2_published_O1.verifyProofDirectTxGasUsed"
+          }
+        ],
+        "note": "local Anvil EVM; the two values come from different proofs",
+        "counts": {}
+      },
+      "v4": {
+        "value": "264,048 gas (verifyProof transaction)",
+        "status": "ok",
+        "label": "[M]",
+        "sources": [
+          {
+            "path": "results/v4/gas.json",
+            "field": "verifyProofDirectTxGasUsed"
+          }
+        ],
+        "note": "",
+        "counts": {}
+      }
+    }
+  ],
+  "sources": [
+    {
+      "path": "results/v3/security_suite.json",
+      "role": "v2",
+      "exists": true,
+      "sha256": "48f4318d074dfa6ca6876f6e48987c853794a119dccd25c713b2732f201316cc",
+      "timestampUtc": "2026-09-26T16:06:26.141Z",
+      "timestampField": "host.timestampUtc"
+    },
+    {
+      "path": "results/malicious_probe.json",
+      "role": "v2",
+      "exists": true,
+      "sha256": "7ed4dbcc359c342676c5bc562a00ada32cd5832fb6fbec533d1c596b4fab10ce",
+      "timestampUtc": "2026-06-11T12:15:55.202Z",
+      "timestampField": "host.timestampUtc"
+    },
+    {
+      "path": "results/zk.json",
+      "role": "v2",
+      "exists": true,
+      "sha256": "6024ee7c996474bef1404328962439d04399baa8a5704e044c8f4db0c378b0b9",
+      "timestampUtc": "2026-06-11T10:49:42.342Z",
+      "timestampField": "controls.host.timestampUtc"
+    },
+    {
+      "path": "results/gas.json",
+      "role": "v2",
+      "exists": true,
+      "sha256": "aa1170e6ac2f09a95ab5a15efae9896ac036f27e22f93ce7f21c078541661455",
+      "timestampUtc": "2026-06-11T12:15:38.456Z",
+      "timestampField": "host.timestampUtc"
+    },
+    {
+      "path": "results/pqc.json",
+      "role": "v2",
+      "exists": true,
+      "sha256": "f25cc01f3bd4d80b4414771b476dd0479ee8ce14e27277cf541bed130477fa4b",
+      "timestampUtc": "2026-06-11T08:53:45.587Z",
+      "timestampField": "controls.host.timestampUtc"
+    },
+    {
+      "path": "results/e2e.json",
+      "role": "v2",
+      "exists": true,
+      "sha256": "6c617e7dba3e46a6a3051e6c620652fdd028dbe022476f75223751b038bae640",
+      "timestampUtc": "2026-06-11T12:16:14.859Z",
+      "timestampField": "host.timestampUtc"
+    },
+    {
+      "path": "circuits/build/circuit_info.json",
+      "role": "v2",
+      "exists": true,
+      "sha256": "278cc4c0a8991c025c4203c13845edf4b40d8acda4eef60f9b795b53c09432a3",
+      "timestampUtc": "2026-06-11T08:04:16.465Z",
+      "timestampField": "host.timestampUtc"
+    },
+    {
+      "path": "results/v3/compare_v2_v3.json",
+      "role": "v2",
+      "exists": true,
+      "sha256": "fc1cb25290cd409737025486737f7fe9ff8cd50a3f37644d7d035396e190dbb6",
+      "timestampUtc": "2026-09-26T16:08:54.097Z",
+      "timestampField": "controls.host.timestampUtc"
+    },
+    {
+      "path": "results/v4/security_suite.json",
+      "role": "v4",
+      "exists": true,
+      "sha256": "be26ae2dacc53718b573592a474ee69e6535346acaf78e0190283a6441a2f2eb",
+      "timestampUtc": "2026-09-27T14:53:51.311Z",
+      "timestampField": "host.timestampUtc"
+    },
+    {
+      "path": "results/v4/revocation_capacity.json",
+      "role": "v4",
+      "exists": true,
+      "sha256": "c61b1034581a52f507845e7bdfa14ceaa5d00aa26f37a19e9abc044569be968a",
+      "timestampUtc": "2026-09-27T04:10:16.067Z",
+      "timestampField": "host.timestampUtc"
+    },
+    {
+      "path": "circuits/build/v4/circuit_info.json",
+      "role": "v4",
+      "exists": true,
+      "sha256": "5ff16ec417aaf1dbe2ec8254d914ea2b7ca7f71baecfa979a565172aa2176790",
+      "timestampUtc": "2026-09-27T06:52:44.481Z",
+      "timestampField": "host.timestampUtc"
+    },
+    {
+      "path": "results/v4/bench/summary.json",
+      "role": "v4",
+      "exists": true,
+      "sha256": "91f2cb50c9a11e7814ec8507f4260d1cee14eef8395ae43f44012243877c6618",
+      "timestampUtc": null,
+      "timestampField": null
+    },
+    {
+      "path": "results/v4/gas.json",
+      "role": "v4",
+      "exists": true,
+      "sha256": "23243f72c75a1ce8a5ca28fc435258ae177c10df43ce19f22fff858420e4b4e4",
+      "timestampUtc": "2026-09-27T09:15:14.101Z",
+      "timestampField": "host.timestampUtc"
+    },
+    {
+      "path": "results/v4/relay.json",
+      "role": "v4",
+      "exists": false,
+      "sha256": null,
+      "timestampUtc": null,
+      "timestampField": null
+    },
+    {
+      "path": "circuits/credential_auth.circom",
+      "role": "code/doc",
+      "exists": true,
+      "sha256": "9017e4ccdcc5a5f145d49627f9ebc999bce127de6535860fd1dae1bd69f7bcd0",
+      "timestampUtc": null,
+      "timestampField": null
+    },
+    {
+      "path": "onchain/contracts/Registries.sol",
+      "role": "code/doc",
+      "exists": true,
+      "sha256": "61557ae6e2b545bdaf2899e6e9ca1f40feadfcbd4f5ea5485c70aeb112754ca6",
+      "timestampUtc": null,
+      "timestampField": null
+    },
+    {
+      "path": "docs/v4/V4_DESIGN.md",
+      "role": "code/doc",
+      "exists": true,
+      "sha256": "7d2d0daeeaf08a15c2eec37c4c5ddcfe398d4a6320c74a7598798ef28e6335af",
+      "timestampUtc": null,
+      "timestampField": null
+    }
+  ],
+  "pendingV4Inputs": []
+}

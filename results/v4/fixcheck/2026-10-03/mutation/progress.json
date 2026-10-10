@@ -1,0 +1,1154 @@
+[
+  {
+    "kind": "circuit",
+    "name": "G02_holder_commit",
+    "exit": 1,
+    "seconds": 211,
+    "port": 8801,
+    "routesNowAccepted": [
+      "A4|A4-a victim's genuine path, thief's secret"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G02_holder_commit/credential_auth_v4.r1cs",
+        "sha256": "4fc77f6d27831c9ba7a9d10c3f38da5240dc06130f92c7fa61913b47bdc8b1e4"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G02_holder_commit/mutant_throwaway.zkey",
+        "sha256": "705489972df13a8e9b3af86719dde800b5fa66ae4596bf3c93db6c6c30c05140"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G02_holder_commit/mutant_throwaway_vkey.json",
+        "sha256": "8c2cad4d897f718586bde618ea78890db26a220fe07a122d7b12a79c470b39e1"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G03_leaf",
+    "exit": 1,
+    "seconds": 214,
+    "port": 8802,
+    "routesNowAccepted": [
+      "A1|A1-a forged leaf with a real holder's path under A's anchored root",
+      "A2|A2-a genuine path, earlier birthDate",
+      "A4|A4-a victim's genuine path, thief's secret",
+      "A3|A3-D1 fresh credID with the revoked credential's genuine path"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A5|A5-b A's issuerKeyHash with B's path: circuit:G04_issuance_membership -> verifier:epochAnchorCurrent"
+    ],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G03_leaf/credential_auth_v4.r1cs",
+        "sha256": "309c2939e265dd56bd49b44d71e0586158bb557e8d475f34628eb5fbac12abd7"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G03_leaf/mutant_throwaway.zkey",
+        "sha256": "25d4c23479e8761a5d023c0af456c7ec7a5c2a00990c1eb07d56146fcb354d18"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G03_leaf/mutant_throwaway_vkey.json",
+        "sha256": "8cdc7b80a1c0e37395925ae2d721af3c04d2e16281e38201a34310188de83fa2"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G04_issuance_membership",
+    "exit": 1,
+    "seconds": 205,
+    "port": 8803,
+    "routesNowAccepted": [
+      "A1|A1-a forged leaf with a real holder's path under A's anchored root",
+      "A2|A2-a genuine path, earlier birthDate",
+      "A4|A4-a victim's genuine path, thief's secret",
+      "A3|A3-D1 fresh credID with the revoked credential's genuine path"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A5|A5-b A's issuerKeyHash with B's path: circuit:G04_issuance_membership -> verifier:epochAnchorCurrent"
+    ],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G04_issuance_membership/credential_auth_v4.r1cs",
+        "sha256": "44214e7b3f776feac07c0b5092f34512a7bc6e521f11878963ac4fb097736a4a"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G04_issuance_membership/mutant_throwaway.zkey",
+        "sha256": "bf3aa2994aee0f03d7589526257c3d4f8a9e0027659b0387a956e1584c1a637c"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G04_issuance_membership/mutant_throwaway_vkey.json",
+        "sha256": "fe17c9d6deb52b9035f6c60a702d9d33b1bad31aeee01e889fd8af4f85ecda36"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G05_revkey",
+    "exit": 1,
+    "seconds": 205,
+    "port": 8804,
+    "routesNowAccepted": [
+      "A3|A3-F the revoked key's own leaf as low leaf (lowValue = key)",
+      "A3|A3-G the predecessor leaf, whose next is now the revoked key"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G05_revkey/credential_auth_v4.r1cs",
+        "sha256": "a1d4047b2d119e3405d960ee55694583d95938da051792980499871bff68d250"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G05_revkey/mutant_throwaway.zkey",
+        "sha256": "e39d9538ac720b1c52ad513145d62411ef0773ca1f13c4562c1db0bb7e87147f"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G05_revkey/mutant_throwaway_vkey.json",
+        "sha256": "4010ada56100ceaf76743f9ae21601eb2f3626a157b37d664b8dc34b3208b3f6"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G06_rev_low_membership",
+    "exit": 1,
+    "seconds": 199,
+    "port": 8805,
+    "routesNowAccepted": [
+      "A3|A3-B stale low leaf against the current root",
+      "NL|NL-a fabricated bracketing leaf with a real leaf's path",
+      "NL|NL-b fabricated leaf at an empty index",
+      "NL|NL-c real predecessor leaf with lowNext edited to bracket the key",
+      "NL|NL-d stale sentinel (0, 2^251), which brackets every key, with index 0's current path"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G06_rev_low_membership/credential_auth_v4.r1cs",
+        "sha256": "be00634e11bc4fb9d2ebb045a41be767ec8ba94c690ce2145dd98be88a2784ea"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G06_rev_low_membership/mutant_throwaway.zkey",
+        "sha256": "5d3b3f0d31ef99bd51b972cfa9f6a5f67d3e833f6ea468c329db57ab44ce454d"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G06_rev_low_membership/mutant_throwaway_vkey.json",
+        "sha256": "b948147cdd843af9bae960a94176fcbe727c17edca29ec2e2d0f0da3b7be6fae"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G07_rev_bracket",
+    "exit": 1,
+    "seconds": 199,
+    "port": 8806,
+    "routesNowAccepted": [
+      "A3|A3-F the revoked key's own leaf as low leaf (lowValue = key)",
+      "A3|A3-G the predecessor leaf, whose next is now the revoked key"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G07_rev_bracket/credential_auth_v4.r1cs",
+        "sha256": "8fcd25e708044304364a525f133019ed2a3567b7ba42eeddc52ca84547e36d80"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G07_rev_bracket/mutant_throwaway.zkey",
+        "sha256": "620e3f05d59fc9dc704f9cf0fe75fd3a24b3359f35189cfc446d5ebecac5cccc"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G07_rev_bracket/mutant_throwaway_vkey.json",
+        "sha256": "fa9161a3e81ee2bee2b728020e2b7c8167cd60c65b865c387828d580a2fc0206"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G08_policy_hash",
+    "exit": 1,
+    "seconds": 194,
+    "port": 8807,
+    "routesNowAccepted": [
+      "PH|PH-a minor flips the private predicate to age_lt under the age_gte 18 policyHash",
+      "PH|PH-b minor lowers the private threshold to 16 under the age_gte 18 policyHash",
+      "PH|PH-c holder of another type sets the private requiredType to its own type"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "EX|EX-b older date inside the proof (before expiry): circuit:G15_epoch_window+G08_policy_hash -> circuit:G15_epoch_window",
+      "SD|SD-a prover uses yesterday's date to stay under 18 after turning 18: circuit:G15_epoch_window+G08_policy_hash -> circuit:G15_epoch_window"
+    ],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G08_policy_hash/credential_auth_v4.r1cs",
+        "sha256": "f5d71843e3032548f63be6da116dbafe2ba6b2a337098d30ffd5bf1a03232873"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G08_policy_hash/mutant_throwaway.zkey",
+        "sha256": "29a09fdb1d09dcfc04565884f74b092b31535922522c2a1fb036408e0baf7a2b"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G08_policy_hash/mutant_throwaway_vkey.json",
+        "sha256": "ab5c3d6787f4bd1c12333f73b574a8b749105eae66a9ecd8f937cdf333d5f84f"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G09_predicate_code",
+    "exit": 0,
+    "seconds": 194,
+    "port": 8808,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G09_predicate_code/credential_auth_v4.r1cs",
+        "sha256": "9e383ffa7b2d87624952ce3aec6ac5fdacad85fcb62998053b613443fc1770ec"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G09_predicate_code/mutant_throwaway.zkey",
+        "sha256": "74cef18d83f59149408e91aa76c8855d6eaf7597dc37a39350c5c1410c3717ea"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G09_predicate_code/mutant_throwaway_vkey.json",
+        "sha256": "19135549fe068a6536836018b0d3b8901f6a388573a48e55572d43cc177ba6f1"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G10_standard_threshold",
+    "exit": 1,
+    "seconds": 198,
+    "port": 8809,
+    "routesNowAccepted": [
+      "TP|TP-b buggy wallet (threshold check off), threshold 17"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G10_standard_threshold/credential_auth_v4.r1cs",
+        "sha256": "b40a4fde7141cc01fe5fd97e4f63065b380e2cd00e0f8c4d1f3b10145e15138f"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G10_standard_threshold/mutant_throwaway.zkey",
+        "sha256": "e6dff39b3ba25dc07f756bd278d23d67c88c5b473216043c5b5550902115c1a8"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G10_standard_threshold/mutant_throwaway_vkey.json",
+        "sha256": "df35135ea372c08aaf00a431a7285cdded06dfebdf02118f0456c3b6a1d21e3c"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G11_ranges",
+    "exit": 0,
+    "seconds": 198,
+    "port": 8810,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G11_ranges/credential_auth_v4.r1cs",
+        "sha256": "1b7c87c05b436ab0c0dd1dd4dd6ed42cdcd869958d8788d5849613e7dfa7ed30"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G11_ranges/mutant_throwaway.zkey",
+        "sha256": "c0559e7bb33b3190b5b41a53820787e072f841a6ef6465bdb3e3cc8e4c8dd870"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G11_ranges/mutant_throwaway_vkey.json",
+        "sha256": "d74c97fabc1e0bfce1c7bd1b397e691b4a89d1e633bf6cad392a8f62ff02e828"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G12_age",
+    "exit": 1,
+    "seconds": 188,
+    "port": 8811,
+    "routesNowAccepted": [
+      "A2|A2-b genuine leaf and birthDate, age_gte 18",
+      "A2|A2-d adult proves age_lt 18 with the attacker's generator",
+      "LD-forge|LD-b age_gte t on 28 Feb with the attacker's generator"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G12_age/credential_auth_v4.r1cs",
+        "sha256": "7f61b3daeedbdbbbc9cca70c4288054ceb8d38a00e7a04e9e156a2baef22f756"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G12_age/mutant_throwaway.zkey",
+        "sha256": "06a4255db7c25a6cfcf778adc9668711dac9ecea964b49066fbe736939fb27bc"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G12_age/mutant_throwaway_vkey.json",
+        "sha256": "3adc17945a861ab605b8b13ff9c9529c4b76f9e5b7851faad2bc4b31044d3281"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G13_expiry",
+    "exit": 1,
+    "seconds": 188,
+    "port": 8812,
+    "routesNowAccepted": [
+      "EX|EX-a verifier's today after expiryDate"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G13_expiry/credential_auth_v4.r1cs",
+        "sha256": "1d6f05107cba1a36bca037fcb45f6984a44bf33bf502e9a8c2ff87f6062e07bc"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G13_expiry/mutant_throwaway.zkey",
+        "sha256": "3893b4fd2825dc2801ef41d23c300afb1b06ed04cdc47b74f3df00314eba83d6"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G13_expiry/mutant_throwaway_vkey.json",
+        "sha256": "c59b25d3e43b4c917f64acf78f7a46a3db58850c3b7e598311c4735978f82dc5"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G14_type",
+    "exit": 1,
+    "seconds": 185,
+    "port": 8813,
+    "routesNowAccepted": [
+      "TY|TY-a requiredType = verifier's type, credential of another type"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G14_type/credential_auth_v4.r1cs",
+        "sha256": "97b7b46ff39cca0df01dba2aacb52a992bcfc4540d8f9885bdebf940f2ce6523"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G14_type/mutant_throwaway.zkey",
+        "sha256": "d9c5e6ebbb4c8d0b1e782f9089684b0f807f4f56980b874c1b73345b82955a27"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G14_type/mutant_throwaway_vkey.json",
+        "sha256": "83881068bfbca965985916f98034e28af462c2d8a1a2faa6ddd6ee0605020ca5"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G15_epoch_window",
+    "exit": 1,
+    "seconds": 186,
+    "port": 8814,
+    "routesNowAccepted": [
+      "SD|SD-c buggy wallet (date check off): date outside the signed epoch window"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "EX|EX-b older date inside the proof (before expiry): circuit:G15_epoch_window+G08_policy_hash -> circuit:G08_policy_hash",
+      "SD|SD-a prover uses yesterday's date to stay under 18 after turning 18: circuit:G15_epoch_window+G08_policy_hash -> circuit:G08_policy_hash"
+    ],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G15_epoch_window/credential_auth_v4.r1cs",
+        "sha256": "fbc708498950012825399ee53896c3ff915b4cc95ea8a7c6cb656a24ff3c0136"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G15_epoch_window/mutant_throwaway.zkey",
+        "sha256": "066fd4bf30f367e2d30439b7fd1d8295750baa20c154f8b54a985866c698e6bb"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G15_epoch_window/mutant_throwaway_vkey.json",
+        "sha256": "963788a127a21009ea7d31c00693e6f25cd164d9c70b73568f6383d4d3ba4ee0"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G16_stmt",
+    "exit": 0,
+    "seconds": 185,
+    "port": 8815,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G16_stmt/credential_auth_v4.r1cs",
+        "sha256": "79bb9aed42b4739ed2e1133e76f88cb39694d23919a52ab625cc559ccc99d878"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G16_stmt/mutant_throwaway.zkey",
+        "sha256": "08aa79eb5f09ee3536501089e9f014326742def96d265f0f648d89a9eb0d8b5b"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G16_stmt/mutant_throwaway_vkey.json",
+        "sha256": "70c59ac8b9356ee85687deab77cc70448c83f01f66dc5891721f290629d156cb"
+      }
+    }
+  },
+  {
+    "kind": "circuit",
+    "name": "G17_nonce",
+    "exit": 0,
+    "seconds": 185,
+    "port": 8816,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "throwawayKey": "cached (same r1cs SHA-256 as the stamp)",
+    "artifacts": {
+      "r1cs": {
+        "file": "circuits/build/v4/mutants/G17_nonce/credential_auth_v4.r1cs",
+        "sha256": "37967317ddc24da48809babb798914ca019fac6625fa41c897dbe2c41d4f9f77"
+      },
+      "zkey": {
+        "file": "circuits/build/v4/mutants/G17_nonce/mutant_throwaway.zkey",
+        "sha256": "efd490a3a5271fd393997bc74709d33e2380d6739db3477de422e48f6047c1d1"
+      },
+      "vkey": {
+        "file": "circuits/build/v4/mutants/G17_nonce/mutant_throwaway_vkey.json",
+        "sha256": "701b313c7ce2a77c7adddbdcf52ea9b7c550e11aab756ff72b81db3d4877deab"
+      }
+    }
+  },
+  {
+    "kind": "verifier",
+    "name": "shape",
+    "exit": 1,
+    "seconds": 181,
+    "port": 8817,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A6|A6-b statement omitted: verifier:shape -> verifier:"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "sessionKnown",
+    "exit": 1,
+    "seconds": 180,
+    "port": 8818,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "R1|R1-a replay of the accepted reply: verifier:sessionKnown -> verifier:transcriptDecrypts",
+      "R1|R1-g reply sent after the session's lifetime: verifier:sessionKnown -> verifier:transcriptDecrypts",
+      "RL|RL-b captured reply replayed later: verifier:sessionKnown -> verifier:transcriptDecrypts"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "transcriptDecrypts",
+    "exit": 1,
+    "seconds": 175,
+    "port": 8819,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "R1|R1-b reply moved into a new session: verifier:transcriptDecrypts -> verifier:shape",
+      "RL|RL-e relay lowers the threshold (21 -> 18) before forwarding: verifier:transcriptDecrypts -> verifier:shape"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "issuerRecord",
+    "exit": 0,
+    "seconds": 174,
+    "port": 8820,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerPop+accreditation",
+      "DE|DE-a issuer deactivates its record; its holder keeps presenting: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerPop"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "issuerPop",
+    "exit": 0,
+    "seconds": 175,
+    "port": 8821,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+accreditation+issuerKeyHash",
+      "SQ|SQ-c presentation through the squatter's record with its own epoch (old revRoot): verifier:issuerPop+accreditation -> verifier:accreditation",
+      "DE|DE-a issuer deactivates its record; its holder keeps presenting: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+accreditation+issuerKeyHash"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "accreditation",
+    "exit": 1,
+    "seconds": 175,
+    "port": 8822,
+    "routesNowAccepted": [
+      "A1|A1-d self-issued under the attacker's own PoP-registered, unaccredited DID",
+      "RA|RA-a accreditation signed with the attacker's ML-DSA key",
+      "RA|RA-b accreditation with a garbage signature",
+      "RA|RA-d replay of an older genuine accreditation with a higher declared serial",
+      "RA|RA-f holder of an issuer that governance de-accredited",
+      "RA|RA-e revoked holder presents through the issuer's retired controller record after a rotation",
+      "KL3-b|KL3-b after the accreditation window: verifier rejects"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+issuerPop+issuerKeyHash",
+      "SQ|SQ-c presentation through the squatter's record with its own epoch (old revRoot): verifier:issuerPop+accreditation -> verifier:issuerPop",
+      "DE|DE-a issuer deactivates its record; its holder keeps presenting: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+issuerPop+issuerKeyHash"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "issuerKeyHash",
+    "exit": 0,
+    "seconds": 174,
+    "port": 8823,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A5|A5-a proof on B's tree, issuerDid A, B's statement: verifier:issuerKeyHash+epochAnchorCurrent -> verifier:epochAnchorCurrent",
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+issuerPop+accreditation",
+      "DE|DE-a issuer deactivates its record; its holder keeps presenting: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+issuerPop+accreditation"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "epochAnchorCurrent",
+    "exit": 1,
+    "seconds": 174,
+    "port": 8824,
+    "routesNowAccepted": [
+      "A1|A1-b attacker-built tree, valid proof, A's genuine statement",
+      "A2|A2-c attacker-built tree with a fake birthDate, A's statement",
+      "A6|A6-e issuer A's own statement for another chain and registry (same epoch and roots)",
+      "A3|A3-C stale low leaf, stale revRoot and the old statement",
+      "A3|A3-D2 fresh credID in an attacker-built tree, A's statement"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A1|A1-c attacker-built tree, statement signed with the attacker's key naming A: verifier:epochAnchorCurrent -> verifier:epochSignature",
+      "A5|A5-a proof on B's tree, issuerDid A, B's statement: verifier:issuerKeyHash+epochAnchorCurrent -> verifier:issuerKeyHash",
+      "A6|A6-a epoch changed after signing: verifier:epochAnchorCurrent -> verifier:epochSignature",
+      "A6|A6-c A's root signed by B's key: verifier:epochAnchorCurrent -> verifier:epochSignature",
+      "A6|A6-d notAfter extended after signing: verifier:epochAnchorCurrent+epochWindow -> verifier:epochWindow"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "epochWindow",
+    "exit": 1,
+    "seconds": 177,
+    "port": 8825,
+    "routesNowAccepted": [
+      "FA|FA-b after notAfter: verifier rejects the frozen statement"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A6|A6-d notAfter extended after signing: verifier:epochAnchorCurrent+epochWindow -> verifier:epochAnchorCurrent"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "revRoot",
+    "exit": 1,
+    "seconds": 178,
+    "port": 8826,
+    "routesNowAccepted": [
+      "A3|A3-H current statement, valid proof against the pre-revocation revocation root"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "policyHash",
+    "exit": 1,
+    "seconds": 179,
+    "port": 8827,
+    "routesNowAccepted": [
+      "R1|R1-d age_gte 18 proof where 21 is required",
+      "TY|TY-b requiredType = own type inside the proof"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "nonceBinding",
+    "exit": 1,
+    "seconds": 179,
+    "port": 8828,
+    "routesNowAccepted": [
+      "R1|R1-e leaked presentation replayed by a third party into a new session at the same verifier"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "R1|R1-c presentation for V re-sealed to V2: verifier:nonceBinding+stmtCode -> verifier:stmtCode",
+      "RL|RL-c relay presents its own verifier identity to the victim: verifier:nonceBinding+stmtCode -> verifier:stmtCode"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "stmtCode",
+    "exit": 0,
+    "seconds": 174,
+    "port": 8829,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "R1|R1-c presentation for V re-sealed to V2: verifier:nonceBinding+stmtCode -> verifier:nonceBinding",
+      "RL|RL-c relay presents its own verifier identity to the victim: verifier:nonceBinding+stmtCode -> verifier:nonceBinding"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "groth16",
+    "exit": 1,
+    "seconds": 174,
+    "port": 8830,
+    "routesNowAccepted": [
+      "A1|A1-a forged leaf with a real holder's path under A's anchored root",
+      "A2|A2-a genuine path, earlier birthDate",
+      "A2|A2-b genuine leaf and birthDate, age_gte 18",
+      "A2|A2-d adult proves age_lt 18 with the attacker's generator",
+      "A4|A4-a victim's genuine path, thief's secret",
+      "T1|T1-a public-beacon trapdoor applied to the v4 dev key",
+      "A3|A3-B stale low leaf against the current root",
+      "A3|A3-D1 fresh credID with the revoked credential's genuine path",
+      "A3|A3-F the revoked key's own leaf as low leaf (lowValue = key)",
+      "A3|A3-G the predecessor leaf, whose next is now the revoked key",
+      "NL|NL-a fabricated bracketing leaf with a real leaf's path",
+      "NL|NL-b fabricated leaf at an empty index",
+      "NL|NL-c real predecessor leaf with lowNext edited to bracket the key",
+      "NL|NL-d stale sentinel (0, 2^251), which brackets every key, with index 0's current path",
+      "EX|EX-a verifier's today after expiryDate",
+      "EX|EX-b older date inside the proof (before expiry)",
+      "TY|TY-a requiredType = verifier's type, credential of another type",
+      "PH|PH-a minor flips the private predicate to age_lt under the age_gte 18 policyHash",
+      "PH|PH-b minor lowers the private threshold to 16 under the age_gte 18 policyHash",
+      "PH|PH-c holder of another type sets the private requiredType to its own type",
+      "SD|SD-a prover uses yesterday's date to stay under 18 after turning 18",
+      "SD|SD-c buggy wallet (date check off): date outside the signed epoch window",
+      "TP|TP-b buggy wallet (threshold check off), threshold 17",
+      "LD-forge|LD-b age_gte t on 28 Feb with the attacker's generator"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "sessionFresh",
+    "exit": 1,
+    "seconds": 175,
+    "port": 8831,
+    "routesNowAccepted": [
+      "R1|R1-f the same reply verified twice at once"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "epochSignature",
+    "exit": 1,
+    "seconds": 175,
+    "port": 8832,
+    "routesNowAccepted": [
+      "A8|A8-a forged leaf under the adversary-anchored root"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "requestShape",
+    "exit": 1,
+    "seconds": 174,
+    "port": 8833,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "RL|RL-d1 relay adds its own KEM key to the request: wallet:requestShape -> wallet:sessionSchema"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "verifierRecord",
+    "exit": 0,
+    "seconds": 174,
+    "port": 8834,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "verifierPop",
+    "exit": 1,
+    "seconds": 179,
+    "port": 8835,
+    "routesNowAccepted": [
+      "SQ-d|SQ-d controller EVM account registers the verifier DID under a relay origin"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "verifierKemKey",
+    "exit": 1,
+    "seconds": 180,
+    "port": 8836,
+    "routesNowAccepted": [
+      "RL-h|RL-h KEM statement for the attacker's KEM key, signed with another ML-DSA key",
+      "RL-i|RL-i re-post the retired KEM statement declaring a notBefore above the stored one"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "originBinding",
+    "exit": 1,
+    "seconds": 179,
+    "port": 8837,
+    "routesNowAccepted": [
+      "RL-f+|RL-f with origin binding: caller origin is the relay's"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "dateCurrent",
+    "exit": 1,
+    "seconds": 182,
+    "port": 8838,
+    "routesNowAccepted": [
+      "SD-d|SD-d second request for 1 Mar right after answering 28 Feb",
+      "SD-f|SD-f concurrent requests for 28 Feb and 1 Mar right after midnight"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "SD|SD-b verifier supplies a stale date (probe / accept expired): wallet-enforced:dateCurrent -> wallet-enforced:dateInWindow"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "thresholdStandard",
+    "exit": 1,
+    "seconds": 189,
+    "port": 8839,
+    "routesNowAccepted": [
+      "TP-c|TP-c refusal kinds at non-standard thresholds around the adult's age and at 17 for the minor"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "TP|TP-a verifier asks threshold 17: wallet-enforced:thresholdStandard -> wallet-enforced:proofFailed",
+      "TP|TP-a verifier asks threshold 19: wallet-enforced:thresholdStandard -> wallet-enforced:proofFailed",
+      "TP|TP-a verifier asks threshold 20: wallet-enforced:thresholdStandard -> wallet-enforced:proofFailed"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "typeAllowed",
+    "exit": 1,
+    "seconds": 187,
+    "port": 8840,
+    "routesNowAccepted": [
+      "PV13|PV13 wallet refuses a credential type outside its allow-list at issuance"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "TY|TY-c verifier asks for a credential type outside the wallet's allow-list: wallet-enforced:typeAllowed -> wallet-enforced:typeHeld"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "typeHeld",
+    "exit": 0,
+    "seconds": 182,
+    "port": 8841,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "issuerRecord",
+    "exit": 0,
+    "seconds": 182,
+    "port": 8842,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "issuerPop",
+    "exit": 0,
+    "seconds": 183,
+    "port": 8843,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "accreditation",
+    "exit": 1,
+    "seconds": 184,
+    "port": 8844,
+    "routesNowAccepted": [
+      "PV8|PV8 honest wallet checks accreditation"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "anchorMatches",
+    "exit": 1,
+    "seconds": 193,
+    "port": 8845,
+    "routesNowAccepted": [
+      "PV2|PV2 re-signed statement (different ML-DSA bytes)",
+      "PV4|PV4 extra field",
+      "PV9|PV9 credential naming a second, PoP-valid controller of issuer A",
+      "PV11|PV11 statement with type = the epoch statement type"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "PV3|PV3 older statement and path: wallet:anchorMatches -> wallet:proofFailed",
+      "PV10|PV10 upper-case signature with a trailing tag: wallet:anchorMatches -> wallet:proofFailed"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "epochWindow",
+    "exit": 1,
+    "seconds": 189,
+    "port": 8846,
+    "routesNowAccepted": [
+      "FA|FA-c after notAfter: honest wallet refuses"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "dateInWindow",
+    "exit": 0,
+    "seconds": 178,
+    "port": 8847,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "anchorCadence",
+    "exit": 1,
+    "seconds": 180,
+    "port": 8848,
+    "routesNowAccepted": [
+      "PV14|PV14 honest wallet refuses a registry with a 1 s minimum anchor interval"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "credentialSignature",
+    "exit": 0,
+    "seconds": 181,
+    "port": 8849,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "wallet",
+    "name": "predicateHolds",
+    "exit": 1,
+    "seconds": 181,
+    "port": 8850,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "B2-boundary|honest wallet, age_gte 18 one day before the 18th birthday: wallet:predicateHolds -> wallet:proofFailed",
+      "B3-65|C0-c65 adult (born 1990), age_gte 65: wallet:predicateHolds -> wallet:proofFailed",
+      "SD-g|SD-g request date reads today at the check and tomorrow afterwards (holder turns 18 tomorrow): wallet-enforced:requestSnapshot -> wallet-enforced:proofFailed",
+      "LD-refuse|LD-a age_gte t on 28 Feb: honest wallet refuses: wallet:predicateHolds -> wallet:proofFailed",
+      "LD-refuse|LD-e age_lt t on 1 Mar: honest wallet refuses: wallet:predicateHolds -> wallet:proofFailed"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "registry",
+    "name": "recordUnique",
+    "exit": 1,
+    "seconds": 183,
+    "port": 8851,
+    "routesNowAccepted": [
+      "RG|RG-d a second registration of the same (did, controller) record"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "contracts": {
+      "file": "circuits/build/v4/mutants/contracts/RegistriesV4__no_recordUnique.sol",
+      "sha256": "646dbc8070b31fcbf0f535c261567aa3b3ab5d265f850a24dec7a2c880d33539"
+    }
+  },
+  {
+    "kind": "registry",
+    "name": "controllerOnly",
+    "exit": 1,
+    "seconds": 182,
+    "port": 8852,
+    "routesNowAccepted": [
+      "RG|RG-a stranger anchors an epoch for the issuer's DID"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "contracts": {
+      "file": "circuits/build/v4/mutants/contracts/RegistriesV4__no_controllerOnly.sol",
+      "sha256": "fb340e5d9cfb7536fe78d3ef280067510811246ce28524396121c96551eb117b"
+    }
+  },
+  {
+    "kind": "registry",
+    "name": "epochIncrement",
+    "exit": 1,
+    "seconds": 176,
+    "port": 8853,
+    "routesNowAccepted": [
+      "RG|RG-b the controller re-anchors the current epoch number (rollback)"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "contracts": {
+      "file": "circuits/build/v4/mutants/contracts/RegistriesV4__no_epochIncrement.sol",
+      "sha256": "ebc3bdd57042abd0c3d7da88f3cf339826c0e3b71ce86d65fa3bea09de7d8e00"
+    }
+  },
+  {
+    "kind": "registry",
+    "name": "anchorCadence",
+    "exit": 1,
+    "seconds": 176,
+    "port": 8854,
+    "routesNowAccepted": [
+      "PV6|PV6 immediate re-anchor",
+      "PV7|PV7 second revocation root five seconds after an anchor"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "contracts": {
+      "file": "circuits/build/v4/mutants/contracts/RegistriesV4__no_anchorCadence.sol",
+      "sha256": "364958ff176dc4bc763f0a3a1cf41048676ff0ccda8b030c58b0ad0dc6f02ca5"
+    }
+  },
+  {
+    "kind": "registry",
+    "name": "windowBounds",
+    "exit": 1,
+    "seconds": 175,
+    "port": 8855,
+    "routesNowAccepted": [
+      "RG|RG-c the controller anchors a window longer than the registry maximum"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "contracts": {
+      "file": "circuits/build/v4/mutants/contracts/RegistriesV4__no_windowBounds.sol",
+      "sha256": "b284f37d1179e7aba73d0a44547371e4ba2b64c4993d8c2800ec6b117e563ba3"
+    }
+  },
+  {
+    "kind": "registry",
+    "name": "governanceWriter",
+    "exit": 1,
+    "seconds": 174,
+    "port": 8856,
+    "routesNowAccepted": [
+      "RG|RG-e an issuer account posts its own accreditation statement"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "contracts": {
+      "file": "circuits/build/v4/mutants/contracts/RegistriesV4__no_governanceWriter.sol",
+      "sha256": "c2626fa0a45ff6293cbc3463ec12bf28090d0bda3d358b2745aeef630d767fd8"
+    }
+  },
+  {
+    "kind": "registry",
+    "name": "accreditationSerial",
+    "exit": 1,
+    "seconds": 178,
+    "port": 8857,
+    "routesNowAccepted": [
+      "RA|RA-c replay of an older genuine accreditation after revocation (serial rollback)"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "contracts": {
+      "file": "circuits/build/v4/mutants/contracts/RegistriesV4__no_accreditationSerial.sol",
+      "sha256": "01ae52a50f86025a3b5b3142cbe6a6b8c6a95483a93f4174fb61f4449a5ae679"
+    }
+  },
+  {
+    "kind": "registry",
+    "name": "kemMonotonic",
+    "exit": 1,
+    "seconds": 177,
+    "port": 8858,
+    "routesNowAccepted": [
+      "RL-g|RL-g re-post the previous KEM statement after a rotation"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": [],
+    "contracts": {
+      "file": "circuits/build/v4/mutants/contracts/RegistriesV4__no_kemMonotonic.sol",
+      "sha256": "45ee8b01d1107a4e0c48fd23b92b6cf6f26a4e4fdbc143486e5be7aac52435aa"
+    }
+  },
+  {
+    "kind": "governance",
+    "name": "issuerPopBeforeAccreditation",
+    "exit": 1,
+    "seconds": 137,
+    "port": 8859,
+    "routesNowAccepted": [
+      "SQ|SQ-a asks governance to accredit (garbage PoP)",
+      "SQ|SQ-b replays A's genuine PoP signature under its own controller"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "RL|RL-a passive capture: read the reply without the KEM secret: transport:aeadConfidentiality -> accepted:",
+      "RL|RL-b captured reply replayed later: verifier:sessionKnown -> accepted:",
+      "RL|RL-c relay presents its own verifier identity to the victim: verifier:nonceBinding+stmtCode -> accepted:",
+      "RL|RL-d2 relay forwards V's request and tries to read the reply with its own KEM key: transport:kemKeyFromChain -> accepted:",
+      "RL|RL-e relay lowers the threshold (21 -> 18) before forwarding: verifier:transcriptDecrypts -> accepted:",
+      "KL5|KL5 lent credential presented by another person: accepted: -> verifier:accreditation",
+      "PV1|PV1 views equal except the session nonce: wallet:identicalViews -> accepted:",
+      "PV2|PV2 re-signed statement (different ML-DSA bytes): wallet:anchorMatches -> wallet:issuerPop",
+      "PV3|PV3 older statement and path: wallet:anchorMatches -> wallet:issuerPop",
+      "PV4|PV4 extra field: wallet:anchorMatches -> wallet:issuerPop",
+      "PV5|PV5 permuted key order: verifier view identical to the canonical one: wallet:identicalViews -> accepted:",
+      "PV9|PV9 credential naming a second, PoP-valid controller of issuer A: wallet:anchorMatches -> wallet:issuerPop",
+      "PV10|PV10 upper-case signature with a trailing tag: wallet:anchorMatches -> wallet:issuerPop",
+      "PV11|PV11 statement with type = the epoch statement type: wallet:anchorMatches -> wallet:issuerPop",
+      "PV12|PV12 issuer contacts during a presentation (published-tree default): wallet:publishedTree -> accepted:"
+    ],
+    "harnessErrors": [
+      "RL|RL-a passive capture: read the reply without the KEM secret: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "RL|RL-b captured reply replayed later: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "RL|RL-c relay presents its own verifier identity to the victim: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "RL|RL-d2 relay forwards V's request and tries to read the reply with its own KEM key: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "RL|RL-e relay lowers the threshold (21 -> 18) before forwarding: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "KL1|RL-f victim's honest wallet answers the relayed request: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "PV1|PV1 views equal except the session nonce: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "PV5|PV5 permuted key order: verifier view identical to the canonical one: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "PV12|PV12 issuer contacts during a presentation (published-tree default): unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)",
+      "KL4|KL4 online-mode wallet contacts the issuer while presenting: unexpected exception: wallet refuses (issuerPop): proof of possession does not verify under the registered key (for this controller, chain, registry and origin)"
+    ]
+  }
+]

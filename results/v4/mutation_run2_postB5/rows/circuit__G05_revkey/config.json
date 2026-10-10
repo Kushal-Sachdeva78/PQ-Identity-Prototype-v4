@@ -1,0 +1,16 @@
+{
+  "name": "circuit:G05_revkey",
+  "port": 8603,
+  "out": "<repo>\\results\\v4\\mutation\\circuit__G05_revkey",
+  "mutantGroup": "G05_revkey",
+  "artifacts": {
+    "r1cs": "<repo>\\circuits\\build\\v4\\mutants\\G05_revkey\\credential_auth_v4.r1cs",
+    "sym": "<repo>\\circuits\\build\\v4\\mutants\\G05_revkey\\credential_auth_v4.sym",
+    "zkey": "<repo>\\circuits\\build\\v4\\mutants\\G05_revkey\\mutant_throwaway.zkey",
+    "wasm": "<repo>\\circuits\\build\\v4\\mutants\\G05_revkey\\credential_auth_v4_js\\credential_auth_v4.wasm",
+    "vkeyFile": "<repo>\\circuits\\build\\v4\\mutants\\G05_revkey\\mutant_throwaway_vkey.json",
+    "src": "<repo>\\circuits\\build\\v4\\mutants\\G05_revkey\\credential_auth_v4.circom",
+    "attackerDir": "<repo>\\circuits\\build\\v4\\mutants\\G05_revkey\\attacker",
+    "keyLabel": "mutant-throwaway"
+  }
+}

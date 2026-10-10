@@ -1,0 +1,48 @@
+{
+  "schema": "pqid/circomspect/v1",
+  "label": "[M] static soundness audit (circomspect; a third-party cryptographic audit remains [F])",
+  "tool": "circomspect (trailofbits), level WARNING, curve BN254",
+  "circuit": "circuits/credential_auth.circom (CredentialAuth(32) v2)",
+  "totalFindings": 2,
+  "blockingFindings": 0,
+  "pass": true,
+  "publicSignalConstraintCoverage": {
+    "issuerKeyHash": "binding square (triaged) + verifier on-chain equality off-circuit",
+    "revRoot": "SMTVerifier(32) root input — real constraint",
+    "policyHash": "Poseidon(predicateCode, threshold) equality — real constraint",
+    "nonce": "binding square (triaged) + verifier freshness check off-circuit",
+    "stmtCode": "Poseidon(STMT_V1, domainTag) equality — real constraint (V6 §F3)"
+  },
+  "findings": [
+    {
+      "ruleId": "CS0017",
+      "level": "warning",
+      "message": "Intermediate signals should typically occur in at least two separate constraints.",
+      "file": "credential_auth.circom",
+      "line": 135,
+      "inOurCircuit": true,
+      "status": "triaged-accepted",
+      "justification": "Intentional statement-binding square: anchors the verifier-chosen public nonce into the constraint system so it cannot be dangling. The square itself carries no semantic value; the canonical anchoring pattern (cf. tornado-core recipientSquare)."
+    },
+    {
+      "ruleId": "CS0017",
+      "level": "warning",
+      "message": "Intermediate signals should typically occur in at least two separate constraints.",
+      "file": "credential_auth.circom",
+      "line": 133,
+      "inOurCircuit": true,
+      "status": "triaged-accepted",
+      "justification": "Intentional statement-binding square for the public issuerKeyHash (its semantic check — equality with Poseidon(pk_issuer resolved on-chain) — is the verifier's off-circuit duty per the two-phase design)."
+    }
+  ],
+  "host": {
+    "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logicalCores": 12,
+    "totalMemGiB": 15.7,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.8655",
+    "nodeVersion": "v22.16.0",
+    "timestampUtc": "2026-06-11T08:53:38.427Z"
+  }
+}

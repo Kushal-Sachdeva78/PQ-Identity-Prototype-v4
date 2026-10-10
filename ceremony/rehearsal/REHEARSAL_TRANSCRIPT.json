@@ -1,0 +1,414 @@
+{
+  "schema": "pqid/ceremony-rehearsal/v1",
+  "label": "REHEARSAL ONLY",
+  "warning": "REHEARSAL ONLY. Throwaway circuit, throwaway local powers of tau, dummy beacon. Nothing here is a PQ-Identity key or ceremony evidence for one.",
+  "result": "PASS",
+  "failures": [],
+  "startedUtc": "2026-09-27T07:34:41.466Z",
+  "finishedUtc": "2026-09-27T07:35:04.030Z",
+  "script": {
+    "file": "ceremony/rehearse.mjs",
+    "sha256": "d92f1553bbec834dd1e4858863e60c1060070240a17364c6d696da4c2c365c67"
+  },
+  "circuit": {
+    "source": "ceremony/rehearsal/tiny.circom",
+    "sourceSha256": "8e10aef0417a4ce79012a8cfa1f6269088d5aa560cd0d61ef670d1378502291e",
+    "compiler": "circom compiler 2.2.3 --O2",
+    "nConstraints": 35,
+    "nPubInputs": 2,
+    "nPrvInputs": 2,
+    "r1csSha256": "ede3af8685e6ff6feea0c3ef30588d02d310361764f3b6a5d1b3de9792ee695c"
+  },
+  "ptau": {
+    "power": 8,
+    "how": "snarkjs powersOfTau.newAccumulator bn128 2^8, one contribution with OS randomness (in memory only), preparePhase2",
+    "contributionHash": "6ff52172bb7e288408422017454e8b9dffe8ad0c59d1628243625b108e3cc2d2a014967c5829e3d91db1b79be5ddd4bc4c6c42a52d74978611d5124a8e6b8004",
+    "verified": true,
+    "sha256": "b09d44778809e725cd85567c491b3a1bb6b39cad919564b5af87479c883cb277"
+  },
+  "contributors": [
+    {
+      "step": 1,
+      "name": "REHEARSAL ONLY contributor 1 (contribute.ps1)",
+      "wrapper": "contribute.ps1",
+      "launcher": "powershell.exe",
+      "verifiedLocally": true,
+      "inputSha256": "deb7d61c466e151a136c53cbd1868382d562f294cb047b7b2187fd9c2782bfd3",
+      "printedHash": "3c772a055412618ca124a20f99b30d31f867b32952acf576a074cb2f2e55348c7e910d14e3e0ab1621f43024c30fcaaf01438bc3bcf7a1596b16d1fcd350bbe8",
+      "acceptedHash": "3c772a055412618ca124a20f99b30d31f867b32952acf576a074cb2f2e55348c7e910d14e3e0ab1621f43024c30fcaaf01438bc3bcf7a1596b16d1fcd350bbe8",
+      "printedEqualsAccepted": true,
+      "entropy": "OS randomness (64 B here + 64 B inside snarkjs); none of it was written anywhere"
+    },
+    {
+      "step": 2,
+      "name": "REHEARSAL ONLY contributor 2 (contribute.sh)",
+      "wrapper": "contribute.sh",
+      "launcher": "Git Bash",
+      "verifiedLocally": false,
+      "inputSha256": "a4e78bb2f9dfd808729c5c96a4178d868e88d5b4897f6d9c2ae73da5b354c850",
+      "printedHash": "57e348857ccc645d63af352c6a44e0097bc8f495753af26f4286d861ca8c1a73f65ec52ec5e37db736d05f8057eed86410efc12d701de5e9c3bbf9a5a2899552",
+      "acceptedHash": "57e348857ccc645d63af352c6a44e0097bc8f495753af26f4286d861ca8c1a73f65ec52ec5e37db736d05f8057eed86410efc12d701de5e9c3bbf9a5a2899552",
+      "printedEqualsAccepted": true,
+      "entropy": "OS randomness (64 B here + 64 B inside snarkjs); none of it was written anywhere"
+    },
+    {
+      "step": 3,
+      "name": "REHEARSAL ONLY contributor 3 (contribute.ps1)",
+      "wrapper": "contribute.ps1",
+      "launcher": "powershell.exe",
+      "verifiedLocally": true,
+      "inputSha256": "d29ca57fe9b29db3a1806db955e69f1095538c94158d060dd161dbdfc2676668",
+      "printedHash": "f950b314bcf93b2ef8204830ea4c1247a1a7f5c7873a6552c4afaa4ce223a9f6dd508b560b1fd1f20163199adfae27cc971fd9e98e52d56f2bcddc47ab678d4c",
+      "acceptedHash": "f950b314bcf93b2ef8204830ea4c1247a1a7f5c7873a6552c4afaa4ce223a9f6dd508b560b1fd1f20163199adfae27cc971fd9e98e52d56f2bcddc47ab678d4c",
+      "printedEqualsAccepted": true,
+      "entropy": "OS randomness (64 B here + 64 B inside snarkjs); none of it was written anywhere"
+    }
+  ],
+  "negativeChecks": [
+    {
+      "name": "stale base (fork of step 1)",
+      "expectation": "accept refuses a file that does not extend the current head",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: REJECTED: expected exactly one new contribution on top of the head (step 3, 3 contributions); file has 2. It was probably built on an older zkey."
+    },
+    {
+      "name": "wrong reported hash",
+      "expectation": "accept refuses when the hash sent over the second channel differs",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: REJECTED: contributor-reported hash 3c772a055412618c... differs from the file's 67476fb9ef4c1740..."
+    },
+    {
+      "name": "tampered zkey",
+      "expectation": "snarkjs zkey verify fails",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: REJECTED: zkey does not verify"
+    },
+    {
+      "name": "beacon on non-head",
+      "expectation": "beacon applies to the head only",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: the beacon applies to the head only (ceremony/rehearsal/_out/ceremony/tiny_0003.zkey)"
+    },
+    {
+      "name": "finalize before beacon",
+      "expectation": "finalize needs the beacon",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: no beacon applied yet: finalize runs after the beacon"
+    },
+    {
+      "name": "audit: hash not in the final key",
+      "expectation": "audit fails when a contributor's hash is missing",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "[audit] FAIL my contribution hash is in the final zkey (not found)"
+    }
+  ],
+  "beaconPathChecks": [
+    {
+      "name": "beacon-plan --kind drand --round 1000000 --allow-past",
+      "expectation": "succeeds",
+      "result": "succeeded",
+      "exitCode": 0
+    },
+    {
+      "name": "second beacon-plan",
+      "expectation": "a plan is fixed once recorded",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: a beacon plan is already recorded; it is fixed once announced"
+    },
+    {
+      "name": "drand: no API response given",
+      "expectation": "beacon needs --drand-json for a drand plan",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: save the API response of the planned round and pass it with --drand-json"
+    },
+    {
+      "name": "drand: iterations differ from plan",
+      "expectation": "iterExp must equal the announced value",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: iterExp 11 differs from the announced 10"
+    },
+    {
+      "name": "drand: value is not the round's randomness",
+      "expectation": "value must equal the randomness field",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: beacon value differs from the drand randomness field"
+    },
+    {
+      "name": "drand: signature altered",
+      "expectation": "randomness must equal sha256(signature)",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: drand randomness != sha256(signature)"
+    },
+    {
+      "name": "drand beacon with the saved round-1000000 response",
+      "expectation": "succeeds",
+      "result": "succeeded",
+      "exitCode": 0
+    },
+    {
+      "name": "finalize (drand)",
+      "expectation": "succeeds",
+      "result": "succeeded",
+      "exitCode": 0
+    },
+    {
+      "name": "audit (drand), includes randomness = sha256(signature)",
+      "expectation": "succeeds",
+      "result": "succeeded",
+      "exitCode": 0
+    },
+    {
+      "name": "beacon-plan --kind bitcoin --height 900000",
+      "expectation": "succeeds",
+      "result": "succeeded",
+      "exitCode": 0
+    },
+    {
+      "name": "bitcoin: height differs from plan",
+      "expectation": "--height must equal the announced height",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: --height 900001 differs from the announced 900000"
+    },
+    {
+      "name": "bitcoin: value is not 32 bytes",
+      "expectation": "a block hash is 64 hex",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: a Bitcoin block hash is 32 bytes (64 hex)"
+    },
+    {
+      "name": "bitcoin beacon (made-up test value)",
+      "expectation": "succeeds",
+      "result": "succeeded",
+      "exitCode": 0
+    },
+    {
+      "name": "finalize (bitcoin)",
+      "expectation": "succeeds",
+      "result": "succeeded",
+      "exitCode": 0
+    },
+    {
+      "name": "ceremony label with --no-pin",
+      "expectation": "pins are mandatory for a real ceremony",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: --no-pin and --allow-unfrozen are for rehearsals only"
+    },
+    {
+      "name": "ceremony label with an unpinned ptau",
+      "expectation": "ptau must match setup/pins.json or setup/pins_v4.json",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: ptau pin \"pot8_final.ptau\" not found in setup/pins.json or setup/pins_v4.json"
+    },
+    {
+      "name": "ceremony label: beacon without an announced plan",
+      "expectation": "a real ceremony needs beacon-plan first",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: no beacon plan recorded: run beacon-plan and announce it first"
+    },
+    {
+      "name": "ceremony label: beacon-plan --allow-past",
+      "expectation": "past rounds are for rehearsals only",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: --allow-past is for rehearsals only"
+    },
+    {
+      "name": "ceremony label: drand round already public",
+      "expectation": "a real plan must name a future round",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: drand round 1000000 (2021-07-04T20:37:00.000Z) is already public; pick a future round"
+    },
+    {
+      "name": "contribution after the announced drand round time",
+      "expectation": "accept closes when the beacon round is due",
+      "result": "rejected",
+      "exitCode": 1,
+      "reason": "ERROR: REJECTED: the announced drand round 1000000 was due at 2021-07-04T20:37:00.000Z; contributions are closed. Apply the beacon."
+    }
+  ],
+  "beacon": {
+    "value": "5123ef05b95eb9e8b63b54dde02dd7158bd1dea923f9ce28727cdc6451575fc1",
+    "derivation": "sha256 of a fixed ASCII string (see ceremony/rehearse.mjs)",
+    "numIterationsExp": 10,
+    "label": "REHEARSAL ONLY dummy"
+  },
+  "audit": {
+    "command": "coordinator.mjs audit --transcript --zkey --r1cs --ptau --vkey --sol --my-hash <contributor 2>",
+    "passed": true
+  },
+  "proof": {
+    "statement": "x^3 + x + 5 = y and x * salt + 7 = tag with x < 2^32 (x = 3, salt = 11 private)",
+    "publicSignals": [
+      "35",
+      "40"
+    ],
+    "verifiesWithFinalKey": true,
+    "tamperedPublicSignalRejected": true,
+    "rejectedByInitialKey": true
+  },
+  "ceremonyTranscript": {
+    "schema": "pqid/ceremony-transcript/v1",
+    "label": "rehearsal",
+    "warning": "REHEARSAL ONLY: throwaway circuit and key; says nothing about any PQ-Identity key",
+    "title": "REHEARSAL ONLY: PQ-Identity ceremony rehearsal on a tiny circuit",
+    "circuit": {
+      "name": "tiny",
+      "r1cs": {
+        "file": "ceremony/rehearsal/_out/build/tiny.r1cs",
+        "sha256": "ede3af8685e6ff6feea0c3ef30588d02d310361764f3b6a5d1b3de9792ee695c",
+        "nConstraints": 35,
+        "nPubInputs": 2,
+        "nPrvInputs": 2,
+        "nOutputs": 0,
+        "compiler": "circom compiler 2.2.3 --O2",
+        "freeze": {
+          "source": null,
+          "match": false,
+          "note": "rehearsal: no freeze applies"
+        }
+      },
+      "circuitHash": "c418e39558d264b4b72b9a561cfaadf5a52df2f9956e68d28c76d5f671ec44f35fa84698cef4f6e4dfe565f153b3445fd0b6478bb1f9608ece9668ad1c817982",
+      "circuitHashNote": "snarkjs csHash (BLAKE2b-512 over the circuit's phase-2 constraint data), printed by snarkjs zkey verify"
+    },
+    "ptau": {
+      "file": "ceremony/rehearsal/_out/ptau/pot8_final.ptau",
+      "sha256": "b09d44778809e725cd85567c491b3a1bb6b39cad919564b5af87479c883cb277",
+      "pin": {
+        "checked": false,
+        "reason": "rehearsal: locally generated throwaway ptau, not pinned"
+      },
+      "needed": 38
+    },
+    "initialZkey": {
+      "file": "ceremony/rehearsal/_out/ceremony/tiny_0000.zkey",
+      "sha256": "deb7d61c466e151a136c53cbd1868382d562f294cb047b7b2187fd9c2782bfd3"
+    },
+    "contributions": [
+      {
+        "index": 1,
+        "name": "REHEARSAL ONLY contributor 1 (contribute.ps1)",
+        "contributionHash": "3c772a055412618ca124a20f99b30d31f867b32952acf576a074cb2f2e55348c7e910d14e3e0ab1621f43024c30fcaaf01438bc3bcf7a1596b16d1fcd350bbe8",
+        "zkey": {
+          "file": "ceremony/rehearsal/_out/ceremony/tiny_0001.zkey",
+          "sha256": "a4e78bb2f9dfd808729c5c96a4178d868e88d5b4897f6d9c2ae73da5b354c850"
+        },
+        "acceptedAtUtc": "2026-09-27T07:34:46.523Z",
+        "reportedHashMatched": true,
+        "receiptMatched": true,
+        "verifiedByContributor": true
+      },
+      {
+        "index": 2,
+        "name": "REHEARSAL ONLY contributor 2 (contribute.sh)",
+        "contributionHash": "57e348857ccc645d63af352c6a44e0097bc8f495753af26f4286d861ca8c1a73f65ec52ec5e37db736d05f8057eed86410efc12d701de5e9c3bbf9a5a2899552",
+        "zkey": {
+          "file": "ceremony/rehearsal/_out/ceremony/tiny_0002.zkey",
+          "sha256": "d29ca57fe9b29db3a1806db955e69f1095538c94158d060dd161dbdfc2676668"
+        },
+        "acceptedAtUtc": "2026-09-27T07:34:47.663Z",
+        "reportedHashMatched": true,
+        "receiptMatched": true,
+        "verifiedByContributor": false
+      },
+      {
+        "index": 3,
+        "name": "REHEARSAL ONLY contributor 3 (contribute.ps1)",
+        "contributionHash": "f950b314bcf93b2ef8204830ea4c1247a1a7f5c7873a6552c4afaa4ce223a9f6dd508b560b1fd1f20163199adfae27cc971fd9e98e52d56f2bcddc47ab678d4c",
+        "zkey": {
+          "file": "ceremony/rehearsal/_out/ceremony/tiny_0003.zkey",
+          "sha256": "68e08b21743bebd66afbdedcaaf9c5d7b320b8f2925454faa73626d20ff931a0"
+        },
+        "acceptedAtUtc": "2026-09-27T07:34:49.350Z",
+        "reportedHashMatched": true,
+        "receiptMatched": true,
+        "verifiedByContributor": true
+      }
+    ],
+    "beacon": {
+      "index": 4,
+      "name": "REHEARSAL ONLY dummy beacon",
+      "value": "5123ef05b95eb9e8b63b54dde02dd7158bd1dea923f9ce28727cdc6451575fc1",
+      "numIterationsExp": 10,
+      "iterations": 1024,
+      "source": {
+        "kind": "dummy",
+        "description": "REHEARSAL ONLY: dummy beacon = sha256 of a fixed string, not a public randomness source"
+      },
+      "check": "none (dummy value, rehearsal only)",
+      "contributionHash": "75d17c5ebfaafd05367964cdb09e0606a57c03a8c858e0ecb1b99b1e11dea8ceb5c151d0af3b7fd86346f3d85db2806650231b10990605984c8ce8214d52b587",
+      "appliedAtUtc": "2026-09-27T07:34:52.832Z"
+    },
+    "final": {
+      "zkey": {
+        "file": "ceremony/rehearsal/_out/ceremony/final/tiny_final.zkey",
+        "sha256": "c10827fe570d7080a0f36c8defd97a69b746ec6f14cebdf130970f6491222a11"
+      },
+      "verificationKey": {
+        "file": "ceremony/rehearsal/_out/ceremony/final/verification_key.json",
+        "sha256": "901a562670b0b1efb65debdece51687976b35a0b5856798b215f5d6e26126f6a"
+      },
+      "solidityVerifier": {
+        "file": "ceremony/rehearsal/_out/ceremony/final/Groth16Verifier.sol",
+        "sha256": "6654b71d8f6135fcc92174249c777234e845619f0067a2cf661c5bd27ae755f2",
+        "contract": "Groth16Verifier (snarkjs template)"
+      },
+      "verifiedFromR1cs": true,
+      "verifiedAtUtc": "2026-09-27T07:34:53.416Z"
+    },
+    "honesty": "The key is sound if at least one listed non-beacon contribution kept its randomness secret (1-of-N), on top of the phase-1 powers of tau. See ceremony/README.md.",
+    "tools": {
+      "snarkjs": "0.7.4",
+      "snarkjsExpected": "0.7.4",
+      "node": "v24.18.0",
+      "compiler": "circom compiler 2.2.3 --O2",
+      "kitFilesSha256": {
+        "contribute.ps1": "65a0b9bcb07c1c26e17ab414404eab83af01fad270cf8a28a0b6ec6b9a6895b6",
+        "contribute.sh": "218095b641539bc08902f62da25db58c42140bdc1e8c095c6a22e0e89b45fbe2",
+        "contribute_core.mjs": "526c2c85d17123fae4c48081820a32d0173f621cde217c7f32979ea6cd56ded6",
+        "lib.mjs": "647fece74b82ea8af09195e811e1c1b26f18c47adff79b7213548afd5c23099a",
+        "coordinator.mjs": "1a580f528aff8f1e12e672cb59541fe53b48e727fe4a857632d48e20ab6f4dfa",
+        "package.json": "766fce7870976673f8dab7b3a5bde4739dc11e32e2a7084085e62226321fc852",
+        "CONTRIBUTE.md": "3dcc70e48452adf2da81e3736898d2dfd0cfc651aecfc6002b0fca3f996d188f"
+      }
+    },
+    "environment": {
+      "platform": "win32 x64",
+      "osRelease": "10.0.26200",
+      "node": "v24.18.0"
+    },
+    "dates": {
+      "initUtc": "2026-09-27T07:34:44.710Z",
+      "beaconPlannedUtc": null,
+      "beaconAppliedUtc": "2026-09-27T07:34:52.832Z",
+      "finalizedUtc": "2026-09-27T07:34:53.418Z"
+    }
+  },
+  "tools": {
+    "snarkjs": "0.7.4",
+    "node": "v24.18.0",
+    "circom": "circom compiler 2.2.3"
+  },
+  "environment": {
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "node": "v24.18.0"
+  },
+  "note": "Intermediate files are in ceremony/rehearsal/_out/ (gitignored, deleted on the next run). No durations are recorded."
+}

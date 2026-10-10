@@ -1,0 +1,215 @@
+{
+  "schema": "pqid/v4-bench-schedule/v1",
+  "createdUtc": "2026-09-27T16:56:43.336Z",
+  "config": {
+    "campaign": "cold_v4",
+    "mode": "cold",
+    "smoke": false,
+    "versions": [
+      "v4"
+    ],
+    "provers": [
+      "snarkjs",
+      "rapidsnark"
+    ],
+    "conditions": [
+      "v4/snarkjs"
+    ],
+    "blocked": [
+      {
+        "condition": "v4/rapidsnark",
+        "reason": "blocked: rapidsnark unavailable (D-002)"
+      }
+    ],
+    "n": 30,
+    "idleSec": 600,
+    "leadSec": 20,
+    "seed": 20260930,
+    "maxPostpone": 10,
+    "postponeStepSec": 60
+  },
+  "prng": "mulberry32, Fisher-Yates from the end; one stream for all blocks",
+  "rule": "each block holds every runnable condition once, in shuffled order",
+  "slots": [
+    {
+      "slot": 0,
+      "block": 0,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 1,
+      "block": 1,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 2,
+      "block": 2,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 3,
+      "block": 3,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 4,
+      "block": 4,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 5,
+      "block": 5,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 6,
+      "block": 6,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 7,
+      "block": 7,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 8,
+      "block": 8,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 9,
+      "block": 9,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 10,
+      "block": 10,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 11,
+      "block": 11,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 12,
+      "block": 12,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 13,
+      "block": 13,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 14,
+      "block": 14,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 15,
+      "block": 15,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 16,
+      "block": 16,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 17,
+      "block": 17,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 18,
+      "block": 18,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 19,
+      "block": 19,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 20,
+      "block": 20,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 21,
+      "block": 21,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 22,
+      "block": 22,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 23,
+      "block": 23,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 24,
+      "block": 24,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 25,
+      "block": 25,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 26,
+      "block": 26,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 27,
+      "block": 27,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 28,
+      "block": 28,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 29,
+      "block": 29,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    }
+  ]
+}

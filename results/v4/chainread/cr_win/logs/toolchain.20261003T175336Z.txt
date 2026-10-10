@@ -1,0 +1,12 @@
+# toolchain of attempt 20261003T175336Z (scripts/chainread/run_windows.sh)
+recorded_utc: 2026-10-03T17:53:36Z
+environment: windows (Git Bash 3.6.7-fb42d713.x86_64), 8 logical CPUs
+node: node on PATH (v24.18.0, openssl 3.5.7)
+anvil: tools/foundry/anvil.exe
+anvil_version: anvil Version: 1.5.1-stable Commit SHA: b0a9dd9ceda36f63e2326ce530c10e6916f4b8a2 Build Timestamp: 2025-12-22T11:40:33.870895500Z (1766403633) Build Profile: maxperf 
+anvil_sha256: d909a15a16d56ef2c00093c70cb567845b16400398158e5957b7a9a6818a1b9b
+jdk: ~/pqid-tools/jdk25/jdk-25.0.4.1+1 (JAVA_HOME as scripts/besu/setup_qbft.sh picks it)
+jdk_version: openjdk version "25.0.4.1" 2026-08-18 LTS OpenJDK Runtime Environment Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS) OpenJDK 64-Bit Server VM Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS, mixed mode, sharing) 
+besu: ~/pqid-tools/besu/besu-26.9.0
+besu_version: besu/v26.9.0/windows-x86_64/openjdk-java-25
+python: Python 3.13.14

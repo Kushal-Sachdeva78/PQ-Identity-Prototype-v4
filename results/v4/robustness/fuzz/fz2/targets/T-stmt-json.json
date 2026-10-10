@@ -1,0 +1,82 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-stmt-json",
+  "title": "statement validation (values)",
+  "entryPoints": [
+    "validateStatement",
+    "statementBytes",
+    "tryParseStatement",
+    "parseStatement",
+    "detachSignature"
+  ],
+  "property": "validateStatement never throws on JSON data and accepts exactly the values the reference accepts (all 4 types, with and without an expected type); for an accepted value, statementBytes gives the reference canonical bytes, parsing them returns an equal value, and they parse as no other type; detachSignature accepts {statement, signature} exactly when the statement is valid and the signature is 4,840 lower-case hex characters. Exotic in-process objects (getters, Proxy, class instances) may throw; that is recorded as an observation",
+  "documentedErrors": [
+    "StatementError"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 4035095760,
+  "budget": 100000,
+  "casesRun": 100000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "mutated/rejected": 43889,
+    "valid/accepted": 23875,
+    "valid/rejected": 3445,
+    "exotic/threw": 1768,
+    "tree/rejected": 9090,
+    "mutated/accepted": 10731,
+    "exotic/rejected": 3683,
+    "exotic/accepted": 3519
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [
+    {
+      "id": "exoticObjectThrows",
+      "count": 1768,
+      "examples": [
+        {
+          "index": 10,
+          "detail": "validateStatement threw Error on Proxy whose ownKeys trap throws",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-stmt-json/exoticObjectThrows.json"
+        },
+        {
+          "index": 21,
+          "detail": "validateStatement threw Error on Proxy whose ownKeys trap throws",
+          "file": null
+        },
+        {
+          "index": 79,
+          "detail": "validateStatement threw Error on field nonce behind a throwing getter",
+          "file": null
+        },
+        {
+          "index": 84,
+          "detail": "validateStatement threw Error on field origin behind a throwing getter",
+          "file": null
+        },
+        {
+          "index": 88,
+          "detail": "validateStatement threw Error on field status behind a throwing getter",
+          "file": null
+        }
+      ]
+    }
+  ],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0027,
+    "p99": 0.0381,
+    "max": 0.3017
+  },
+  "startedUtc": "2026-10-03T16:02:19.995Z",
+  "finishedUtc": "2026-10-03T16:02:25.415Z"
+}

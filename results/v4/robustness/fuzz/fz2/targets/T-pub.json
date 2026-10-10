@@ -1,0 +1,328 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-pub",
+  "title": "published-tree blob",
+  "entryPoints": [
+    "parsePublication"
+  ],
+  "property": "parsePublication never hangs (per-case time recorded, watchdog in the runner), accepts every honest blob of the documented layout (n <= 64 leaves, depth 32, r <= 16 revocations), and when it returns, the statement's root equals an independent Merkle rebuild of the returned leaves at the blob's depth and revRoot equals the returned revocation tree's root. Throwing on a malformed blob is allowed (any error class is recorded). Blobs that differ from the canonical encoding of what they parse to (trailing bytes, a depth other than 32, a leaf >= p, another statement spelling) are recorded as observations",
+  "documentedErrors": [
+    "Error",
+    "TypeError",
+    "RangeError",
+    "SyntaxError"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 4258866428,
+  "budget": 20000,
+  "casesRun": 20000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "trailing/accepted-noncanonical:trailingBytesIgnored": 1478,
+    "honest/accepted": 2905,
+    "bytes/accepted-other-content": 849,
+    "bytes/threw:SyntaxError": 3411,
+    "truncate/threw:Error": 72,
+    "statement-spelling/accepted-noncanonical:statementSpelling": 1413,
+    "leaf-alias/accepted-noncanonical:leafAboveP": 1131,
+    "length-field/threw:Error": 986,
+    "truncate/threw:SyntaxError": 1349,
+    "length-field/accepted-noncanonical:imtLengthOverstated": 470,
+    "length-field/threw:TypeError": 482,
+    "depth-byte/threw:Error": 1411,
+    "length-field/threw:SyntaxError": 938,
+    "depth-consistent/accepted-noncanonical:depthNotChecked": 1361,
+    "bytes/accepted-noncanonical:statementSpelling": 270,
+    "leaf-alias/accepted": 260,
+    "bytes/threw:Error": 589,
+    "bytes/accepted-noncanonical:trailingBytesIgnored": 255,
+    "bytes/accepted": 168,
+    "bytes/accepted-noncanonical:statementSpelling+trailingBytesIgnored": 16,
+    "length-field/accepted": 48,
+    "truncate/threw:TypeError": 92,
+    "bytes/threw:TypeError": 38,
+    "bytes/threw:RangeError": 1,
+    "truncate/threw:RangeError": 4,
+    "bytes/accepted-noncanonical:imtLengthOverstated": 2,
+    "bytes/accepted-noncanonical:trailingBytesIgnored+reservedBytesNotZero": 1
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [
+    {
+      "id": "nonCanonicalAccepted:trailingBytesIgnored",
+      "count": 1750,
+      "examples": [
+        {
+          "index": 0,
+          "detail": "accepted a blob that is not the canonical encoding of its content (trailingBytesIgnored; trailing bytes)",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-pub/nonCanonicalAccepted_trailingBytesIgnored.json"
+        },
+        {
+          "index": 14,
+          "detail": "accepted a blob that is not the canonical encoding of its content (trailingBytesIgnored; trailing bytes)",
+          "file": null
+        },
+        {
+          "index": 22,
+          "detail": "accepted a blob that is not the canonical encoding of its content (trailingBytesIgnored; trailing bytes)",
+          "file": null
+        },
+        {
+          "index": 35,
+          "detail": "accepted a blob that is not the canonical encoding of its content (trailingBytesIgnored; trailing bytes)",
+          "file": null
+        },
+        {
+          "index": 53,
+          "detail": "accepted a blob that is not the canonical encoding of its content (trailingBytesIgnored; flip byte 588 bit 2; append 1 bytes)",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "throws:SyntaxError",
+      "count": 5698,
+      "examples": [
+        {
+          "index": 3,
+          "detail": "SyntaxError: Bad control character in string literal in JSON at position 2136 (line 1 column 2137) (bytes)",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-pub/throws_SyntaxError.json"
+        },
+        {
+          "index": 4,
+          "detail": "SyntaxError: Bad control character in string literal in JSON at position 1223 (line 1 column 1224) (bytes)",
+          "file": null
+        },
+        {
+          "index": 9,
+          "detail": "SyntaxError: Unterminated string in JSON at position 93 (line 1 column 94) (bytes)",
+          "file": null
+        },
+        {
+          "index": 11,
+          "detail": "SyntaxError: Unterminated string in JSON at position 5123 (line 1 column 5124) (truncate)",
+          "file": null
+        },
+        {
+          "index": 20,
+          "detail": "SyntaxError: Unexpected non-whitespace character after JSON at position 5325 (line 2 column 1) (length-field)",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "nonCanonicalAccepted:statementSpelling",
+      "count": 1699,
+      "examples": [
+        {
+          "index": 7,
+          "detail": "accepted a blob that is not the canonical encoding of its content (statementSpelling; statement pretty-printed)",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-pub/nonCanonicalAccepted_statementSpelling.json"
+        },
+        {
+          "index": 23,
+          "detail": "accepted a blob that is not the canonical encoding of its content (statementSpelling; statement pretty-printed)",
+          "file": null
+        },
+        {
+          "index": 27,
+          "detail": "accepted a blob that is not the canonical encoding of its content (statementSpelling; flip byte 5252 bit 7)",
+          "file": null
+        },
+        {
+          "index": 63,
+          "detail": "accepted a blob that is not the canonical encoding of its content (statementSpelling; flip byte 1412 bit 6; flip byte 5037 bit 7)",
+          "file": null
+        },
+        {
+          "index": 67,
+          "detail": "accepted a blob that is not the canonical encoding of its content (statementSpelling; statement pretty-printed)",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "nonCanonicalAccepted:leafAboveP",
+      "count": 1131,
+      "examples": [
+        {
+          "index": 8,
+          "detail": "accepted a blob that is not the canonical encoding of its content (leafAboveP; leaf 0 written as leaf + p)",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-pub/nonCanonicalAccepted_leafAboveP.json"
+        },
+        {
+          "index": 17,
+          "detail": "accepted a blob that is not the canonical encoding of its content (leafAboveP; leaf 3 written as leaf + p)",
+          "file": null
+        },
+        {
+          "index": 56,
+          "detail": "accepted a blob that is not the canonical encoding of its content (leafAboveP; leaf 16 written as leaf + p)",
+          "file": null
+        },
+        {
+          "index": 90,
+          "detail": "accepted a blob that is not the canonical encoding of its content (leafAboveP; leaf 4 written as leaf + p)",
+          "file": null
+        },
+        {
+          "index": 118,
+          "detail": "accepted a blob that is not the canonical encoding of its content (leafAboveP; leaf 5 written as leaf + p)",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "nonCanonicalAccepted:imtLengthOverstated",
+      "count": 472,
+      "examples": [
+        {
+          "index": 13,
+          "detail": "accepted a blob that is not the canonical encoding of its content (imtLengthOverstated; u32 field at 5444 edited)",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-pub/nonCanonicalAccepted_imtLengthOverstated.json"
+        },
+        {
+          "index": 31,
+          "detail": "accepted a blob that is not the canonical encoding of its content (imtLengthOverstated; u32 field at 5439 edited)",
+          "file": null
+        },
+        {
+          "index": 97,
+          "detail": "accepted a blob that is not the canonical encoding of its content (imtLengthOverstated; u32 field at 5557 edited)",
+          "file": null
+        },
+        {
+          "index": 98,
+          "detail": "accepted a blob that is not the canonical encoding of its content (imtLengthOverstated; u32 field at 5790 edited)",
+          "file": null
+        },
+        {
+          "index": 185,
+          "detail": "accepted a blob that is not the canonical encoding of its content (imtLengthOverstated; u32 field at 5406 edited)",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "throws:TypeError",
+      "count": 612,
+      "examples": [
+        {
+          "index": 16,
+          "detail": "TypeError: Cannot convert undefined to a BigInt (length-field)",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-pub/throws_TypeError.json"
+        },
+        {
+          "index": 113,
+          "detail": "TypeError: Cannot convert undefined to a BigInt (length-field)",
+          "file": null
+        },
+        {
+          "index": 148,
+          "detail": "TypeError: Cannot convert undefined to a BigInt (length-field)",
+          "file": null
+        },
+        {
+          "index": 152,
+          "detail": "TypeError: Cannot convert undefined to a BigInt (length-field)",
+          "file": null
+        },
+        {
+          "index": 202,
+          "detail": "TypeError: Cannot convert undefined to a BigInt (length-field)",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "nonCanonicalAccepted:depthNotChecked",
+      "count": 1361,
+      "examples": [
+        {
+          "index": 26,
+          "detail": "accepted a blob that is not the canonical encoding of its content (depthNotChecked; depth 64 with a matching root)",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-pub/nonCanonicalAccepted_depthNotChecked.json"
+        },
+        {
+          "index": 28,
+          "detail": "accepted a blob that is not the canonical encoding of its content (depthNotChecked; depth 7 with a matching root)",
+          "file": null
+        },
+        {
+          "index": 39,
+          "detail": "accepted a blob that is not the canonical encoding of its content (depthNotChecked; depth 33 with a matching root)",
+          "file": null
+        },
+        {
+          "index": 46,
+          "detail": "accepted a blob that is not the canonical encoding of its content (depthNotChecked; depth 7 with a matching root)",
+          "file": null
+        },
+        {
+          "index": 49,
+          "detail": "accepted a blob that is not the canonical encoding of its content (depthNotChecked; depth 1 with a matching root)",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "throws:RangeError",
+      "count": 5,
+      "examples": [
+        {
+          "index": 1535,
+          "detail": "RangeError: Offset is outside the bounds of the DataView (bytes)",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-pub/throws_RangeError.json"
+        },
+        {
+          "index": 2644,
+          "detail": "RangeError: Offset is outside the bounds of the DataView (truncate)",
+          "file": null
+        },
+        {
+          "index": 10232,
+          "detail": "RangeError: Offset is outside the bounds of the DataView (truncate)",
+          "file": null
+        },
+        {
+          "index": 12048,
+          "detail": "RangeError: Offset is outside the bounds of the DataView (truncate)",
+          "file": null
+        },
+        {
+          "index": 15355,
+          "detail": "RangeError: Offset is outside the bounds of the DataView (truncate)",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "nonCanonicalAccepted:reservedBytesNotZero",
+      "count": 1,
+      "examples": [
+        {
+          "index": 17858,
+          "detail": "accepted a blob that is not the canonical encoding of its content (reservedBytesNotZero; set byte 11 = 0x80; append 11 bytes)",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-pub/nonCanonicalAccepted_reservedBytesNotZero.json"
+        }
+      ]
+    }
+  ],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 7.72645,
+    "p99": 34.56556599999999,
+    "max": 42.4767
+  },
+  "startedUtc": "2026-10-03T16:11:04.663Z",
+  "finishedUtc": "2026-10-03T16:16:52.678Z"
+}

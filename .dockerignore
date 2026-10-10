@@ -1,0 +1,21 @@
+# Never send these into an image: private material, git history, local tools, scratch and
+# build output. Docker matches a bare pattern at the context root only, so the private
+# folders are also listed with **/. Build from the publication folder.
+.git
+.git/
+private/
+**/private/
+.scratch/
+.scratch-v4/
+.venv/
+.venv-tools/
+node_modules/
+**/__pycache__/
+artifact/out/
+paper/build/
+circuits/build/v4/mutants/
+results/v4/bench/_tmp/
+ceremony/_out/
+ceremony/rehearsal/_out/
+tools/*.exe
+tools/foundry/

@@ -1,0 +1,510 @@
+{
+  "schema": "pqid/baseline/v2",
+  "label": "[M] measured under §B controls (upgrades the paper's [A] baseline column)",
+  "controls": {
+    "quiesce": {
+      "quiesced": true,
+      "forced": false,
+      "windows": {
+        "offendingProcesses": [],
+        "nodeCount": 3,
+        "cpuLoadPercent": 17
+      },
+      "wsl": {
+        "offendingProcesses": [],
+        "loadavg1m": 0
+      }
+    },
+    "affinity": {
+      "policy": "free scheduling across 12 vCPUs/logical CPUs (quiesced machine)",
+      "rationale": "rapidsnark v0.0.8 is pthread-pool multithreaded (0 OpenMP / 7 pthread symbols); the live probe shows 1-vCPU pinning ≈2.7× slower than free — pinning would not reproduce the paper's method. WSL2 vCPU→P/E-core placement is hypervisor-controlled and not configurable from the guest; quiescing + inter-run stability are the effective §B controls (probe embedded as evidence)."
+    },
+    "cpuGovernor": "unavailable (WSL2 Hyper-V VM — frequency is host-managed; recorded per §B4)",
+    "powerSource": "battery (BatteryStatus=1) — WARNING: may throttle",
+    "fsBasis": "Node host process; PostgreSQL over localhost TCP into WSL2",
+    "invocations": 3,
+    "ambientLoadNote": "host is an interactive laptop: desktop apps (desktop UI, browser, vendor services) contribute a fluctuating ~10-20% ambient load that cannot be fully quiesced; build/prover tooling is process-checked to zero, and inter-run CV is the stability arbiter (§B5)",
+    "host": {
+      "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+      "logicalCores": 12,
+      "totalMemGiB": 15.7,
+      "platform": "win32 x64",
+      "osRelease": "10.0.26200",
+      "osBuild": "10.0.26200.8655",
+      "nodeVersion": "v22.16.0",
+      "timestampUtc": "2026-06-11T10:54:47.770Z"
+    },
+    "wsl": {
+      "kernel": "6.6.114.1-microsoft-standard-WSL2",
+      "distro": "Ubuntu 26.04 LTS",
+      "gcc": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+      "cmake": "cmake version 4.2.3",
+      "python": "Python 3.14.4"
+    }
+  },
+  "config": {
+    "n": 1000,
+    "warmup": 5,
+    "runs": 3
+  },
+  "ecdsaP256": {
+    "keygen": {
+      "headline": {
+        "valueMs": 0.0364,
+        "basis": "median",
+        "rule": "σ/mean > 0.2 → median headline (§B6)"
+      },
+      "repr": {
+        "n": 1000,
+        "meanMs": 0.0469,
+        "medianMs": 0.0364,
+        "stddevMs": 0.0802,
+        "minMs": 0.0337,
+        "maxMs": 1.8928,
+        "p95Ms": 0.0649
+      },
+      "perRun": [
+        {
+          "n": 1000,
+          "meanMs": 0.0635,
+          "medianMs": 0.04,
+          "stddevMs": 0.0879,
+          "minMs": 0.0356,
+          "maxMs": 2.0492,
+          "p95Ms": 0.115
+        },
+        {
+          "n": 1000,
+          "meanMs": 0.0469,
+          "medianMs": 0.0364,
+          "stddevMs": 0.0802,
+          "minMs": 0.0337,
+          "maxMs": 1.8928,
+          "p95Ms": 0.0649
+        },
+        {
+          "n": 1000,
+          "meanMs": 0.0416,
+          "medianMs": 0.0359,
+          "stddevMs": 0.0487,
+          "minMs": 0.0335,
+          "maxMs": 1.5188,
+          "p95Ms": 0.0581
+        }
+      ],
+      "interRun": {
+        "runs": 3,
+        "meansMs": [
+          0.06,
+          0.05,
+          0.04
+        ],
+        "mediansMs": [
+          0.04,
+          0.04,
+          0.04
+        ],
+        "medianOfMeansMs": 0.05,
+        "medianOfMediansMs": 0.04,
+        "spreadPct": 11.26,
+        "cvPct": 22.55,
+        "stable": false
+      }
+    },
+    "sign": {
+      "headline": {
+        "valueMs": 0.026,
+        "basis": "median",
+        "rule": "σ/mean > 0.2 → median headline (§B6)"
+      },
+      "repr": {
+        "n": 1000,
+        "meanMs": 0.0295,
+        "medianMs": 0.026,
+        "stddevMs": 0.0114,
+        "minMs": 0.0251,
+        "maxMs": 0.145,
+        "p95Ms": 0.044
+      },
+      "perRun": [
+        {
+          "n": 1000,
+          "meanMs": 0.0282,
+          "medianMs": 0.0258,
+          "stddevMs": 0.0099,
+          "minMs": 0.0242,
+          "maxMs": 0.1631,
+          "p95Ms": 0.0379
+        },
+        {
+          "n": 1000,
+          "meanMs": 0.0295,
+          "medianMs": 0.026,
+          "stddevMs": 0.0114,
+          "minMs": 0.0251,
+          "maxMs": 0.145,
+          "p95Ms": 0.044
+        },
+        {
+          "n": 1000,
+          "meanMs": 0.0293,
+          "medianMs": 0.0262,
+          "stddevMs": 0.0108,
+          "minMs": 0.0251,
+          "maxMs": 0.1563,
+          "p95Ms": 0.04
+        }
+      ],
+      "interRun": {
+        "runs": 3,
+        "meansMs": [
+          0.03,
+          0.03,
+          0.03
+        ],
+        "mediansMs": [
+          0.03,
+          0.03,
+          0.03
+        ],
+        "medianOfMeansMs": 0.03,
+        "medianOfMediansMs": 0.03,
+        "spreadPct": 1.54,
+        "cvPct": 2.41,
+        "stable": true
+      }
+    },
+    "verify": {
+      "headline": {
+        "valueMs": 0.0619,
+        "basis": "median",
+        "rule": "σ/mean > 0.2 → median headline (§B6)"
+      },
+      "repr": {
+        "n": 1000,
+        "meanMs": 0.0661,
+        "medianMs": 0.0619,
+        "stddevMs": 0.031,
+        "minMs": 0.0595,
+        "maxMs": 0.7901,
+        "p95Ms": 0.083
+      },
+      "perRun": [
+        {
+          "n": 1000,
+          "meanMs": 0.0748,
+          "medianMs": 0.0613,
+          "stddevMs": 0.0567,
+          "minMs": 0.0594,
+          "maxMs": 0.9515,
+          "p95Ms": 0.1399
+        },
+        {
+          "n": 1000,
+          "meanMs": 0.074,
+          "medianMs": 0.0623,
+          "stddevMs": 0.1014,
+          "minMs": 0.0611,
+          "maxMs": 2.5697,
+          "p95Ms": 0.0879
+        },
+        {
+          "n": 1000,
+          "meanMs": 0.0661,
+          "medianMs": 0.0619,
+          "stddevMs": 0.031,
+          "minMs": 0.0595,
+          "maxMs": 0.7901,
+          "p95Ms": 0.083
+        }
+      ],
+      "interRun": {
+        "runs": 3,
+        "meansMs": [
+          0.07,
+          0.07,
+          0.07
+        ],
+        "mediansMs": [
+          0.06,
+          0.06,
+          0.06
+        ],
+        "medianOfMeansMs": 0.07,
+        "medianOfMediansMs": 0.06,
+        "spreadPct": 1.62,
+        "cvPct": 6.71,
+        "stable": true
+      }
+    },
+    "sizes": {
+      "signatureBytes": 64,
+      "publicKeyDerSpkiBytes": 91,
+      "publicKeyUncompressedPointBytes": 65
+    }
+  },
+  "oauth2Tokens": {
+    "jwtIssue": {
+      "headline": {
+        "valueMs": 0.0263,
+        "basis": "median",
+        "rule": "σ/mean > 0.2 → median headline (§B6)"
+      },
+      "repr": {
+        "n": 1000,
+        "meanMs": 0.0333,
+        "medianMs": 0.0263,
+        "stddevMs": 0.0587,
+        "minMs": 0.0253,
+        "maxMs": 1.4635,
+        "p95Ms": 0.041
+      },
+      "perRun": [
+        {
+          "n": 1000,
+          "meanMs": 0.0321,
+          "medianMs": 0.028,
+          "stddevMs": 0.0513,
+          "minMs": 0.0267,
+          "maxMs": 1.6029,
+          "p95Ms": 0.0415
+        },
+        {
+          "n": 1000,
+          "meanMs": 0.0336,
+          "medianMs": 0.0258,
+          "stddevMs": 0.0717,
+          "minMs": 0.0249,
+          "maxMs": 1.9625,
+          "p95Ms": 0.044
+        },
+        {
+          "n": 1000,
+          "meanMs": 0.0333,
+          "medianMs": 0.0263,
+          "stddevMs": 0.0587,
+          "minMs": 0.0253,
+          "maxMs": 1.4635,
+          "p95Ms": 0.041
+        }
+      ],
+      "interRun": {
+        "runs": 3,
+        "meansMs": [
+          0.03,
+          0.03,
+          0.03
+        ],
+        "mediansMs": [
+          0.03,
+          0.03,
+          0.03
+        ],
+        "medianOfMeansMs": 0.03,
+        "medianOfMediansMs": 0.03,
+        "spreadPct": 8.37,
+        "cvPct": 2.41,
+        "stable": true
+      }
+    },
+    "jwtVerify": {
+      "headline": {
+        "valueMs": 0.0672,
+        "basis": "median",
+        "rule": "σ/mean > 0.2 → median headline (§B6)"
+      },
+      "repr": {
+        "n": 1000,
+        "meanMs": 0.0831,
+        "medianMs": 0.0672,
+        "stddevMs": 0.041,
+        "minMs": 0.061,
+        "maxMs": 0.5727,
+        "p95Ms": 0.1572
+      },
+      "perRun": [
+        {
+          "n": 1000,
+          "meanMs": 0.0701,
+          "medianMs": 0.0665,
+          "stddevMs": 0.0237,
+          "minMs": 0.0639,
+          "maxMs": 0.6296,
+          "p95Ms": 0.0854
+        },
+        {
+          "n": 1000,
+          "meanMs": 0.0831,
+          "medianMs": 0.0672,
+          "stddevMs": 0.041,
+          "minMs": 0.061,
+          "maxMs": 0.5727,
+          "p95Ms": 0.1572
+        },
+        {
+          "n": 1000,
+          "meanMs": 0.0904,
+          "medianMs": 0.073,
+          "stddevMs": 0.0534,
+          "minMs": 0.0625,
+          "maxMs": 0.7944,
+          "p95Ms": 0.158
+        }
+      ],
+      "interRun": {
+        "runs": 3,
+        "meansMs": [
+          0.07,
+          0.08,
+          0.09
+        ],
+        "mediansMs": [
+          0.07,
+          0.07,
+          0.07
+        ],
+        "medianOfMeansMs": 0.08,
+        "medianOfMediansMs": 0.07,
+        "spreadPct": 9.67,
+        "cvPct": 12.66,
+        "stable": false
+      }
+    },
+    "opaqueTokenBytes": 43,
+    "jwtEs256Bytes": 306
+  },
+  "postgres": {
+    "insert": {
+      "headline": {
+        "valueMs": 1.533,
+        "basis": "median",
+        "rule": "σ/mean > 0.2 → median headline (§B6)"
+      },
+      "repr": {
+        "n": 1000,
+        "meanMs": 1.7267,
+        "medianMs": 1.533,
+        "stddevMs": 0.691,
+        "minMs": 0.7545,
+        "maxMs": 4.7474,
+        "p95Ms": 2.9335
+      },
+      "perRun": [
+        {
+          "n": 1000,
+          "meanMs": 1.5831,
+          "medianMs": 1.3908,
+          "stddevMs": 0.7489,
+          "minMs": 0.6636,
+          "maxMs": 5.6732,
+          "p95Ms": 2.9202
+        },
+        {
+          "n": 1000,
+          "meanMs": 1.7267,
+          "medianMs": 1.533,
+          "stddevMs": 0.691,
+          "minMs": 0.7545,
+          "maxMs": 4.7474,
+          "p95Ms": 2.9335
+        },
+        {
+          "n": 1000,
+          "meanMs": 1.7779,
+          "medianMs": 1.6087,
+          "stddevMs": 0.6672,
+          "minMs": 0.7783,
+          "maxMs": 4.3987,
+          "p95Ms": 2.9499
+        }
+      ],
+      "interRun": {
+        "runs": 3,
+        "meansMs": [
+          1.58,
+          1.73,
+          1.78
+        ],
+        "mediansMs": [
+          1.39,
+          1.53,
+          1.61
+        ],
+        "medianOfMeansMs": 1.73,
+        "medianOfMediansMs": 1.53,
+        "spreadPct": 14.21,
+        "cvPct": 5.95,
+        "stable": true
+      }
+    },
+    "tokenAuthSelect": {
+      "headline": {
+        "valueMs": 1.2178,
+        "basis": "median",
+        "rule": "σ/mean > 0.2 → median headline (§B6)"
+      },
+      "repr": {
+        "n": 1000,
+        "meanMs": 1.2782,
+        "medianMs": 1.2178,
+        "stddevMs": 0.5583,
+        "minMs": 0.3583,
+        "maxMs": 7.276,
+        "p95Ms": 2.1021
+      },
+      "perRun": [
+        {
+          "n": 1000,
+          "meanMs": 1.2782,
+          "medianMs": 1.2178,
+          "stddevMs": 0.5583,
+          "minMs": 0.3583,
+          "maxMs": 7.276,
+          "p95Ms": 2.1021
+        },
+        {
+          "n": 1000,
+          "meanMs": 1.266,
+          "medianMs": 1.191,
+          "stddevMs": 0.5204,
+          "minMs": 0.3715,
+          "maxMs": 5.0604,
+          "p95Ms": 2.0913
+        },
+        {
+          "n": 1000,
+          "meanMs": 1.3636,
+          "medianMs": 1.274,
+          "stddevMs": 0.4939,
+          "minMs": 0.5489,
+          "maxMs": 6.1508,
+          "p95Ms": 2.1184
+        }
+      ],
+      "interRun": {
+        "runs": 3,
+        "meansMs": [
+          1.28,
+          1.27,
+          1.36
+        ],
+        "mediansMs": [
+          1.22,
+          1.19,
+          1.27
+        ],
+        "medianOfMeansMs": 1.28,
+        "medianOfMediansMs": 1.22,
+        "spreadPct": 6.82,
+        "cvPct": 4.08,
+        "stable": true
+      }
+    },
+    "serverVersion": "PostgreSQL 18.4 (Ubuntu 18.4-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit",
+    "storage": {
+      "user_row": 256,
+      "token_row": 80
+    },
+    "note": "localhost TCP from Windows host into WSL2 PostgreSQL (single round-trip per query)"
+  }
+}

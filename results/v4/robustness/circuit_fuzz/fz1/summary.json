@@ -1,0 +1,40 @@
+{
+  "schema": "pqid/v4-circuit-fuzz-summary/v1",
+  "campaign": "fz1",
+  "smoke": false,
+  "note": "untimed; counts only; dev key",
+  "totals": {
+    "cases": 300,
+    "modelTrue": 147,
+    "modelFalse": 153,
+    "referenceAgrees": 300,
+    "referenceDisagrees": 0,
+    "attackerAgrees": 289,
+    "attackerRefusedFalse": 11,
+    "attackerDisagrees": 0,
+    "publicWiresMatch": 147,
+    "proved": 30,
+    "proofAgrees": 30,
+    "proofDisagrees": 0,
+    "rejectedByGroup": {
+      "G10_standard_threshold": 19,
+      "G12_age": 40,
+      "G13_expiry": 8,
+      "G15_epoch_window": 21,
+      "G04_issuance_membership": 13,
+      "G09_predicate_code": 9,
+      "G16_stmt": 9,
+      "G08_policy_hash": 21,
+      "G06_rev_low_membership": 10,
+      "G07_rev_bracket": 5
+    },
+    "mutations": 5000,
+    "mutationsRejected": 5000,
+    "mutationsFreeWires": 0,
+    "mutationsPublicChangedSatisfied": 0,
+    "mutationsPrivateInputChangedSatisfied": 0,
+    "freeWires": {}
+  },
+  "failures": [],
+  "finishedUtc": "2026-10-03T09:37:16.161Z"
+}

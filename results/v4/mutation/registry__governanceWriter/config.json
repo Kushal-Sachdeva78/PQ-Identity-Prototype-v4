@@ -1,0 +1,5 @@
+{
+  "name": "registry:governanceWriter",
+  "port": 8655,
+  "out": "<repo>\\results\\v4\\mutation\\registry__governanceWriter"
+}

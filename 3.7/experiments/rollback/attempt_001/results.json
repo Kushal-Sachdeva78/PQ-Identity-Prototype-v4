@@ -1,0 +1,753 @@
+{
+  "startedUtc": "2026-10-06T22:28:19.684Z",
+  "caseDesignDate": "2026-10-06",
+  "executionDateUtc": "2026-10-06",
+  "keyLabel": "dev",
+  "timedBenchmark": false,
+  "independentHoldout": false,
+  "source": "new internally authored supplementary cases",
+  "frozenCataloguesChanged": false,
+  "proxyScope": "local historic-block RPC fixture, same-host loopback; no consensus fork or authenticated light client",
+  "protocolSha256": "65eecf532ef016eaa34c0fc6a6a1a0bdef5dc524ad2b692868732b9c7eec344b",
+  "runnerSha256": "991c3dc2e893cf500d0c2420a1d928c649eccadd6b3c2639475d09cc00865d12",
+  "tsconfigSha256": "b47e578745dcec7c71447c0d252f23edc713d433a66dcda2e2fbd62a59963672",
+  "environment": {
+    "node": "v24.18.0",
+    "openssl": "3.5.7",
+    "platform": "win32",
+    "arch": "x64",
+    "solc": "0.8.28",
+    "snarkjs": "0.7.4"
+  },
+  "anvil": {
+    "port": 60178,
+    "versionBinarySha256": "d909a15a16d56ef2c00093c70cb567845b16400398158e5957b7a9a6818a1b9b",
+    "freshLocalDeployment": true
+  },
+  "clockFixture": {
+    "initialUtc": "2030-01-01T06:00:00Z",
+    "purpose": "functional clock, no timing inference"
+  },
+  "publicFixture": {
+    "issuerPkHex": "7bec90e6d3a0cdd9dafe9e0517f428b29ccce14aa9aa800b691ba4d87db48cd6dde5bb8a11d385f6f3e9813ebe5bc511679929616a67f767c6dd3a347097f3ae1e8bcd41d44b4af37a51a8a6141f68b96b9781ba2a561cd81ae484af58e2b18516d6b22460fb40549dafa4675c8df25be18d2d25b002794d4e7fef004fcc423d18c2e424fad1aee73661139d5da910aa921cd6d08a7267190fe10d87bcb55bc036dc3cc1717177776f581adcaefe54930c6d41603d57d9e74360c4e208e8e1c86d844b20e35b6dea6e4470cb63d286f10fd29872f7b6720fac74abbc87164eb74d092eef32642ab78773fe99cc91dc8ecc4b789a9fbc1fede22859fa906617533368d3e9a1a0d457e6481ce5309d2ae74939da845aa1d431d3eb0479b2c5d6d3d93d4e18caf369e966ba75bb043ff97024d25cadf0ee64b24e45edec7b8a9c71747eb582fc830331b0d4e24f0dd3440779af1ee303743f6df30e15021655cb43c4f0abfcfcb10beddf7197c45e781e97756e5b1d8b54eba50c229b7627bbb9e82126ee15ef0a8a919225c2916281e875b64045aebac76e53489b1c5c584d4d57e8aad3c00e9d1e071dbef3afc6a79076687ddf5253052a2c770b4d0ab47748eb073235afda163e5f5e8906445f29d1fae0f1ae00efc6365add72ee57bb4557c7ff770ce4f4e7b50869bde38641f73734014d2c1850b5f0fe430453207c2fa1ad261a352c78621ded3254848c78eecad09249bba3cd3abe972dd48b11e588703fec1a7c51b8c6335d14face22e88a63dcfba0cd63510422379f9bf4c4ac6d3de825e192176d1ae98c58c0e99445bf1e78ed5410f229efe18a807d1e7c0f9127b80ae0b3c1a7534ec9953b968a6cb294e8eacc3a0d5141d7489b7b703a18bd387c1fa65aef40f79db43d948be4d6c83ffa3ed0cf186cc2d9ecfc813c336e2f9328f1a6479c608aeadb70814713df489a97cd4d9beafbba14833ddbd335575d8bcbe6de15b6c354be72bb7d2c26055a2f45f52351b380ea54b2b3f22f3b504fdb877947bdf0187d8fe7e0d29911e3e7f54f948fa20279882c1d2971e4fd52fbf0a031fa907f153571b7ffd9d8a57961743948f13f3a557cf9ad40ebae3125e60cba0ae8e7218ac4d6745e1fe6ab9bcf5ee8b8c7b0893220eb8c7bd6b9dc9bf0965e1470564be16b1287aef445943b22d69bd384d9ecef50253c996f0d23b48b66970abd851389f3ca0a5b6b7e60334797319f4af2c36d26a3b5a8c667dc6e5247094137de074c5be7309c7e5fc937edb5afce18142e8ddcc27c1666d219471efeb1adf74439c3b200ddcee53e76fce06194969a982948228ca227bf030990a6ed86df704471a155e80d26646a8e0c821dcd5f8b12d0523c27b01765b32f77ebcfb49a2324fffd4079526fb2b2e8ef403aa3f9e5808d08afa371b3ff1a7748920ea5fe587454d73f6f84be15f689fd26ebfe50771522ea54d546dc3c43ae5bfb4bd3f5ccd5bddfdda4be24f4bff8b4cb12fc4476221eb9b55ca2df64315d28471a880b9856920778a830ccd73b786ed48bb28b0bcd9640a0c14a0262117c04c9f121162f57adffb76ab44154b82eaa1cfc4b2d416940000aafdc95868e4725ee29821ed1540a3e017f4c34c0ee3bc73949078b9f6de9eb3199767ea62d0c0054e4f1eef9c5ff01f247a89949d3601e1f5808362b5c83823fa50405b42bf16440b4e64c859c6682a8dae31e69605d0fbcff8c6866f9c0f21f4fea306a451f752d3e58891dd43333866e41d6fa33bc083e5c619c0dd3441f16d622a87e0eab1d6a4c3b6692c8a67d1b11a4ea826b32c0146358464b6b76488c0d5a4c7b3aebe7df0fa9",
+    "oldStatement": {
+      "issuer": "did:pq:LkEs1fSe9T312eXPeN9ceSiQxsY",
+      "controller": "0x46d1745f1778cfae62456d80271880079eca74a2",
+      "chainId": 31337,
+      "registry": "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0",
+      "epoch": 1,
+      "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+      "revRoot": "14670110862433391703307284485861061351356774752147503549016186165324799020449",
+      "notBefore": 1893477000,
+      "notAfter": 1893563400,
+      "fromDate": 20300101,
+      "toDate": 20300102,
+      "signature": "c0147e8032625ce489516a2e04a6c26a7d43d77bfb26e7ceb3fd66b408e8452b142511f175eeabbb09e59febda05a809cac73fd55628656b86ecdea8e37fc020875699cf8f9d032ebd2b2a5168703928e708ff4e4cd3f7523f9818ff52977429dba62446a04e6faf06dea2d43cc2ff08e92f4e19ad22b2c1da03c178fe618e3a57e46662f963aa1f4fa87bb7ee5c9a46aed527ebf1d2d1eef243be076f9451aca17664a44d2fbf757938be2163f5af7c68fe88b35d3ecde37662e0d46618e684b191ea5410420e9d75d4c9f2b3195d8bb5db5673166701638481b62ce50503bfe03fb5c8497fbe36d1a9bb0d2e853e47b889994dcbafedd0ca7e3da4966510cdbc8dec4d19ae9f047bb0b838bcdfd26f06b4ec778c81058952b9bdb10f190897addf4c23247689308652f61e521543cadce86e0edb95b78c27b0b7609350f2b888f1acf9fc41ebe43c1e16826c320c40fe13e6b4cd86165a6c7819402bc99b921ac5767910ee76bd43ea9cec9d092ddbc3599a19d086f6a66236924c3a63a20873e33800cebf997a1c58a1f545919ec5c4f810e7ae23547ddcf9c87733785029a0bfe30712fdf93a75bfb5b6792a295045945b481a6ca4efa60822f47d3b2afec77ae9e0079eaec8336c1a4afe762e9ae417877dba8d0581d0a3c49c220bc7fc4ba99eba19dad446dae3ff9df9590e594630d1e9a3ed7da4f56697188ca73b41a2ba9970605ba3683a1289d237bf6d06e9c3371c3e9145d9a447056a4e64db4fb4f2f1ccbbd2ba885f674f69a237ec6b0b1aff94fd5f0f5b85f184d9d4301268a76376fb8e69bb56f63e28df10e62c28b68005967b5372375af258bbfa691dd0023b2882cbb312df232618ce064f4cb222eb0270baf1e81de0e8b01efef226a88e092ddfd3c05ab040da49bb6778d454a8b08a7f97c13f478126aa686f19ec4caf91f0b2268a1c63194e5892aa58fad4ab06d27c12a5a37910bd8beb2c3b435e5d4f71c2960e29d080a6b4f2e4abd33ae3fe1557871fe6df14fabb0f75917ad53402ca174770adec2dab4071c6dfae72d1f243e09c540aca5b6838baa053ac30fe959ba410a3350cff434b5e3eccd67c611966cc191a4f1f48fd50d94b952ec8ab428ca0edc5c25e636881e1514b99869285c36a6807e4c7c2cddeee8a315841cfaafc0d7754dbdb91a4af4200f988a02d9e7dfee66c5d4bd60eac8bec691a339b94bfd4f3a86c1885cb779b1d4cfab7208704adba8a6573cf979bfb6bc0e7ec297f9e07d7cb8195512001ba2bbb9c0b6cf3e14146457df40618f1bcbf43490cbfe24375ae08a24ebc8d304ca225ca2baf8e96a27ffab73b51f6623cb224dc95eb842837b0f2ed21c266af1be6b93335686d0acafc28824d1856364e45254ca94e9586d98e136bcb9102de73335d93f812a4a5ae922fac5d30151576091dd6b58083728d2a77ebf6179bb06e80b31524f4a0d4c5fd637c5c0dbfca901c146c45a3132f292db06bf36c39719bb48b4cd52e9ce29aed05c15ed808798a79fa7eaa0121f1020673633cd89bd05efc7a323fa6f4952aab0db2a553879ca988a724fb92169636316c23d989ccf49b4fd4f7b4ed754db9b93cc8b9160f33bb95a3f48945d165a00d5a07e4995bcea9e83d222d970043f92bc718c48502be393adb803cc991daed99c7d25ceeb490d05eb25a949e6633d3f97f2e50e0b2c8c844625cae36ed4ccd006e9ffdfaf4091e2e465bc0c63ed1725b066c3092ec988c935ce902c67f07b1a1f35894da3a02883acd1ae6fc4195c20f51d2fddfca62027c10ec43a114dd1b61f55b858392d41506a4567203bad974078c05d7181f20982fd40103d55859d2d29c2647df89b49175323ed50927d1eea527e85f73e14186c302860bd8a80d8b4d94cb1f9e3045865a1832f36fa4f3450b9c294a647ed10f08b7ce009052e491aec24e25d46b223fe16517fe9d761dd7911298624abd61077b2bfb4606f654ee8cb5b70099721aa60bd2bbdb7c734105f3f413407bf0bf16e630692648bfd8694c517093cfe66fd1000e8ee3064cb164c303d13343ac06b8328a4f966d06c95d61ac218f3bf5e5fe3ee3945cf566793481039d7ae9c30ed8cd6efec58874d843321d2fe29fb0e1e54e7d66e580e8c0a12037018d0ea1b41d7c2a5681896538ebeac8e724905a47fbd4b4ec660ce0efad4c16653f243460b49e464e18429a83386c61cc22c26c37099726b269d540d65d33f5fb906a5483f662425c36889c16ed7f8f76a8db109fbe55532d5bdbad9b20a5d8e96e4b2e0605ec614b84b99c38be501a4836fd71fcdf60d9be768d2a5f68e54363fb3f48a3b74d692c1265b49a434d35b60d08db93f13e2b1abc4bec2590910733c3a499c4abdcae22ebc402e25232c1a5c6b810567fc21f67cbc09f8e39aa6ddcbdc152df2c4b9e26ad18b280405c6c9eb8a19eca48b0fc932fe02a3627f6411f28c391583e9d92f89328fa48a3a082a678d06ef4d88e8105f0db7240b9f98d83b274c6373b9a82cefe3b22cfbd3752d94c781cbc8d5b169dc989fca5f8f3afca2df504704ba1e168d9f1566fc020a66d3621c7b84d11fdf2d84574704de023dab7f5b70bb663fd7cb742e2ef003826aa28a33d9375212dafb0ec64ebf0339151a1e7cc52f3e1f6508397bf57dc1dddce9d18cc10de154d8913e056225854888cfae24f7166bd38a6e61376b2852a60c759c20ccde8d486b888088420889c1ea4fd6ff43eb171b4d39231ce9e46213e5db9ae1cddca9ed5f2ddab9cf1f4c6a0172f44e27837eab0982bd4248411e35c0dbf737cfa26618257ffac3b9ac825fba23e9b9b42d6502f8b1b0150d0fce8f34a38973483f6a97313be1e9c292886c329765460c586e6bfcc4e28da9809675684509fbc982a8a72f0b19d58e11cea925f1211d8087b42029acf9339dc9b6115223981639b7512f3f0431aa91976e9e7d2caa800cc1297f79749eb3cdd7e9b69baecac0078ada0e2d5f39a692e44058f968299b212a03faf9ecc66cbb9bbde34f7749af7440bd2d0f0594b542e807bb5a983f611de66ed7e316d4ef3150d2adaa42423df88c3fe00baa5079c39cbdcfe27957c2724e9192b5dd0b385b5cbd499c88d59c157abd7e8077e1352735c34d494f0d42d0ebaedc81944047f0209088bc793abe73449e69adf2c5d20e7ba0f06df3983c916bfb5eaea247c48e13e7a62c7350a94ea17e8c416f3f20cc2ab39bd62ceb8ae478c646820be02d8ed5c42966c4f1eab9c5dad8d59dbec1b0fba15de7e18f1919792cf90623c0b3347829ba5c0cfe3f402222338394668697d89b9bbbdcddae1ecf2040615191a1c383943545d6f708194969ba1aebaccd8dbebff24253b3d46484f5b687d819bd700000000000000000000000000000a1c3542"
+    },
+    "oldAnchor": {
+      "epoch": 1,
+      "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+      "revRoot": "14670110862433391703307284485861061351356774752147503549016186165324799020449",
+      "notBefore": 1893477000,
+      "notAfter": 1893563400,
+      "sigHash": "299c64ad37a501b269891c15a922f899f22e5ca8302e2a9764a2bb1ba3e255be",
+      "publishedAt": 1893477602,
+      "publishedBlock": 13
+    },
+    "registryAddresses": {
+      "didRegistry": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      "accreditationRegistry": "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
+      "issuanceRootRegistry": "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0",
+      "verifierKemRegistry": "0xcf7ed3acca5a467e9e704c703e8d87f634fb0fc9"
+    },
+    "oldEpochSignatureValid": true
+  },
+  "latestEpoch": {
+    "statement": {
+      "issuer": "did:pq:LkEs1fSe9T312eXPeN9ceSiQxsY",
+      "controller": "0x46d1745f1778cfae62456d80271880079eca74a2",
+      "chainId": 31337,
+      "registry": "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0",
+      "epoch": 2,
+      "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+      "revRoot": "8824266251344338610691906684517612228154821909418333704398514251758871091577",
+      "notBefore": 1893480603,
+      "notAfter": 1893567003,
+      "fromDate": 20300101,
+      "toDate": 20300102,
+      "signature": "568f06ac7f24cb9c82e8df28813ac4adea9414f1e18991520f45af187c62021da1caa364b051208512c85ce6ba25f2716723f0929a9d6d09028b42982b1b401d03526781736ec6e675959130ebaa0897bce13596d9737c1e1a1e1258e8d1054d3b9c4b89acb566044e61d860f2462ee2f555da69948800278e5ee517099dae9032ce1e04d6de19bc9a9c2d5f2c42f59c060aa5312cc0cc2079c8351d93e149419d5cf8455fe3a5c9b7e25938ba1a06d5bf7096ace1490c5fc57ef44e326b2d80f5a26379622f43fe87e2fd001401e604be9f7cbbab80383f79c0eb31d642d6b5f2b37905e64ac5d0bef51be89fed9097690fb54c9ae97caa98923deab956f87367451a5f383fe57f15dbcc9b6d186909ef7e6fe301605f33d0072c4eafe2b6537bd37b13852cb572572849b8bf9bcce5ec233aabde769af0103557b862972ba3d8fb59157011a330b84b884d8af790ed2842b78f937c9d8eb9b518fd3bb0ecb500e454199c59ee2fb92037cbf7e5359f4113b8e64a5937b7cf47894e6f8e792428cfc45a8cc7e2791e9c7ac7fc61bce28a915f52719c195ef0b8422d395acd12b882bf54a100fdedb4679b93bcc5bbe5cc8002d0dc8fa52554b6ac5b3b592a7c620cbecfc089e22b8677e59bdb72dbee588838a55c329615648a03b13f34d815193d0de1bf611ce224e65f692594458afc3a50e91f9b8fe12a3bc03a05362259f5557d7ec0ae4460eb08007398b07907817a0489f5f5027c0bd89b90703d53958ebac6fcb252d9abd0cbfc84c0ca0ccd23a6c82c14bdf6f4618c8365555a4f4c42c8e544e968901d59f929cf1674d9523b510651c2e4e311e4949cf894625d3dc38a2220688fa11ba93c97d8bef7a026b1c89c3352fee1df9bfad788dcce1bc0858a2acafb6c30f5c0960e1843718be87d2289fd76e57e778fce65bf8b457a03ef8924c1478644f0de6bad0ddb26c1c422583226175443addb799e9e291a41735a864bf1e943fdfaefad31b270b2927c85badf0b382475ff7c72c97fd0f690abf53746c66195698feaf3f0511438389cc41cab9d310f859ad20d8f6705aa2589df52b3862aa865bab7627290c012c4722ab9c2c21d2cfa4360e8cff8efce3380baab69dbb168db272908aaf918d9729920e9da4e74ee00ee6ad42cf9e4f9f7c9329be305a4edd2a5aaede4b4c9cd50cfb853bf20adae794fde5cf0e9f0a6ab5919035160772debb0b632a97b92df73aae411598de41ff3ecf870e3d70aa2eaba2b39e77987bf220e0453b8fb0987504f09d7b784204902b9d94a99618a93c58a1b03fe6994d431d809927cf8e74c769d9d289368cf61582a6e8c71413fa7a4bcf59baed6a8a4211b2f434558dff8b5e02753ff1c320e819d4675299cd55503eecc9ef396bb20e9f9de115c4f115856ee0743ce2e4de5a00ae47217e186db0037931d30034b6cef7c4b12a01a07e7040b97767e54226f19283957e1fe2b073f11202ddd9d6e9a8e03b15ffbaf98cba96c94d418d3221282d09bdd151af1128bcf99c790ea84f9f1e475e747a8d752932bb5d106da640becf939426608154a2ba51bb717bd5c885da05f4d8ca302322c407e26bfacf44866e5aa77387044e88345c59cf3037015fbde1814a2d7360c33c0019054881cf7597acd8b2c090c939745467cff2e057f1886d7d84d5a6712f041a4d061868a371a45f28afb4350f76ec227f848d4e0e0a7402341f7ae6d91d13a066999a1eb8553b894bf945442490fe153532cff71d28d4fbe05cdd577d1ec1c7237b3c6cbbf090d59ee77943fcfa3eac2915e5e3992c24b6cb85a1bfa77410031e02e76eb313c87e7f682e1a67c35dc00ea0d490d96b9e90c19ca74677fcaf4acaba13946ab107a15f86b570c38580e69104ffaa306c8ad065a84f60bb6dd51690b17154e31dd99a81a233b38fa1606eea4b445788f8e52409edaf43808d1bad529280ff9abd2f0841feeb7eb2ae4329b0793793d44b7b6f6c232b1048c83f4e8b93340236cb317806d97fcd6003baeee6d4a057ab2aafd0169750fa6b39c8efb04de0db7ae819f431ee77fecded03c27aac14afdd0cbc49a22615a9666588a31f12a270f7079e3aa3e1b6f2b7b2fd09679335b9059e8365e5b5868855843679a022ad823d6f6c6456977f215e68afd63205f365dae00dc1c26347f390f645795dccf9333c786c775d88505fc06e71175ad69555f06b24e00d5dddf90e407495a69fa923c581b2c0735a0a447a0fda2c4c4dcbc6312bbbdb6da61d65d961de790a5669051c4f99abde0a438874a41aa41bf2983760bfb641d90bf06c68758b3c5bc3ec1f8544e16d18e067a4013ecaa028a41e28b1881e9503cdc77b99bb7b0cd60bfc9090baaa0c6e278ba8c3f963b7eb9e5203ef48982284f728f798b5adeb5bd071c9e8cc3eb3161ef7f0d74d7c7e7d6c34250e0cd540e4a0461f1d58d4f182bce5e7a2a992dba1d0cf3b1626362d017c1da84a669da3bb117579a8692c1c5eca42ea6ee10ab3b913ea7e9e2db54598ff1e8e7665bb809925c61b569488bf1cd708a73f6a9b2e52780f94f7f251e8066a9ded6e7426b63bf86fe917458cccbcf5d2356fc54d716515cbd51d6492e07110b1ee35bf07eaa4fdba36017af62334626d3c96cb668a94178c515555b45d278b1f8947a633a8291cba1b9b8c94e8772e3085a962933a092dd2425a06570274c1f26dccf625c460183310f3aba80669289fe7ec876ca5aa4f831c174664fb462e26870b13e10a2b697330568968c15896c4bc9c967793bdea71181033bd4fc8f433de4bccf6eb6dead7c079be40c3c1c454b52253304cbe137f043b50c3fb9d58ebc8405ef129614f3867cbfdfbbbb1f6efe793d4d04a8c5710f1226ff7cc615ea72dc69f4838b1e0bd133297721423f780e8c0afb616a0b19af9da8c326dd660a3daaa932e330f62a3b3608ccdde5e46183dd541b0529fc8f809f6763ebf203313793cfd4c8c67f6a95193f12959ac6f458ef510c5ff91d65b572fc3a2f16ed0f7cc85a6a2443c1499dc49e32f2ec82450dac3b2f1b3ff4a28e7525385358dd2853bf1302f23897bbaf7889b8f29ceada8aa87bbf620bfcdd7b11d75de20f8dcaa496544426657c12008ab2f826ce00fa3a7608f01d09c348cab1f7e44f8ad41f21e3c446fe9d629f98b535c06e533f16722c5a0c6c84e9a5970bb5721f500e10ef722f433136dd4462037e87ae3b58af34420c9370e279485f8d681a01861950cd56e119121ecccde6774814e31cd72502036f4ce717cf24fbe29ea7d6212c2d4448565d6167696f717d9697999fabc0f202060824889298a0bcc3ccddfa37474d545f687895abc5caceeef70c1f24294660657e93bec0cad2dae0e4ee0000000000000000000000000000000014212f40"
+    },
+    "targetRevoked": true,
+    "latestAnchor": {
+      "epoch": 2,
+      "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+      "revRoot": "8824266251344338610691906684517612228154821909418333704398514251758871091577",
+      "notBefore": 1893480603,
+      "notAfter": 1893567003,
+      "sigHash": "f161e7b1488c9e63221229adc328bc48a3c3d0f169e0f5344d05b30ac42f5f9d",
+      "publishedAt": 1893481203,
+      "publishedBlock": 15
+    }
+  },
+  "sourceAndArtifactHashesUnchanged": true,
+  "finishedUtc": "2026-10-06T22:28:43.036Z",
+  "status": "COMPLETE",
+  "summary": {
+    "casesExecuted": 11,
+    "expectedOutcomesMet": 11,
+    "unexpectedErrors": 0,
+    "honestControlsAccepted": 2,
+    "staleRpcAcceptances": 2,
+    "proxyReadCount": 79
+  },
+  "cases": [
+    {
+      "id": "H1",
+      "startedUtc": "2026-10-06T22:28:24.552Z",
+      "finishedUtc": "2026-10-06T22:28:28.698Z",
+      "expected": {
+        "accepted": true,
+        "failedChecks": [],
+        "kind": "honest-control"
+      },
+      "expectedOutcomeMet": true,
+      "decision": {
+        "accepted": true,
+        "checks": {
+          "sessionKnown": true,
+          "transcriptDecrypts": true,
+          "shape": true,
+          "issuerRecord": true,
+          "issuerPop": true,
+          "accreditation": true,
+          "issuerKeyHash": true,
+          "epochAnchorCurrent": true,
+          "epochWindow": true,
+          "revRoot": true,
+          "policyHash": true,
+          "nonceBinding": true,
+          "stmtCode": true,
+          "groth16": true,
+          "sessionFresh": true,
+          "epochSignature": true
+        },
+        "failedChecks": [],
+        "notEvaluated": [],
+        "reasons": []
+      },
+      "anchoredEpoch": 1,
+      "holderRevoked": false
+    },
+    {
+      "id": "H2",
+      "startedUtc": "2026-10-06T22:28:29.040Z",
+      "finishedUtc": "2026-10-06T22:28:30.950Z",
+      "expected": {
+        "accepted": true,
+        "failedChecks": [],
+        "kind": "honest-control"
+      },
+      "expectedOutcomeMet": true,
+      "decision": {
+        "accepted": true,
+        "checks": {
+          "sessionKnown": true,
+          "transcriptDecrypts": true,
+          "shape": true,
+          "issuerRecord": true,
+          "issuerPop": true,
+          "accreditation": true,
+          "issuerKeyHash": true,
+          "epochAnchorCurrent": true,
+          "epochWindow": true,
+          "revRoot": true,
+          "policyHash": true,
+          "nonceBinding": true,
+          "stmtCode": true,
+          "groth16": true,
+          "sessionFresh": true,
+          "epochSignature": true
+        },
+        "failedChecks": [],
+        "notEvaluated": [],
+        "reasons": []
+      },
+      "anchoredEpoch": 2,
+      "holderBRevoked": false,
+      "rememberedInstanceLaterUsedIn": [
+        "R2",
+        "S2"
+      ]
+    },
+    {
+      "id": "R1",
+      "startedUtc": "2026-10-06T22:28:30.950Z",
+      "finishedUtc": "2026-10-06T22:28:32.491Z",
+      "expected": {
+        "accepted": false,
+        "failedChecks": [
+          "epochAnchorCurrent"
+        ],
+        "kind": "canonical-view-attack"
+      },
+      "expectedOutcomeMet": true,
+      "decision": {
+        "accepted": false,
+        "checks": {
+          "sessionKnown": true,
+          "transcriptDecrypts": true,
+          "shape": true,
+          "issuerRecord": true,
+          "issuerPop": true,
+          "accreditation": true,
+          "issuerKeyHash": true,
+          "epochAnchorCurrent": false,
+          "epochWindow": true,
+          "revRoot": true,
+          "policyHash": true,
+          "nonceBinding": true,
+          "stmtCode": true,
+          "groth16": true
+        },
+        "failedChecks": [
+          "epochAnchorCurrent"
+        ],
+        "notEvaluated": [
+          "sessionFresh",
+          "epochSignature"
+        ],
+        "reasons": [
+          "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        ]
+      },
+      "proofVerifies": true,
+      "epochSignatureValidIndependentCheck": true,
+      "verifierClockSec": 1893481203,
+      "oldEpochStillWithinWindow": true,
+      "anchorSeen": {
+        "epoch": 2,
+        "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+        "revRoot": "8824266251344338610691906684517612228154821909418333704398514251758871091577",
+        "notBefore": 1893480603,
+        "notAfter": 1893567003,
+        "sigHash": "f161e7b1488c9e63221229adc328bc48a3c3d0f169e0f5344d05b30ac42f5f9d",
+        "publishedAt": 1893481203,
+        "publishedBlock": 15
+      },
+      "presentedEpoch": 1,
+      "allVerifierChecksEnabled": true
+    },
+    {
+      "id": "R2",
+      "startedUtc": "2026-10-06T22:28:32.492Z",
+      "finishedUtc": "2026-10-06T22:28:34.241Z",
+      "expected": {
+        "accepted": false,
+        "failedChecks": [
+          "epochAnchorCurrent"
+        ],
+        "kind": "canonical-view-attack"
+      },
+      "expectedOutcomeMet": true,
+      "decision": {
+        "accepted": false,
+        "checks": {
+          "sessionKnown": true,
+          "transcriptDecrypts": true,
+          "shape": true,
+          "issuerRecord": true,
+          "issuerPop": true,
+          "accreditation": true,
+          "issuerKeyHash": true,
+          "epochAnchorCurrent": false,
+          "epochWindow": true,
+          "revRoot": true,
+          "policyHash": true,
+          "nonceBinding": true,
+          "stmtCode": true,
+          "groth16": true
+        },
+        "failedChecks": [
+          "epochAnchorCurrent"
+        ],
+        "notEvaluated": [
+          "sessionFresh",
+          "epochSignature"
+        ],
+        "reasons": [
+          "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        ]
+      },
+      "proofVerifies": true,
+      "epochSignatureValidIndependentCheck": true,
+      "verifierClockSec": 1893481203,
+      "oldEpochStillWithinWindow": true,
+      "anchorSeen": {
+        "epoch": 2,
+        "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+        "revRoot": "8824266251344338610691906684517612228154821909418333704398514251758871091577",
+        "notBefore": 1893480603,
+        "notAfter": 1893567003,
+        "sigHash": "f161e7b1488c9e63221229adc328bc48a3c3d0f169e0f5344d05b30ac42f5f9d",
+        "publishedAt": 1893481203,
+        "publishedBlock": 15
+      },
+      "presentedEpoch": 1,
+      "allVerifierChecksEnabled": true
+    },
+    {
+      "id": "S1",
+      "startedUtc": "2026-10-06T22:28:34.243Z",
+      "finishedUtc": "2026-10-06T22:28:35.811Z",
+      "expected": {
+        "accepted": true,
+        "failedChecks": [],
+        "kind": "stale-rpc-known-limitation"
+      },
+      "expectedOutcomeMet": true,
+      "decision": {
+        "accepted": true,
+        "checks": {
+          "sessionKnown": true,
+          "transcriptDecrypts": true,
+          "shape": true,
+          "issuerRecord": true,
+          "issuerPop": true,
+          "accreditation": true,
+          "issuerKeyHash": true,
+          "epochAnchorCurrent": true,
+          "epochWindow": true,
+          "revRoot": true,
+          "policyHash": true,
+          "nonceBinding": true,
+          "stmtCode": true,
+          "groth16": true,
+          "sessionFresh": true,
+          "epochSignature": true
+        },
+        "failedChecks": [],
+        "notEvaluated": [],
+        "reasons": []
+      },
+      "proofVerifies": true,
+      "epochSignatureValidIndependentCheck": true,
+      "verifierClockSec": 1893481203,
+      "oldEpochStillWithinWindow": true,
+      "anchorSeen": {
+        "epoch": 1,
+        "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+        "revRoot": "14670110862433391703307284485861061351356774752147503549016186165324799020449",
+        "notBefore": 1893477000,
+        "notAfter": 1893563400,
+        "sigHash": "299c64ad37a501b269891c15a922f899f22e5ca8302e2a9764a2bb1ba3e255be",
+        "publishedAt": 1893477602,
+        "publishedBlock": 13
+      },
+      "presentedEpoch": 1,
+      "allVerifierChecksEnabled": true,
+      "verifierHistory": "fresh",
+      "staleBlock": 13
+    },
+    {
+      "id": "S2",
+      "startedUtc": "2026-10-06T22:28:35.812Z",
+      "finishedUtc": "2026-10-06T22:28:37.342Z",
+      "expected": {
+        "accepted": true,
+        "failedChecks": [],
+        "kind": "stale-rpc-known-limitation"
+      },
+      "expectedOutcomeMet": true,
+      "decision": {
+        "accepted": true,
+        "checks": {
+          "sessionKnown": true,
+          "transcriptDecrypts": true,
+          "shape": true,
+          "issuerRecord": true,
+          "issuerPop": true,
+          "accreditation": true,
+          "issuerKeyHash": true,
+          "epochAnchorCurrent": true,
+          "epochWindow": true,
+          "revRoot": true,
+          "policyHash": true,
+          "nonceBinding": true,
+          "stmtCode": true,
+          "groth16": true,
+          "sessionFresh": true,
+          "epochSignature": true
+        },
+        "failedChecks": [],
+        "notEvaluated": [],
+        "reasons": []
+      },
+      "proofVerifies": true,
+      "epochSignatureValidIndependentCheck": true,
+      "verifierClockSec": 1893481203,
+      "oldEpochStillWithinWindow": true,
+      "anchorSeen": {
+        "epoch": 1,
+        "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+        "revRoot": "14670110862433391703307284485861061351356774752147503549016186165324799020449",
+        "notBefore": 1893477000,
+        "notAfter": 1893563400,
+        "sigHash": "299c64ad37a501b269891c15a922f899f22e5ca8302e2a9764a2bb1ba3e255be",
+        "publishedAt": 1893477602,
+        "publishedBlock": 13
+      },
+      "presentedEpoch": 1,
+      "allVerifierChecksEnabled": true,
+      "verifierHistory": "accepted epoch 2 at H2; same verifier instance",
+      "staleBlock": 13
+    },
+    {
+      "id": "N1",
+      "startedUtc": "2026-10-06T22:28:37.343Z",
+      "finishedUtc": "2026-10-06T22:28:38.632Z",
+      "expected": {
+        "accepted": false,
+        "failedChecks": [
+          "epochWindow"
+        ],
+        "kind": "expired-control"
+      },
+      "expectedOutcomeMet": true,
+      "decision": {
+        "accepted": false,
+        "checks": {
+          "sessionKnown": true,
+          "transcriptDecrypts": true,
+          "shape": true,
+          "issuerRecord": true,
+          "issuerPop": true,
+          "accreditation": true,
+          "issuerKeyHash": true,
+          "epochAnchorCurrent": true,
+          "epochWindow": false,
+          "revRoot": true,
+          "policyHash": true,
+          "nonceBinding": true,
+          "stmtCode": true,
+          "groth16": true
+        },
+        "failedChecks": [
+          "epochWindow"
+        ],
+        "notEvaluated": [
+          "sessionFresh",
+          "epochSignature"
+        ],
+        "reasons": [
+          "epochWindow: outside the epoch statement's signed validity window (or window signals differ)"
+        ]
+      },
+      "proofVerifies": true,
+      "epochSignatureValidIndependentCheck": true,
+      "verifierClockSec": 1893563401,
+      "oldEpochStillWithinWindow": false,
+      "anchorSeen": {
+        "epoch": 1,
+        "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+        "revRoot": "14670110862433391703307284485861061351356774752147503549016186165324799020449",
+        "notBefore": 1893477000,
+        "notAfter": 1893563400,
+        "sigHash": "299c64ad37a501b269891c15a922f899f22e5ca8302e2a9764a2bb1ba3e255be",
+        "publishedAt": 1893477602,
+        "publishedBlock": 13
+      },
+      "presentedEpoch": 1,
+      "allVerifierChecksEnabled": true
+    },
+    {
+      "id": "R3",
+      "startedUtc": "2026-10-06T22:28:38.690Z",
+      "finishedUtc": "2026-10-06T22:28:38.731Z",
+      "expected": {
+        "accepted": false,
+        "failedChecks": [
+          "epochIncrement"
+        ],
+        "kind": "registry-rollback"
+      },
+      "expectedOutcomeMet": true,
+      "accepted": false,
+      "failedChecks": [
+        "epochIncrement"
+      ],
+      "registryRevert": {
+        "method": "IssuanceRootRegistryV4.publishEpoch",
+        "reason": "epochIncrement: epoch must be current + 1",
+        "check": "epochIncrement",
+        "mined": false
+      },
+      "anchorAfter": {
+        "epoch": 2,
+        "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+        "revRoot": "8824266251344338610691906684517612228154821909418333704398514251758871091577",
+        "notBefore": 1893480603,
+        "notAfter": 1893567003,
+        "sigHash": "f161e7b1488c9e63221229adc328bc48a3c3d0f169e0f5344d05b30ac42f5f9d",
+        "publishedAt": 1893481203,
+        "publishedBlock": 15
+      }
+    },
+    {
+      "id": "R4",
+      "startedUtc": "2026-10-06T22:28:38.732Z",
+      "finishedUtc": "2026-10-06T22:28:40.070Z",
+      "expected": {
+        "accepted": false,
+        "failedChecks": [
+          "epochAnchorCurrent"
+        ],
+        "kind": "counter-relabel-attack"
+      },
+      "expectedOutcomeMet": true,
+      "registryWriteAccepted": true,
+      "receipt": {
+        "gasUsed": 57169,
+        "txHash": "0x37af8d745854edf08cbfc6a2bda8adcad3d50d0aa9d02fd2f46daa92ebed4de1",
+        "blockNumber": 17,
+        "calldataBytes": 324
+      },
+      "decision": {
+        "accepted": false,
+        "checks": {
+          "sessionKnown": true,
+          "transcriptDecrypts": true,
+          "shape": true,
+          "issuerRecord": true,
+          "issuerPop": true,
+          "accreditation": true,
+          "issuerKeyHash": true,
+          "epochAnchorCurrent": false,
+          "epochWindow": true,
+          "revRoot": true,
+          "policyHash": true,
+          "nonceBinding": true,
+          "stmtCode": true,
+          "groth16": true
+        },
+        "failedChecks": [
+          "epochAnchorCurrent"
+        ],
+        "notEvaluated": [
+          "sessionFresh",
+          "epochSignature"
+        ],
+        "reasons": [
+          "epochAnchorCurrent: the epoch statement is not the issuer's current anchor (or names another chain, registry, controller or root)"
+        ]
+      },
+      "proofVerifies": true,
+      "epochSignatureValidIndependentCheck": true,
+      "verifierClockSec": 1893484804,
+      "oldEpochStillWithinWindow": true,
+      "anchorSeen": {
+        "epoch": 3,
+        "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+        "revRoot": "14670110862433391703307284485861061351356774752147503549016186165324799020449",
+        "notBefore": 1893477000,
+        "notAfter": 1893563400,
+        "sigHash": "299c64ad37a501b269891c15a922f899f22e5ca8302e2a9764a2bb1ba3e255be",
+        "publishedAt": 1893484804,
+        "publishedBlock": 17
+      },
+      "presentedEpoch": 1,
+      "allVerifierChecksEnabled": true
+    },
+    {
+      "id": "N2",
+      "startedUtc": "2026-10-06T22:28:40.070Z",
+      "finishedUtc": "2026-10-06T22:28:41.435Z",
+      "expected": {
+        "accepted": false,
+        "failedChecks": [
+          "epochSignature"
+        ],
+        "kind": "signature-control"
+      },
+      "expectedOutcomeMet": true,
+      "decision": {
+        "accepted": false,
+        "checks": {
+          "sessionKnown": true,
+          "transcriptDecrypts": true,
+          "shape": true,
+          "issuerRecord": true,
+          "issuerPop": true,
+          "accreditation": true,
+          "issuerKeyHash": true,
+          "epochAnchorCurrent": true,
+          "epochWindow": true,
+          "revRoot": true,
+          "policyHash": true,
+          "nonceBinding": true,
+          "stmtCode": true,
+          "groth16": true,
+          "sessionFresh": true,
+          "epochSignature": false
+        },
+        "failedChecks": [
+          "epochSignature"
+        ],
+        "notEvaluated": [],
+        "reasons": [
+          "epochSignature: epoch statement ML-DSA-44 signature does not verify under pk_issuer"
+        ]
+      },
+      "proofVerifies": true,
+      "epochSignatureValidIndependentCheck": false,
+      "verifierClockSec": 1893484804,
+      "oldEpochStillWithinWindow": true,
+      "anchorSeen": {
+        "epoch": 3,
+        "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+        "revRoot": "14670110862433391703307284485861061351356774752147503549016186165324799020449",
+        "notBefore": 1893477000,
+        "notAfter": 1893563400,
+        "sigHash": "299c64ad37a501b269891c15a922f899f22e5ca8302e2a9764a2bb1ba3e255be",
+        "publishedAt": 1893484804,
+        "publishedBlock": 17
+      },
+      "presentedEpoch": 3,
+      "allVerifierChecksEnabled": true
+    },
+    {
+      "id": "N3",
+      "startedUtc": "2026-10-06T22:28:41.494Z",
+      "finishedUtc": "2026-10-06T22:28:42.995Z",
+      "expected": {
+        "accepted": false,
+        "failedChecks": [
+          "epochSignature"
+        ],
+        "kind": "unsigned-control"
+      },
+      "expectedOutcomeMet": true,
+      "registryWriteAccepted": true,
+      "receipt": {
+        "gasUsed": 54369,
+        "txHash": "0x113e561af9976aa1d36918f0b9c9e7df7e8a0f95134a1e81420c305409c987e9",
+        "blockNumber": 19,
+        "calldataBytes": 324
+      },
+      "decision": {
+        "accepted": false,
+        "checks": {
+          "sessionKnown": true,
+          "transcriptDecrypts": true,
+          "shape": true,
+          "issuerRecord": true,
+          "issuerPop": true,
+          "accreditation": true,
+          "issuerKeyHash": true,
+          "epochAnchorCurrent": true,
+          "epochWindow": true,
+          "revRoot": true,
+          "policyHash": true,
+          "nonceBinding": true,
+          "stmtCode": true,
+          "groth16": true,
+          "sessionFresh": true,
+          "epochSignature": false
+        },
+        "failedChecks": [
+          "epochSignature"
+        ],
+        "notEvaluated": [],
+        "reasons": [
+          "epochSignature: epoch statement ML-DSA-44 signature does not verify under pk_issuer"
+        ]
+      },
+      "proofVerifies": true,
+      "epochSignatureValidIndependentCheck": false,
+      "verifierClockSec": 1893488405,
+      "oldEpochStillWithinWindow": true,
+      "anchorSeen": {
+        "epoch": 4,
+        "root": "13175966182451749656167736182881521968208545035221310767994453621571092355801",
+        "revRoot": "14670110862433391703307284485861061351356774752147503549016186165324799020449",
+        "notBefore": 1893477000,
+        "notAfter": 1893563400,
+        "sigHash": "c652eb81d5fdea777a325ffb358b4748da9d7e743946b37e0b8d4def10980813",
+        "publishedAt": 1893488405,
+        "publishedBlock": 19
+      },
+      "presentedEpoch": 4,
+      "allVerifierChecksEnabled": true
+    }
+  ],
+  "expected": {
+    "H1": {
+      "accepted": true,
+      "failedChecks": [],
+      "kind": "honest-control"
+    },
+    "H2": {
+      "accepted": true,
+      "failedChecks": [],
+      "kind": "honest-control"
+    },
+    "R1": {
+      "accepted": false,
+      "failedChecks": [
+        "epochAnchorCurrent"
+      ],
+      "kind": "canonical-view-attack"
+    },
+    "R2": {
+      "accepted": false,
+      "failedChecks": [
+        "epochAnchorCurrent"
+      ],
+      "kind": "canonical-view-attack"
+    },
+    "S1": {
+      "accepted": true,
+      "failedChecks": [],
+      "kind": "stale-rpc-known-limitation"
+    },
+    "S2": {
+      "accepted": true,
+      "failedChecks": [],
+      "kind": "stale-rpc-known-limitation"
+    },
+    "N1": {
+      "accepted": false,
+      "failedChecks": [
+        "epochWindow"
+      ],
+      "kind": "expired-control"
+    },
+    "R3": {
+      "accepted": false,
+      "failedChecks": [
+        "epochIncrement"
+      ],
+      "kind": "registry-rollback"
+    },
+    "R4": {
+      "accepted": false,
+      "failedChecks": [
+        "epochAnchorCurrent"
+      ],
+      "kind": "counter-relabel-attack"
+    },
+    "N2": {
+      "accepted": false,
+      "failedChecks": [
+        "epochSignature"
+      ],
+      "kind": "signature-control"
+    },
+    "N3": {
+      "accepted": false,
+      "failedChecks": [
+        "epochSignature"
+      ],
+      "kind": "unsigned-control"
+    }
+  }
+}

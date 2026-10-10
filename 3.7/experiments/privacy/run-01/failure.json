@@ -1,0 +1,6 @@
+{
+  "finishedUtc": "2026-10-06T22:29:21.961Z",
+  "status": "failed-attempt",
+  "error": "Cannot assign to read only property 'today' of object '#<Object>'",
+  "callsCompleted": 38
+}

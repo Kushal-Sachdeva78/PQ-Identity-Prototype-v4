@@ -1,0 +1,42 @@
+{
+  "schema": "pqid/v4-circuit-fuzz-plan/v1",
+  "campaign": "fz1",
+  "smoke": false,
+  "preRegistration": "docs/v4/ROBUSTNESS.md section 5",
+  "protocol": {
+    "normative": "13312f857b9165c882458e00aa1c47ee0d8432891ed3ffafec645514502cfd15",
+    "file": "da4786a0964848d9a84a0ab124a5746ace8f058c636d141c9a3d368df7f4a94f"
+  },
+  "masterSeed": 20261023,
+  "cases": 300,
+  "mutations": 5000,
+  "proved": {
+    "true": 15,
+    "false": 15
+  },
+  "registeredBudgets": {
+    "cases": 300,
+    "mutations": 5000,
+    "prove": 15
+  },
+  "deviation": null,
+  "gitClean": true,
+  "commitChecked": [
+    "docs/v4/ROBUSTNESS.md",
+    "docs/v4/BENCH_PROTOCOL.md",
+    "harness/v4/robustness",
+    "harness/v4/lib",
+    "harness/v4/bench/lib.ts",
+    "harness/v4/bench/guard.ts",
+    "harness/v4/scale_lib.ts",
+    "harness/v4/r1cs_tools.ts",
+    "scripts/robustness",
+    "onchain/test/v4",
+    "onchain/foundry.toml",
+    "onchain/contracts/v4",
+    "packages/v4/src"
+  ],
+  "oracle": "harness/v4/robustness/oracles.ts relationR4 (integer model of R4 over F_p, from the circuit's group comments)",
+  "keyLabel": "dev",
+  "createdUtc": "2026-10-03T09:34:40.726Z"
+}

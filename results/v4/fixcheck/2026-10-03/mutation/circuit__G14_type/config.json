@@ -1,0 +1,16 @@
+{
+  "name": "circuit:G14_type, dev key, post-fix rerun (D-034)",
+  "port": 8813,
+  "out": "results/v4/fixcheck/2026-10-03/mutation/circuit__G14_type",
+  "mutantGroup": "G14_type",
+  "artifacts": {
+    "r1cs": "circuits/build/v4/mutants/G14_type/credential_auth_v4.r1cs",
+    "sym": "circuits/build/v4/mutants/G14_type/credential_auth_v4.sym",
+    "zkey": "circuits/build/v4/mutants/G14_type/mutant_throwaway.zkey",
+    "wasm": "circuits/build/v4/mutants/G14_type/credential_auth_v4_js/credential_auth_v4.wasm",
+    "vkeyFile": "circuits/build/v4/mutants/G14_type/mutant_throwaway_vkey.json",
+    "src": "circuits/build/v4/mutants/G14_type/credential_auth_v4.circom",
+    "attackerDir": "circuits/build/v4/mutants/G14_type/attacker",
+    "keyLabel": "mutant-throwaway"
+  }
+}

@@ -1,0 +1,9 @@
+# Phone kit build products (never committed; rebuilt from the scripts)
+mopro/_work/
+mopro/ios/MoproiOSBindings/
+mopro/ios/PQIDPhone.xcodeproj/
+mopro/ios/PQIDPhone/Info.plist
+mopro/ios/build/
+mopro/ios/DerivedData/
+*.xcresult
+__pycache__/

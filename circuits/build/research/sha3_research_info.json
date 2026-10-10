@@ -1,0 +1,26 @@
+{
+  "label": "[F] future work — constraint-count report only (never benchmarked)",
+  "circuit": "circuits/research/sha3_incircuit.circom (Keccak(1088,256), 1 sponge block)",
+  "proxyNote": "Keccak-256 as constraint-count proxy for SHA3-256 (identical permutation/rate; only padding constants differ)",
+  "constraintsPerBlock": 239176,
+  "wires": 239689,
+  "estimates": {
+    "productionPoseidonCircuitConstraints": 21159,
+    "sha3CredIdBindingMinBlocks": 11,
+    "sha3CredIdBindingMinConstraints": 2630936,
+    "sha3Depth32MerkleBlocks": 32,
+    "sha3Depth32MerkleConstraints": 7653632,
+    "sha3FullRelationConstraints": 10284568,
+    "note": "cred ‖ pk_issuer is ≥ 1,408 bytes → ≥ 11 rate blocks; a depth-32 SHA-3 Merkle path adds 32 permutations. In-circuit Dilithium verification (also [F]) is estimated at millions of constraints in the manuscript."
+  },
+  "host": {
+    "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logicalCores": 12,
+    "totalMemGiB": 15.7,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.8655",
+    "nodeVersion": "v22.16.0",
+    "timestampUtc": "2026-06-11T01:28:26.005Z"
+  }
+}

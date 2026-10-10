@@ -1,0 +1,8 @@
+{
+  "frozenUtc": "2026-10-06T22:28:10.2920770Z",
+  "protocolSha256": "65eecf532ef016eaa34c0fc6a6a1a0bdef5dc524ad2b692868732b9c7eec344b",
+  "runnerSha256": "991c3dc2e893cf500d0c2420a1d928c649eccadd6b3c2639475d09cc00865d12",
+  "configSha256": "b47e578745dcec7c71447c0d252f23edc713d433a66dcda2e2fbd62a59963672",
+  "command": "node node_modules/tsx/dist/cli.mjs --tsconfig 3.7/experiments/rollback/tsconfig.json 3.7/experiments/rollback/run.ts attempt_001",
+  "timingClaim": "none"
+}

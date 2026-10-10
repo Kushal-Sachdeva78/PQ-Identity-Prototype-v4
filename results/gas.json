@@ -1,0 +1,82 @@
+{
+  "schema": "pqid/gas/v2",
+  "label": "[M] measured (local Anvil single-node EVM; public testnet remains [F])",
+  "controls": {
+    "quiesce": {
+      "quiesced": true,
+      "forced": false,
+      "windows": {
+        "offendingProcesses": [],
+        "nodeCount": 3,
+        "cpuLoadPercent": 25
+      },
+      "wsl": {
+        "offendingProcesses": [],
+        "loadavg1m": 0.43
+      }
+    },
+    "affinity": {
+      "policy": "free scheduling across 12 vCPUs/logical CPUs (quiesced machine)",
+      "rationale": "rapidsnark v0.0.8 is pthread-pool multithreaded (0 OpenMP / 7 pthread symbols); the live probe shows 1-vCPU pinning ≈2.7× slower than free — pinning would not reproduce the paper's method. WSL2 vCPU→P/E-core placement is hypervisor-controlled and not configurable from the guest; quiescing + inter-run stability are the effective §B controls (probe embedded as evidence)."
+    },
+    "cpuGovernor": "unavailable (WSL2 Hyper-V VM — frequency is host-managed; recorded per §B4)",
+    "powerSource": "AC (BatteryStatus=2)",
+    "fsBasis": "local Anvil EVM (gas units are execution-deterministic)",
+    "invocations": 1,
+    "ambientLoadNote": "host is an interactive laptop: desktop apps (desktop UI, browser, vendor services) contribute a fluctuating ~10-20% ambient load that cannot be fully quiesced; build/prover tooling is process-checked to zero, and inter-run CV is the stability arbiter (§B5)",
+    "host": {
+      "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+      "logicalCores": 12,
+      "totalMemGiB": 15.7,
+      "platform": "win32 x64",
+      "osRelease": "10.0.26200",
+      "osBuild": "10.0.26200.8655",
+      "nodeVersion": "v22.16.0",
+      "timestampUtc": "2026-06-11T12:15:37.823Z"
+    },
+    "wsl": {
+      "kernel": "6.6.114.1-microsoft-standard-WSL2",
+      "distro": "Ubuntu 26.04 LTS",
+      "gcc": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+      "cmake": "cmake version 4.2.3",
+      "python": "Python 3.14.4"
+    }
+  },
+  "paperClaim": {
+    "manuscriptVersion": "V6.6",
+    "gas": 242931,
+    "label": "[M] measured (local single-node EVM; public testnet remains [F])"
+  },
+  "verifyProofDirectTxGasUsed": 242931,
+  "probeTxGasUsed": 268893,
+  "probeNote": "direct = bare verifyProof tx (21k intrinsic + calldata + execution); probe = verifyProof via CALL + result SSTORE. Real receipts with explicit 1M gas limit — eth_estimateGas is unsound for this verifier because it returns false (not revert) under gas starvation.",
+  "calldataBytes": 420,
+  "staticCallValid": true,
+  "corruptedSignalRejected": true,
+  "publicSignals": [
+    "16035694705818254229312720450084809921814714267144931294887415411750119162944",
+    "15989556354135587480322636806185315549728229374763804012644761492124955783933",
+    "3070740327345831873821663723958069645926071289663322904845544407944134318581",
+    "424242",
+    "14919664489157733895930048469043420623463549889969340521573834121984326481766"
+  ],
+  "toolchain": {
+    "solc": "0.8.28+commit.7893614a.Emscripten.clang",
+    "anvil": "foundry stable (tools/foundry/anvil.exe)",
+    "snarkjsVerifierTemplate": "snarkjs 0.7.4 verifier_groth16.sol.ejs",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  },
+  "host": {
+    "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logicalCores": 12,
+    "totalMemGiB": 15.7,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.8655",
+    "nodeVersion": "v22.16.0",
+    "timestampUtc": "2026-06-11T12:15:38.456Z"
+  }
+}

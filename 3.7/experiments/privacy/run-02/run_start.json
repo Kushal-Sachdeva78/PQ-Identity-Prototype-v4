@@ -1,0 +1,25 @@
+{
+  "schema": "privacy-run/v1",
+  "startedUtc": "2026-10-06T22:30:06.623Z",
+  "preregistration": {
+    "schema": "privacy-preregistration/v1",
+    "preparedUtc": "2026-10-06T22:26:58.533Z",
+    "protocolFile": "PROTOCOL.md",
+    "protocolSha256": "3f70357174dd3e0596931aad1cc2cecb50f4699c796843e3eecc1a5992d788c7",
+    "variantSha256": "e7b4f67c1a6812535ca92683f94a5cfef35cdd7cc37a9cca4cd46b1a97e455d8",
+    "policySha256": "abdcbe055eeacd428c1d690dab1ab03ef9d600098381419b25961935ee29f428",
+    "preparedBeforeAnyMeasurement": true
+  },
+  "runnerSha256": "3c9e6874bdafc6a4cd21545885e7f4746c88cce862159be58edc0ee099804973",
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.18.0",
+    "openssl": "3.5.7",
+    "cpu": "Intel(R) Core(TM) Ultra 7 355"
+  },
+  "label": "[M, dev]",
+  "network": "local Anvil, same host",
+  "timingMeasurements": false,
+  "selection": "internally selected reviewer-informed tests, not independent testing"
+}

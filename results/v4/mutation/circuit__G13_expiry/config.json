@@ -1,0 +1,16 @@
+{
+  "name": "circuit:G13_expiry",
+  "port": 8611,
+  "out": "<repo>\\results\\v4\\mutation\\circuit__G13_expiry",
+  "mutantGroup": "G13_expiry",
+  "artifacts": {
+    "r1cs": "<repo>\\circuits\\build\\v4\\mutants\\G13_expiry\\credential_auth_v4.r1cs",
+    "sym": "<repo>\\circuits\\build\\v4\\mutants\\G13_expiry\\credential_auth_v4.sym",
+    "zkey": "<repo>\\circuits\\build\\v4\\mutants\\G13_expiry\\mutant_throwaway.zkey",
+    "wasm": "<repo>\\circuits\\build\\v4\\mutants\\G13_expiry\\credential_auth_v4_js\\credential_auth_v4.wasm",
+    "vkeyFile": "<repo>\\circuits\\build\\v4\\mutants\\G13_expiry\\mutant_throwaway_vkey.json",
+    "src": "<repo>\\circuits\\build\\v4\\mutants\\G13_expiry\\credential_auth_v4.circom",
+    "attackerDir": "<repo>\\circuits\\build\\v4\\mutants\\G13_expiry\\attacker",
+    "keyLabel": "mutant-throwaway"
+  }
+}

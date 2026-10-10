@@ -1,0 +1,43 @@
+{
+  "schema": "pqid/v4-forge-fuzz-plan/v1",
+  "campaign": "fz2",
+  "smoke": false,
+  "preRegistration": "docs/v4/ROBUSTNESS.md section 6",
+  "protocol": {
+    "normative": "13312f857b9165c882458e00aa1c47ee0d8432891ed3ffafec645514502cfd15",
+    "file": "38ddedb9a1d9fa0b2795736e169c263ec32e8a80da60eb62860416354d9bc406"
+  },
+  "seed": 20261024,
+  "seedId": "robustness.forgeFuzz (DECISIONS D-034)",
+  "budgets": {
+    "fuzzRuns": 10000,
+    "invariantRuns": 256,
+    "invariantDepth": 100
+  },
+  "registeredBudgets": {
+    "fuzzRuns": 10000,
+    "invariantRuns": 256,
+    "invariantDepth": 100
+  },
+  "deviation": null,
+  "gitClean": true,
+  "commitChecked": [
+    "docs/v4/ROBUSTNESS.md",
+    "docs/v4/BENCH_PROTOCOL.md",
+    "harness/v4/robustness",
+    "harness/v4/lib",
+    "harness/v4/bench/lib.ts",
+    "harness/v4/bench/guard.ts",
+    "harness/v4/scale_lib.ts",
+    "harness/v4/r1cs_tools.ts",
+    "scripts/robustness",
+    "onchain/test/v4",
+    "onchain/foundry.toml",
+    "onchain/contracts/v4",
+    "packages/v4/src"
+  ],
+  "command": "forge test --root onchain --use scripts/robustness/solc_shim.cmd --offline --fuzz-seed 20261024 --json (FOUNDRY_FUZZ_RUNS=10000, FOUNDRY_INVARIANT_RUNS=256, FOUNDRY_INVARIANT_DEPTH=100)",
+  "tests": "onchain/test/v4/RegistriesV4.fuzz.t.sol",
+  "contracts": "onchain/contracts/v4/RegistriesV4.sol",
+  "createdUtc": "2026-10-03T16:27:06.182Z"
+}

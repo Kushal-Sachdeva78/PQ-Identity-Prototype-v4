@@ -1,0 +1,13 @@
+{
+  "$comment": "Benchmark methodology pinned to the paper (Appendix A). Override via env PQID_* only for smoke runs; published numbers must use these values.",
+  "pqc": { "n": 1000, "warmup": 5 },
+  "zk": {
+    "witnessN": 1000,
+    "snarkjsProveN": 1000,
+    "verifyN": 1000,
+    "rapidsnarkN": 100,
+    "warmup": 5
+  },
+  "baseline": { "n": 1000, "warmup": 5 },
+  "revokedSetSize": 8
+}

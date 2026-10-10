@@ -1,0 +1,64 @@
+{
+  "schema": "pqid/v4-cmp-v2o2-setup/v1",
+  "label": "v2 --O2 dev timing key (v2 beacon recipe)",
+  "warning": "Timing key of the cmp series only. Made by a public, deterministic recipe (no secret contribution), so anyone can recompute it and it gives no soundness. It verifies nothing but this benchmark's proofs.",
+  "createdUtc": "2026-10-01T11:23:19.524Z",
+  "recipe": {
+    "hash": "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20",
+    "iterExp": 10,
+    "name": "pqid dev beacon",
+    "source": "setup/groth16_setup.ts (BEACON_HASH, BEACON_ITER_EXP, beacon name)",
+    "phase2Init": "snarkjs zKey.newZKey(r1cs, setup/ptau/powersOfTau28_hez_final_15.ptau)",
+    "ptauSha256": "3ef2ecc5b75d687048cf2d59195119b42fb07c5af639c5f283d84bfa69829e7f",
+    "ptauPinnedIn": "setup/pins.json"
+  },
+  "snarkjs": "0.7.4",
+  "r1cs": {
+    "path": "results/v4/cmp/artifacts/v2_O2/credential_auth.r1cs",
+    "sha256": "874674369c653760f08b954a6a26096e6fe632166f18f5191dbff24eb2891756",
+    "bytes": 4631164
+  },
+  "zkey": {
+    "path": "results/v4/cmp/artifacts/v2_O2/credential_auth_v2_O2_timing.zkey",
+    "sha256": "b14fcdb970becc5bf7e43cdea37699cf23d1e7faad11af7ee7d019e62f5ff49b",
+    "bytes": 6403385
+  },
+  "vkey": {
+    "path": "results/v4/cmp/artifacts/v2_O2/verification_key_v2_O2_timing.json",
+    "sha256": "f0d285822f63ed1d11de47d5b32990819af0d12226be030b2012984191c667d8",
+    "bytes": 3937
+  },
+  "verifyFromR1cs": true,
+  "deterministic": {
+    "secondRunSha256": "b14fcdb970becc5bf7e43cdea37699cf23d1e7faad11af7ee7d019e62f5ff49b",
+    "equal": true
+  },
+  "recipeCheck": {
+    "run": true,
+    "input": "circuits/build/credential_auth.r1cs",
+    "resultSha256": "63529c2b8a3320ce352401b3bf89fa0cde4ff3d0c5354e6d5b6f28c83f9101cc",
+    "pinnedV2ZkeySha256": "63529c2b8a3320ce352401b3bf89fa0cde4ff3d0c5354e6d5b6f28c83f9101cc",
+    "reproducesPinnedV2Key": true,
+    "wallMs": 9569,
+    "meaning": "the recipe above, run on the committed v2 r1cs, reproduces the committed v2 key byte for byte (true) or not (false)"
+  },
+  "referenceProof": {
+    "input": "results/v4/bench/inputs/v2_input.json",
+    "inputSha256": "6df4f5c290a5e43954c909a470074cac22d5601557daf1c12e28acef3b28380a",
+    "verified": true,
+    "publicSignalsEqualV2Pin": true
+  },
+  "setupWallMs": 19743,
+  "env": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "ramGiB": 31.4,
+    "platform": "win32",
+    "arch": "x64",
+    "osName": "Windows 11 Home Single Language",
+    "osBuild": "10.0.26200",
+    "node": "v24.18.0",
+    "openssl": "3.5.7",
+    "v8": "13.6.233.17-node.50"
+  }
+}

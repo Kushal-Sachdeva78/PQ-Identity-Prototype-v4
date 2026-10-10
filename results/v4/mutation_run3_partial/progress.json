@@ -1,0 +1,292 @@
+[
+  {
+    "kind": "circuit",
+    "name": "G03_leaf",
+    "exit": 1,
+    "seconds": 208,
+    "routesNowAccepted": [
+      "A1|A1-a forged leaf with a real holder's path under A's anchored root",
+      "A2|A2-a genuine path, earlier birthDate",
+      "A4|A4-a victim's genuine path, thief's secret",
+      "A3|A3-D1 fresh credID with the revoked credential's genuine path"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A5|A5-b A's issuerKeyHash with B's path: circuit:G04_issuance_membership -> verifier:epochAnchorCurrent"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G02_holder_commit",
+    "exit": 1,
+    "seconds": 211,
+    "routesNowAccepted": [
+      "A4|A4-a victim's genuine path, thief's secret"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G04_issuance_membership",
+    "exit": 1,
+    "seconds": 182,
+    "routesNowAccepted": [
+      "A1|A1-a forged leaf with a real holder's path under A's anchored root",
+      "A2|A2-a genuine path, earlier birthDate",
+      "A4|A4-a victim's genuine path, thief's secret",
+      "A3|A3-D1 fresh credID with the revoked credential's genuine path"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A5|A5-b A's issuerKeyHash with B's path: circuit:G04_issuance_membership -> verifier:epochAnchorCurrent"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G05_revkey",
+    "exit": 1,
+    "seconds": 181,
+    "routesNowAccepted": [
+      "A3|A3-F the revoked key's own leaf as low leaf (lowValue = key)",
+      "A3|A3-G the predecessor leaf, whose next is now the revoked key"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G06_rev_low_membership",
+    "exit": 1,
+    "seconds": 189,
+    "routesNowAccepted": [
+      "A3|A3-B stale low leaf against the current root",
+      "NL|NL-a fabricated bracketing leaf with a real leaf's path",
+      "NL|NL-b fabricated leaf at an empty index",
+      "NL|NL-c real predecessor leaf with lowNext edited to bracket the key",
+      "NL|NL-d stale sentinel (0, 2^251), which brackets every key, with index 0's current path"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G07_rev_bracket",
+    "exit": 1,
+    "seconds": 191,
+    "routesNowAccepted": [
+      "A3|A3-F the revoked key's own leaf as low leaf (lowValue = key)",
+      "A3|A3-G the predecessor leaf, whose next is now the revoked key"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G08_policy_hash",
+    "exit": 1,
+    "seconds": 188,
+    "routesNowAccepted": [
+      "PH|PH-a minor flips the private predicate to age_lt under the age_gte 18 policyHash",
+      "PH|PH-b minor lowers the private threshold to 16 under the age_gte 18 policyHash",
+      "PH|PH-c holder of another type sets the private requiredType to its own type"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "EX|EX-b older date inside the proof (before expiry): circuit:G15_epoch_window+G08_policy_hash -> circuit:G15_epoch_window",
+      "SD|SD-a prover uses yesterday's date to stay under 18 after turning 18: circuit:G15_epoch_window+G08_policy_hash -> circuit:G15_epoch_window"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G09_predicate_code",
+    "exit": 0,
+    "seconds": 185,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G10_standard_threshold",
+    "exit": 1,
+    "seconds": 210,
+    "routesNowAccepted": [
+      "TP|TP-b buggy wallet (threshold check off), threshold 17"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G11_ranges",
+    "exit": 0,
+    "seconds": 209,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G12_age",
+    "exit": 1,
+    "seconds": 202,
+    "routesNowAccepted": [
+      "A2|A2-b genuine leaf and birthDate, age_gte 18",
+      "LD-forge|LD-b age_gte t on 28 Feb with the attacker's generator"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G13_expiry",
+    "exit": 1,
+    "seconds": 202,
+    "routesNowAccepted": [
+      "EX|EX-a verifier's today after expiryDate"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G14_type",
+    "exit": 1,
+    "seconds": 188,
+    "routesNowAccepted": [
+      "TY|TY-a requiredType = verifier's type, credential of another type"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G15_epoch_window",
+    "exit": 1,
+    "seconds": 188,
+    "routesNowAccepted": [
+      "SD|SD-c buggy wallet (date check off): date outside the signed epoch window"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "EX|EX-b older date inside the proof (before expiry): circuit:G15_epoch_window+G08_policy_hash -> circuit:G08_policy_hash",
+      "SD|SD-a prover uses yesterday's date to stay under 18 after turning 18: circuit:G15_epoch_window+G08_policy_hash -> circuit:G08_policy_hash"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G16_stmt",
+    "exit": 0,
+    "seconds": 185,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "circuit",
+    "name": "G17_nonce",
+    "exit": 0,
+    "seconds": 185,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "shape",
+    "exit": 1,
+    "seconds": 185,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A6|A6-b statement omitted: verifier:shape -> verifier:"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "sessionKnown",
+    "exit": 1,
+    "seconds": 185,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "R1|R1-a replay of the accepted reply: verifier:sessionKnown -> verifier:transcriptDecrypts",
+      "RL|RL-b captured reply replayed later: verifier:sessionKnown -> verifier:transcriptDecrypts"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "transcriptDecrypts",
+    "exit": 1,
+    "seconds": 182,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "R1|R1-b reply moved into a new session: verifier:transcriptDecrypts -> verifier:shape",
+      "RL|RL-e relay lowers the threshold (21 -> 18) before forwarding: verifier:transcriptDecrypts -> verifier:shape"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "issuerRecord",
+    "exit": 0,
+    "seconds": 182,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerPop+accreditation"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "issuerPop",
+    "exit": 0,
+    "seconds": 177,
+    "routesNowAccepted": [],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+accreditation+issuerKeyHash",
+      "SQ|SQ-c presentation through the squatter's record with its own epoch (old revRoot): verifier:issuerPop+accreditation -> verifier:accreditation"
+    ],
+    "harnessErrors": []
+  },
+  {
+    "kind": "verifier",
+    "name": "accreditation",
+    "exit": 1,
+    "seconds": 177,
+    "routesNowAccepted": [
+      "A1|A1-d self-issued under the attacker's own PoP-registered, unaccredited DID",
+      "RA|RA-a accreditation signed with the attacker's ML-DSA key",
+      "RA|RA-b accreditation with a garbage signature",
+      "KL3-b|KL3-b after the accreditation window: verifier rejects"
+    ],
+    "controlsBroken": [],
+    "stoppedElsewhere": [
+      "A7|A7-a self-consistent credential under A's DID string, attacker key and controller: verifier:issuerRecord+issuerPop+accreditation+issuerKeyHash -> verifier:issuerRecord+issuerPop+issuerKeyHash",
+      "SQ|SQ-c presentation through the squatter's record with its own epoch (old revRoot): verifier:issuerPop+accreditation -> verifier:issuerPop"
+    ],
+    "harnessErrors": []
+  }
+]

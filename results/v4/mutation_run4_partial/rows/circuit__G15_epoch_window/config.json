@@ -1,0 +1,16 @@
+{
+  "name": "circuit:G15_epoch_window",
+  "port": 8613,
+  "out": "<repo>\\results\\v4\\mutation\\circuit__G15_epoch_window",
+  "mutantGroup": "G15_epoch_window",
+  "artifacts": {
+    "r1cs": "<repo>\\circuits\\build\\v4\\mutants\\G15_epoch_window\\credential_auth_v4.r1cs",
+    "sym": "<repo>\\circuits\\build\\v4\\mutants\\G15_epoch_window\\credential_auth_v4.sym",
+    "zkey": "<repo>\\circuits\\build\\v4\\mutants\\G15_epoch_window\\mutant_throwaway.zkey",
+    "wasm": "<repo>\\circuits\\build\\v4\\mutants\\G15_epoch_window\\credential_auth_v4_js\\credential_auth_v4.wasm",
+    "vkeyFile": "<repo>\\circuits\\build\\v4\\mutants\\G15_epoch_window\\mutant_throwaway_vkey.json",
+    "src": "<repo>\\circuits\\build\\v4\\mutants\\G15_epoch_window\\credential_auth_v4.circom",
+    "attackerDir": "<repo>\\circuits\\build\\v4\\mutants\\G15_epoch_window\\attacker",
+    "keyLabel": "mutant-throwaway"
+  }
+}

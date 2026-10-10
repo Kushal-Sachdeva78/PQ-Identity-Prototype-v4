@@ -1,0 +1,957 @@
+{
+  "schema": "pqid/v4-e4-besu/v1",
+  "experiment": "E4",
+  "subcommand": "besu",
+  "dry": false,
+  "label": "[M] measured unless a field says [S] or [A]",
+  "options": {
+    "sub": "besu",
+    "dry": false,
+    "n": null,
+    "k": 1000,
+    "epochs": null,
+    "issueK": null,
+    "build": "auto",
+    "heapMiB": 8192,
+    "p": null,
+    "passes": null,
+    "warmup": null,
+    "holders": null,
+    "r": null,
+    "w": null,
+    "port": null,
+    "besuRpc": "http://127.0.0.1:18545",
+    "noPin": false,
+    "gwei": [],
+    "seed": "pqid-e4-v1"
+  },
+  "startedUtc": "2026-09-27T22:14:30.650Z",
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-27T22:14:30.684Z"
+  },
+  "hostState": {
+    "freeMemGiB": 5.4,
+    "uptimeSec": 202201
+  },
+  "runtime": {
+    "node": "v24.18.0",
+    "openssl": "3.5.7",
+    "v8": "13.6.233.17-node.50",
+    "pqc": "OpenSSL 3.5.7 via Node 24.18.0",
+    "execArgv": [
+      "--import",
+      "tsx"
+    ],
+    "gcExposed": false,
+    "heapSizeLimitMiB": 4288
+  },
+  "timer": "process.hrtime.bigint() (monotonic, ns), reported in ms",
+  "harnessSha256": {
+    "harness/v4/scale.ts": "98fb6ea96fe8d7fff1dc965e08718d96df887a1cc0cef17849e69206dc3ae9ec",
+    "harness/v4/scale_lib.ts": "5cb16cea4abd3fec6fc08cf55a33ff4741b21ed957c89ada05cab1f402d4ee89",
+    "harness/v4/bulk_issuance_tree.ts": "8827870b92b4d6115def3c7ac01d567db163884531a155a2ad4019a2821b30ae",
+    "scripts/besu/setup_qbft.sh": "01d3a6f7a5ab2221aac128c4abd87e88e8484356c7a7154b9880eee15f17eb9c"
+  },
+  "sourceSha256": {
+    "onchain/contracts/v4/RegistriesV4.sol": "b1a10712f5022f72ea0e00e0cc23c9386ebe7d86bd14b03745a77982a2280782",
+    "packages/v4/src/clock.ts": "9619b194d4f36a9dc1d738103b60fe7c7ae745f650f8b6868f571babd6dc01d9",
+    "packages/v4/src/constants.ts": "bcaca98edc6ae0f8ea06a4f089a10a337fa2449e2a269fa20f756a7e02f1de5a",
+    "packages/v4/src/dates.ts": "8c00a1e6d8eb72597283550dfdce4d0c2a4e66d7b84c8c4ecd96b86471b5033c",
+    "packages/v4/src/encoding.ts": "2c3a33ac637a7f4de2971913272b793e926ba577ca46207382a15ca8e608b93f",
+    "packages/v4/src/governance.ts": "cc2b113d1af69f81699643ee90f2abfa0dc4abd97f52e27248ed3ac0919d6d79",
+    "packages/v4/src/imt.ts": "a40447fcc48ed4d82c41e6008b12ce73adccd0bc02abe37b0f96761484fe6d5c",
+    "packages/v4/src/issuer.ts": "c86c410dd3ec07797e87251663d822ee24b2710e1489fae50a00436e8369fbcb",
+    "packages/v4/src/ledger.ts": "c0db178b8b02772d3a8c9bce14ba9853043b5d38930057bf6f754bb6fbae0bac",
+    "packages/v4/src/paths.ts": "31bfc967c84c1cf7991886f06ff25f19234f21012c6ae6b81db7746325668edd",
+    "packages/v4/src/pqc.ts": "2a70a18277d512f24ca18ee35488ae41954209221fb673ad994487b6c4918524",
+    "packages/v4/src/prove.ts": "5e192bd4e70156eabf0b5c2b6a20543436d73e4aed189d8f5f80a3828b131bd0",
+    "packages/v4/src/published.ts": "f5ecfc1eac56f39e80e84353632cf3011012c6ef5901ad597c20c15da63aedcd",
+    "packages/v4/src/session.ts": "d772cc59a9161636e0d05faabd8ae34487911147ae462d24a7c37955d7c5fc80",
+    "packages/v4/src/statements.ts": "1b660aab3614736d5a4c9ca3a071d72334c47946be7f7fc206d9f64dfb88ab64",
+    "packages/v4/src/verifier.ts": "bb73ce73e6df049df3aaa65324ee8ad68c83e29cc583e29d8567992cfccc170f",
+    "packages/v4/src/wallet.ts": "e5aa0cffb60dc5b3ba2465f8ab7d100ebbe9810e2f1c9bfeb44c229ded8a725d",
+    "packages/v4/src/witness.ts": "52f85969a9021ed808736ddbfcfc84a1795e61f08cdfbc30b5acc2c01294ceba",
+    "packages/v4/src/world.ts": "0984232a3bc4038a7a49f04e1853f43b09ed1eb45387332c569567d7bfa65eb6",
+    "packages/issuer/src/issuance.ts": "7efb35a3e870d97cdaa10b077a9509303a4f379159a455f8dcb51389866d2d69",
+    "setup/out/v4/verification_key_dev.json": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42"
+  },
+  "keyLabel": "dev",
+  "finishedUtc": "2026-09-27T22:18:23.726Z",
+  "networks": {
+    "anvil": {
+      "client": "anvil/v1.5.1",
+      "chainId": 31337,
+      "consensus": "none (single dev node, automine: one block per transaction)",
+      "finality": "[A] immediate by construction (single node, no forks)",
+      "evm": {
+        "anvilHardFork": "Prague",
+        "ethConfigCurrent": {
+          "forkId": "0x00000000",
+          "activationTime": 0,
+          "blobSchedule": {
+            "baseFeeUpdateFraction": 5007716,
+            "max": 9,
+            "target": 6
+          }
+        }
+      }
+    },
+    "besu": {
+      "client": "besu/v26.9.0/windows-x86_64/openjdk-java-25",
+      "chainId": 1337,
+      "consensus": "QBFT, 4 validators, blockperiodseconds 2, all on 127.0.0.1 (scripts/besu/setup_qbft.sh)",
+      "evm": {
+        "ethConfigCurrent": {
+          "forkId": "0x13894a42",
+          "activationTime": 0,
+          "blobSchedule": {
+            "baseFeeUpdateFraction": 0,
+            "max": 6,
+            "target": 3
+          }
+        },
+        "genesisConfig": {
+          "chainId": 1337,
+          "berlinBlock": 0,
+          "londonBlock": 0,
+          "shanghaiTime": 0,
+          "cancunTime": 0,
+          "zeroBaseFee": true,
+          "qbft": {
+            "blockperiodseconds": 2,
+            "epochlength": 30000,
+            "requesttimeoutseconds": 4
+          }
+        }
+      },
+      "validators": [
+        "0x808d94177739dad0410533ec9bc3cb2befb4e34c",
+        "0x8e746004f04b2edac81bc1c1740ef3adac4b64f3",
+        "0xcc230be79e4cd03470d069e628b8ac6123ed6941",
+        "0xcf9cb53b8263793f69b3662ec114b786fef818bb"
+      ],
+      "node1PeerCount": 3,
+      "blockIntervalSec": {
+        "n": 60,
+        "median": 2,
+        "q1": 2,
+        "q3": 2,
+        "iqr": 0,
+        "mean": 2,
+        "min": 2,
+        "max": 2,
+        "p95": 2
+      },
+      "blockIntervalWindow": {
+        "fromBlock": 60,
+        "toBlock": 120
+      },
+      "finality": "[A] QBFT gives immediate finality: a committed block is final and is never reorganised (Besu QBFT docs); [M] check below: the block hash of every write block re-read later",
+      "finalityCheck": {
+        "writeBlocks": 20,
+        "unchangedHashes": 20,
+        "latestBlockAtReread": 120
+      }
+    }
+  },
+  "method": {
+    "reads": "R rounds; in each round, for each target and client variant, the six LedgerV4 reads a verifier or wallet makes, timed one by one (2 unrecorded warm-up rounds)",
+    "clientVariants": {
+      "asShipped": "LedgerV4 from worldOnRpc (ethers JsonRpcProvider, default batchStallTime 10 ms)",
+      "noBatchStall": "LedgerV4.connect to the same registries with the provider's batchStallTime set to 0 by the harness"
+    },
+    "raw": "direct JSON-RPC over fetch (no ethers): eth_blockNumber and eth_call of DIDRegistryV4.resolve",
+    "writes": "submit to receipt: LedgerV4.publishKemKey with a fixed gas limit (no estimation) and LedgerV4.fund (a value transfer); ethers polls receipts every 100 ms (ledger.ts makeProvider)"
+  },
+  "rpcRequestsPerCall": {
+    "anvil": {
+      "resolveDidRecord": {
+        "requests": 2,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 1
+        }
+      },
+      "getPopSignature": {
+        "requests": 4,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 2,
+          "eth_getLogs": 1
+        }
+      },
+      "latestAccreditation": {
+        "requests": 4,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 2,
+          "eth_getLogs": 1
+        }
+      },
+      "currentEpoch": {
+        "requests": 2,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 1
+        }
+      },
+      "latestKemKey": {
+        "requests": 4,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 2,
+          "eth_getLogs": 1
+        }
+      },
+      "getMinAnchorInterval": {
+        "requests": 2,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 1
+        }
+      }
+    },
+    "besu-qbft-4": {
+      "resolveDidRecord": {
+        "requests": 2,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 1
+        }
+      },
+      "getPopSignature": {
+        "requests": 4,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 2,
+          "eth_getLogs": 1
+        }
+      },
+      "latestAccreditation": {
+        "requests": 4,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 2,
+          "eth_getLogs": 1
+        }
+      },
+      "currentEpoch": {
+        "requests": 2,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 1
+        }
+      },
+      "latestKemKey": {
+        "requests": 4,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 2,
+          "eth_getLogs": 1
+        }
+      },
+      "getMinAnchorInterval": {
+        "requests": 2,
+        "byMethod": {
+          "eth_call": 1,
+          "eth_chainId": 1
+        }
+      }
+    }
+  },
+  "reads": {
+    "anvil": {
+      "asShipped": {
+        "resolveDidRecord": {
+          "n": 200,
+          "median": 14.2701,
+          "q1": 13.6838,
+          "q3": 14.8651,
+          "iqr": 1.1813,
+          "mean": 14.7031,
+          "min": 11.4944,
+          "max": 27.3826,
+          "p95": 18.8086
+        },
+        "getPopSignature": {
+          "n": 200,
+          "median": 31.2182,
+          "q1": 30.6925,
+          "q3": 31.5894,
+          "iqr": 0.8969,
+          "mean": 31.1915,
+          "min": 29.1198,
+          "max": 33.4994,
+          "p95": 32.2352
+        },
+        "latestAccreditation": {
+          "n": 200,
+          "median": 31.1695,
+          "q1": 30.5748,
+          "q3": 31.6661,
+          "iqr": 1.0913,
+          "mean": 31.152,
+          "min": 29.052,
+          "max": 33.533,
+          "p95": 32.2619
+        },
+        "currentEpoch": {
+          "n": 200,
+          "median": 15.1113,
+          "q1": 14.6839,
+          "q3": 15.4699,
+          "iqr": 0.786,
+          "mean": 15.0909,
+          "min": 12.9486,
+          "max": 18.3115,
+          "p95": 16.1747
+        },
+        "latestKemKey": {
+          "n": 200,
+          "median": 31.7977,
+          "q1": 31.3091,
+          "q3": 32.3979,
+          "iqr": 1.0888,
+          "mean": 31.8254,
+          "min": 27.3987,
+          "max": 34.1683,
+          "p95": 33.1584
+        },
+        "getMinAnchorInterval": {
+          "n": 200,
+          "median": 14.6098,
+          "q1": 14.1894,
+          "q3": 14.9978,
+          "iqr": 0.8084,
+          "mean": 14.6223,
+          "min": 12.5629,
+          "max": 16.8347,
+          "p95": 15.6596
+        }
+      },
+      "noBatchStall": {
+        "resolveDidRecord": {
+          "n": 200,
+          "median": 16.0256,
+          "q1": 15.5781,
+          "q3": 16.327,
+          "iqr": 0.7489,
+          "mean": 15.5603,
+          "min": 1.0043,
+          "max": 18.3012,
+          "p95": 16.9609
+        },
+        "getPopSignature": {
+          "n": 200,
+          "median": 31.1059,
+          "q1": 30.6209,
+          "q3": 31.5281,
+          "iqr": 0.9073,
+          "mean": 29.4964,
+          "min": 5.9217,
+          "max": 32.9833,
+          "p95": 32.5177
+        },
+        "latestAccreditation": {
+          "n": 200,
+          "median": 31.0457,
+          "q1": 30.3362,
+          "q3": 31.5577,
+          "iqr": 1.2215,
+          "mean": 29.6316,
+          "min": 2.2441,
+          "max": 35.7396,
+          "p95": 32.343
+        },
+        "currentEpoch": {
+          "n": 200,
+          "median": 14.946,
+          "q1": 14.4973,
+          "q3": 15.2486,
+          "iqr": 0.7512,
+          "mean": 14.3924,
+          "min": 1.4335,
+          "max": 16.744,
+          "p95": 15.7842
+        },
+        "latestKemKey": {
+          "n": 200,
+          "median": 31.8526,
+          "q1": 31.2313,
+          "q3": 32.3273,
+          "iqr": 1.0961,
+          "mean": 30.8419,
+          "min": 7.7196,
+          "max": 33.7874,
+          "p95": 33.1193
+        },
+        "getMinAnchorInterval": {
+          "n": 200,
+          "median": 14.4843,
+          "q1": 14.103,
+          "q3": 14.8994,
+          "iqr": 0.7964,
+          "mean": 13.7735,
+          "min": 0.6719,
+          "max": 16.021,
+          "p95": 15.4681
+        }
+      }
+    },
+    "besu-qbft-4": {
+      "asShipped": {
+        "resolveDidRecord": {
+          "n": 200,
+          "median": 17.4516,
+          "q1": 16.8939,
+          "q3": 18.004,
+          "iqr": 1.1101,
+          "mean": 17.4909,
+          "min": 13.6834,
+          "max": 26.4438,
+          "p95": 18.9049
+        },
+        "getPopSignature": {
+          "n": 200,
+          "median": 31.6101,
+          "q1": 30.8599,
+          "q3": 33.1464,
+          "iqr": 2.2864,
+          "mean": 33.4392,
+          "min": 28.2808,
+          "max": 60.2922,
+          "p95": 41.0094
+        },
+        "latestAccreditation": {
+          "n": 200,
+          "median": 31.5837,
+          "q1": 30.8873,
+          "q3": 32.9005,
+          "iqr": 2.0132,
+          "mean": 33.0214,
+          "min": 28.9298,
+          "max": 51.7676,
+          "p95": 39.6095
+        },
+        "currentEpoch": {
+          "n": 200,
+          "median": 14.7441,
+          "q1": 14.2077,
+          "q3": 15.3099,
+          "iqr": 1.1022,
+          "mean": 15.3026,
+          "min": 12.1066,
+          "max": 30.5029,
+          "p95": 20.6394
+        },
+        "latestKemKey": {
+          "n": 200,
+          "median": 32.264,
+          "q1": 31.7456,
+          "q3": 32.8251,
+          "iqr": 1.0795,
+          "mean": 32.689,
+          "min": 29.6661,
+          "max": 70.2045,
+          "p95": 34.2434
+        },
+        "getMinAnchorInterval": {
+          "n": 200,
+          "median": 14.1818,
+          "q1": 13.617,
+          "q3": 14.798,
+          "iqr": 1.181,
+          "mean": 14.4875,
+          "min": 11.4129,
+          "max": 29.6602,
+          "p95": 15.9642
+        }
+      },
+      "noBatchStall": {
+        "resolveDidRecord": {
+          "n": 200,
+          "median": 16.2326,
+          "q1": 15.7249,
+          "q3": 16.7176,
+          "iqr": 0.9926,
+          "mean": 15.6897,
+          "min": 1.9195,
+          "max": 19.5466,
+          "p95": 17.2679
+        },
+        "getPopSignature": {
+          "n": 200,
+          "median": 31.1717,
+          "q1": 30.4566,
+          "q3": 31.8957,
+          "iqr": 1.439,
+          "mean": 30.4302,
+          "min": 8.0828,
+          "max": 40.3051,
+          "p95": 33.165
+        },
+        "latestAccreditation": {
+          "n": 200,
+          "median": 30.9888,
+          "q1": 30.2922,
+          "q3": 31.7488,
+          "iqr": 1.4566,
+          "mean": 30.0956,
+          "min": 6.7632,
+          "max": 40.125,
+          "p95": 32.796
+        },
+        "currentEpoch": {
+          "n": 200,
+          "median": 14.5938,
+          "q1": 13.9896,
+          "q3": 15.065,
+          "iqr": 1.0755,
+          "mean": 13.7855,
+          "min": 1.5503,
+          "max": 17.4452,
+          "p95": 15.8226
+        },
+        "latestKemKey": {
+          "n": 200,
+          "median": 32.259,
+          "q1": 31.3314,
+          "q3": 32.8894,
+          "iqr": 1.558,
+          "mean": 31.1975,
+          "min": 7.5917,
+          "max": 40.9312,
+          "p95": 34.3627
+        },
+        "getMinAnchorInterval": {
+          "n": 200,
+          "median": 14.0227,
+          "q1": 13.2256,
+          "q3": 14.5311,
+          "iqr": 1.3055,
+          "mean": 12.8963,
+          "min": 1.6627,
+          "max": 16.8172,
+          "p95": 15.4649
+        }
+      }
+    }
+  },
+  "rawRpc": {
+    "anvil": {
+      "eth_blockNumber": {
+        "n": 200,
+        "median": 15.2128,
+        "q1": 14.7732,
+        "q3": 15.6596,
+        "iqr": 0.8864,
+        "mean": 14.5591,
+        "min": 0.6863,
+        "max": 17.0575,
+        "p95": 16.2825
+      },
+      "eth_call_resolve": {
+        "n": 200,
+        "median": 15.6453,
+        "q1": 15.1318,
+        "q3": 16.0216,
+        "iqr": 0.8899,
+        "mean": 14.5249,
+        "min": 0.645,
+        "max": 17.5216,
+        "p95": 16.4941
+      }
+    },
+    "besu-qbft-4": {
+      "eth_blockNumber": {
+        "n": 200,
+        "median": 15.2372,
+        "q1": 14.6872,
+        "q3": 15.7424,
+        "iqr": 1.0553,
+        "mean": 14.5662,
+        "min": 1.9818,
+        "max": 17.1152,
+        "p95": 16.4267
+      },
+      "eth_call_resolve": {
+        "n": 200,
+        "median": 16.148,
+        "q1": 15.4212,
+        "q3": 16.7857,
+        "iqr": 1.3645,
+        "mean": 14.5884,
+        "min": 1.9284,
+        "max": 18.4832,
+        "p95": 17.5937
+      }
+    }
+  },
+  "writeLatency": {
+    "anvil": {
+      "publishKemKeySubmitToReceiptMs": {
+        "n": 20,
+        "median": 137.791,
+        "q1": 124.7309,
+        "q3": 139.2808,
+        "iqr": 14.5499,
+        "mean": 134.1783,
+        "min": 122.2477,
+        "max": 140.6611,
+        "p95": 140.1356
+      },
+      "valueTransferSubmitToReceiptMs": {
+        "n": 20,
+        "median": 139.8466,
+        "q1": 139.4317,
+        "q3": 140.3253,
+        "iqr": 0.8936,
+        "mean": 139.8837,
+        "min": 138.1195,
+        "max": 141.7482,
+        "p95": 141.6023
+      },
+      "publishKemKeyGas": {
+        "n": 20,
+        "median": 184065,
+        "q1": 183900,
+        "q3": 184155,
+        "iqr": 255,
+        "mean": 184050,
+        "min": 183660,
+        "max": 184530,
+        "p95": 184416
+      },
+      "publishKemKeyCalldata": {
+        "calldataBytes": 4356,
+        "zeroBytes": 386,
+        "nonZeroBytes": 3970,
+        "calldataGasPrePrague": 65064,
+        "eip7623FloorGas": 183660,
+        "floorBinds": true
+      }
+    },
+    "besu-qbft-4": {
+      "publishKemKeySubmitToReceiptMs": {
+        "n": 20,
+        "median": 1678.0127,
+        "q1": 1676.0689,
+        "q3": 1682.2479,
+        "iqr": 6.1791,
+        "mean": 1698.3234,
+        "min": 1672.0328,
+        "max": 1934.8158,
+        "p95": 1828.9537
+      },
+      "valueTransferSubmitToReceiptMs": {
+        "n": 20,
+        "median": 1980.2735,
+        "q1": 1975.937,
+        "q3": 1990.8715,
+        "iqr": 14.9344,
+        "mean": 2003.644,
+        "min": 1969.962,
+        "max": 2100.4252,
+        "p95": 2097.8195
+      },
+      "publishKemKeyGas": {
+        "n": 20,
+        "median": 149659,
+        "q1": 149626,
+        "q3": 149749,
+        "iqr": 123,
+        "mean": 149690.2,
+        "min": 149521,
+        "max": 149929,
+        "p95": 149860.6
+      },
+      "publishKemKeyCalldata": {
+        "calldataBytes": 4356,
+        "zeroBytes": 366,
+        "nonZeroBytes": 3990,
+        "calldataGasPrePrague": 65304,
+        "eip7623FloorGas": 184260,
+        "floorBinds": false
+      }
+    }
+  },
+  "setupWriteGas": {
+    "anvil": {
+      "deploy": {
+        "DIDRegistryV4": 730693,
+        "AccreditationRegistryV4": 509843,
+        "IssuanceRootRegistryV4": 545846,
+        "VerifierKemRegistryV4": 518452
+      },
+      "writes": [
+        {
+          "method": "DIDRegistryV4.registerDID",
+          "gasUsed": 1110246,
+          "msIncludingEstimate": 171.2316
+        },
+        {
+          "method": "AccreditationRegistryV4.publish",
+          "gasUsed": 164310,
+          "msIncludingEstimate": 141.9824
+        },
+        {
+          "method": "IssuanceRootRegistryV4.publishEpoch",
+          "gasUsed": 145243,
+          "msIncludingEstimate": 138.5922
+        },
+        {
+          "method": "DIDRegistryV4.registerDID",
+          "gasUsed": 1175290,
+          "msIncludingEstimate": 184.8807
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 220937,
+          "msIncludingEstimate": 154.3311
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 183660,
+          "msIncludingEstimate": 137.085
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 183930,
+          "msIncludingEstimate": 124.0671
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184410,
+          "msIncludingEstimate": 140.6331
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184140,
+          "msIncludingEstimate": 139.2251
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184200,
+          "msIncludingEstimate": 140.0832
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184080,
+          "msIncludingEstimate": 124.786
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 183780,
+          "msIncludingEstimate": 137.9214
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 183810,
+          "msIncludingEstimate": 136.9043
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 183960,
+          "msIncludingEstimate": 139.4546
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 183900,
+          "msIncludingEstimate": 138.1202
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 183840,
+          "msIncludingEstimate": 140.0862
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184080,
+          "msIncludingEstimate": 137.6548
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184290,
+          "msIncludingEstimate": 138.3759
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184020,
+          "msIncludingEstimate": 122.216
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184200,
+          "msIncludingEstimate": 124.2397
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184050,
+          "msIncludingEstimate": 123.6891
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184080,
+          "msIncludingEstimate": 124.4603
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184140,
+          "msIncludingEstimate": 139.3348
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 184530,
+          "msIncludingEstimate": 137.8864
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 183900,
+          "msIncludingEstimate": 136.7639
+        }
+      ]
+    },
+    "besu-qbft-4": {
+      "deploy": {
+        "DIDRegistryV4": 730693,
+        "AccreditationRegistryV4": 509843,
+        "IssuanceRootRegistryV4": 545846,
+        "VerifierKemRegistryV4": 518452
+      },
+      "writes": [
+        {
+          "method": "DIDRegistryV4.registerDID",
+          "gasUsed": 1110210,
+          "msIncludingEstimate": 1975.2405
+        },
+        {
+          "method": "AccreditationRegistryV4.publish",
+          "gasUsed": 164406,
+          "msIncludingEstimate": 1866.1842
+        },
+        {
+          "method": "IssuanceRootRegistryV4.publishEpoch",
+          "gasUsed": 145243,
+          "msIncludingEstimate": 1944.8664
+        },
+        {
+          "method": "DIDRegistryV4.registerDID",
+          "gasUsed": 1175182,
+          "msIncludingEstimate": 1994.5761
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 220757,
+          "msIncludingEstimate": 1976.4192
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149809,
+          "msIncludingEstimate": 1934.7874
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149617,
+          "msIncludingEstimate": 1684.6144
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149689,
+          "msIncludingEstimate": 1675.874
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149797,
+          "msIncludingEstimate": 1677.6503
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149857,
+          "msIncludingEstimate": 1674.1434
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149641,
+          "msIncludingEstimate": 1823.3617
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149749,
+          "msIncludingEstimate": 1674.9469
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149617,
+          "msIncludingEstimate": 1681.9819
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149629,
+          "msIncludingEstimate": 1674.7672
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149665,
+          "msIncludingEstimate": 1677.8853
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149629,
+          "msIncludingEstimate": 1680.6751
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149725,
+          "msIncludingEstimate": 1676.1018
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149653,
+          "msIncludingEstimate": 1678.165
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149605,
+          "msIncludingEstimate": 1679.3949
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149677,
+          "msIncludingEstimate": 1678.0971
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149521,
+          "msIncludingEstimate": 1684.3599
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149641,
+          "msIncludingEstimate": 1677.434
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149929,
+          "msIncludingEstimate": 1671.9898
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149605,
+          "msIncludingEstimate": 1682.9372
+        },
+        {
+          "method": "VerifierKemRegistryV4.publishKemKey",
+          "gasUsed": 149749,
+          "msIncludingEstimate": 1676.6942
+        }
+      ]
+    }
+  }
+}

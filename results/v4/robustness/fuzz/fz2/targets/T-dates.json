@@ -1,0 +1,57 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-dates",
+  "title": "date encoding and age arithmetic",
+  "entryPoints": [
+    "isValidYmd",
+    "utcDateOf",
+    "unixOfUtcDate",
+    "addDays",
+    "acceptableTodays",
+    "predicateHolds",
+    "ageOn"
+  ],
+  "property": "isValidYmd equals an integer civil-calendar reference (D-010 range); utcDateOf, unixOfUtcDate and addDays equal the reference; unixOfUtcDate and addDays throw Error exactly on invalid dates; acceptableTodays holds exactly the UTC dates of now and now - skew, sorted, never a date after today; predicateHolds equals calendar age with the 29 February rule (anniversary on 1 March in common years), ageOn equals completed years",
+  "documentedErrors": [
+    "Error"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 2644972207,
+  "budget": 200000,
+  "casesRun": 200000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "predicate/holds": 25259,
+    "isValidYmd/invalid": 19881,
+    "acceptableTodays/one-date": 19858,
+    "utcDateOf/ok": 28663,
+    "addDays/ok": 25837,
+    "isValidYmd/valid": 23205,
+    "predicate/fails": 25500,
+    "predicate/holds-feb29": 3241,
+    "unixOfUtcDate/ok": 11281,
+    "acceptableTodays/two-dates": 8452,
+    "addDays/invalid-date": 2776,
+    "predicate/fails-feb29": 3136,
+    "unixOfUtcDate/invalid-date": 2911
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0002,
+    "p99": 0.0133,
+    "max": 0.2696
+  },
+  "startedUtc": "2026-10-03T16:02:03.976Z",
+  "finishedUtc": "2026-10-03T16:02:05.191Z"
+}

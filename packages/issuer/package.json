@@ -1,0 +1,13 @@
+{
+  "name": "@pqid/issuer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@pqid/common": "1.0.0",
+    "@pqid/pqc": "1.0.0"
+  }
+}

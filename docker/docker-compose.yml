@@ -1,0 +1,47 @@
+# Brings up the reproducible measurement environment on a clean host:
+#   - liboqs/rapidsnark build images (PQC + native Groth16 prover)
+#   - a local single-node EVM (Anvil) hosting the registries
+#   - PostgreSQL for the centralized baseline (Table VI)
+#
+#   docker compose -f docker/docker-compose.yml up --build
+services:
+  liboqs:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.liboqs
+    image: pqid/liboqs:0.15.0
+    volumes:
+      - ..:/work
+    working_dir: /work
+    command: ["bash", "-lc", "OQS_INSTALL_PATH=/opt/liboqs-generic python3 packages/pqc/bench_pqc.py --n 1000 > results/pqc.docker.json; tail -1 results/pqc.docker.json"]
+
+  rapidsnark:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.native
+    image: pqid/rapidsnark:0.0.8
+    volumes:
+      - ..:/work
+    working_dir: /work
+    command: ["bash", "-lc", "/opt/rapidsnark/bin/prover --help || true; echo rapidsnark image ready"]
+
+  anvil:
+    image: ghcr.io/foundry-rs/foundry:stable
+    entrypoint: ["anvil"]
+    command: ["--host", "0.0.0.0", "--port", "8545"]
+    ports:
+      - "8545:8545"
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: pqid
+      POSTGRES_PASSWORD: pqid
+      POSTGRES_DB: pqid_baseline
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pqid -d pqid_baseline"]
+      interval: 5s
+      timeout: 5s
+      retries: 10

@@ -1,0 +1,41 @@
+{
+  "schema": "pqid/v4-fuzz-target/v1",
+  "target": "T-depth",
+  "title": "JSON nesting bound",
+  "entryPoints": [
+    "jsonDepthExceeds"
+  ],
+  "property": "jsonDepthExceeds(v, max) equals (reference depth of v, computed in full with an explicit stack) > max for random trees and chains up to depth 1,000, and never throws on chains of depth 10^5 and 10^6 (iterative implementation)",
+  "documentedErrors": [],
+  "masterSeed": 20261022,
+  "targetSeed": 3429943256,
+  "budget": 20000,
+  "casesRun": 20000,
+  "complete": true,
+  "stoppedBy": null,
+  "outcomes": {
+    "tree/within": 7544,
+    "chain/exceeds": 5654,
+    "tree/exceeds": 2376,
+    "chain/within": 1871,
+    "huge-chain/exceeds": 1906,
+    "huge-chain/within": 649
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0004,
+    "p99": 102.940137,
+    "max": 131.6101
+  },
+  "startedUtc": "2026-10-03T09:14:56.114Z",
+  "finishedUtc": "2026-10-03T09:16:12.305Z"
+}

@@ -1,0 +1,420 @@
+{
+  "schema": "pqid/v4-baselines-measure/v1",
+  "smoke": false,
+  "power": "AC",
+  "pqc": {
+    "implementation": "OpenSSL 3.5.7 via Node 24.18.0",
+    "mlDsa44": {
+      "keygen": {
+        "n": 1000,
+        "medianMs": 0.0933,
+        "q1Ms": 0.0892,
+        "q3Ms": 0.1034,
+        "iqrMs": 0.0142,
+        "minMs": 0.081,
+        "maxMs": 0.4029
+      },
+      "sign": {
+        "n": 1000,
+        "medianMs": 0.2781,
+        "q1Ms": 0.1909,
+        "q3Ms": 0.4464,
+        "iqrMs": 0.2555,
+        "minMs": 0.1267,
+        "maxMs": 1.823
+      },
+      "verify": {
+        "n": 1000,
+        "medianMs": 0.1125,
+        "q1Ms": 0.1003,
+        "q3Ms": 0.1207,
+        "iqrMs": 0.0204,
+        "minMs": 0.0905,
+        "maxMs": 0.6058
+      }
+    },
+    "mlKem768": {
+      "keygen": {
+        "n": 1000,
+        "medianMs": 0.0528,
+        "q1Ms": 0.0499,
+        "q3Ms": 0.0755,
+        "iqrMs": 0.0256,
+        "minMs": 0.0461,
+        "maxMs": 0.504
+      },
+      "encaps": {
+        "n": 1000,
+        "medianMs": 0.0668,
+        "q1Ms": 0.0627,
+        "q3Ms": 0.0737,
+        "iqrMs": 0.011,
+        "minMs": 0.0553,
+        "maxMs": 11.3425
+      },
+      "decaps": {
+        "n": 1000,
+        "medianMs": 0.0243,
+        "q1Ms": 0.0237,
+        "q3Ms": 0.0359,
+        "iqrMs": 0.0122,
+        "minMs": 0.022,
+        "maxMs": 0.2445
+      }
+    },
+    "es256": {
+      "sign": {
+        "n": 1000,
+        "medianMs": 0.0209,
+        "q1Ms": 0.0204,
+        "q3Ms": 0.0235,
+        "iqrMs": 0.0031,
+        "minMs": 0.0189,
+        "maxMs": 0.272
+      },
+      "verify": {
+        "n": 1000,
+        "medianMs": 0.0482,
+        "q1Ms": 0.0463,
+        "q3Ms": 0.0503,
+        "iqrMs": 0.004,
+        "minMs": 0.0449,
+        "maxMs": 0.2266
+      }
+    },
+    "label": "[M] in-process, warm, OpenSSL via Node"
+  },
+  "sdjwtMlDsa": {
+    "alg": "ML-DSA-44",
+    "issue": {
+      "n": 200,
+      "medianMs": 0.3657,
+      "q1Ms": 0.2377,
+      "q3Ms": 0.526,
+      "iqrMs": 0.2884,
+      "minMs": 0.1606,
+      "maxMs": 5.5903
+    },
+    "present": {
+      "n": 200,
+      "medianMs": 0.387,
+      "q1Ms": 0.2492,
+      "q3Ms": 0.5681,
+      "iqrMs": 0.319,
+      "minMs": 0.1633,
+      "maxMs": 1.3848
+    },
+    "verify": {
+      "n": 200,
+      "medianMs": 0.2161,
+      "q1Ms": 0.2055,
+      "q3Ms": 0.2366,
+      "iqrMs": 0.0311,
+      "minMs": 0.1963,
+      "maxMs": 3.4373
+    },
+    "sizes": {
+      "credential": {
+        "totalBytes": 6736,
+        "issuerJwt": {
+          "totalBytes": 6306,
+          "headerB64Bytes": 50,
+          "payloadB64Bytes": 3027,
+          "signatureB64Bytes": 3227,
+          "signatureRawBytes": 2420,
+          "payloadJsonBytes": 2270,
+          "cnfJwkJsonBytes": 1790,
+          "sdDigestCount": 7
+        },
+        "disclosures": {
+          "count": 7,
+          "bytes": 422,
+          "each": [
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            62
+          ]
+        },
+        "separatorBytes": 8,
+        "kbJwt": null
+      },
+      "presentation": {
+        "totalBytes": 9803,
+        "issuerJwt": {
+          "totalBytes": 6306,
+          "headerB64Bytes": 50,
+          "payloadB64Bytes": 3027,
+          "signatureB64Bytes": 3227,
+          "signatureRawBytes": 2420,
+          "payloadJsonBytes": 2270,
+          "cnfJwkJsonBytes": 1790,
+          "sdDigestCount": 7
+        },
+        "disclosures": {
+          "count": 1,
+          "bytes": 60,
+          "each": [
+            60
+          ]
+        },
+        "separatorBytes": 2,
+        "kbJwt": {
+          "totalBytes": 3435,
+          "signatureRawBytes": 2420,
+          "payloadJsonBytes": 120
+        }
+      }
+    },
+    "linkability": {
+      "sharedHandlesBetweenTwoPresentationsOfOneCredential": [
+        "jwt:axqvseXbuUPLbRpKam3qN0NOKNsF77vI7CMvu4TUjLY",
+        "sig:GXb8gUwIyrBrTGcwNJrFDcvyxMTbK6aYc316r8UyoGo",
+        "digest:86NJOkjar0J9DysiLnpvLehxBtkzYnX7WaaO84_N9rs",
+        "digest:NiOLSc4k_87NLEoe1rIByutPRpWogeo2f5jA6ffJoGY",
+        "digest:Q_Pp76IUGTVB5-bglfctfmfnHfoBXmOZPsOBo8B37rY",
+        "digest:S6E3EhMvIRW5IQzyszuLq3W_-R90yA1mDrCJZ0UmW6w",
+        "digest:SbJ-vnkJtg1hubOvzsZsaDw_aob-yvovZ-OwPYYx0xs",
+        "digest:ZMsX5VBVWM6DFuV4gfBc4FZZj7UdjsyhsWPMoufk1xk",
+        "digest:sLHg0y9-rYV2KJlOsI3P47bTNjxRLIz2zDwlIkk_LvE",
+        "cnf:E1THVC_R7Xcjvv9Gu09DGOOfNIO41KV7KE-_BtWN4_E",
+        "salt:O24QUino2gmz5xu6Jm1-5A"
+      ],
+      "note": "values a colluding pair of verifiers can match; empty means unlinkable at the credential layer"
+    },
+    "batches": [
+      {
+        "n": 1,
+        "issuerToHolderBytes": 6736,
+        "holderToIssuerJwkBytes": 1790,
+        "holderToIssuerKeyProofBytes": null,
+        "meanSdJwtBytes": 6736,
+        "issueBatchMs": 0.43,
+        "holderKeygenIncluded": true,
+        "sharedHandlesBetweenTwoBatchPresentations": null
+      },
+      {
+        "n": 10,
+        "issuerToHolderBytes": 67360,
+        "holderToIssuerJwkBytes": 17900,
+        "holderToIssuerKeyProofBytes": null,
+        "meanSdJwtBytes": 6736,
+        "issueBatchMs": 5.28,
+        "holderKeygenIncluded": true,
+        "sharedHandlesBetweenTwoBatchPresentations": 0
+      },
+      {
+        "n": 30,
+        "issuerToHolderBytes": 202080,
+        "holderToIssuerJwkBytes": 53700,
+        "holderToIssuerKeyProofBytes": null,
+        "meanSdJwtBytes": 6736,
+        "issueBatchMs": 15.87,
+        "holderKeygenIncluded": true,
+        "sharedHandlesBetweenTwoBatchPresentations": 0
+      },
+      {
+        "n": 100,
+        "issuerToHolderBytes": 673600,
+        "holderToIssuerJwkBytes": 179000,
+        "holderToIssuerKeyProofBytes": null,
+        "meanSdJwtBytes": 6736,
+        "issueBatchMs": 59.62,
+        "holderKeygenIncluded": true,
+        "sharedHandlesBetweenTwoBatchPresentations": 0
+      }
+    ],
+    "label": "[M] in-process, warm"
+  },
+  "sdjwtEs256": {
+    "alg": "ES256",
+    "issue": {
+      "n": 200,
+      "medianMs": 0.0683,
+      "q1Ms": 0.0654,
+      "q3Ms": 0.0755,
+      "iqrMs": 0.0101,
+      "minMs": 0.0619,
+      "maxMs": 0.4415
+    },
+    "present": {
+      "n": 200,
+      "medianMs": 0.0661,
+      "q1Ms": 0.0629,
+      "q3Ms": 0.0901,
+      "iqrMs": 0.0272,
+      "minMs": 0.0582,
+      "maxMs": 4.9385
+    },
+    "verify": {
+      "n": 200,
+      "medianMs": 0.1973,
+      "q1Ms": 0.1879,
+      "q3Ms": 0.2204,
+      "iqrMs": 0.0326,
+      "minMs": 0.1786,
+      "maxMs": 0.7542
+    },
+    "sizes": {
+      "credential": {
+        "totalBytes": 1370,
+        "issuerJwt": {
+          "totalBytes": 940,
+          "headerB64Bytes": 44,
+          "payloadB64Bytes": 808,
+          "signatureB64Bytes": 86,
+          "signatureRawBytes": 64,
+          "payloadJsonBytes": 606,
+          "cnfJwkJsonBytes": 126,
+          "sdDigestCount": 7
+        },
+        "disclosures": {
+          "count": 7,
+          "bytes": 422,
+          "each": [
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            62
+          ]
+        },
+        "separatorBytes": 8,
+        "kbJwt": null
+      },
+      "presentation": {
+        "totalBytes": 1290,
+        "issuerJwt": {
+          "totalBytes": 940,
+          "headerB64Bytes": 44,
+          "payloadB64Bytes": 808,
+          "signatureB64Bytes": 86,
+          "signatureRawBytes": 64,
+          "payloadJsonBytes": 606,
+          "cnfJwkJsonBytes": 126,
+          "sdDigestCount": 7
+        },
+        "disclosures": {
+          "count": 1,
+          "bytes": 60,
+          "each": [
+            60
+          ]
+        },
+        "separatorBytes": 2,
+        "kbJwt": {
+          "totalBytes": 288,
+          "signatureRawBytes": 64,
+          "payloadJsonBytes": 120
+        }
+      }
+    },
+    "linkability": {
+      "sharedHandlesBetweenTwoPresentationsOfOneCredential": [
+        "jwt:rNJVv9onVl9_6eJu_mOhUX1oRco6DnYeAuzuFm8IgP4",
+        "sig:24N6PgIwf9QTpa7eQe5qa-YckqzE6wU6G-Pd8R0ZBxU",
+        "digest:313fynW8yF7yEcXJPdYvM9jcX3wxINGuWtZRylxLnsc",
+        "digest:8Fu3J0x8WzCnDO1NHmrOWCMS3Rqr4oc3vY2IlNbfQJY",
+        "digest:EADwM_MEO8KVyWTbJGch2NjKfrboUc5WQMCmBynoy3I",
+        "digest:JMDEEXKny2InLdez7J1tUOMQJRc9D09Qizr7cIlGBEo",
+        "digest:seJBnrcufBE7TWfp3tmGpWiKy35pB-jxu-POgDYxZyo",
+        "digest:w6vtNbK2gMcunhPVvjZWe4jEgjSQajiuzwQmeYCDiSs",
+        "digest:wgeEkCkoCv_mNXupGw98OUEsEuSeQU2V9emqWMaA1ZQ",
+        "cnf:hXA8ssrkcekVsVohKRYqKJgwL2ffx01yyXFToDDQveI",
+        "salt:09IAeEu6Qw1uuwexb5Fx0Q"
+      ],
+      "note": "values a colluding pair of verifiers can match; empty means unlinkable at the credential layer"
+    },
+    "batches": [
+      {
+        "n": 1,
+        "issuerToHolderBytes": 1370,
+        "holderToIssuerJwkBytes": 126,
+        "holderToIssuerKeyProofBytes": null,
+        "meanSdJwtBytes": 1370,
+        "issueBatchMs": 0.15,
+        "holderKeygenIncluded": true,
+        "sharedHandlesBetweenTwoBatchPresentations": null
+      },
+      {
+        "n": 10,
+        "issuerToHolderBytes": 13700,
+        "holderToIssuerJwkBytes": 1260,
+        "holderToIssuerKeyProofBytes": null,
+        "meanSdJwtBytes": 1370,
+        "issueBatchMs": 1.08,
+        "holderKeygenIncluded": true,
+        "sharedHandlesBetweenTwoBatchPresentations": 0
+      },
+      {
+        "n": 30,
+        "issuerToHolderBytes": 41100,
+        "holderToIssuerJwkBytes": 3780,
+        "holderToIssuerKeyProofBytes": null,
+        "meanSdJwtBytes": 1370,
+        "issueBatchMs": 3.67,
+        "holderKeygenIncluded": true,
+        "sharedHandlesBetweenTwoBatchPresentations": 0
+      },
+      {
+        "n": 100,
+        "issuerToHolderBytes": 137000,
+        "holderToIssuerJwkBytes": 12600,
+        "holderToIssuerKeyProofBytes": null,
+        "meanSdJwtBytes": 1370,
+        "issueBatchMs": 11.22,
+        "holderKeygenIncluded": true,
+        "sharedHandlesBetweenTwoBatchPresentations": 0
+      }
+    ],
+    "label": "[M] in-process, warm"
+  },
+  "eddsaZk": {
+    "constraints": 5188,
+    "witness": {
+      "n": 10,
+      "medianMs": 83.6287,
+      "q1Ms": 81.8499,
+      "q3Ms": 87.9178,
+      "iqrMs": 6.0679,
+      "minMs": 79.2,
+      "maxMs": 90.1796
+    },
+    "prove": {
+      "n": 10,
+      "medianMs": 301.8346,
+      "q1Ms": 287.4638,
+      "q3Ms": 322.0073,
+      "iqrMs": 34.5435,
+      "minMs": 271.0118,
+      "maxMs": 364.9846
+    },
+    "verify": {
+      "n": 10,
+      "medianMs": 9.9545,
+      "q1Ms": 9.7157,
+      "q3Ms": 10.5596,
+      "iqrMs": 0.8439,
+      "minMs": 9.0416,
+      "maxMs": 13.6274
+    },
+    "proofJsonBytes": 726,
+    "keyLabel": "throwaway baseline key",
+    "label": "[M] in-process, warm, snarkJS 0.7.4"
+  },
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-27T21:57:58.218Z"
+  }
+}

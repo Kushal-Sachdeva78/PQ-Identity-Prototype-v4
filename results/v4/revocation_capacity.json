@@ -1,0 +1,1245 @@
+{
+  "schema": "pqid.v4.revocation_capacity/1",
+  "item": "B2 (TASKS.md), review finding T8",
+  "generatedBy": "harness/v4/revocation_capacity.ts",
+  "labels": {
+    "[M]": "measured: circom/snarkjs constraint counts and witness-generator/R1CS checks on this host",
+    "[S]": "computed from the stated probability model (union bounds, occupancy formula, seeded simulation)",
+    "[A]": "assumption: credIDs (SHA3-256) and Poseidon keys behave as uniformly random bit strings"
+  },
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-27T04:10:16.067Z"
+  },
+  "tools": {
+    "circom": "circom compiler 2.2.3",
+    "snarkjs": "0.7.4",
+    "circomlib": "2.0.5",
+    "circomlibjs": "0.1.7"
+  },
+  "sources": {
+    "circuits/v4/lib_v4.circom": "0637b51c756514ed39d9ccb34177426a55bf2551fc8b90461716eadfbc20ec5e",
+    "circuits/v4/research/revocation_gadgets.circom": "f7b8c1c9232a1e792a79f50b23e5ac0362df1bee03a1efb49e24dafcc730dd7c"
+  },
+  "target": {
+    "revocationsPerIssuer": 1000000000,
+    "maxFailureProbability": "2^-40",
+    "criterionA": "per-insertion failure probability at load 10^9 <= 2^-40",
+    "criterionB": "cumulative failure probability over 10^9 insertions <= 2^-40 (stricter; used for the decision)",
+    "rule": "among options meeting criterion B, adopt the one with the fewest constraints (--O2, the setting v4 compiles with)"
+  },
+  "formulas": {
+    "imt": {
+      "capacity": "depth d holds 2^d - 1 keys (index 0 is the sentinel (0, 2^251)); insertion is deterministic: failure probability 0 below capacity",
+      "keyCollision": "two credentials with the same 251-bit revKey: union bound n(n-1)/2^252 [A: revKey uniform]"
+    },
+    "smt": {
+      "placement": "circomlibjs stores a key at the first level where its path prefix (key bits, least significant first) is unique; two keys sharing their low j bits sit at depth j + 1",
+      "circuitLimit": "circomlib SMTLevIns(nLevels) requires siblings[nLevels-1] = 0, so SMTVerifier(d) handles leaves at depth <= d - 1: effective path bits b = d - 1 (measured, see smtDepthBoundary)",
+      "nominalModel": "b = d path bits (the model in the review and in the B2 task text)",
+      "perInsertion": "P(new key shares all b path bits with one of n existing keys) <= n / 2^b",
+      "cumulative": "P(some pair among n keys shares all b path bits) <= n(n-1) / 2^(b+1); Poisson approximation 1 - exp(-n(n-1)/2^(b+1))",
+      "expectedFailures": "expected failed insertions among n inserts = n - 2^b (1 - (1 - 2^-b)^n) (occupancy)",
+      "keyCollision": "Poseidon(credIDHi, credIDLo) keys are field elements; two equal keys: about n(n-1)/(2p), negligible"
+    },
+    "minimumPathBits": {
+      "criterionA": "ceil(log2(10^9) + 40) = 70",
+      "criterionB": "ceil(log2(10^9 (10^9 - 1)) - 1 + 40) = 99",
+      "smtDepthNominal": {
+        "criterionA": 70,
+        "criterionB": 99
+      },
+      "smtDepthCircuitLimit": {
+        "criterionA": 71,
+        "criterionB": 100
+      },
+      "label": "[S]"
+    }
+  },
+  "gadgets": [
+    {
+      "id": "imt_d30",
+      "source": "circuits/v4/research/imt_nonmembership_d30.circom",
+      "sourceSha256": "5899007dc07cf39aabce2678db6fe3cbc3a271ca86f76d4eea53c6dae22fdada",
+      "family": "imt",
+      "depth": 30,
+      "variant": "full",
+      "publicInputs": [
+        "root"
+      ],
+      "keyDerivation": "Num2Bits(128) on credIDHi and credIDLo; revKey = linear combination of the bits",
+      "tree": "ImtNonMembership(30): Poseidon(3) leaf, MerkleRootV4(30) with Num2Bits(30) on lowIndex, 2 x LessThan(252)",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 8278,
+        "nonLinearConstraints": 8278,
+        "linearConstraints": 0,
+        "nWires": 8309,
+        "nPubInputs": 1,
+        "nPrvInputs": 35,
+        "nOutputs": 0,
+        "templateInstances": 150,
+        "r1cs": "circuits/build/v4/research/imt_nonmembership_d30_O2.r1cs",
+        "r1csSha256": "ae4faa29b8560ddf7edea03cdaeeed1cda2f33f48555ff1204ffdda6dbe272a0",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 17007,
+        "nonLinearConstraints": 8376,
+        "linearConstraints": 8631,
+        "nWires": 17036,
+        "nPubInputs": 1,
+        "nPrvInputs": 35,
+        "nOutputs": 0,
+        "templateInstances": 150,
+        "r1cs": "circuits/build/v4/research/imt_nonmembership_d30_O1.r1cs",
+        "r1csSha256": "c44194be050d5f483cc6392b27cdb0d1682518db7727aa58ab0c796793909093",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "imt_d32",
+      "source": "circuits/v4/research/imt_nonmembership_d32.circom",
+      "sourceSha256": "61f9e23a9baf7093d67684761560c938b2d1b3ed12ab1059deb946abfc80dc0a",
+      "family": "imt",
+      "depth": 32,
+      "variant": "full",
+      "publicInputs": [
+        "root"
+      ],
+      "keyDerivation": "Num2Bits(128) on credIDHi and credIDLo; revKey = linear combination of the bits",
+      "tree": "ImtNonMembership(32): Poseidon(3) leaf, MerkleRootV4(32) with Num2Bits(32) on lowIndex, 2 x LessThan(252)",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 8762,
+        "nonLinearConstraints": 8762,
+        "linearConstraints": 0,
+        "nWires": 8795,
+        "nPubInputs": 1,
+        "nPrvInputs": 37,
+        "nOutputs": 0,
+        "templateInstances": 150,
+        "r1cs": "circuits/build/v4/research/imt_nonmembership_d32_O2.r1cs",
+        "r1csSha256": "9e76ad432a673bcad6744d8d793a2b3cee098a1cd576ebf73c834674946809eb",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 18049,
+        "nonLinearConstraints": 8866,
+        "linearConstraints": 9183,
+        "nWires": 18080,
+        "nPubInputs": 1,
+        "nPrvInputs": 37,
+        "nOutputs": 0,
+        "templateInstances": 150,
+        "r1cs": "circuits/build/v4/research/imt_nonmembership_d32_O1.r1cs",
+        "r1csSha256": "571362b4b14493c83b44ce68e2a9e3a79608eacdf38f754e4a1b8e0cd85655fa",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_d32",
+      "source": "circuits/v4/research/smt_nonmembership_d32.circom",
+      "sourceSha256": "1654319f0906a4bb0f9d37a1553ed0da96201273c1f1e6f8f4c6d4260004f71f",
+      "family": "smt",
+      "depth": 32,
+      "variant": "full",
+      "publicInputs": [
+        "root"
+      ],
+      "keyDerivation": "Num2Bits(128) on credIDHi and credIDLo; key = Poseidon(credIDHi, credIDLo)",
+      "tree": "circomlib SMTVerifier(32) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 9764,
+        "nonLinearConstraints": 9764,
+        "linearConstraints": 0,
+        "nWires": 9794,
+        "nPubInputs": 1,
+        "nPrvInputs": 37,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d32_O2.r1cs",
+        "r1csSha256": "9d4128adb46f26b9dedf58296e53fb50a6a4b1470473f71472fd51248dbd9f8f",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 20122,
+        "nonLinearConstraints": 10156,
+        "linearConstraints": 9966,
+        "nWires": 20150,
+        "nPubInputs": 1,
+        "nPrvInputs": 37,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d32_O1.r1cs",
+        "r1csSha256": "09a506b3f566bb8409ef3de3505abaa7d274785309e7f295fd34e3f0172e9048",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_d70",
+      "source": "circuits/v4/research/smt_nonmembership_d70.circom",
+      "sourceSha256": "6882813de135e9430d93dc2baf68fe780c2f36ba50ff1da136df912973e48712",
+      "family": "smt",
+      "depth": 70,
+      "variant": "full",
+      "publicInputs": [
+        "root"
+      ],
+      "keyDerivation": "Num2Bits(128) on credIDHi and credIDLo; key = Poseidon(credIDHi, credIDLo)",
+      "tree": "circomlib SMTVerifier(70) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 19226,
+        "nonLinearConstraints": 19226,
+        "linearConstraints": 0,
+        "nWires": 19294,
+        "nPubInputs": 1,
+        "nPrvInputs": 75,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d70_O2.r1cs",
+        "r1csSha256": "bf609c07d6ed369af1107fa9bb096a9a636e252b4d9d4a3efe5f9efea97817ca",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 40414,
+        "nonLinearConstraints": 19770,
+        "linearConstraints": 20644,
+        "nWires": 40480,
+        "nPubInputs": 1,
+        "nPrvInputs": 75,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d70_O1.r1cs",
+        "r1csSha256": "4d676ff522279eda9bb17eaffd1780af1301329701fca655f0870e56064ed68e",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_d71",
+      "source": "circuits/v4/research/smt_nonmembership_d71.circom",
+      "sourceSha256": "a38039d8c2dffaf60d011574cb64f143a22c64efacb32fcc130f77b090ad2373",
+      "family": "smt",
+      "depth": 71,
+      "variant": "full",
+      "publicInputs": [
+        "root"
+      ],
+      "keyDerivation": "Num2Bits(128) on credIDHi and credIDLo; key = Poseidon(credIDHi, credIDLo)",
+      "tree": "circomlib SMTVerifier(71) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 19475,
+        "nonLinearConstraints": 19475,
+        "linearConstraints": 0,
+        "nWires": 19544,
+        "nPubInputs": 1,
+        "nPrvInputs": 76,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d71_O2.r1cs",
+        "r1csSha256": "cdbd654ece0b4e98485380815599267cdbea6f16c8af5e49f190156752c6e81c",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 40948,
+        "nonLinearConstraints": 20023,
+        "linearConstraints": 20925,
+        "nWires": 41015,
+        "nPubInputs": 1,
+        "nPrvInputs": 76,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d71_O1.r1cs",
+        "r1csSha256": "850439aa40272ef92c12f2554f41fd21e8f2b0d94a4333325e4babbdc8850987",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_d99",
+      "source": "circuits/v4/research/smt_nonmembership_d99.circom",
+      "sourceSha256": "b5d6e916867b062c44303e943ccd4361778d825e64796adbb9a5a1194977cef3",
+      "family": "smt",
+      "depth": 99,
+      "variant": "full",
+      "publicInputs": [
+        "root"
+      ],
+      "keyDerivation": "Num2Bits(128) on credIDHi and credIDLo; key = Poseidon(credIDHi, credIDLo)",
+      "tree": "circomlib SMTVerifier(99) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 26447,
+        "nonLinearConstraints": 26447,
+        "linearConstraints": 0,
+        "nWires": 26544,
+        "nPubInputs": 1,
+        "nPrvInputs": 104,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d99_O2.r1cs",
+        "r1csSha256": "129ba6562ae54e2f96dc403a8b66f66939cbc26dfcc01f9bcd36d70fe6dc04a4",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 55900,
+        "nonLinearConstraints": 27107,
+        "linearConstraints": 28793,
+        "nWires": 55995,
+        "nPubInputs": 1,
+        "nPrvInputs": 104,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d99_O1.r1cs",
+        "r1csSha256": "ed477e2258c0469518ef81f9945fda55c280716ffc1394941cb800fbcdbe277f",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_d100",
+      "source": "circuits/v4/research/smt_nonmembership_d100.circom",
+      "sourceSha256": "0da38b6a53272b3c371eb88a5f72642376de90d9e4c9a22c735d928022d77c75",
+      "family": "smt",
+      "depth": 100,
+      "variant": "full",
+      "publicInputs": [
+        "root"
+      ],
+      "keyDerivation": "Num2Bits(128) on credIDHi and credIDLo; key = Poseidon(credIDHi, credIDLo)",
+      "tree": "circomlib SMTVerifier(100) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 26696,
+        "nonLinearConstraints": 26696,
+        "linearConstraints": 0,
+        "nWires": 26794,
+        "nPubInputs": 1,
+        "nPrvInputs": 105,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d100_O2.r1cs",
+        "r1csSha256": "d2e1c8126daac4f51652ef8c0c900abb50f77056755956896a4a2425fea2e190",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 56434,
+        "nonLinearConstraints": 27360,
+        "linearConstraints": 29074,
+        "nWires": 56530,
+        "nPubInputs": 1,
+        "nPrvInputs": 105,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d100_O1.r1cs",
+        "r1csSha256": "7a296852a1691fb6d0195a6a47a6e8b7bbfb40ec48502209a114bebba4bb23b5",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_d128",
+      "source": "circuits/v4/research/smt_nonmembership_d128.circom",
+      "sourceSha256": "fad8b8ad362b9fd35fa1ff38e905fc5b150a1abbb18f631b80e14abb1eb0b0c9",
+      "family": "smt",
+      "depth": 128,
+      "variant": "full",
+      "publicInputs": [
+        "root"
+      ],
+      "keyDerivation": "Num2Bits(128) on credIDHi and credIDLo; key = Poseidon(credIDHi, credIDLo)",
+      "tree": "circomlib SMTVerifier(128) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 33668,
+        "nonLinearConstraints": 33668,
+        "linearConstraints": 0,
+        "nWires": 33794,
+        "nPubInputs": 1,
+        "nPrvInputs": 133,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d128_O2.r1cs",
+        "r1csSha256": "5a0e499da737fa4429a01bd32f0a4894aedf4ab3de51586ee7909452af07bc2e",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 71386,
+        "nonLinearConstraints": 34444,
+        "linearConstraints": 36942,
+        "nWires": 71510,
+        "nPubInputs": 1,
+        "nPrvInputs": 133,
+        "nOutputs": 0,
+        "templateInstances": 162,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_d128_O1.r1cs",
+        "r1csSha256": "1cf7dd8bd3f634f4547e2b15d114af98710b306be1e122b56662266e9d3df48b",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "imt_bare_d30",
+      "source": "circuits/v4/research/imt_nonmembership_bare_d30.circom",
+      "sourceSha256": "92a3d357a31a9b481080c930c507b3a8f4a90a9635b116a660d3e054fcac7fa4",
+      "family": "imt",
+      "depth": 30,
+      "variant": "bare",
+      "publicInputs": [
+        "key",
+        "root"
+      ],
+      "keyDerivation": "none (key is a public input)",
+      "tree": "ImtNonMembership(30): Poseidon(3) leaf, MerkleRootV4(30) with Num2Bits(30) on lowIndex, 2 x LessThan(252)",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 8022,
+        "nonLinearConstraints": 8022,
+        "linearConstraints": 0,
+        "nWires": 8054,
+        "nPubInputs": 2,
+        "nPrvInputs": 33,
+        "nOutputs": 0,
+        "templateInstances": 147,
+        "r1cs": "circuits/build/v4/research/imt_nonmembership_bare_d30_O2.r1cs",
+        "r1csSha256": "00139e1a1d47aa103225e44bbb2ea3dcfde95b39fd24eccb90db6710b9779110",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 16748,
+        "nonLinearConstraints": 8120,
+        "linearConstraints": 8628,
+        "nWires": 16778,
+        "nPubInputs": 2,
+        "nPrvInputs": 33,
+        "nOutputs": 0,
+        "templateInstances": 147,
+        "r1cs": "circuits/build/v4/research/imt_nonmembership_bare_d30_O1.r1cs",
+        "r1csSha256": "293775c5f8af9657d8c067e1cc1708ece8c222ac6b72ebcccda988a5f93b1019",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "imt_bare_d32",
+      "source": "circuits/v4/research/imt_nonmembership_bare_d32.circom",
+      "sourceSha256": "afa35cd91679fcc2bd1d61f7f1fbebc5cad081e893b0d579890c533eda78127a",
+      "family": "imt",
+      "depth": 32,
+      "variant": "bare",
+      "publicInputs": [
+        "key",
+        "root"
+      ],
+      "keyDerivation": "none (key is a public input)",
+      "tree": "ImtNonMembership(32): Poseidon(3) leaf, MerkleRootV4(32) with Num2Bits(32) on lowIndex, 2 x LessThan(252)",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 8506,
+        "nonLinearConstraints": 8506,
+        "linearConstraints": 0,
+        "nWires": 8540,
+        "nPubInputs": 2,
+        "nPrvInputs": 35,
+        "nOutputs": 0,
+        "templateInstances": 147,
+        "r1cs": "circuits/build/v4/research/imt_nonmembership_bare_d32_O2.r1cs",
+        "r1csSha256": "a676f683772bf01ad8464b08902b8339b1db389c4087afebef4c0719bafad4a5",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 17790,
+        "nonLinearConstraints": 8610,
+        "linearConstraints": 9180,
+        "nWires": 17822,
+        "nPubInputs": 2,
+        "nPrvInputs": 35,
+        "nOutputs": 0,
+        "templateInstances": 147,
+        "r1cs": "circuits/build/v4/research/imt_nonmembership_bare_d32_O1.r1cs",
+        "r1csSha256": "50f1fefbeb26ed8ccb52b7e619933b997fafd68a6aa00ee2f6161fec9b78ac52",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_bare_d32",
+      "source": "circuits/v4/research/smt_nonmembership_bare_d32.circom",
+      "sourceSha256": "0a0f76ca8599b4fc18576cbe9bc985173abb00ccb1d9b7d1e0212feab954ab08",
+      "family": "smt",
+      "depth": 32,
+      "variant": "bare",
+      "publicInputs": [
+        "key",
+        "root"
+      ],
+      "keyDerivation": "none (key is a public input)",
+      "tree": "circomlib SMTVerifier(32) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 9268,
+        "nonLinearConstraints": 9268,
+        "linearConstraints": 0,
+        "nWires": 9299,
+        "nPubInputs": 2,
+        "nPrvInputs": 35,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d32_O2.r1cs",
+        "r1csSha256": "350c13c8b9e1b6968bfa7d5dfb38ce88b67cb9e61851d17986ce71a7e21d5304",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 19347,
+        "nonLinearConstraints": 9657,
+        "linearConstraints": 9690,
+        "nWires": 19376,
+        "nPubInputs": 2,
+        "nPrvInputs": 35,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d32_O1.r1cs",
+        "r1csSha256": "cc41b587d31c027bf277af940979d03ef18aa9ca91c7d86cfb9689e6968d386e",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_bare_d70",
+      "source": "circuits/v4/research/smt_nonmembership_bare_d70.circom",
+      "sourceSha256": "988e0cb96dd34a35a808569817fcd9e607658b6f468320bf92b5d38c2e9e1852",
+      "family": "smt",
+      "depth": 70,
+      "variant": "bare",
+      "publicInputs": [
+        "key",
+        "root"
+      ],
+      "keyDerivation": "none (key is a public input)",
+      "tree": "circomlib SMTVerifier(70) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 18730,
+        "nonLinearConstraints": 18730,
+        "linearConstraints": 0,
+        "nWires": 18799,
+        "nPubInputs": 2,
+        "nPrvInputs": 73,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d70_O2.r1cs",
+        "r1csSha256": "bfe2423bea0eaf73a0150829ed9d65184d215bd30496189ac8a8d0c7bd165ded",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 39639,
+        "nonLinearConstraints": 19271,
+        "linearConstraints": 20368,
+        "nWires": 39706,
+        "nPubInputs": 2,
+        "nPrvInputs": 73,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d70_O1.r1cs",
+        "r1csSha256": "91e03e77f0a455a78257047914bee6e8bd01d4e8f95ccf79e090654cc89a90d4",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_bare_d71",
+      "source": "circuits/v4/research/smt_nonmembership_bare_d71.circom",
+      "sourceSha256": "6f2a6b68ea079201a815dc567905759ecf406625107c4090107f2037fc9e4e78",
+      "family": "smt",
+      "depth": 71,
+      "variant": "bare",
+      "publicInputs": [
+        "key",
+        "root"
+      ],
+      "keyDerivation": "none (key is a public input)",
+      "tree": "circomlib SMTVerifier(71) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 18979,
+        "nonLinearConstraints": 18979,
+        "linearConstraints": 0,
+        "nWires": 19049,
+        "nPubInputs": 2,
+        "nPrvInputs": 74,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d71_O2.r1cs",
+        "r1csSha256": "14258d38c85bc4aa77712d13d3ad4ca080f069c91e3d5e0950c1c1790be073aa",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 40173,
+        "nonLinearConstraints": 19524,
+        "linearConstraints": 20649,
+        "nWires": 40241,
+        "nPubInputs": 2,
+        "nPrvInputs": 74,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d71_O1.r1cs",
+        "r1csSha256": "ebe1b5fd22fea9ded571429fe534744dd1791444d4a232026cbdf88b7d48c924",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_bare_d99",
+      "source": "circuits/v4/research/smt_nonmembership_bare_d99.circom",
+      "sourceSha256": "7448e743d9911b5fa9aa47a9aaad06f3c5193bcf994c8339a6f2141296403253",
+      "family": "smt",
+      "depth": 99,
+      "variant": "bare",
+      "publicInputs": [
+        "key",
+        "root"
+      ],
+      "keyDerivation": "none (key is a public input)",
+      "tree": "circomlib SMTVerifier(99) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 25951,
+        "nonLinearConstraints": 25951,
+        "linearConstraints": 0,
+        "nWires": 26049,
+        "nPubInputs": 2,
+        "nPrvInputs": 102,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d99_O2.r1cs",
+        "r1csSha256": "b1deef533afd3742e456e1dc9cd91697346de84359513631324d88328f950de6",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 55125,
+        "nonLinearConstraints": 26608,
+        "linearConstraints": 28517,
+        "nWires": 55221,
+        "nPubInputs": 2,
+        "nPrvInputs": 102,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d99_O1.r1cs",
+        "r1csSha256": "1c802ab7573a76036e4b538fee307ecfb3fbde31244b34de50a7e1b4b5a01aa4",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_bare_d100",
+      "source": "circuits/v4/research/smt_nonmembership_bare_d100.circom",
+      "sourceSha256": "764afe23cc6b042bfe2ddbea622ed8a6a2000c8d96604e2dcd0f3e01c2ad8ec0",
+      "family": "smt",
+      "depth": 100,
+      "variant": "bare",
+      "publicInputs": [
+        "key",
+        "root"
+      ],
+      "keyDerivation": "none (key is a public input)",
+      "tree": "circomlib SMTVerifier(100) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 26200,
+        "nonLinearConstraints": 26200,
+        "linearConstraints": 0,
+        "nWires": 26299,
+        "nPubInputs": 2,
+        "nPrvInputs": 103,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d100_O2.r1cs",
+        "r1csSha256": "001c640ad69d46ff3b05c2f24dea5e1feb6857e85a5e8d6015d3d8bcebf8fc9b",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 55659,
+        "nonLinearConstraints": 26861,
+        "linearConstraints": 28798,
+        "nWires": 55756,
+        "nPubInputs": 2,
+        "nPrvInputs": 103,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d100_O1.r1cs",
+        "r1csSha256": "3e1b27dec4509dc2a7d9f31c148816a2f817a31cbe28a8213e93c568a5116b11",
+        "label": "[M]"
+      }
+    },
+    {
+      "id": "smt_bare_d128",
+      "source": "circuits/v4/research/smt_nonmembership_bare_d128.circom",
+      "sourceSha256": "62ac125373c5f6d5a2091c9de2c2017a882037f40a767758e767d9ba31918bfb",
+      "family": "smt",
+      "depth": 128,
+      "variant": "bare",
+      "publicInputs": [
+        "key",
+        "root"
+      ],
+      "keyDerivation": "none (key is a public input)",
+      "tree": "circomlib SMTVerifier(128) with fnc = 1, enabled = 1, value = 0, plus isOld0 * (isOld0 - 1) === 0",
+      "O2": {
+        "optimization": "--O2",
+        "nConstraints": 33172,
+        "nonLinearConstraints": 33172,
+        "linearConstraints": 0,
+        "nWires": 33299,
+        "nPubInputs": 2,
+        "nPrvInputs": 131,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d128_O2.r1cs",
+        "r1csSha256": "688105cf1974da6a03bfff2657e8b5f2248aa53e5029cd081f45b8a0dd0be8cf",
+        "label": "[M]"
+      },
+      "O1": {
+        "optimization": "--O1",
+        "nConstraints": 70611,
+        "nonLinearConstraints": 33945,
+        "linearConstraints": 36666,
+        "nWires": 70736,
+        "nPubInputs": 2,
+        "nPrvInputs": 131,
+        "nOutputs": 0,
+        "templateInstances": 159,
+        "r1cs": "circuits/build/v4/research/smt_nonmembership_bare_d128_O1.r1cs",
+        "r1csSha256": "597d86a4221556b466efc871215d8202f0131781700ea79f347152713e6fdc91",
+        "label": "[M]"
+      }
+    }
+  ],
+  "smtDepthBoundary": {
+    "circuit": "circuits/v4/research/smt_nonmembership_bare_d32.circom (--O2)",
+    "nLevels": 32,
+    "leafAtDepth31": {
+      "revokedKeys": [
+        "1",
+        "1073741825"
+      ],
+      "probeKey": "2147483649",
+      "sharedLowBits": 30,
+      "pathLength": 31,
+      "lastSiblingNonZero": false,
+      "witnessAccepted": true,
+      "r1csSatisfied": true
+    },
+    "leafAtDepth32": {
+      "revokedKeys": [
+        "1",
+        "2147483649"
+      ],
+      "probeKey": "4294967297",
+      "sharedLowBits": 31,
+      "pathLength": 32,
+      "lastSiblingNonZero": true,
+      "witnessAccepted": false,
+      "r1csSatisfied": null,
+      "error": "Assert Failed"
+    },
+    "conclusion": "SMTVerifier(32) proves non-membership only on paths of at most 31 levels: effective path bits = nLevels - 1",
+    "effectivePathBits": 31,
+    "label": "[M]"
+  },
+  "imtIndexBoundary": {
+    "circuit": "circuits/v4/research/imt_nonmembership_d30.circom (--O2)",
+    "depth": 30,
+    "lowIndexLastSlot": {
+      "lowIndex": "1073741823",
+      "witnessAccepted": true,
+      "r1csSatisfied": true
+    },
+    "lowIndexBeyond": {
+      "lowIndex": "1073741824",
+      "witnessAccepted": false,
+      "r1csSatisfied": null,
+      "error": "Assert Failed"
+    },
+    "conclusion": "all 2^30 slots are addressable (lowIndex < 2^30); with the sentinel at index 0 the tree holds 2^30 - 1 keys",
+    "label": "[M]"
+  },
+  "perLevelConstraintsO2": {
+    "imt": 242,
+    "smt": 249,
+    "smtStep70to71": 249,
+    "smtStep99to100": 249,
+    "keyDerivationImt": 256,
+    "keyDerivationSmt": 496,
+    "label": "[M] (differences of measured counts)"
+  },
+  "options": [
+    {
+      "id": "imt_d30",
+      "family": "imt",
+      "depth": 30,
+      "constraintsO2": 8278,
+      "constraintsO1": 17007,
+      "treeOnlyConstraintsO2": 8022,
+      "capacityKeys": 1073741823,
+      "insertionFailureBelowCapacity": 0,
+      "keyCollisionAt1e9": {
+        "log2": -192.20529429347016,
+        "value": 1.381786967433336e-58,
+        "text": "2^-192.205",
+        "label": "[S]"
+      },
+      "keyCollisionPerInsertionAt1e9": {
+        "log2": -221.10264714601374,
+        "text": "2^-221.103",
+        "label": "[S]"
+      },
+      "meetsA_perInsertion": true,
+      "meetsB_cumulative": true,
+      "nominal": {
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": true
+      },
+      "qualifies": true,
+      "label": "capacity [M] from the index boundary check; collision probability [S]"
+    },
+    {
+      "id": "imt_d32",
+      "family": "imt",
+      "depth": 32,
+      "constraintsO2": 8762,
+      "constraintsO1": 18049,
+      "treeOnlyConstraintsO2": 8506,
+      "capacityKeys": 4294967295,
+      "insertionFailureBelowCapacity": 0,
+      "keyCollisionAt1e9": {
+        "log2": -192.20529429347016,
+        "value": 1.381786967433336e-58,
+        "text": "2^-192.205",
+        "label": "[S]"
+      },
+      "keyCollisionPerInsertionAt1e9": {
+        "log2": -221.10264714601374,
+        "text": "2^-221.103",
+        "label": "[S]"
+      },
+      "meetsA_perInsertion": true,
+      "meetsB_cumulative": true,
+      "nominal": {
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": true
+      },
+      "qualifies": true,
+      "label": "capacity [M] from the index boundary check; collision probability [S]"
+    },
+    {
+      "id": "smt_d32",
+      "family": "smt",
+      "depth": 32,
+      "constraintsO2": 9764,
+      "constraintsO1": 20122,
+      "treeOnlyConstraintsO2": 9268,
+      "circuitLimit": {
+        "pathBits": 31,
+        "perInsertionFailureAt1e9": {
+          "log2": -1.1026471460137373,
+          "value": 0.46566128730773976,
+          "text": "2^-1.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": 27.794705706529825,
+          "unionBound": 232830643.4210387,
+          "poissonApprox": 1,
+          "text": "2^27.795"
+        },
+        "meetsA_perInsertion": false,
+        "meetsB_cumulative": false,
+        "maxLoadPerInsertionAt2m40": "0",
+        "maxLoadCumulativeAt2m40": "1",
+        "label": "[S]"
+      },
+      "nominal": {
+        "pathBits": 32,
+        "perInsertionFailureAt1e9": {
+          "log2": -2.1026471460137373,
+          "value": 0.23283064365386988,
+          "text": "2^-2.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": 26.794705706529825,
+          "unionBound": 116415321.71051934,
+          "poissonApprox": 1,
+          "text": "2^26.795"
+        },
+        "meetsA_perInsertion": false,
+        "meetsB_cumulative": false,
+        "maxLoadPerInsertionAt2m40": "0",
+        "maxLoadCumulativeAt2m40": "1",
+        "label": "[S]"
+      },
+      "meetsA_perInsertion": false,
+      "meetsB_cumulative": false,
+      "qualifies": false
+    },
+    {
+      "id": "smt_d70",
+      "family": "smt",
+      "depth": 70,
+      "constraintsO2": 19226,
+      "constraintsO1": 40414,
+      "treeOnlyConstraintsO2": 18730,
+      "circuitLimit": {
+        "pathBits": 69,
+        "perInsertionFailureAt1e9": {
+          "log2": -39.10264714601374,
+          "value": 1.6940658945086025e-12,
+          "text": "2^-39.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": -10.205294293470175,
+          "unionBound": 0.0008470329464072663,
+          "poissonApprox": 0.0008466743152657278,
+          "text": "2^-10.205"
+        },
+        "meetsA_perInsertion": false,
+        "meetsB_cumulative": false,
+        "maxLoadPerInsertionAt2m40": "536870912",
+        "maxLoadCumulativeAt2m40": "32768",
+        "label": "[S]"
+      },
+      "nominal": {
+        "pathBits": 70,
+        "perInsertionFailureAt1e9": {
+          "log2": -40.10264714601374,
+          "value": 8.470329472543012e-13,
+          "text": "2^-40.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": -11.205294293470175,
+          "unionBound": 0.00042351647320363315,
+          "poissonApprox": 0.0004234268027615123,
+          "text": "2^-11.205"
+        },
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": false,
+        "maxLoadPerInsertionAt2m40": "1073741824",
+        "maxLoadCumulativeAt2m40": "46341",
+        "label": "[S]"
+      },
+      "meetsA_perInsertion": false,
+      "meetsB_cumulative": false,
+      "qualifies": false
+    },
+    {
+      "id": "smt_d71",
+      "family": "smt",
+      "depth": 71,
+      "constraintsO2": 19475,
+      "constraintsO1": 40948,
+      "treeOnlyConstraintsO2": 18979,
+      "circuitLimit": {
+        "pathBits": 70,
+        "perInsertionFailureAt1e9": {
+          "log2": -40.10264714601374,
+          "value": 8.470329472543012e-13,
+          "text": "2^-40.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": -11.205294293470175,
+          "unionBound": 0.00042351647320363315,
+          "poissonApprox": 0.0004234268027615123,
+          "text": "2^-11.205"
+        },
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": false,
+        "maxLoadPerInsertionAt2m40": "1073741824",
+        "maxLoadCumulativeAt2m40": "46341",
+        "label": "[S]"
+      },
+      "nominal": {
+        "pathBits": 71,
+        "perInsertionFailureAt1e9": {
+          "log2": -41.10264714601374,
+          "value": 4.235164736271506e-13,
+          "text": "2^-41.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": -12.205294293470175,
+          "unionBound": 0.00021175823660181658,
+          "poissonApprox": 0.00021173581740894305,
+          "text": "2^-12.205"
+        },
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": false,
+        "maxLoadPerInsertionAt2m40": "2147483648",
+        "maxLoadCumulativeAt2m40": "65536",
+        "label": "[S]"
+      },
+      "meetsA_perInsertion": true,
+      "meetsB_cumulative": false,
+      "qualifies": false
+    },
+    {
+      "id": "smt_d99",
+      "family": "smt",
+      "depth": 99,
+      "constraintsO2": 26447,
+      "constraintsO1": 55900,
+      "treeOnlyConstraintsO2": 25951,
+      "circuitLimit": {
+        "pathBits": 98,
+        "perInsertionFailureAt1e9": {
+          "log2": -68.10264714601374,
+          "value": 3.1554436208840506e-21,
+          "text": "2^-68.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": -39.205294293470175,
+          "unionBound": 1.5777218088642998e-12,
+          "poissonApprox": 1.5777218088630552e-12,
+          "text": "2^-39.205"
+        },
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": false,
+        "maxLoadPerInsertionAt2m40": "288230376151711744",
+        "maxLoadCumulativeAt2m40": "759250125",
+        "label": "[S]"
+      },
+      "nominal": {
+        "pathBits": 99,
+        "perInsertionFailureAt1e9": {
+          "log2": -69.10264714601374,
+          "value": 1.5777218104420253e-21,
+          "text": "2^-69.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": -40.205294293470175,
+          "unionBound": 7.888609044321499e-13,
+          "poissonApprox": 7.888609044318388e-13,
+          "text": "2^-40.205"
+        },
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": true,
+        "maxLoadPerInsertionAt2m40": "576460752303423488",
+        "maxLoadCumulativeAt2m40": "1073741824",
+        "label": "[S]"
+      },
+      "meetsA_perInsertion": true,
+      "meetsB_cumulative": false,
+      "qualifies": false
+    },
+    {
+      "id": "smt_d100",
+      "family": "smt",
+      "depth": 100,
+      "constraintsO2": 26696,
+      "constraintsO1": 56434,
+      "treeOnlyConstraintsO2": 26200,
+      "circuitLimit": {
+        "pathBits": 99,
+        "perInsertionFailureAt1e9": {
+          "log2": -69.10264714601374,
+          "value": 1.5777218104420253e-21,
+          "text": "2^-69.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": -40.205294293470175,
+          "unionBound": 7.888609044321499e-13,
+          "poissonApprox": 7.888609044318388e-13,
+          "text": "2^-40.205"
+        },
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": true,
+        "maxLoadPerInsertionAt2m40": "576460752303423488",
+        "maxLoadCumulativeAt2m40": "1073741824",
+        "label": "[S]"
+      },
+      "nominal": {
+        "pathBits": 100,
+        "perInsertionFailureAt1e9": {
+          "log2": -70.10264714601374,
+          "value": 7.8886090522101265e-22,
+          "text": "2^-70.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": -41.205294293470175,
+          "unionBound": 3.9443045221607495e-13,
+          "poissonApprox": 3.9443045221599714e-13,
+          "text": "2^-41.205"
+        },
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": true,
+        "maxLoadPerInsertionAt2m40": "1152921504606846976",
+        "maxLoadCumulativeAt2m40": "1518500250",
+        "label": "[S]"
+      },
+      "meetsA_perInsertion": true,
+      "meetsB_cumulative": true,
+      "qualifies": true
+    },
+    {
+      "id": "smt_d128",
+      "family": "smt",
+      "depth": 128,
+      "constraintsO2": 33668,
+      "constraintsO1": 71386,
+      "treeOnlyConstraintsO2": 33172,
+      "circuitLimit": {
+        "pathBits": 127,
+        "perInsertionFailureAt1e9": {
+          "log2": -97.10264714601374,
+          "value": 5.877471754111444e-30,
+          "text": "2^-97.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": -68.20529429347017,
+          "unionBound": 2.938735874116979e-21,
+          "poissonApprox": 2.938735874116979e-21,
+          "text": "2^-68.205"
+        },
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": true,
+        "maxLoadPerInsertionAt2m40": "154742504910672534362390528",
+        "maxLoadCumulativeAt2m40": "17592186044416",
+        "label": "[S]"
+      },
+      "nominal": {
+        "pathBits": 128,
+        "perInsertionFailureAt1e9": {
+          "log2": -98.10264714601374,
+          "value": 2.938735877055722e-30,
+          "text": "2^-98.103"
+        },
+        "cumulativeFailureAt1e9": {
+          "log2": -69.20529429347017,
+          "unionBound": 1.4693679370584896e-21,
+          "poissonApprox": 1.4693679370584896e-21,
+          "text": "2^-69.205"
+        },
+        "meetsA_perInsertion": true,
+        "meetsB_cumulative": true,
+        "maxLoadPerInsertionAt2m40": "309485009821345068724781056",
+        "maxLoadCumulativeAt2m40": "24879108095804",
+        "label": "[S]"
+      },
+      "meetsA_perInsertion": true,
+      "meetsB_cumulative": true,
+      "qualifies": true
+    }
+  ],
+  "v3CrossCheck": {
+    "review": {
+      "fiftyPercentPoint": 77000,
+      "failedInsertionsPerMillion": 116,
+      "source": "2.0/Review.txt finding T8 (specialist quote)"
+    },
+    "nominalModel32Bits": {
+      "pathBits": 32,
+      "fiftyPercentPointExact": 77164,
+      "fiftyPercentPointApprox": 77162.74323557415,
+      "expectedFailuresPerMillionOccupancy": 116.4061709465459,
+      "expectedFailuresPerMillionUnionBound": 116.41520541161299,
+      "simulation": {
+        "pathBits": 32,
+        "prng": "xoshiro128** (32-bit), seed 0x9e3779b9,0x243f6a88,0xb7e15162,0x71374491",
+        "failuresPerMillion": {
+          "trials": 50,
+          "mean": 116.96,
+          "min": 92,
+          "max": 136
+        },
+        "firstFailure": {
+          "trials": 2000,
+          "median": 75553,
+          "min": 1460,
+          "max": 255438
+        },
+        "label": "[S]"
+      },
+      "label": "[S]"
+    },
+    "circuitLimit31Bits": {
+      "pathBits": 31,
+      "fiftyPercentPointExact": 54563,
+      "fiftyPercentPointApprox": 54562.298996830876,
+      "expectedFailuresPerMillionOccupancy": 232.79427506611682,
+      "expectedFailuresPerMillionUnionBound": 232.83041082322598,
+      "simulation": {
+        "pathBits": 31,
+        "prng": "xoshiro128** (32-bit), seed 0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c",
+        "failuresPerMillion": {
+          "trials": 50,
+          "mean": 235.58,
+          "min": 214,
+          "max": 260
+        },
+        "firstFailure": {
+          "trials": 2000,
+          "median": 55209.5,
+          "min": 1031,
+          "max": 175559
+        },
+        "label": "[S]"
+      },
+      "label": "[S]"
+    },
+    "note": "v3's SMTVerifier(32) handles 31 path bits (smtDepthBoundary). The review's figures match the 32-bit model; the circuit limit gives the 31-bit figures."
+  },
+  "decision": {
+    "chosen": "imt_d30",
+    "family": "imt",
+    "depth": 30,
+    "constraintsO2": 8278,
+    "qualifyingOptions": [
+      {
+        "id": "imt_d30",
+        "constraintsO2": 8278,
+        "constraintsO1": 17007
+      },
+      {
+        "id": "imt_d32",
+        "constraintsO2": 8762,
+        "constraintsO1": 18049
+      },
+      {
+        "id": "smt_d100",
+        "constraintsO2": 26696,
+        "constraintsO1": 56434
+      },
+      {
+        "id": "smt_d128",
+        "constraintsO2": 33668,
+        "constraintsO1": 71386
+      }
+    ],
+    "nonQualifyingOptions": [
+      "smt_d32",
+      "smt_d70",
+      "smt_d71",
+      "smt_d99"
+    ],
+    "bestQualifyingSmt": {
+      "id": "smt_d100",
+      "constraintsO2": 26696
+    },
+    "ratioBestSmtToChosenO2": 3.2249335588306356,
+    "sameChoiceAtO1": true,
+    "sameChoiceUnderNominalSmtModel": true,
+    "revDepthConstant": 30,
+    "revDepthConstantMatches": true,
+    "headroomAtChosenDepth": 1.073741823
+  }
+}

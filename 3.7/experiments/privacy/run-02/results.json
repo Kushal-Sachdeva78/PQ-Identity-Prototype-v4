@@ -1,0 +1,370 @@
+{
+  "schema": "privacy-results/v1",
+  "finishedUtc": "2026-10-06T22:31:02.858Z",
+  "protocolSha256": "3f70357174dd3e0596931aad1cc2cecb50f4699c796843e3eecc1a5992d788c7",
+  "runLabel": "[M, dev], controlled-clock local experiment; no timing inference",
+  "calls": 78,
+  "expectedOutcomes": 78,
+  "unexpectedOutcomes": [],
+  "sourceChanges": [],
+  "pairExpectationFailures": [],
+  "allPrespecifiedChecksPassed": true,
+  "acceptedReplies": 33,
+  "refusals": 45,
+  "pairs": [
+    {
+      "id": "shipped/p1",
+      "policy": "shipped",
+      "scenario": 1,
+      "referenceHolderIndices": [],
+      "challengeIds": [
+        "shipped/p1-0/challenge/1",
+        "shipped/p1-1/challenge/2"
+      ],
+      "replyPresenceDiffers": false,
+      "checkDiffers": false,
+      "messageObservationDiffers": false,
+      "observations": [
+        {
+          "reply": true,
+          "check": "accepted",
+          "message": null
+        },
+        {
+          "reply": true,
+          "check": "accepted",
+          "message": null
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "shipped/p2",
+      "policy": "shipped",
+      "scenario": 2,
+      "referenceHolderIndices": [
+        0,
+        1
+      ],
+      "challengeIds": [
+        "shipped/p2-0/challenge/5",
+        "shipped/p2-1/challenge/6"
+      ],
+      "replyPresenceDiffers": false,
+      "checkDiffers": false,
+      "messageObservationDiffers": false,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): the wallet answered another date within the last 600 s"
+        },
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): the wallet answered another date within the last 600 s"
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "shipped/p3",
+      "policy": "shipped",
+      "scenario": 3,
+      "referenceHolderIndices": [
+        0
+      ],
+      "challengeIds": [
+        "shipped/p3-0/challenge/8",
+        "shipped/p3-1/challenge/9"
+      ],
+      "replyPresenceDiffers": true,
+      "checkDiffers": true,
+      "messageObservationDiffers": true,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): the wallet answered another date within the last 600 s"
+        },
+        {
+          "reply": true,
+          "check": "accepted",
+          "message": null
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "shipped/p4",
+      "policy": "shipped",
+      "scenario": 4,
+      "referenceHolderIndices": [
+        0
+      ],
+      "challengeIds": [
+        "shipped/p4-0/challenge/11",
+        "shipped/p4-1/challenge/12"
+      ],
+      "replyPresenceDiffers": false,
+      "checkDiffers": false,
+      "messageObservationDiffers": true,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): the wallet answered another date within the last 600 s"
+        },
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): verifier date 20261011 is not the wallet's current UTC date 20261010"
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "shipped/p5",
+      "policy": "shipped",
+      "scenario": 5,
+      "referenceHolderIndices": [
+        0,
+        1
+      ],
+      "challengeIds": [
+        "shipped/p5-0/challenge/15",
+        "shipped/p5-1/challenge/16"
+      ],
+      "replyPresenceDiffers": false,
+      "checkDiffers": false,
+      "messageObservationDiffers": false,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): the wallet answered another date within the last 600 s"
+        },
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): the wallet answered another date within the last 600 s"
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "shipped/p6",
+      "policy": "shipped",
+      "scenario": 6,
+      "referenceHolderIndices": [
+        0
+      ],
+      "challengeIds": [
+        "shipped/p6-0/challenge/18",
+        "shipped/p6-1/challenge/19"
+      ],
+      "replyPresenceDiffers": true,
+      "checkDiffers": true,
+      "messageObservationDiffers": true,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): the wallet answered another date within the last 600 s"
+        },
+        {
+          "reply": true,
+          "check": "accepted",
+          "message": null
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "stateless-v1/p1",
+      "policy": "stateless-v1",
+      "scenario": 1,
+      "referenceHolderIndices": [],
+      "challengeIds": [
+        "stateless-v1/p1-0/challenge/40",
+        "stateless-v1/p1-1/challenge/41"
+      ],
+      "replyPresenceDiffers": false,
+      "checkDiffers": false,
+      "messageObservationDiffers": false,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        },
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "stateless-v1/p2",
+      "policy": "stateless-v1",
+      "scenario": 2,
+      "referenceHolderIndices": [
+        0,
+        1
+      ],
+      "challengeIds": [
+        "stateless-v1/p2-0/challenge/44",
+        "stateless-v1/p2-1/challenge/45"
+      ],
+      "replyPresenceDiffers": false,
+      "checkDiffers": false,
+      "messageObservationDiffers": false,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        },
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "stateless-v1/p3",
+      "policy": "stateless-v1",
+      "scenario": 3,
+      "referenceHolderIndices": [
+        0
+      ],
+      "challengeIds": [
+        "stateless-v1/p3-0/challenge/47",
+        "stateless-v1/p3-1/challenge/48"
+      ],
+      "replyPresenceDiffers": false,
+      "checkDiffers": false,
+      "messageObservationDiffers": false,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        },
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "stateless-v1/p4",
+      "policy": "stateless-v1",
+      "scenario": 4,
+      "referenceHolderIndices": [
+        0
+      ],
+      "challengeIds": [
+        "stateless-v1/p4-0/challenge/50",
+        "stateless-v1/p4-1/challenge/51"
+      ],
+      "replyPresenceDiffers": false,
+      "checkDiffers": false,
+      "messageObservationDiffers": false,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        },
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "stateless-v1/p5",
+      "policy": "stateless-v1",
+      "scenario": 5,
+      "referenceHolderIndices": [
+        0,
+        1
+      ],
+      "challengeIds": [
+        "stateless-v1/p5-0/challenge/54",
+        "stateless-v1/p5-1/challenge/55"
+      ],
+      "replyPresenceDiffers": false,
+      "checkDiffers": false,
+      "messageObservationDiffers": false,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        },
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    },
+    {
+      "id": "stateless-v1/p6",
+      "policy": "stateless-v1",
+      "scenario": 6,
+      "referenceHolderIndices": [
+        0
+      ],
+      "challengeIds": [
+        "stateless-v1/p6-0/challenge/57",
+        "stateless-v1/p6-1/challenge/58"
+      ],
+      "replyPresenceDiffers": false,
+      "checkDiffers": false,
+      "messageObservationDiffers": false,
+      "observations": [
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        },
+        {
+          "reply": false,
+          "check": "refused:dateCurrent",
+          "message": "wallet refuses (dateCurrent): stateless policy: date unavailable"
+        }
+      ],
+      "label": "[M, dev] deterministic pair contrast; not a population estimate"
+    }
+  ],
+  "availability": {
+    "label": "[S] enumeration of configured integer-second date policy, not measured uptime",
+    "secondsPerDay": 86400,
+    "eligibleSeconds": 85800,
+    "blackoutSeconds": 600,
+    "blackoutPercent": 0.6944444444444444,
+    "lastAnswerOffset": -301,
+    "firstAnswerOffset": 300,
+    "minimumCrossDateGapSec": 601
+  },
+  "limitations": [
+    "Single local fixture and synchronized injected clocks.",
+    "No independent tester; cases selected internally from reviewer feedback and source inspection.",
+    "No timing or browser/API transport measurements; message disclosure follows the documented conservative caller model.",
+    "Experimental variant only, not installed; no changed snapshot C2 verdict or proof of unlinkability.",
+    "Other refusal-kind, clock-offset, configuration and blob-sync channels remain.",
+    "Existing dev key and classical Groth16 soundness assumptions remain."
+  ]
+}

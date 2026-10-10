@@ -1,0 +1,48 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-imt",
+  "title": "revocation tree (IMT) bytes and witnesses",
+  "entryPoints": [
+    "IndexedMerkleTree.deserialize",
+    "IndexedMerkleTree.verifyNonMembership"
+  ],
+  "property": "deserialize(serialize(t)) equals t (depth, keys in leaf order, root) for random trees of depth 1 to 12 (and 1 % at depth 30); any byte string deserialize accepts serialises back to exactly the same bytes (only canonical encodings are accepted), and everything else throws Error; verifyNonMembership never throws, accepts the honest witness of every non-member key, and when it accepts a witness whose root is the tree's root, the opened leaf is the tree's leaf at lowIndex and strictly brackets a key that is not in the tree",
+  "documentedErrors": [
+    "Error"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 2564919563,
+  "budget": 20000,
+  "casesRun": 20000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "count/refused": 3494,
+    "witness-mutated/rejected": 3291,
+    "roundtrip/roundtrip": 4115,
+    "nonmember/rejected": 1553,
+    "witness-mutated/accepted": 757,
+    "nonmember/accepted": 2533,
+    "count/roundtrip": 331,
+    "bytes/refused": 3808,
+    "bytes/roundtrip": 118
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.18485000000000001,
+    "p99": 6.519834999999994,
+    "max": 13.9928
+  },
+  "startedUtc": "2026-10-03T16:09:41.281Z",
+  "finishedUtc": "2026-10-03T16:11:01.863Z"
+}

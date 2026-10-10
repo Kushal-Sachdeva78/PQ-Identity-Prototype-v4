@@ -1,0 +1,5 @@
+{
+  "name": "registry:anchorCadence",
+  "port": 8653,
+  "out": "<repo>\\results\\v4\\mutation\\registry__anchorCadence"
+}

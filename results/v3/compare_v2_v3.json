@@ -1,0 +1,177 @@
+{
+  "schema": "pqid/v3-compare/v1",
+  "label": "[M] v2 vs v3 cost, same host, same session, interleaved rounds (snarkJS only)",
+  "rounds": 15,
+  "warmupRoundsDiscarded": 2,
+  "constraints": {
+    "v2_published_O1": {
+      "nConstraints": 21715,
+      "nWires": 21745,
+      "nPublic": 5,
+      "nPrivate": 43
+    },
+    "v2_O2": {
+      "nConstraints": 10588,
+      "nWires": 10620,
+      "nPublic": 5,
+      "nPrivate": 43
+    },
+    "v3_O2": {
+      "nConstraints": 18683,
+      "nWires": 18746,
+      "nPublic": 6,
+      "nPrivate": 75
+    }
+  },
+  "addedByV3": {
+    "constraintsVsV2SameOpt": 8095,
+    "publicSignals": 1
+  },
+  "timing": {
+    "v2_published_O1": {
+      "witness": {
+        "n": 15,
+        "meanMs": 69.6454,
+        "medianMs": 69.6383,
+        "stddevMs": 5.5764,
+        "minMs": 61.6597,
+        "maxMs": 80.7204,
+        "p95Ms": 80.7204,
+        "q1": 65.9,
+        "q3": 71.2,
+        "iqr": 5.4
+      },
+      "prove": {
+        "n": 15,
+        "meanMs": 727.529,
+        "medianMs": 714.0236,
+        "stddevMs": 34.2715,
+        "minMs": 696.8111,
+        "maxMs": 821.0025,
+        "p95Ms": 821.0025,
+        "q1": 710,
+        "q3": 732.3,
+        "iqr": 22.3
+      }
+    },
+    "v2_O2": {
+      "witness": {
+        "n": 15,
+        "meanMs": 65.1853,
+        "medianMs": 63.6342,
+        "stddevMs": 9.9777,
+        "minMs": 54.9882,
+        "maxMs": 85.3742,
+        "p95Ms": 85.3742,
+        "q1": 57.2,
+        "q3": 70.4,
+        "iqr": 13.1
+      },
+      "prove": {
+        "n": 15,
+        "meanMs": 514.52,
+        "medianMs": 512.7579,
+        "stddevMs": 23.1013,
+        "minMs": 485.4589,
+        "maxMs": 554.128,
+        "p95Ms": 554.128,
+        "q1": 495,
+        "q3": 527.1,
+        "iqr": 32.1
+      }
+    },
+    "v3_O2": {
+      "witness": {
+        "n": 15,
+        "meanMs": 93.3944,
+        "medianMs": 93.031,
+        "stddevMs": 5.287,
+        "minMs": 85.6068,
+        "maxMs": 106.5844,
+        "p95Ms": 106.5844,
+        "q1": 90.7,
+        "q3": 95.2,
+        "iqr": 4.5
+      },
+      "prove": {
+        "n": 15,
+        "meanMs": 891.2359,
+        "medianMs": 878.8256,
+        "stddevMs": 34.5527,
+        "minMs": 839.4569,
+        "maxMs": 948.8212,
+        "p95Ms": 948.8212,
+        "q1": 864.2,
+        "q3": 921.8,
+        "iqr": 57.6
+      }
+    }
+  },
+  "proveMedianRatio": {
+    "v3_over_v2_O2": 1.71,
+    "v3_over_v2_published": 1.23
+  },
+  "gas": {
+    "v2_published_O1": {
+      "verifyProofDirectTxGasUsed": 242919,
+      "calldataBytes": 420,
+      "staticCallValid": true
+    },
+    "v3_O2": {
+      "verifyProofDirectTxGasUsed": 250078,
+      "calldataBytes": 452,
+      "staticCallValid": true
+    },
+    "issuanceRootAnchor": {
+      "firstEpochTxGasUsed": 120504,
+      "laterEpochTxGasUsed": 52330
+    }
+  },
+  "proofJsonBytes": 723,
+  "notes": [
+    "v2_O2 uses a throwaway, un-contributed phase-2 key: timing only, never used to verify anything.",
+    "Groth16 proof size is constant (3 group elements) for both versions; v3 adds one public signal (issRoot).",
+    "Timing is indicative: snarkJS in Node on one laptop; see controls.powerSource and controls.quiesce."
+  ],
+  "controls": {
+    "quiesce": {
+      "quiesced": true,
+      "forced": false,
+      "windows": {
+        "offendingProcesses": [],
+        "nodeCount": 3,
+        "cpuLoadPercent": 11
+      },
+      "wsl": {
+        "offendingProcesses": [],
+        "loadavg1m": -1
+      }
+    },
+    "affinity": {
+      "policy": "free scheduling across 12 vCPUs/logical CPUs (quiesced machine)",
+      "rationale": "rapidsnark v0.0.8 is pthread-pool multithreaded (0 OpenMP / 7 pthread symbols); the live probe shows 1-vCPU pinning ≈2.7× slower than free — pinning would not reproduce the paper's method. WSL2 vCPU→P/E-core placement is hypervisor-controlled and not configurable from the guest; quiescing + inter-run stability are the effective §B controls (probe embedded as evidence)."
+    },
+    "cpuGovernor": "unknown",
+    "powerSource": "AC (BatteryStatus=2)",
+    "fsBasis": "Windows NTFS (repo checkout), Node snarkJS",
+    "invocations": 1,
+    "ambientLoadNote": "host is an interactive laptop: desktop apps (desktop UI, browser, vendor services) contribute a fluctuating ~10-20% ambient load that cannot be fully quiesced; build/prover tooling is process-checked to zero, and inter-run CV is the stability arbiter (§B5)",
+    "host": {
+      "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+      "logicalCores": 8,
+      "totalMemGiB": 31.4,
+      "platform": "win32 x64",
+      "osRelease": "10.0.26200",
+      "osBuild": "10.0.26200.9457",
+      "nodeVersion": "v24.18.0",
+      "timestampUtc": "2026-09-26T16:08:54.097Z"
+    },
+    "wsl": {
+      "kernel": "unavailable",
+      "distro": "unavailable",
+      "gcc": "unavailable",
+      "cmake": "unavailable",
+      "python": "unavailable"
+    }
+  }
+}

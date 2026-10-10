@@ -1,0 +1,171 @@
+# Optional simulator build for the phone integration kit. Manual trigger only.
+# Requires a macOS GitHub Actions runner. Simulator output is not a physical-device
+# timing or energy measurement; see docs/v4/PHONE_PROTOCOL.md.
+
+name: ios-mopro (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: "GitHub macOS runner label"
+        type: choice
+        options: [macos-15, macos-14, macos-26, macos-latest]
+        default: macos-15
+      mopro_cli_version:
+        description: "mopro-cli version (the kit was written for 0.3.7)"
+        type: string
+        default: "0.3.7"
+      warm_runs:
+        description: "warm proofs after the cold one in the simulator test (simulator only; not a phone measurement)"
+        type: string
+        default: "0"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-mopro-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  simulator-proof:
+    runs-on: ${{ inputs.runner }}
+    timeout-minutes: 150
+    env:
+      LOGS: ${{ github.workspace }}/ci_logs
+      WORK: ${{ runner.temp }}/mopro_work
+      PQID_MOPRO_CLI_VERSION: ${{ inputs.mopro_cli_version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Record the environment
+        run: |
+          mkdir -p "$LOGS"
+          {
+            echo "runner ${{ inputs.runner }}"
+            sw_vers
+            xcodebuild -version
+            python3 --version
+            (rustc --version || echo "rustc not preinstalled")
+            (cmake --version | head -1 || echo "cmake missing")
+          } | tee "$LOGS/environment.txt"
+
+      - name: Check the pinned wasm, zkey and the bundled input
+        run: python3 mobile/mopro/scripts/check_pins.py | tee "$LOGS/check_pins.txt"
+
+      - name: Rust toolchain and iOS targets
+        run: |
+          if ! command -v rustup >/dev/null 2>&1; then
+            curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
+            echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+            export PATH="$HOME/.cargo/bin:$PATH"
+          fi
+          rustup target add aarch64-apple-ios-sim aarch64-apple-ios
+          rustc --version | tee -a "$LOGS/environment.txt"
+
+      - name: Cache cargo registry and the mopro binary
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.cargo/bin/mopro
+          key: mopro-${{ inputs.runner }}-${{ inputs.mopro_cli_version }}-v1
+
+      - name: Install mopro-cli ${{ inputs.mopro_cli_version }} and XcodeGen
+        run: |
+          export PATH="$HOME/.cargo/bin:$PATH"
+          if ! (command -v mopro >/dev/null 2>&1 && mopro --version | grep -q "$PQID_MOPRO_CLI_VERSION"); then
+            cargo install mopro-cli --version "$PQID_MOPRO_CLI_VERSION" --locked
+          fi
+          mopro --version | tee -a "$LOGS/environment.txt"
+          brew install xcodegen
+          xcodegen --version | tee -a "$LOGS/environment.txt"
+
+      - name: Scaffold the Mopro crate for the v4 circuit
+        run: |
+          export PATH="$HOME/.cargo/bin:$PATH"
+          bash mobile/mopro/scripts/scaffold.sh "$WORK"
+          cp "$WORK/pqid_v4_mopro/PQID_PATCHES.json" "$LOGS/"
+
+      - name: Build the iOS simulator bindings (Rust release build)
+        run: |
+          export PATH="$HOME/.cargo/bin:$PATH"
+          bash mobile/mopro/scripts/build_bindings.sh "$WORK/pqid_v4_mopro" sim 2>&1 | tee "$LOGS/build_bindings.log"
+          cp mobile/mopro/ios/MoproiOSBindings/PQID_BUILD_INFO.txt "$LOGS/"
+
+      - name: Generate the Xcode project
+        working-directory: mobile/mopro/ios
+        run: xcodegen generate
+
+      - name: Pick a simulator
+        run: |
+          IFS=$'\t' read -r SIM_UDID SIM_NAME SIM_RUNTIME < <(python3 mobile/mopro/scripts/pick_simulator.py)
+          echo "SIM_UDID=$SIM_UDID" >> "$GITHUB_ENV"
+          echo "simulator $SIM_NAME $SIM_RUNTIME" | tee -a "$LOGS/environment.txt"
+
+      - name: Build the unsigned simulator app (Release)
+        working-directory: mobile/mopro/ios
+        run: |
+          xcodebuild -project PQIDPhone.xcodeproj -scheme PQIDPhone -configuration Release \
+            -sdk iphonesimulator -destination "id=$SIM_UDID" -derivedDataPath build/dd-release \
+            ARCHS=arm64 EXCLUDED_ARCHS=x86_64 ONLY_ACTIVE_ARCH=YES \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            PQID_MOPRO_CLI_VERSION="$PQID_MOPRO_CLI_VERSION" \
+            build 2>&1 | tee "$LOGS/xcodebuild_build.log"
+          ditto -c -k --keepParent build/dd-release/Build/Products/Release-iphonesimulator/PQIDPhone.app \
+            "$LOGS/PQIDPhone-simulator-unsigned.zip"
+
+      - name: One v4 proof in the simulator (unit test)
+        working-directory: mobile/mopro/ios
+        run: |
+          TEST_RUNNER_PQID_WARM_RUNS="${{ inputs.warm_runs }}" \
+          xcodebuild -project PQIDPhone.xcodeproj -scheme PQIDPhone -configuration Debug \
+            -sdk iphonesimulator -destination "id=$SIM_UDID" -derivedDataPath build/dd-test \
+            -resultBundlePath "$LOGS/PQIDPhoneTests.xcresult" \
+            ARCHS=arm64 EXCLUDED_ARCHS=x86_64 ONLY_ACTIVE_ARCH=YES \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            PQID_MOPRO_CLI_VERSION="$PQID_MOPRO_CLI_VERSION" \
+            -maximum-parallel-testing-workers 1 \
+            test 2>&1 | tee "$LOGS/xcodebuild_test.log"
+
+      - name: Extract the simulator log
+        if: always()
+        run: |
+          STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
+          OUT="$LOGS/native_ci_simulator_$STAMP.json"
+          if grep -o 'PQID_PHONE_LOG_JSON {.*}' "$LOGS/xcodebuild_test.log" | head -1 | sed 's/^PQID_PHONE_LOG_JSON //' > "$OUT" && [ -s "$OUT" ]; then
+            python3 -m json.tool "$OUT" > /dev/null && echo "log -> $(basename "$OUT")"
+          else
+            rm -f "$OUT"; echo "no PQID_PHONE_LOG_JSON line in the test output"
+          fi
+          # the app also writes its log into the simulator's Documents folder
+          DATA="$(xcrun simctl get_app_container "$SIM_UDID" org.pqid.dev.PQIDPhone data 2>/dev/null || true)"
+          if [ -n "$DATA" ] && [ -d "$DATA/Documents/pqid_phone" ]; then
+            mkdir -p "$LOGS/app_documents" && cp "$DATA"/Documents/pqid_phone/*.json "$LOGS/app_documents/" || true
+          fi
+          {
+            echo "### ios-mopro (simulator; not a phone measurement)"
+            for f in "$LOGS"/native_ci_simulator_*.json; do
+              [ -f "$f" ] || continue
+              python3 - "$f" <<'PY'
+          import json, sys
+          d = json.load(open(sys.argv[1]))
+          print(f"- label: {d['label']}")
+          print(f"- device: {d['device']['model']} {d['device']['systemVersion']} (simulator: {d['device']['isSimulator']})")
+          for r in d["records"]:
+              print(f"- proof {r['index']} ({r['kind']}): verified={r.get('verified')}, publicSignalsMatch={r['publicSignalsMatch']}, error={r.get('error')}")
+          print(f"- zkey SHA-256 matches pin: {d['artifacts'].get('zkeySha256Match')}")
+          PY
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload logs, xcresult and the unsigned simulator app
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-mopro-${{ github.run_id }}
+          path: ci_logs/
+          retention-days: 30
+          if-no-files-found: warn

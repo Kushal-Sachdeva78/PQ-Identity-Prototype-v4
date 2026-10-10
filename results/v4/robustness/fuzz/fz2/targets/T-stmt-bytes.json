@@ -1,0 +1,47 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-stmt-bytes",
+  "title": "statement parsing (bytes)",
+  "entryPoints": [
+    "tryParseStatement",
+    "parseStatement"
+  ],
+  "property": "tryParseStatement never throws and accepts exactly the byte strings that are strict UTF-8, valid JSON, a valid statement (of the expected type, if given) and byte-identical to the canonical encoding (so duplicate keys, whitespace, -0, other number spellings, \\u escapes, BOM and invalid UTF-8 are rejected); parseStatement throws StatementError exactly when tryParseStatement rejects",
+  "documentedErrors": [
+    "StatementError"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 669254265,
+  "budget": 100000,
+  "casesRun": 100000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "bytes/rejected": 31660,
+    "utf8/rejected": 16626,
+    "json-text/rejected": 31860,
+    "pretty/rejected": 8338,
+    "canonical/accepted": 7254,
+    "canonical/rejected": 1024,
+    "json-text/accepted": 1650,
+    "bytes/accepted": 1588
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0103,
+    "p99": 0.07030099999999948,
+    "max": 1.9741
+  },
+  "startedUtc": "2026-10-03T16:02:28.046Z",
+  "finishedUtc": "2026-10-03T16:02:41.956Z"
+}

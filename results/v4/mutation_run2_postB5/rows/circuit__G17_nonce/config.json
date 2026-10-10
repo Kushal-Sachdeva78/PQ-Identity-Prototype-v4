@@ -1,0 +1,16 @@
+{
+  "name": "circuit:G17_nonce",
+  "port": 8615,
+  "out": "<repo>\\results\\v4\\mutation\\circuit__G17_nonce",
+  "mutantGroup": "G17_nonce",
+  "artifacts": {
+    "r1cs": "<repo>\\circuits\\build\\v4\\mutants\\G17_nonce\\credential_auth_v4.r1cs",
+    "sym": "<repo>\\circuits\\build\\v4\\mutants\\G17_nonce\\credential_auth_v4.sym",
+    "zkey": "<repo>\\circuits\\build\\v4\\mutants\\G17_nonce\\mutant_throwaway.zkey",
+    "wasm": "<repo>\\circuits\\build\\v4\\mutants\\G17_nonce\\credential_auth_v4_js\\credential_auth_v4.wasm",
+    "vkeyFile": "<repo>\\circuits\\build\\v4\\mutants\\G17_nonce\\mutant_throwaway_vkey.json",
+    "src": "<repo>\\circuits\\build\\v4\\mutants\\G17_nonce\\credential_auth_v4.circom",
+    "attackerDir": "<repo>\\circuits\\build\\v4\\mutants\\G17_nonce\\attacker",
+    "keyLabel": "mutant-throwaway"
+  }
+}

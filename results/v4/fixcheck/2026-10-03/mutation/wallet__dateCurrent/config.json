@@ -1,0 +1,8 @@
+{
+  "name": "wallet:dateCurrent, dev key, post-fix rerun (D-034)",
+  "port": 8838,
+  "out": "results/v4/fixcheck/2026-10-03/mutation/wallet__dateCurrent",
+  "walletDisabled": [
+    "dateCurrent"
+  ]
+}

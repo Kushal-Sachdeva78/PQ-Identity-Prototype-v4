@@ -1,0 +1,113 @@
+{
+  "schema": "pqid/v4-fuzz-target/v1",
+  "target": "T-encoding",
+  "title": "field encodings",
+  "entryPoints": [
+    "credTypeField",
+    "fieldFrom31Bytes",
+    "policyHashV4",
+    "revKeyFromCredId",
+    "fieldDec"
+  ],
+  "property": "outputs are field elements (< p); revKey < 2^251 and equals hi * 2^123 + floor(lo / 32) of the credID limbs; fieldFrom31Bytes equals the big-endian integer of exactly 31 bytes; each throws Error exactly on its documented bad input (empty or non-string typeId, length other than 31 or 32, threshold outside [0, 255], invalid date, unknown predicate, value outside [0, p)); typeIds that differ only in lone surrogates are recorded as an observation when they collide",
+  "documentedErrors": [
+    "Error"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 747906312,
+  "budget": 100000,
+  "casesRun": 100000,
+  "complete": true,
+  "stoppedBy": null,
+  "outcomes": {
+    "credType/ok": 23850,
+    "revKey/ok": 16286,
+    "fieldDec/ok": 9074,
+    "from31/ok": 10920,
+    "policy/ok": 19174,
+    "credType/refused": 3441,
+    "from31/refused": 7175,
+    "policy/refused": 8212,
+    "revKey/refused": 1868
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [
+    {
+      "id": "credType:loneSurrogateCollision",
+      "count": 5646,
+      "examples": [
+        {
+          "index": 0,
+          "detail": "typeIds \"pqid:type:a\\udbffge-credential:v1\" and its well-formed form map to the same credType field",
+          "file": "results/v4/robustness/fuzz/fz1/observations/T-encoding/credType_loneSurrogateCollision.json"
+        },
+        {
+          "index": 5,
+          "detail": "typeIds \"\\ud800é漢😀\" and its well-formed form map to the same credType field",
+          "file": null
+        },
+        {
+          "index": 47,
+          "detail": "typeIds \"é漢\\ud83dé\\ude00�\" and its well-formed form map to the same credType field",
+          "file": null
+        },
+        {
+          "index": 78,
+          "detail": "typeIds \"xxxxxxxxxxxxxxxxxx\\udbffxxxxxxxxxxxxxxxxxxxxx\" and its well-formed form map to the same credType field",
+          "file": null
+        },
+        {
+          "index": 94,
+          "detail": "typeIds \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\" and its well-formed form map to the same credType field",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "policyHash:requiredTypeAliasModP",
+      "count": 2158,
+      "examples": [
+        {
+          "index": 131,
+          "detail": "requiredType and requiredType - p give the same policyHash (Poseidon reduces mod p; requiredType always comes from credTypeField, so not reachable from a request)",
+          "file": "results/v4/robustness/fuzz/fz1/observations/T-encoding/policyHash_requiredTypeAliasModP.json"
+        },
+        {
+          "index": 276,
+          "detail": "requiredType and requiredType - p give the same policyHash (Poseidon reduces mod p; requiredType always comes from credTypeField, so not reachable from a request)",
+          "file": null
+        },
+        {
+          "index": 290,
+          "detail": "requiredType and requiredType - p give the same policyHash (Poseidon reduces mod p; requiredType always comes from credTypeField, so not reachable from a request)",
+          "file": null
+        },
+        {
+          "index": 325,
+          "detail": "requiredType and requiredType - p give the same policyHash (Poseidon reduces mod p; requiredType always comes from credTypeField, so not reachable from a request)",
+          "file": null
+        },
+        {
+          "index": 376,
+          "detail": "requiredType and requiredType - p give the same policyHash (Poseidon reduces mod p; requiredType always comes from credTypeField, so not reachable from a request)",
+          "file": null
+        }
+      ]
+    }
+  ],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0147,
+    "p99": 0.5452009999999995,
+    "max": 1.5901
+  },
+  "startedUtc": "2026-10-03T09:11:21.842Z",
+  "finishedUtc": "2026-10-03T09:11:31.194Z"
+}

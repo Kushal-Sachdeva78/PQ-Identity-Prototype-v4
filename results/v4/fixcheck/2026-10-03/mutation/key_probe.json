@@ -1,0 +1,15 @@
+{
+  "run": "post-fix rerun (D-034)",
+  "key": "dev key",
+  "rekeyLabel": null,
+  "keyLabel": "dev",
+  "zkey": "setup/out/v4/credential_auth_v4_dev.zkey",
+  "vkey": "setup/out/v4/verification_key_dev.json",
+  "sol": "setup/out/v4/Groth16VerifierV4_dev.sol",
+  "transcript": "setup/out/v4/setup_transcript_dev.json",
+  "proveDefault": {
+    "zkey": "setup/out/v4/credential_auth_v4_dev.zkey",
+    "keyLabel": "dev"
+  },
+  "vkeyParses": true
+}

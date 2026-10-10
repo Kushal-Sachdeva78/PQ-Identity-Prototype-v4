@@ -1,0 +1,13 @@
+{
+  "name": "pqid-ceremony-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PQ-Identity Groth16 phase-2 ceremony kit (contributor and coordinator scripts). Run npm install here only when this folder is used outside the repo.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "snarkjs": "0.7.4"
+  }
+}

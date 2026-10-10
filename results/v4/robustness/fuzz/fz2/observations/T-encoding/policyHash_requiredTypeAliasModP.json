@@ -1,0 +1,43 @@
+{
+  "schema": "pqid/v4-fuzz-observation/v1",
+  "observation": "policyHash:requiredTypeAliasModP",
+  "detail": "requiredType and requiredType - p give the same policyHash (Poseidon reduces mod p; requiredType always comes from credTypeField, so not reachable from a request)",
+  "target": "T-encoding",
+  "masterSeed": 20261022,
+  "targetSeed": 747906312,
+  "caseIndex": 131,
+  "caseSeed": 33437889,
+  "family": "policy",
+  "recipe": [],
+  "meta": {
+    "$t": "object",
+    "entries": []
+  },
+  "input": {
+    "$t": "object",
+    "entries": [
+      [
+        "predicate",
+        "age_lt"
+      ],
+      [
+        "threshold",
+        14
+      ],
+      [
+        "today",
+        19830430
+      ],
+      [
+        "requiredType",
+        {
+          "$t": "bigint",
+          "v": "33296738708857781557338915238455539363852216358466590140073841744667131222861"
+        }
+      ]
+    ]
+  },
+  "inputTypedJsonBytes": 203,
+  "inputTypedJsonSha256": "2760da08c622976dd5d48922feaabef1c0ebbf4c81595cbe7073bff01519cbb8",
+  "inputTruncated": false
+}

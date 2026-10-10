@@ -1,0 +1,19 @@
+# Mopro CLI project config for the PQ-Identity v4 phone kit (docs/v4/PHONE_PROTOCOL.md).
+#
+# Pinned CLI: mopro-cli 0.3.7 (research/TOOLS_iris_rules_and_feasibility.md, section 2.10).
+# Field names follow the Config struct of mopro cli/src/config.rs (build_mode, target_adapters,
+# target_platforms, ios, android, react_native, update, auto_update), read on 2026-09-27 from
+# https://raw.githubusercontent.com/zkmopro/mopro/main/cli/src/config.rs [VERIFY against the
+# Config.toml that `mopro init` writes; scaffold.sh keeps the generated file if a key here is
+# unknown to it].
+#
+# scripts/build_bindings.sh also passes every value below as a command-line flag, so a build
+# does not depend on this file being read.
+
+build_mode = "release"
+target_adapters = ["circom"]
+target_platforms = ["ios"]
+# aarch64-apple-ios: a physical iPhone. aarch64-apple-ios-sim: the Apple-silicon simulator
+# (GitHub macOS runner). x86_64-apple-ios is not built (Intel simulator only).
+ios = ["aarch64-apple-ios", "aarch64-apple-ios-sim"]
+auto_update = false

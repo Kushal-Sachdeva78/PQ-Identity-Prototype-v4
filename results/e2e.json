@@ -1,0 +1,190 @@
+{
+  "schema": "pqid/e2e/v1",
+  "label": "[M] end-to-end pipeline execution; wall times include WSL-bridge and EVM overhead and are NOT the Table IV/V numbers (see pqc.json / zk.json)",
+  "ok": true,
+  "issuanceImpl": "dilithium-py",
+  "issuanceNote": "issuance signs with dilithium-py 1.4.0 (paper A.5); the wallet verifies that signature with liboqs 0.15.0 — a live cross-implementation check, excluded from timing tables",
+  "vcBytes": 5250,
+  "proofBytes": {
+    "snarkjs": 723,
+    "rapidsnark": 707
+  },
+  "steps": [
+    {
+      "step": "ledger: start single-node EVM (Anvil)",
+      "ok": true,
+      "wallMs": 328.15
+    },
+    {
+      "step": "ledger: deploy DID/Issuer/Revocation/Schema registries",
+      "ok": true,
+      "wallMs": 2088.63,
+      "detail": {
+        "addresses": {
+          "didRegistry": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          "issuerRegistry": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+          "revocationRegistry": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+          "schemaRegistry": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
+        }
+      }
+    },
+    {
+      "step": "issuer: ML-DSA-44 keygen (dilithium-py 1.4.0, harness issuance step per paper A.5)",
+      "ok": true,
+      "wallMs": 1027.319,
+      "detail": {
+        "did": "did:pq:2dC4CWijtn25C4knczjbT4qL6fe5",
+        "pkBytes": 1312
+      }
+    },
+    {
+      "step": "wallet: ML-DSA-44 keygen (liboqs) + holder secret/commitment",
+      "ok": true,
+      "wallMs": 1317.497,
+      "detail": {
+        "did": "did:pq:3BPDaXncCV3Jx9sesZJjoRw5zZzM"
+      }
+    },
+    {
+      "step": "ledger: register issuer DID Document",
+      "ok": true,
+      "wallMs": 427.501
+    },
+    {
+      "step": "ledger: register holder DID Document",
+      "ok": true,
+      "wallMs": 289.625
+    },
+    {
+      "step": "ledger: accredit issuer in Issuer Registry",
+      "ok": true,
+      "wallMs": 293.195
+    },
+    {
+      "step": "ledger: register credential schema",
+      "ok": true,
+      "wallMs": 289.89
+    },
+    {
+      "step": "revocation: build depth-32 SMT with 8 revoked fixture credIDs",
+      "ok": true,
+      "wallMs": 496.692,
+      "detail": {
+        "root": "159895563541355874803226…"
+      }
+    },
+    {
+      "step": "ledger: publish initial revocation root (Algorithm 4)",
+      "ok": true,
+      "wallMs": 432.852
+    },
+    {
+      "step": "issuer: issue VC — credID = SHA3-256(cred ‖ pk_issuer), Dilithium sign (dilithium-py)",
+      "ok": true,
+      "wallMs": 1050.752,
+      "detail": {
+        "credID": "e501573493222d29…",
+        "sigBytes": 2420
+      }
+    },
+    {
+      "step": "wallet: OFF-CIRCUIT Dilithium verify (liboqs ← dilithium-py sig: live interop) + holder binding + policy",
+      "ok": true,
+      "wallMs": 1067.485,
+      "detail": {
+        "credIdConsistent": true,
+        "dilithiumValid": true,
+        "holderBound": true,
+        "policyApplicable": true,
+        "ok": true
+      }
+    },
+    {
+      "step": "wallet: witness (incl. depth-32 non-membership) + Groth16 prove [rapidsnark native]",
+      "ok": true,
+      "wallMs": 1883.86,
+      "detail": {
+        "proofBytes": 707,
+        "witnessMs": 81.9675,
+        "proveMs": 325.0139
+      }
+    },
+    {
+      "step": "wallet: Groth16 prove [snarkJS] on the same statement",
+      "ok": true,
+      "wallMs": 2899.572,
+      "detail": {
+        "proofBytes": 723,
+        "proveMs": 1785.7314
+      }
+    },
+    {
+      "step": "verifier: resolve pk_issuer + revRoot on-chain, equality, Groth16.verify, nonce (rapidsnark proof)",
+      "ok": true,
+      "wallMs": 70.787,
+      "detail": {
+        "checks": {
+          "proofValid": true,
+          "issuerResolvedAndAccredited": true,
+          "issuerKeyHashMatches": true,
+          "revRootMatches": true,
+          "policyHashMatches": true,
+          "nonceFresh": true,
+          "stmtCodeValid": true
+        }
+      }
+    },
+    {
+      "step": "wallet: fresh proof for second session [snarkJS]",
+      "ok": true,
+      "wallMs": 2123.108
+    },
+    {
+      "step": "verifier: accept snarkJS proof (second session)",
+      "ok": true,
+      "wallMs": 89.896
+    },
+    {
+      "step": "issuer: REVOKE credential — insert credID into SMT, publish new root",
+      "ok": true,
+      "wallMs": 400.697
+    },
+    {
+      "step": "wallet: attempt to build a fresh proof — REFUSED (no non-membership opening exists)",
+      "ok": true,
+      "wallMs": 0.557,
+      "detail": {
+        "refused": true
+      }
+    },
+    {
+      "step": "verifier: REJECT replay of the pre-revocation proof (revRoot equality fails)",
+      "ok": true,
+      "wallMs": 75.221,
+      "detail": {
+        "reasons": [
+          "revocation root mismatch: proof used 15989556354135587480322636806185315549728229374763804012644761492124955783933, chain has 3201116742316635176830476141012093716070843125928127118321179604560288536561",
+          "nonce is stale, unknown, or already used"
+        ],
+        "revRootMatches": false
+      }
+    }
+  ],
+  "host": {
+    "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logicalCores": 12,
+    "totalMemGiB": 15.7,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.8655",
+    "nodeVersion": "v22.16.0",
+    "timestampUtc": "2026-06-11T12:16:14.859Z"
+  },
+  "wsl": {
+    "kernel": "6.6.114.1-microsoft-standard-WSL2",
+    "distro": "Ubuntu 26.04 LTS",
+    "gcc": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+    "cmake": "cmake version 4.2.3",
+    "python": "Python 3.14.4"
+  }
+}

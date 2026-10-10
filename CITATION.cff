@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Please cite this software and the accompanying research paper when using this implementation or its measurements."
+title: "PQ-ID v4: Issuance-Bound Credentials with Post-Quantum-Signed Statements"
+type: software
+authors:
+  - given-names: Kushal
+    family-names: Sachdeva
+    orcid: "https://orcid.org/0009-0007-5126-0696"
+version: "4.0.0"
+license: MIT
+abstract: >-
+  Research implementation accompanying Auditing and Redesigning a Zero-Knowledge
+  Digital Identity System: Issuance-Bound Credentials with Post-Quantum-Signed
+  Statements. Includes v4 protocol code, v2/v3 comparison implementations,
+  Circom circuits, EVM registries, committed development proof artifacts,
+  adversarial tests, measurement harnesses and supplementary revision experiments.
+keywords:
+  - digital identity
+  - post-quantum signatures
+  - zero-knowledge proofs
+  - verifiable credentials
+  - Groth16
+  - selective disclosure

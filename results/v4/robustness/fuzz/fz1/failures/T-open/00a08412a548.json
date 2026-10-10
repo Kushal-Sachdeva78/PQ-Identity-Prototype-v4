@@ -1,0 +1,94 @@
+{
+  "schema": "pqid/v4-fuzz-failure/v1",
+  "smoke": false,
+  "signature": "T-open|harness:runError|Error",
+  "signatureSha12": "00a08412a548",
+  "predicate": "harness:runError",
+  "errorClass": "Error",
+  "violations": [
+    {
+      "predicate": "harness:runError",
+      "detail": "Error: non-finite number",
+      "errorClass": "Error"
+    }
+  ],
+  "target": "T-open",
+  "masterSeed": 20261022,
+  "targetSeed": 2609738961,
+  "caseIndex": 2205,
+  "caseSeed": 2747386600,
+  "family": "raw-plaintext",
+  "recipe": [
+    "number 806337 -> 1e400"
+  ],
+  "meta": {
+    "$t": "object",
+    "entries": [
+      [
+        "subSeed",
+        465406806
+      ]
+    ]
+  },
+  "input": null,
+  "inputTypedJsonBytes": 4,
+  "inputTypedJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+  "inputTruncated": false,
+  "occurrences": 10,
+  "firstIndices": [
+    2205,
+    5266,
+    23402,
+    25139,
+    26667,
+    27224,
+    41058,
+    43322,
+    43361,
+    45790
+  ],
+  "replay": "node --import tsx harness/v4/robustness/fuzz.ts --replay <this file>",
+  "regeneration": "keys are generated in memory per run: replay regenerates the case from (master seed, target, index) with fresh keys; mutation positions and choices are identical, key-dependent bytes differ",
+  "gitHead": "312199bb45f96c9ae45bf41323c244a743e29161",
+  "node": "v24.18.0",
+  "openssl": "3.5.7",
+  "platform": "win32",
+  "sources": {
+    "harness/v4/robustness/circuit_fuzz.ts": "5ce659e51ddd22de6b93dbbb4967b2c6deecf4017c0bed962189cac44307681f",
+    "harness/v4/robustness/common.ts": "6aa0735d2f1b1abcc2605ff83db2fa08f304d532a97097d9257c851af1dfba67",
+    "harness/v4/robustness/coverage.ts": "aae0b6ed13ddd6cbe693d7a834fd78967a2f32b2796513d9502114e6f4f9d9e5",
+    "harness/v4/robustness/forge_fuzz.ts": "a2a24d0072af8ed5b547763d3facf3a6adf913ac84cb0bd03e5089595f916338",
+    "harness/v4/robustness/fuzz.ts": "9fedd60db89d2b86c236aa75dd80c40ec1422f724315d860b62c5a52b33c25fc",
+    "harness/v4/robustness/fuzz_chain.ts": "ea0f51cb4dc75e1827542eb71779b2ecaeba7bab8bdd91658c26852573005ec9",
+    "harness/v4/robustness/fuzz_targets.ts": "1d4b90935a9c0fbe447abf6f3e6d9ce50a204bc7d0a3f531cc19eafd340c2e1a",
+    "harness/v4/robustness/fuzz_types.ts": "51db0ea4abf65897f2c1d94d4b3a78eeb2f916bb104f07f14603d1523a7d9869",
+    "harness/v4/robustness/hostile.ts": "78d7d45bdbd3123d4e3d6255021d753304c523a44a51ba14f52a7687a2c7bc24",
+    "harness/v4/robustness/load.ts": "fa4fb091e50b3a742f5ea054404e9d9c7623e1a2a13512c9e530fbdd6b8b84d9",
+    "harness/v4/robustness/load_lib.ts": "954637d78f2749ab1dae895f4956a29f99635e2f1c088cf7bf3cb497f6ff7d5f",
+    "harness/v4/robustness/load_worker.ts": "04b83da5bcf349afddc89c5f4ed7fc96f2eb11d155f24116b2039d440232526b",
+    "harness/v4/robustness/mutators.ts": "12785d6197dffa4967e708018b279cf3f927aed75cae8b56b9b918cec92599e7",
+    "harness/v4/robustness/oracles.ts": "c8bb05fd35848ed6e7095109dd335b7dd57c4abd8e333b447791a0ef2f5028f7",
+    "harness/v4/robustness/rng.ts": "3b6c2ecacd089643eae92dc641c0949a2fad5943dd6d091d80ace9251f0b30c9",
+    "harness/v4/robustness/typed_json.ts": "9453d1afeb77764d30d8b7d61b0a1e85c59d905ea4c08ddfc977ef500568d860",
+    "harness/v4/robustness/valid_gen.ts": "eafe9b3025bdff8b1bd91b53d50c52980316219caa9b68a2ed1a9446283c6cb0",
+    "packages/v4/src/clock.ts": "9619b194d4f36a9dc1d738103b60fe7c7ae745f650f8b6868f571babd6dc01d9",
+    "packages/v4/src/constants.ts": "bcaca98edc6ae0f8ea06a4f089a10a337fa2449e2a269fa20f756a7e02f1de5a",
+    "packages/v4/src/dates.ts": "8c00a1e6d8eb72597283550dfdce4d0c2a4e66d7b84c8c4ecd96b86471b5033c",
+    "packages/v4/src/encoding.ts": "2c3a33ac637a7f4de2971913272b793e926ba577ca46207382a15ca8e608b93f",
+    "packages/v4/src/governance.ts": "cc2b113d1af69f81699643ee90f2abfa0dc4abd97f52e27248ed3ac0919d6d79",
+    "packages/v4/src/imt.ts": "a40447fcc48ed4d82c41e6008b12ce73adccd0bc02abe37b0f96761484fe6d5c",
+    "packages/v4/src/issuer.ts": "c86c410dd3ec07797e87251663d822ee24b2710e1489fae50a00436e8369fbcb",
+    "packages/v4/src/ledger.ts": "c0db178b8b02772d3a8c9bce14ba9853043b5d38930057bf6f754bb6fbae0bac",
+    "packages/v4/src/paths.ts": "31bfc967c84c1cf7991886f06ff25f19234f21012c6ae6b81db7746325668edd",
+    "packages/v4/src/pqc.ts": "2a70a18277d512f24ca18ee35488ae41954209221fb673ad994487b6c4918524",
+    "packages/v4/src/prove.ts": "5e192bd4e70156eabf0b5c2b6a20543436d73e4aed189d8f5f80a3828b131bd0",
+    "packages/v4/src/published.ts": "f5ecfc1eac56f39e80e84353632cf3011012c6ef5901ad597c20c15da63aedcd",
+    "packages/v4/src/session.ts": "d772cc59a9161636e0d05faabd8ae34487911147ae462d24a7c37955d7c5fc80",
+    "packages/v4/src/statements.ts": "1b660aab3614736d5a4c9ca3a071d72334c47946be7f7fc206d9f64dfb88ab64",
+    "packages/v4/src/verifier.ts": "bb73ce73e6df049df3aaa65324ee8ad68c83e29cc583e29d8567992cfccc170f",
+    "packages/v4/src/wallet.ts": "e5aa0cffb60dc5b3ba2465f8ab7d100ebbe9810e2f1c9bfeb44c229ded8a725d",
+    "packages/v4/src/witness.ts": "52f85969a9021ed808736ddbfcfc84a1795e61f08cdfbc30b5acc2c01294ceba",
+    "packages/v4/src/world.ts": "0984232a3bc4038a7a49f04e1853f43b09ed1eb45387332c569567d7bfa65eb6"
+  },
+  "writtenUtc": "2026-10-03T09:13:50.393Z"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "verifier:policyHash, dev key, post-fix rerun (D-034)",
+  "port": 8827,
+  "out": "results/v4/fixcheck/2026-10-03/mutation/verifier__policyHash",
+  "verifierDisabled": [
+    "policyHash"
+  ]
+}

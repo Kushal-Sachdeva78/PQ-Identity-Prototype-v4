@@ -1,0 +1,38 @@
+{
+  "$id": "pqid:schema:identity-v1",
+  "$comment": "Minimal W3C VC v2.0-flavored schema used by the prototype. Claims are flat string/number pairs; the v1 policy predicate consumes claims.age.",
+  "type": "object",
+  "required": ["credential", "credID", "signature"],
+  "properties": {
+    "credential": {
+      "type": "object",
+      "required": ["subject", "claims", "issuer", "issuedAt", "holderCommit", "schema"],
+      "properties": {
+        "subject": { "type": "string", "pattern": "^did:pq:" },
+        "claims": {
+          "type": "object",
+          "required": ["age"],
+          "properties": {
+            "age": { "type": "integer", "minimum": 0, "maximum": 4294967295 },
+            "name": { "type": "string" },
+            "degree": { "type": "string" }
+          }
+        },
+        "issuer": { "type": "string", "pattern": "^did:pq:" },
+        "issuedAt": { "type": "string", "format": "date-time" },
+        "holderCommit": { "type": "string", "pattern": "^[0-9]+$" },
+        "schema": { "type": "string" }
+      }
+    },
+    "credID": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "signature": { "type": "string", "pattern": "^[0-9a-f]+$" }
+  },
+  "encoding": {
+    "credID": "SHA3-256( canonicalJson(credential) ‖ pk_issuer ), hex",
+    "canonicalJson": "recursively key-sorted JSON, no whitespace, UTF-8",
+    "claims.age": "uint32, range-checked in-circuit (Num2Bits(32))",
+    "holderCommit": "Poseidon(holderSecret) as a decimal BN254 field element",
+    "policyHash": "Poseidon(predicateCode, threshold) — predicateCode 1 = AGE_GTE, 2 = AGE_LT",
+    "stmtCode": "Poseidon(STMT_V1, domainTag) — STMT_V1 = 1; domainTag binds the requesting verifier (verifier-domain separation)"
+  }
+}

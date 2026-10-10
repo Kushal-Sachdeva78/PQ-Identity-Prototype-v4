@@ -1,0 +1,83 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-req-shape",
+  "title": "proof request shape",
+  "entryPoints": [
+    "requestShapeErrors",
+    "isProofRequestV4",
+    "newRequest"
+  ],
+  "property": "requestShapeErrors never throws on JSON data and returns no error exactly for the requests the V4_DESIGN section 5 reference accepts (exact keys at both levels, did:pq, lower-case address, positive chainId, threshold 0..255, typeId of 1..256 characters, valid date, non-negative issuedAt); isProofRequestV4 agrees; newRequest returns a reference-valid request carrying the given fields, or throws, exactly as the reference decides for those fields",
+  "documentedErrors": [
+    "Error",
+    "TypeError"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 3021422474,
+  "budget": 200000,
+  "casesRun": 200000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "valid/accepted": 30875,
+    "text-unparsable/rejected": 6211,
+    "mutated/accepted": 26221,
+    "text/rejected": 9515,
+    "mutated/rejected": 81409,
+    "tree/rejected": 15264,
+    "text/accepted": 15087,
+    "exotic/rejected": 5148,
+    "exotic/threw": 3413,
+    "exotic/accepted": 6857
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [
+    {
+      "id": "exoticObjectThrows",
+      "count": 3413,
+      "examples": [
+        {
+          "index": 71,
+          "detail": "requestShapeErrors threw Error on Proxy whose ownKeys trap throws",
+          "file": "results/v4/robustness/fuzz/fz2/observations/T-req-shape/exoticObjectThrows.json"
+        },
+        {
+          "index": 118,
+          "detail": "requestShapeErrors threw Error on field type behind a throwing getter",
+          "file": null
+        },
+        {
+          "index": 238,
+          "detail": "requestShapeErrors threw Error on field policy behind a throwing getter",
+          "file": null
+        },
+        {
+          "index": 341,
+          "detail": "requestShapeErrors threw Error on field policy behind a throwing getter",
+          "file": null
+        },
+        {
+          "index": 476,
+          "detail": "requestShapeErrors threw Error on Proxy whose ownKeys trap throws",
+          "file": null
+        }
+      ]
+    }
+  ],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0023,
+    "p99": 0.0206,
+    "max": 0.534
+  },
+  "startedUtc": "2026-10-03T16:02:48.421Z",
+  "finishedUtc": "2026-10-03T16:02:57.081Z"
+}

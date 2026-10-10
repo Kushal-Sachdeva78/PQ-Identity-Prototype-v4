@@ -1,0 +1,45 @@
+# rapidsnark v0.0.8 (commit 81eddf1) with statically linked GMP 6.3.0, built
+# with GCC 15.x — the native prover behind the paper's ~156 ms Groth16 path.
+#
+#   docker build -f docker/Dockerfile.native -t pqid/rapidsnark .
+#   # then run the prover on a zkey + witness:
+#   docker run --rm -v "$PWD:/work" -w /work pqid/rapidsnark \
+#     /opt/rapidsnark/bin/prover setup/out/credential_auth_final.zkey w.wtns p.json pub.json
+FROM ubuntu:24.04
+
+ARG RAPIDSNARK_COMMIT=81eddf1
+ARG GMP_VERSION=6.3.0
+ENV DEBIAN_FRONTEND=noninteractive
+
+# GCC 15 from the toolchain test PPA to match the paper's GCC 15.x.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      software-properties-common ca-certificates git curl xz-utils m4 \
+      build-essential cmake nasm libgmp-dev \
+ && add-apt-repository -y ppa:ubuntu-toolchain-r/test \
+ && apt-get update && apt-get install -y --no-install-recommends gcc-15 g++-15 \
+ && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-15 100 \
+ && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-15 100 \
+ && rm -rf /var/lib/apt/lists/*
+
+# Static GMP 6.3.0 (gnu17 to satisfy GCC 15's configure tests).
+WORKDIR /src
+RUN curl -fsSLO https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION}.tar.xz \
+ && tar xf gmp-${GMP_VERSION}.tar.xz && cd gmp-${GMP_VERSION} \
+ && ./configure --prefix=/opt/gmp --enable-static --disable-shared --with-pic \
+      CC=gcc CFLAGS="-O2 -fomit-frame-pointer -std=gnu17" \
+ && make -j"$(nproc)" && make install
+
+# rapidsnark at the pinned commit, with GCC-15 <cstdint> include patches.
+RUN git clone https://github.com/iden3/rapidsnark.git && cd rapidsnark \
+ && git checkout ${RAPIDSNARK_COMMIT} \
+ && git submodule update --init --recursive \
+ && sed -i 's/gmp-6\.[0-9]*\.[0-9]*/gmp-'${GMP_VERSION}'/g' build_gmp.sh \
+ && CFLAGS="-O2 -fomit-frame-pointer -std=gnu17" ./build_gmp.sh host \
+ && for h in src/binfile_utils.hpp src/wtns_utils.hpp src/zkey_utils.hpp src/fileloader.hpp; do \
+      grep -q '#include <cstdint>' "$h" || sed -i '1i #include <cstdint>' "$h"; done \
+ && cmake -S . -B build_prover -DTARGET_PLATFORM=host -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_INSTALL_PREFIX=/opt/rapidsnark \
+ && cmake --build build_prover -j"$(nproc)" && cmake --install build_prover
+
+WORKDIR /work
+CMD ["bash"]

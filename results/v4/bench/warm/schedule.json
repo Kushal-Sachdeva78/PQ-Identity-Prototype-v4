@@ -1,0 +1,676 @@
+{
+  "schema": "pqid/v4-bench-schedule/v1",
+  "createdUtc": "2026-09-27T16:43:38.311Z",
+  "config": {
+    "campaign": "warm",
+    "mode": "warm",
+    "smoke": false,
+    "versions": [
+      "v2",
+      "v3",
+      "v4"
+    ],
+    "provers": [
+      "snarkjs",
+      "rapidsnark"
+    ],
+    "conditions": [
+      "v2/snarkjs",
+      "v3/snarkjs",
+      "v4/snarkjs"
+    ],
+    "blocked": [
+      {
+        "condition": "v2/rapidsnark",
+        "reason": "blocked: rapidsnark unavailable (D-002)"
+      },
+      {
+        "condition": "v3/rapidsnark",
+        "reason": "blocked: rapidsnark unavailable (D-002)"
+      },
+      {
+        "condition": "v4/rapidsnark",
+        "reason": "blocked: rapidsnark unavailable (D-002)"
+      }
+    ],
+    "n": 30,
+    "warmup": 5,
+    "settleSec": 600,
+    "blockGapSec": 2,
+    "seed": 20260929
+  },
+  "prng": "mulberry32, Fisher-Yates from the end; one stream for all blocks",
+  "rule": "blocks < 0 are warm-up (not analysed); each block holds every runnable condition once, in shuffled order",
+  "slots": [
+    {
+      "slot": 0,
+      "block": -5,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 1,
+      "block": -5,
+      "pos": 1,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 2,
+      "block": -5,
+      "pos": 2,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 3,
+      "block": -4,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 4,
+      "block": -4,
+      "pos": 1,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 5,
+      "block": -4,
+      "pos": 2,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 6,
+      "block": -3,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 7,
+      "block": -3,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 8,
+      "block": -3,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 9,
+      "block": -2,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 10,
+      "block": -2,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 11,
+      "block": -2,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 12,
+      "block": -1,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 13,
+      "block": -1,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 14,
+      "block": -1,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 15,
+      "block": 0,
+      "pos": 0,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 16,
+      "block": 0,
+      "pos": 1,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 17,
+      "block": 0,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 18,
+      "block": 1,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 19,
+      "block": 1,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 20,
+      "block": 1,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 21,
+      "block": 2,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 22,
+      "block": 2,
+      "pos": 1,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 23,
+      "block": 2,
+      "pos": 2,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 24,
+      "block": 3,
+      "pos": 0,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 25,
+      "block": 3,
+      "pos": 1,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 26,
+      "block": 3,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 27,
+      "block": 4,
+      "pos": 0,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 28,
+      "block": 4,
+      "pos": 1,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 29,
+      "block": 4,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 30,
+      "block": 5,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 31,
+      "block": 5,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 32,
+      "block": 5,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 33,
+      "block": 6,
+      "pos": 0,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 34,
+      "block": 6,
+      "pos": 1,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 35,
+      "block": 6,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 36,
+      "block": 7,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 37,
+      "block": 7,
+      "pos": 1,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 38,
+      "block": 7,
+      "pos": 2,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 39,
+      "block": 8,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 40,
+      "block": 8,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 41,
+      "block": 8,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 42,
+      "block": 9,
+      "pos": 0,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 43,
+      "block": 9,
+      "pos": 1,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 44,
+      "block": 9,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 45,
+      "block": 10,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 46,
+      "block": 10,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 47,
+      "block": 10,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 48,
+      "block": 11,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 49,
+      "block": 11,
+      "pos": 1,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 50,
+      "block": 11,
+      "pos": 2,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 51,
+      "block": 12,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 52,
+      "block": 12,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 53,
+      "block": 12,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 54,
+      "block": 13,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 55,
+      "block": 13,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 56,
+      "block": 13,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 57,
+      "block": 14,
+      "pos": 0,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 58,
+      "block": 14,
+      "pos": 1,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 59,
+      "block": 14,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 60,
+      "block": 15,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 61,
+      "block": 15,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 62,
+      "block": 15,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 63,
+      "block": 16,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 64,
+      "block": 16,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 65,
+      "block": 16,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 66,
+      "block": 17,
+      "pos": 0,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 67,
+      "block": 17,
+      "pos": 1,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 68,
+      "block": 17,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 69,
+      "block": 18,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 70,
+      "block": 18,
+      "pos": 1,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 71,
+      "block": 18,
+      "pos": 2,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 72,
+      "block": 19,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 73,
+      "block": 19,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 74,
+      "block": 19,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 75,
+      "block": 20,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 76,
+      "block": 20,
+      "pos": 1,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 77,
+      "block": 20,
+      "pos": 2,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 78,
+      "block": 21,
+      "pos": 0,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 79,
+      "block": 21,
+      "pos": 1,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 80,
+      "block": 21,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 81,
+      "block": 22,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 82,
+      "block": 22,
+      "pos": 1,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 83,
+      "block": 22,
+      "pos": 2,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 84,
+      "block": 23,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 85,
+      "block": 23,
+      "pos": 1,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 86,
+      "block": 23,
+      "pos": 2,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 87,
+      "block": 24,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 88,
+      "block": 24,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 89,
+      "block": 24,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 90,
+      "block": 25,
+      "pos": 0,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 91,
+      "block": 25,
+      "pos": 1,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 92,
+      "block": 25,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 93,
+      "block": 26,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 94,
+      "block": 26,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 95,
+      "block": 26,
+      "pos": 2,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 96,
+      "block": 27,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 97,
+      "block": 27,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 98,
+      "block": 27,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 99,
+      "block": 28,
+      "pos": 0,
+      "condition": "v4/snarkjs"
+    },
+    {
+      "slot": 100,
+      "block": 28,
+      "pos": 1,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 101,
+      "block": 28,
+      "pos": 2,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 102,
+      "block": 29,
+      "pos": 0,
+      "condition": "v3/snarkjs"
+    },
+    {
+      "slot": 103,
+      "block": 29,
+      "pos": 1,
+      "condition": "v2/snarkjs"
+    },
+    {
+      "slot": 104,
+      "block": 29,
+      "pos": 2,
+      "condition": "v4/snarkjs"
+    }
+  ]
+}

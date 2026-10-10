@@ -1,0 +1,16 @@
+{
+  "name": "circuit:G10_standard_threshold",
+  "port": 8608,
+  "out": "<repo>\\results\\v4\\mutation\\circuit__G10_standard_threshold",
+  "mutantGroup": "G10_standard_threshold",
+  "artifacts": {
+    "r1cs": "<repo>\\circuits\\build\\v4\\mutants\\G10_standard_threshold\\credential_auth_v4.r1cs",
+    "sym": "<repo>\\circuits\\build\\v4\\mutants\\G10_standard_threshold\\credential_auth_v4.sym",
+    "zkey": "<repo>\\circuits\\build\\v4\\mutants\\G10_standard_threshold\\mutant_throwaway.zkey",
+    "wasm": "<repo>\\circuits\\build\\v4\\mutants\\G10_standard_threshold\\credential_auth_v4_js\\credential_auth_v4.wasm",
+    "vkeyFile": "<repo>\\circuits\\build\\v4\\mutants\\G10_standard_threshold\\mutant_throwaway_vkey.json",
+    "src": "<repo>\\circuits\\build\\v4\\mutants\\G10_standard_threshold\\credential_auth_v4.circom",
+    "attackerDir": "<repo>\\circuits\\build\\v4\\mutants\\G10_standard_threshold\\attacker",
+    "keyLabel": "mutant-throwaway"
+  }
+}

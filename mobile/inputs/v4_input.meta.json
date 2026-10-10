@@ -1,0 +1,89 @@
+{
+  "schema": "pqid/v4-phone-input/v1",
+  "generator": "mobile/scripts/make_input.ts",
+  "source": "harness/v4/bench/inputs.ts buildFixtureProofInputV4() (Phase D laptop input, read-only reuse)",
+  "fixture": {
+    "today": 20260927,
+    "epochFromDate": 20260927,
+    "epochToDate": 20260928,
+    "birthDate": 19840315,
+    "expiryDate": 20261226,
+    "leaves": 8,
+    "subjectIndex": 5
+  },
+  "note": "all values are published fixture constants (holder secret 123456789, harness/fixture.ts); no real secret",
+  "keyLabel": "dev",
+  "inputFile": "mobile/inputs/v4_input.json",
+  "inputSha256": "726b9010786e510096c1c28b566de40fc40e552044a8bf1d1bb84a559ccb1e92",
+  "inputSha256Convention": "SHA-256 of the compact JSON text without the trailing newline (bench lock convention)",
+  "moproInputFile": "mobile/inputs/v4_input.mopro.json",
+  "moproInputSha256": "c8395ef54a4d894a8fe1d610c91edfd2dbefa686e1e00b092153b80e3c15bc4a",
+  "moproInputForm": "every signal as an array of decimal strings; same values and order as inputFile",
+  "publicSignalOrder": [
+    "issuerKeyHash",
+    "revRoot",
+    "policyHash",
+    "nonce",
+    "stmtCode",
+    "issRoot",
+    "epochFromDate",
+    "epochToDate"
+  ],
+  "publicSignals": [
+    "16035694705818254229312720450084809921814714267144931294887415411750119162944",
+    "15384462429250096387925025119068092500734039688541888137428913012857988258525",
+    "6694435111171251165265783059338192773362206908049120937103043931692611453377",
+    "424242",
+    "17746499010516248590068926615741953820294799828473596204435365290132762639454",
+    "13993167758016319660489713961328852364936953994463268108616336452290820874194",
+    "20260927",
+    "20260928"
+  ],
+  "publicSignalsSha256": "11ce27b3962fbeb56f666a344936d2e560f0f4be81822c1b477d7b658cea8150",
+  "artifacts": {
+    "wasm": {
+      "path": "circuits/build/v4/credential_auth_v4_js/credential_auth_v4.wasm",
+      "sha256": "678720322fc69048b40aa375ee7c9cc2eab5d0ce58f116d54ac1bab6957bd8ae",
+      "bytes": 4465314,
+      "pinned": true,
+      "pinMatch": true
+    },
+    "zkey": {
+      "path": "setup/out/v4/credential_auth_v4_dev.zkey",
+      "sha256": "b6f1675c3b8996f5165d54912bc9e7f592cd9ff3286c1a236ad375ea635635d4",
+      "bytes": 11426668,
+      "pinned": true,
+      "pinMatch": true
+    },
+    "vkey": {
+      "path": "setup/out/v4/verification_key_dev.json",
+      "sha256": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42",
+      "bytes": 4527,
+      "pinned": true,
+      "pinMatch": true
+    }
+  },
+  "benchLock": {
+    "file": "results/v4/bench/inputs/inputs.lock.json",
+    "exists": false,
+    "inputSha256Matches": null,
+    "publicSignalsMatch": null,
+    "zkeyMatches": null,
+    "referenceProofVerified": null
+  },
+  "smokeBenchLock": {
+    "file": "results/v4/bench/_tmp/inputs/inputs.lock.json",
+    "exists": true,
+    "inputSha256Matches": true,
+    "publicSignalsMatch": true,
+    "zkeyMatches": true,
+    "referenceProofVerified": true,
+    "note": "smoke lock (results/v4/bench/_tmp, gitignored): a check of the input only, never a result"
+  },
+  "witnessCheck": {
+    "ran": true,
+    "r1csSatisfied": true,
+    "witnessSha256": "d572b4cf9a7a983aa8f1f1fddb0b666fe9c1cb058de9e771885093c03af38467"
+  },
+  "createdUtc": "2026-09-27T08:01:36.272Z"
+}

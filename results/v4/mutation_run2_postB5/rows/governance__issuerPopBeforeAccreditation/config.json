@@ -1,0 +1,6 @@
+{
+  "name": "governance:issuerPopBeforeAccreditation",
+  "port": 8658,
+  "out": "<repo>\\results\\v4\\mutation\\governance__issuerPopBeforeAccreditation",
+  "governanceSkipPop": true
+}

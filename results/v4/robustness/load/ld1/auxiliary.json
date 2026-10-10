@@ -1,0 +1,61 @@
+{
+  "schema": "pqid/v4-load-aux/v1",
+  "firstVerificationInWorker": {
+    "0": {
+      "ms": 1227.473,
+      "variant": "asShipped",
+      "lanes": 1,
+      "outcome": "accepted",
+      "accepted": true,
+      "poolIndex": 399,
+      "utc": "2026-10-03T19:32:03.202Z"
+    },
+    "1": {
+      "ms": 1081.568,
+      "variant": "asShipped",
+      "lanes": 1,
+      "outcome": "accepted",
+      "accepted": true,
+      "poolIndex": 398,
+      "utc": "2026-10-03T19:32:04.285Z"
+    },
+    "2": {
+      "ms": 1301.171,
+      "variant": "asShipped",
+      "lanes": 1,
+      "outcome": "accepted",
+      "accepted": true,
+      "poolIndex": 397,
+      "utc": "2026-10-03T19:32:05.587Z"
+    },
+    "3": {
+      "ms": 1259.969,
+      "variant": "asShipped",
+      "lanes": 1,
+      "outcome": "accepted",
+      "accepted": true,
+      "poolIndex": 396,
+      "utc": "2026-10-03T19:32:06.849Z"
+    },
+    "4": {
+      "ms": 1335.985,
+      "variant": "asShipped",
+      "lanes": 1,
+      "outcome": "accepted",
+      "accepted": true,
+      "poolIndex": 395,
+      "utc": "2026-10-03T19:32:08.186Z"
+    },
+    "5": {
+      "ms": 1299.686,
+      "variant": "asShipped",
+      "lanes": 1,
+      "outcome": "accepted",
+      "accepted": true,
+      "poolIndex": 394,
+      "utc": "2026-10-03T19:32:09.487Z"
+    }
+  },
+  "replacements": [],
+  "note": "each worker's first verification: one honest reply outside the correctness batch, asShipped, c = 1, workers one at a time before the settle; recorded once, never analysed as a series, never compared with Phase D cold"
+}

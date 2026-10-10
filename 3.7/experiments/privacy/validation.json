@@ -1,0 +1,33 @@
+{
+  "schema": "privacy-evidence-validation/v1",
+  "validatedUtc": "2026-10-07T21:50:23.220869+00:00",
+  "passed": true,
+  "eventsAudited": 78,
+  "filesMatchedBeforeAfterAndCurrent": 52,
+  "matchedPinnedArtifacts": [
+    "circuits/build/v4/credential_auth_v4.r1cs",
+    "circuits/build/v4/credential_auth_v4_js/credential_auth_v4.wasm",
+    "setup/out/v4/credential_auth_v4_dev.zkey",
+    "setup/out/v4/verification_key_dev.json"
+  ],
+  "counts": {
+    "shipped": {
+      "calls": 39,
+      "verifiedReplies": 21,
+      "refusals": 18,
+      "pairedScenarios": 6,
+      "replyPresenceContrasts": 2,
+      "messageContrasts": 3
+    },
+    "stateless-v1": {
+      "calls": 39,
+      "verifiedReplies": 12,
+      "refusals": 27,
+      "pairedScenarios": 6,
+      "replyPresenceContrasts": 0,
+      "messageContrasts": 0
+    }
+  },
+  "failedAttemptPreserved": "run-01; 38 completed calls plus harness error before malformed-date dispatch",
+  "limitations": "Read-only evidence audit, not independent reproduction; no experiments or proofs rerun."
+}

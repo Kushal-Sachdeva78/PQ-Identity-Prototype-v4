@@ -1,0 +1,8 @@
+{
+  "name": "verifier:issuerKeyHash",
+  "port": 8622,
+  "out": "<repo>\\results\\v4\\mutation\\verifier__issuerKeyHash",
+  "verifierDisabled": [
+    "issuerKeyHash"
+  ]
+}

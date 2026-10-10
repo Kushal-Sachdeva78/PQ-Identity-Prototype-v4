@@ -1,0 +1,120 @@
+{
+  "schema": "pqid/v4-phone-key-size/v1",
+  "label": "[M] file sizes and in-memory gzip sizes (node:zlib); dev key",
+  "generator": "mobile/scripts/key_size.mjs",
+  "keyLabel": "dev",
+  "artifacts": [
+    {
+      "id": "zkey",
+      "path": "setup/out/v4/credential_auth_v4_dev.zkey",
+      "bytes": 11426668,
+      "sha256": "b6f1675c3b8996f5165d54912bc9e7f592cd9ff3286c1a236ad375ea635635d4",
+      "pinnedSha256Match": true,
+      "gzipLevel6Bytes": 7891340,
+      "gzipLevel9Bytes": 7890118,
+      "gzipLevel9Ratio": 0.6905,
+      "countsFor": {
+        "native": true,
+        "safari": true
+      }
+    },
+    {
+      "id": "wasm",
+      "path": "circuits/build/v4/credential_auth_v4_js/credential_auth_v4.wasm",
+      "bytes": 4465314,
+      "sha256": "678720322fc69048b40aa375ee7c9cc2eab5d0ce58f116d54ac1bab6957bd8ae",
+      "pinnedSha256Match": true,
+      "gzipLevel6Bytes": 1085337,
+      "gzipLevel9Bytes": 1078740,
+      "gzipLevel9Ratio": 0.2416,
+      "countsFor": {
+        "native": false,
+        "safari": true
+      }
+    },
+    {
+      "id": "vkey",
+      "path": "setup/out/v4/verification_key_dev.json",
+      "bytes": 4527,
+      "sha256": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42",
+      "pinnedSha256Match": true,
+      "gzipLevel6Bytes": 1905,
+      "gzipLevel9Bytes": 1905,
+      "gzipLevel9Ratio": 0.4208,
+      "countsFor": {
+        "native": false,
+        "safari": true
+      }
+    },
+    {
+      "id": "snarkjs",
+      "path": "node_modules/snarkjs/build/snarkjs.min.js",
+      "bytes": 470367,
+      "sha256": "0f3a73ec17fe32e923d16f8372b0cd1d8428edb5dddea8261a3aa82533ea216c",
+      "pinnedSha256Match": null,
+      "gzipLevel6Bytes": 108253,
+      "gzipLevel9Bytes": 107589,
+      "gzipLevel9Ratio": 0.2287,
+      "countsFor": {
+        "native": false,
+        "safari": true
+      }
+    },
+    {
+      "id": "input",
+      "path": "mobile/inputs/v4_input.json",
+      "bytes": 6166,
+      "sha256": "ee4211ebc08f482afe223e709a4ebf80b21e5a51c155475ce4b8626b252a4f27",
+      "pinnedSha256Match": null,
+      "gzipLevel6Bytes": 2048,
+      "gzipLevel9Bytes": 2048,
+      "gzipLevel9Ratio": 0.3321,
+      "countsFor": {
+        "native": false,
+        "safari": true
+      }
+    },
+    {
+      "id": "inputMopro",
+      "path": "mobile/inputs/v4_input.mopro.json",
+      "bytes": 6212,
+      "sha256": "a0400cecb7dcea85a206cd1d36638e23be0545d2d88e9f390754adc6b3837099",
+      "pinnedSha256Match": null,
+      "gzipLevel6Bytes": 2042,
+      "gzipLevel9Bytes": 2042,
+      "gzipLevel9Ratio": 0.3287,
+      "countsFor": {
+        "native": true,
+        "safari": false
+      }
+    },
+    {
+      "id": "inputMeta",
+      "path": "mobile/inputs/v4_input.meta.json",
+      "bytes": 3282,
+      "sha256": "54c1f2408691e105aebaf60e5f5051cd31d50cea1456f09003366f77ab726916",
+      "pinnedSha256Match": null,
+      "gzipLevel6Bytes": 1517,
+      "gzipLevel9Bytes": 1517,
+      "gzipLevel9Ratio": 0.4622,
+      "countsFor": {
+        "native": true,
+        "safari": true
+      }
+    }
+  ],
+  "totals": {
+    "nativeBundledBytes": 11436162,
+    "nativeBundledNote": "zkey + input + input meta files only; the app binary (with the transpiled witness generator) is not included",
+    "safariPerColdLoadBytes": 16376324,
+    "safariPerColdLoadGzip9Bytes": 9081917,
+    "safariNote": "serve.ts sends files uncompressed with Cache-Control: no-store; the gzip column is what a gzip-serving host would send"
+  },
+  "env": {
+    "node": "24.18.0",
+    "zlib": "1.3.1-e00f703",
+    "snarkjs": "0.7.4",
+    "platform": "win32",
+    "timestampUtc": "2026-09-27T08:20:57.087Z"
+  }
+}

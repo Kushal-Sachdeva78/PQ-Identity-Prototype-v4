@@ -1,0 +1,622 @@
+{
+  "runs": [
+    {
+      "results": [
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 39,
+                  "endLine": 140,
+                  "startColumn": 36,
+                  "startLine": 140
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 32,
+                  "endLine": 155,
+                  "startColumn": 5,
+                  "startLine": 155
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 39,
+                  "endLine": 160,
+                  "startColumn": 36,
+                  "startLine": 160
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 46,
+                  "endLine": 177,
+                  "startColumn": 5,
+                  "startLine": 177
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 44,
+                  "endLine": 188,
+                  "startColumn": 16,
+                  "startLine": 188
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 44,
+                  "endLine": 190,
+                  "startColumn": 16,
+                  "startLine": 190
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 20,
+                  "endLine": 191,
+                  "startColumn": 5,
+                  "startLine": 191
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 30,
+                  "endLine": 202,
+                  "startColumn": 17,
+                  "startLine": 202
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element comparison here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 34,
+                  "endLine": 140,
+                  "startColumn": 21,
+                  "startLine": 140
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Comparisons with field elements greater than `p/2` may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0003"
+          },
+          "ruleId": "CS0003"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element comparison here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 34,
+                  "endLine": 160,
+                  "startColumn": 21,
+                  "startLine": 160
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Comparisons with field elements greater than `p/2` may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0003"
+          },
+          "ruleId": "CS0003"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "The intermediate signal `nonceSq` is declared here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 19,
+                  "endLine": 201,
+                  "startColumn": 5,
+                  "startLine": 201
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Intermediate signals should typically occur in at least two separate constraints."
+          },
+          "relatedLocations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "The intermediate signal `nonceSq` is constrained here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 30,
+                  "endLine": 202,
+                  "startColumn": 5,
+                  "startLine": 202
+                }
+              }
+            }
+          ],
+          "rule": {
+            "id": "CS0017"
+          },
+          "ruleId": "CS0017"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 27,
+                  "endLine": 70,
+                  "startColumn": 16,
+                  "startLine": 70
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 64,
+                  "endLine": 74,
+                  "startColumn": 21,
+                  "startLine": 74
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 44,
+                  "endLine": 76,
+                  "startColumn": 28,
+                  "startLine": 76
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 53,
+                  "endLine": 77,
+                  "startColumn": 28,
+                  "startLine": 77
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 18,
+                  "endLine": 78,
+                  "startColumn": 13,
+                  "startLine": 78
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element arithmetic here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 37,
+                  "endLine": 73,
+                  "startColumn": 34,
+                  "startLine": 73
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Field element arithmetic could overflow, which may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0004"
+          },
+          "ruleId": "CS0004"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Field element comparison here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 32,
+                  "endLine": 73,
+                  "startColumn": 21,
+                  "startLine": 73
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Comparisons with field elements greater than `p/2` may produce unexpected results."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0003"
+          },
+          "ruleId": "CS0003"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "id": 0,
+              "message": {
+                "text": "Circomlib template `Num2Bits` instantiated here."
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file://\\\\?\\<repo>\\circuits\\credential_auth_v3.circom"
+                },
+                "region": {
+                  "endColumn": 42,
+                  "endLine": 66,
+                  "startColumn": 25,
+                  "startLine": 66
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Using `Num2Bits` to convert field elements to bits may lead to aliasing issues."
+          },
+          "relatedLocations": [],
+          "rule": {
+            "id": "CS0010"
+          },
+          "ruleId": "CS0010"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "downloadUri": "https://github.com/trailofbits/circomspect",
+          "name": "Circomspect",
+          "organization": "Trail of Bits",
+          "rules": [
+            {
+              "id": "CS0004",
+              "name": "field-element-arithmetic"
+            },
+            {
+              "id": "CS0003",
+              "name": "field-element-comparison"
+            },
+            {
+              "id": "CS0017",
+              "name": "under-constrained-signal"
+            },
+            {
+              "id": "CS0010",
+              "name": "non-strict-binary-conversion"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

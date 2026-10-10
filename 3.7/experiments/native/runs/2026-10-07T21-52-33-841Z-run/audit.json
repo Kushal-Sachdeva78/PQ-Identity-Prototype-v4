@@ -1,0 +1,234 @@
+{
+  "schema": "pqid-3.7-native-audit/v1",
+  "allAttemptedIterations": 280,
+  "allInvariantChecksPassed": true,
+  "measuredPresentationCount": 240,
+  "warmupPresentationCount": 40,
+  "nonAcReadings": 0,
+  "excludedBlockAttempts": [],
+  "measuredQuietFlags": {
+    "3": [
+      "wall clock and monotonic clock differ by 1036.6 ms over the 2000 ms window (host suspend, VM pause or clock step)"
+    ],
+    "8": [
+      "wall clock and monotonic clock differ by 1031.8 ms over the 2000 ms window (host suspend, VM pause or clock step)"
+    ]
+  },
+  "warmupQuietFlags": {
+    "-2": [
+      "wall clock and monotonic clock differ by 1018.9 ms over the 2001 ms window (host suspend, VM pause or clock step)"
+    ]
+  },
+  "settle": {
+    "requestedMs": 600000,
+    "monotonicMs": 600369.374,
+    "wallMs": 617847,
+    "wallMinusMonotonicMs": 17477.626000000047
+  },
+  "blockClockGapMsRange": [
+    -0.79,
+    1279.744
+  ],
+  "measuredBlockGapsOver1000ms": {
+    "0": 1026.989,
+    "5": 1007.423,
+    "10": 1019.689,
+    "12": 1020.803,
+    "17": 1067.685,
+    "20": 1279.744,
+    "22": 1175.868,
+    "25": 1027.388,
+    "27": 1042.632
+  },
+  "measuredBlockGapsOver500ms": {
+    "0": 1026.989,
+    "5": 1007.423,
+    "10": 1019.689,
+    "12": 1020.803,
+    "15": 970.111,
+    "17": 1067.685,
+    "20": 1279.744,
+    "22": 1175.868,
+    "25": 1027.388,
+    "27": 1042.632
+  },
+  "prespecifiedBlockExclusionThresholdMs": 2000,
+  "perIterationWallTimesRecorded": false,
+  "interpretation": "Clock divergence cause unestablished. Retain primary monotonic timings under the prespecified rule; do not call them validated wall-clock user waits. Cannot attribute block clock gaps to individual conditions.",
+  "newlineOnlySourceDifferences": [
+    "packages/v4/package.json"
+  ],
+  "postHocClockSensitivity": {
+    "label": "POST HOC, after observing clock gaps; diagnostic only",
+    "rule": "exclude a block with failed quiet check OR abs(wall-minus-monotonic block gap)>500ms",
+    "retainedBlocks": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      9,
+      11,
+      13,
+      14,
+      16,
+      18,
+      19,
+      21,
+      23,
+      24,
+      26,
+      28,
+      29
+    ],
+    "excludedBlocks": [
+      0,
+      3,
+      5,
+      8,
+      10,
+      12,
+      15,
+      17,
+      20,
+      22,
+      25,
+      27
+    ],
+    "groups": {
+      "snarkjs-0ms": {
+        "n": 18,
+        "median": 1194.363,
+        "q1": 1177.332,
+        "q3": 1203.567,
+        "iqr": 26.2349999999999,
+        "p95": 1210.517,
+        "minimum": 1166.286,
+        "maximum": 1212.812,
+        "medianCI95": [
+          1179.2925,
+          1203.295
+        ]
+      },
+      "snarkjs-20ms": {
+        "n": 18,
+        "median": 1680.0025,
+        "q1": 1663.628,
+        "q3": 1702.1367500000001,
+        "iqr": 38.50875000000019,
+        "p95": 1737.2619,
+        "minimum": 1642.249,
+        "maximum": 1747.722,
+        "medianCI95": [
+          1664.4859999999999,
+          1698.9855
+        ]
+      },
+      "snarkjs-50ms": {
+        "n": 18,
+        "median": 2359.355,
+        "q1": 2336.31175,
+        "q3": 2395.397,
+        "iqr": 59.08525000000009,
+        "p95": 2428.09975,
+        "minimum": 2324.014,
+        "maximum": 2439.732,
+        "medianCI95": [
+          2336.9795,
+          2395.3360000000002
+        ]
+      },
+      "snarkjs-0ms-control": {
+        "n": 18,
+        "median": 1206.5275,
+        "q1": 1174.5322500000002,
+        "q3": 1221.41775,
+        "iqr": 46.885499999999865,
+        "p95": 1313.67075,
+        "minimum": 1158.059,
+        "maximum": 1347.352,
+        "medianCI95": [
+          1174.7035,
+          1220.0945000000002
+        ]
+      },
+      "rapidsnark-0ms": {
+        "n": 18,
+        "median": 583.3005,
+        "q1": 577.8580000000001,
+        "q3": 590.58725,
+        "iqr": 12.729249999999979,
+        "p95": 605.4662999999999,
+        "minimum": 570.93,
+        "maximum": 611.724,
+        "medianCI95": [
+          577.9190000000001,
+          590.3245
+        ]
+      },
+      "rapidsnark-20ms": {
+        "n": 18,
+        "median": 1058.5315,
+        "q1": 1053.87025,
+        "q3": 1073.62375,
+        "iqr": 19.75350000000003,
+        "p95": 1103.9485,
+        "minimum": 1039.666,
+        "maximum": 1171.345,
+        "medianCI95": [
+          1054.2805,
+          1070.384225
+        ]
+      },
+      "rapidsnark-50ms": {
+        "n": 18,
+        "median": 1754.694,
+        "q1": 1748.037,
+        "q3": 1765.5545,
+        "iqr": 17.517499999999927,
+        "p95": 1778.9147500000001,
+        "minimum": 1739.267,
+        "maximum": 1783.509,
+        "medianCI95": [
+          1749.739,
+          1765.193
+        ]
+      },
+      "rapidsnark-0ms-control": {
+        "n": 18,
+        "median": 584.1415,
+        "q1": 581.0345,
+        "q3": 591.48525,
+        "iqr": 10.450749999999971,
+        "p95": 619.37775,
+        "minimum": 574.946,
+        "maximum": 647.874,
+        "medianCI95": [
+          581.1320000000001,
+          589.9404999999999
+        ]
+      }
+    },
+    "snarkjsOverNative0ms": {
+      "pairedBlocks": 18,
+      "kind": "ratio",
+      "estimate": 2.047594678900498,
+      "ci95": [
+        2.016046144533985,
+        2.0719387737505217
+      ]
+    }
+  },
+  "adapterAudit": {
+    "nativePresentations": 140,
+    "everyActionAddsOnlyCurveMetadata": true,
+    "inputKeys": [
+      [
+        "pi_a",
+        "pi_b",
+        "pi_c",
+        "protocol"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "pqid/v4-c3-summary/v1",
+  "generatedBy": "scripts/figures/c3_report.py",
+  "mutationSha256": "84405738a5a36124e12b374f7d7adb3d976c3feba97de8b99883da45fee3bf40",
+  "defences": 59,
+  "tested": 40,
+  "noEffect": 19,
+  "redundant": 15,
+  "robustness": 4,
+  "unclassified": 0,
+  "errors": 0,
+  "controlsBroken": 0
+}

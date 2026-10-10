@@ -1,0 +1,13 @@
+{
+  "$comment": "Constant revoked-set fixture (paper used 8 entries, A.5). Each label is hashed credID_i = SHA3-256(label) to produce a deterministic 32-byte credID; these stand-in credIDs populate the revocation SMT in benchmarks and tests.",
+  "labels": [
+    "pqid-fixture-revoked-0",
+    "pqid-fixture-revoked-1",
+    "pqid-fixture-revoked-2",
+    "pqid-fixture-revoked-3",
+    "pqid-fixture-revoked-4",
+    "pqid-fixture-revoked-5",
+    "pqid-fixture-revoked-6",
+    "pqid-fixture-revoked-7"
+  ]
+}

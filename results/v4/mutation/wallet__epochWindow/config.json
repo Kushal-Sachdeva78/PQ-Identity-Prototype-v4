@@ -1,0 +1,8 @@
+{
+  "name": "wallet:epochWindow",
+  "port": 8645,
+  "out": "<repo>\\results\\v4\\mutation\\wallet__epochWindow",
+  "walletDisabled": [
+    "epochWindow"
+  ]
+}

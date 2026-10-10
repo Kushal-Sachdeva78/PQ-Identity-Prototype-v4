@@ -1,0 +1,78 @@
+{
+  "schema": "pqid/v4-fuzz-target/v1",
+  "target": "T-reply-shape",
+  "title": "session reply shape",
+  "entryPoints": [
+    "replyShapeErrors",
+    "isSessionReplyV4"
+  ],
+  "property": "replyShapeErrors never throws on JSON data and returns no error exactly for replies the reference accepts (exact keys, type, 64-hex sessionId, ct of 2,176 lower-case hex characters, box of lower-case hex of whole bytes between 32 characters and 2 x (1 MiB + 16)); isSessionReplyV4 agrees",
+  "documentedErrors": [],
+  "masterSeed": 20261022,
+  "targetSeed": 2119905311,
+  "budget": 200000,
+  "casesRun": 88736,
+  "complete": false,
+  "stoppedBy": null,
+  "outcomes": {
+    "mutated/rejected": 36685,
+    "valid/accepted": 13676,
+    "mutated/accepted": 10983,
+    "text/accepted": 6976,
+    "exotic/threw": 1492,
+    "text-unparsable/rejected": 2643,
+    "text/rejected": 4021,
+    "tree/rejected": 6866,
+    "exotic/rejected": 2268,
+    "exotic/accepted": 3126
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [
+    {
+      "id": "exoticObjectThrows",
+      "count": 1492,
+      "examples": [
+        {
+          "index": 15,
+          "detail": "replyShapeErrors threw Error on Proxy whose ownKeys trap throws",
+          "file": "results/v4/robustness/fuzz/fz1/observations/T-reply-shape/exoticObjectThrows.json"
+        },
+        {
+          "index": 20,
+          "detail": "replyShapeErrors threw Error on Proxy whose ownKeys trap throws",
+          "file": null
+        },
+        {
+          "index": 118,
+          "detail": "replyShapeErrors threw Error on Proxy whose ownKeys trap throws",
+          "file": null
+        },
+        {
+          "index": 237,
+          "detail": "replyShapeErrors threw Error on Proxy whose ownKeys trap throws",
+          "file": null
+        },
+        {
+          "index": 281,
+          "detail": "replyShapeErrors threw Error on Proxy whose ownKeys trap throws",
+          "file": null
+        }
+      ]
+    }
+  ],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0125,
+    "p99": 1.0408,
+    "max": 1.6345
+  },
+  "startedUtc": "2026-10-03T09:12:14.423Z",
+  "finishedUtc": "2026-10-03T09:13:14.501Z"
+}

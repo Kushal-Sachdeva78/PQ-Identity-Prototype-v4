@@ -1,0 +1,12 @@
+# toolchain of attempt 20261003T162904Z (scripts/chainread/run_wsl.sh)
+recorded_utc: 2026-10-03T16:29:04Z
+environment: wsl2, kernel 6.18.33.2-microsoft-standard-WSL2, 8 vCPUs
+node: ~/.nvm/versions/node/v24.21.0/bin/node (v24.21.0, openssl 3.5.8)
+anvil: ~/pqid-tools/anvil-1.5.1/anvil
+anvil_version: anvil Version: 1.5.1-v1.5.1 Commit SHA: b0a9dd9ceda36f63e2326ce530c10e6916f4b8a2 Build Timestamp: 2025-12-19T14:07:55.455914129Z (1766153275) Build Profile: maxperf 
+anvil_sha256: b47362d2159aa0f2f575320e5e529bb5a91093cb62dc6bd30c0022018aa9f738
+jdk: ~/pqid-tools/jdk25/jdk-25.0.4.1+1 (JAVA_HOME as scripts/besu/setup_qbft.sh picks it)
+jdk_version: openjdk version "25.0.4.1" 2026-08-18 LTS OpenJDK Runtime Environment Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS) OpenJDK 64-Bit Server VM Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS, mixed mode, sharing) 
+besu: ~/pqid-tools/besu/besu-26.9.0
+besu_version: besu/v26.9.0/linux-x86_64/openjdk-java-25
+python3: Python 3.12.3

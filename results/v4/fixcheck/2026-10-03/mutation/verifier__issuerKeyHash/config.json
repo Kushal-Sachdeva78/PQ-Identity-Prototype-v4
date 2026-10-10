@@ -1,0 +1,8 @@
+{
+  "name": "verifier:issuerKeyHash, dev key, post-fix rerun (D-034)",
+  "port": 8823,
+  "out": "results/v4/fixcheck/2026-10-03/mutation/verifier__issuerKeyHash",
+  "verifierDisabled": [
+    "issuerKeyHash"
+  ]
+}

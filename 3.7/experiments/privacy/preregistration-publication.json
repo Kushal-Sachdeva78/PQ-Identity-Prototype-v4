@@ -1,0 +1,12 @@
+{
+  "schema": "privacy-publication-registration/v1",
+  "preparedUtc": "2026-10-10T06:01:00.651Z",
+  "protocolFile": "PROTOCOL.md",
+  "protocolSha256": "a92ca4c203fa1a05bcb07d5b705956f65692fd661f044a753befb7c17dd938bd",
+  "variantSha256": "e7b4f67c1a6812535ca92683f94a5cfef35cdd7cc37a9cca4cd46b1a97e455d8",
+  "policySha256": "abdcbe055eeacd428c1d690dab1ab03ef9d600098381419b25961935ee29f428",
+  "runnerSha256": "e05750533750d1dea46e5c8811894bb4fd76199ec78e1687704a43e0a9ec619a",
+  "preparedBeforeNewRun": true,
+  "historicalRegistration": "preregistration.json",
+  "scope": "Fresh runs of the publication copy; historical evidence retains its original dates and digests."
+}

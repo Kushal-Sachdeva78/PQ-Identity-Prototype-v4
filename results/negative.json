@@ -1,0 +1,26 @@
+{
+  "schema": "pqid/negative-test/v1",
+  "label": "[M] revoked credential ⇒ no accepted proof",
+  "pass": true,
+  "paths": {
+    "honestWalletRefuses": true,
+    "staleOpeningCurrentRootWitnessFails": true,
+    "staleRootProofRejectedByRootEquality": true
+  },
+  "detail": {
+    "staleRoot": "15989556354135587480322636806185315549728229374763804012644761492124955783933",
+    "currentRoot": "14153175866550184863111391979210113422853915082830352480916495478663442107260",
+    "pathCProofCryptographicallyValid": true,
+    "note": "Path C shows why the verifier's on-chain revRoot equality check is mandatory: Groth16 validity alone does not imply freshness of the revocation statement."
+  },
+  "host": {
+    "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logicalCores": 12,
+    "totalMemGiB": 15.7,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.8655",
+    "nodeVersion": "v22.16.0",
+    "timestampUtc": "2026-06-11T12:15:43.802Z"
+  }
+}

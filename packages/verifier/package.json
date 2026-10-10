@@ -1,0 +1,14 @@
+{
+  "name": "@pqid/verifier",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@pqid/common": "1.0.0",
+    "@pqid/ledger": "1.0.0",
+    "snarkjs": "0.7.4"
+  }
+}

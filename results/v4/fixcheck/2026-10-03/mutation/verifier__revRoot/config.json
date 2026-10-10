@@ -1,0 +1,8 @@
+{
+  "name": "verifier:revRoot, dev key, post-fix rerun (D-034)",
+  "port": 8826,
+  "out": "results/v4/fixcheck/2026-10-03/mutation/verifier__revRoot",
+  "verifierDisabled": [
+    "revRoot"
+  ]
+}

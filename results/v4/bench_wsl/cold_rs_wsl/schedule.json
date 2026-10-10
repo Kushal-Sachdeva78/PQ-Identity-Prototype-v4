@@ -1,0 +1,573 @@
+{
+  "schema": "pqid/v4-bench-schedule/v1",
+  "createdUtc": "2026-09-28T20:41:22.273Z",
+  "config": {
+    "campaign": "cold_rs_wsl",
+    "mode": "cold",
+    "smoke": false,
+    "versions": [
+      "v2",
+      "v3",
+      "v4"
+    ],
+    "provers": [
+      "rapidsnark"
+    ],
+    "conditions": [
+      "v2/rapidsnark",
+      "v3/rapidsnark",
+      "v4/rapidsnark"
+    ],
+    "blocked": [],
+    "n": 30,
+    "idleSec": 600,
+    "leadSec": 20,
+    "seed": 20261002,
+    "maxPostpone": 10,
+    "postponeStepSec": 60
+  },
+  "prng": "mulberry32, Fisher-Yates from the end; one stream for all blocks",
+  "rule": "each block holds every runnable condition once, in shuffled order",
+  "slots": [
+    {
+      "slot": 0,
+      "block": 0,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 1,
+      "block": 0,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 2,
+      "block": 0,
+      "pos": 2,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 3,
+      "block": 1,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 4,
+      "block": 1,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 5,
+      "block": 1,
+      "pos": 2,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 6,
+      "block": 2,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 7,
+      "block": 2,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 8,
+      "block": 2,
+      "pos": 2,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 9,
+      "block": 3,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 10,
+      "block": 3,
+      "pos": 1,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 11,
+      "block": 3,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 12,
+      "block": 4,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 13,
+      "block": 4,
+      "pos": 1,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 14,
+      "block": 4,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 15,
+      "block": 5,
+      "pos": 0,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 16,
+      "block": 5,
+      "pos": 1,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 17,
+      "block": 5,
+      "pos": 2,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 18,
+      "block": 6,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 19,
+      "block": 6,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 20,
+      "block": 6,
+      "pos": 2,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 21,
+      "block": 7,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 22,
+      "block": 7,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 23,
+      "block": 7,
+      "pos": 2,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 24,
+      "block": 8,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 25,
+      "block": 8,
+      "pos": 1,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 26,
+      "block": 8,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 27,
+      "block": 9,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 28,
+      "block": 9,
+      "pos": 1,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 29,
+      "block": 9,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 30,
+      "block": 10,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 31,
+      "block": 10,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 32,
+      "block": 10,
+      "pos": 2,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 33,
+      "block": 11,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 34,
+      "block": 11,
+      "pos": 1,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 35,
+      "block": 11,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 36,
+      "block": 12,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 37,
+      "block": 12,
+      "pos": 1,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 38,
+      "block": 12,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 39,
+      "block": 13,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 40,
+      "block": 13,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 41,
+      "block": 13,
+      "pos": 2,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 42,
+      "block": 14,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 43,
+      "block": 14,
+      "pos": 1,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 44,
+      "block": 14,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 45,
+      "block": 15,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 46,
+      "block": 15,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 47,
+      "block": 15,
+      "pos": 2,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 48,
+      "block": 16,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 49,
+      "block": 16,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 50,
+      "block": 16,
+      "pos": 2,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 51,
+      "block": 17,
+      "pos": 0,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 52,
+      "block": 17,
+      "pos": 1,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 53,
+      "block": 17,
+      "pos": 2,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 54,
+      "block": 18,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 55,
+      "block": 18,
+      "pos": 1,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 56,
+      "block": 18,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 57,
+      "block": 19,
+      "pos": 0,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 58,
+      "block": 19,
+      "pos": 1,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 59,
+      "block": 19,
+      "pos": 2,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 60,
+      "block": 20,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 61,
+      "block": 20,
+      "pos": 1,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 62,
+      "block": 20,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 63,
+      "block": 21,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 64,
+      "block": 21,
+      "pos": 1,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 65,
+      "block": 21,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 66,
+      "block": 22,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 67,
+      "block": 22,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 68,
+      "block": 22,
+      "pos": 2,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 69,
+      "block": 23,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 70,
+      "block": 23,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 71,
+      "block": 23,
+      "pos": 2,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 72,
+      "block": 24,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 73,
+      "block": 24,
+      "pos": 1,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 74,
+      "block": 24,
+      "pos": 2,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 75,
+      "block": 25,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 76,
+      "block": 25,
+      "pos": 1,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 77,
+      "block": 25,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 78,
+      "block": 26,
+      "pos": 0,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 79,
+      "block": 26,
+      "pos": 1,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 80,
+      "block": 26,
+      "pos": 2,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 81,
+      "block": 27,
+      "pos": 0,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 82,
+      "block": 27,
+      "pos": 1,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 83,
+      "block": 27,
+      "pos": 2,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 84,
+      "block": 28,
+      "pos": 0,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 85,
+      "block": 28,
+      "pos": 1,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 86,
+      "block": 28,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    },
+    {
+      "slot": 87,
+      "block": 29,
+      "pos": 0,
+      "condition": "v3/rapidsnark"
+    },
+    {
+      "slot": 88,
+      "block": 29,
+      "pos": 1,
+      "condition": "v2/rapidsnark"
+    },
+    {
+      "slot": 89,
+      "block": 29,
+      "pos": 2,
+      "condition": "v4/rapidsnark"
+    }
+  ]
+}

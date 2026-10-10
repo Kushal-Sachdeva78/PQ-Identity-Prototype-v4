@@ -1,0 +1,55 @@
+{
+  "schema": "pqid/v4-dev-setup-transcript/v1",
+  "key_label": "dev",
+  "note": "Development key. One secret phase-2 contribution (entropy discarded) followed by a public beacon, made the v3 way. It is replaced by the ceremony key later; nothing proven with it is ceremony evidence.",
+  "circuit": "circuits/build/v4/credential_auth_v4.r1cs",
+  "circuitInfo": "circuits/build/v4/circuit_info.json",
+  "circuitInfoSha256": "5ff16ec417aaf1dbe2ec8254d914ea2b7ca7f71baecfa979a565172aa2176790",
+  "ptau": {
+    "file": "setup/ptau/powersOfTau28_hez_final_15.ptau",
+    "sha256": "3ef2ecc5b75d687048cf2d59195119b42fb07c5af639c5f283d84bfa69829e7f",
+    "pin": "setup/pins.json:powersOfTau28_hez_final_15.ptau",
+    "power": 15,
+    "needed": 17459
+  },
+  "phase2": [
+    {
+      "step": "contribution",
+      "name": "pqid v4 dev contribution 1",
+      "entropy": "OS randomness (snarkjs getRandomBytes, 64 B) + crypto.randomBytes(64) passed in memory; never written",
+      "contributionHash": "5c166c1527d267a7be7328df2cb7e34f43d4b555ea5b43ec8a8101ce2e96c9261853aafc9309cc1a68bb28111a4edce36edfa7b1b0c41e03dd5abbed4f6b9bf8"
+    },
+    {
+      "step": "beacon",
+      "name": "pqid v4 dev beacon",
+      "beaconHash": "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20",
+      "numIterationsExp": 10,
+      "contributionHash": "36b48cefdb47068c64fe625737f3838713f2028a551d4ad1307e8a39c2ee0d9cea6e9baa734eacb3e1c6301131f3cb167b0864a94c3a2c39a25f45615d25aadf"
+    }
+  ],
+  "sha256": {
+    "r1cs": "c593e9f29094c44efa2b0bf1805715b96e5b3a6815b39c761cdb25c18c9e87b5",
+    "wasm": "678720322fc69048b40aa375ee7c9cc2eab5d0ce58f116d54ac1bab6957bd8ae",
+    "zkey": "b6f1675c3b8996f5165d54912bc9e7f592cd9ff3286c1a236ad375ea635635d4",
+    "vkey": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42",
+    "sol": "bf2a0918213eac2a40b0fa85b4ee167a2b207aa62ee8105dc16724ac1b9d33a7"
+  },
+  "timingsMs": {
+    "newZKeyMs": 25881,
+    "contributeMs": 1960,
+    "beaconMs": 2069
+  },
+  "tools": {
+    "snarkjs": "0.7.4"
+  },
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-27T06:53:16.451Z"
+  }
+}

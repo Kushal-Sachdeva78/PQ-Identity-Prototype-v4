@@ -1,0 +1,29 @@
+{
+  "source": "circuits/credential_auth.circom",
+  "compiler": "circom 2.2.3",
+  "curve": "BN254",
+  "nConstraints": 21715,
+  "nWires": 21745,
+  "nPubInputs": 5,
+  "nPrvInputs": 43,
+  "nOutputs": 0,
+  "nLabels": 33767,
+  "paperClaim": {
+    "manuscriptVersion": "V6.6",
+    "nConstraints": 21715,
+    "nWires": 21745,
+    "nPubInputs": 5,
+    "nPrvInputs": 43
+  },
+  "circomStdout": "\u001b[32mtemplate instances\u001b[0m: 233\nnon-linear constraints: 10992\nlinear constraints: 10723\npublic inputs: 5\nprivate inputs: 43\npublic outputs: 0\nwires: 21745\nlabels: 33767\n\u001b[32mWritten successfully:\u001b[0m C:\\Users\\kusha\\Downloads\\IEEE\\Prototype\\pqid-prototype\\circuits\\build\\credential_auth.r1cs\n\u001b[32mWritten successfully:\u001b[0m C:\\Users\\kusha\\Downloads\\IEEE\\Prototype\\pqid-prototype\\circuits\\build\\credential_auth.sym\n\u001b[32mWritten successfully:\u001b[0m C:\\Users\\kusha\\Downloads\\IEEE\\Prototype\\pqid-prototype\\circuits\\build\\credential_auth_js\\credential_auth.wasm\n\u001b[32mEverything went okay\u001b[0m\n",
+  "host": {
+    "cpuModel": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logicalCores": 12,
+    "totalMemGiB": 15.7,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.8655",
+    "nodeVersion": "v22.16.0",
+    "timestampUtc": "2026-06-11T08:04:16.465Z"
+  }
+}

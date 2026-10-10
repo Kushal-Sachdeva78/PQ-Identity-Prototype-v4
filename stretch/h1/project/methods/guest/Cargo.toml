@@ -1,0 +1,11 @@
+[package]
+name = "h1_guest"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+
+[dependencies]
+fips204 = { version = "0.4.6", default-features = false, features = ["ml-dsa-44"] }
+risc0-zkvm = { version = "^3.0.6", default-features = false, features = ['std'] }
+serde = { version = "1", default-features = false, features = ["derive", "alloc"] }

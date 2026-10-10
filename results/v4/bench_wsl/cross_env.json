@@ -1,0 +1,115 @@
+{
+  "schema": "pqid/v4-bench-crossenv/v1",
+  "generatedUtc": "2026-09-29T12:44:10+00:00",
+  "generator": "scripts/bench/cross_env.py",
+  "label": "[M] cross-environment ratios (not interleaved; different operating environments)",
+  "statistics": {
+    "ci": "percentile bootstrap 95%, as scripts/bench/analyze.py",
+    "B": 10000,
+    "seed": 20260927
+  },
+  "ratios": [
+    {
+      "id": "crossenv/cold/v2/snarkjs_win_over_rapidsnark_wsl/prove",
+      "phase": "prove",
+      "numerator": "cold/v2/snarkjs (Windows)",
+      "denominator": "cold/v2/rapidsnark (WSL)",
+      "status": "ok",
+      "label": "cross-environment: Windows snarkJS over WSL rapidsnark, same laptop, separate campaigns",
+      "osNumerator": "win32 10.0.26200",
+      "osDenominator": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "ratioOfMedians": 6.879014133746192,
+      "ci95": [
+        6.451127259185696,
+        7.179929470885772
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30
+    },
+    {
+      "id": "crossenv/cold/v2/snarkjs_win_over_rapidsnark_wsl/wp",
+      "phase": "wp",
+      "numerator": "cold/v2/snarkjs (Windows)",
+      "denominator": "cold/v2/rapidsnark (WSL)",
+      "status": "ok",
+      "label": "cross-environment: Windows snarkJS over WSL rapidsnark, same laptop, separate campaigns",
+      "osNumerator": "win32 10.0.26200",
+      "osDenominator": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "ratioOfMedians": 5.2901312393918465,
+      "ci95": [
+        4.988777940976807,
+        5.466182015830417
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30
+    },
+    {
+      "id": "crossenv/cold/v3/snarkjs_win_over_rapidsnark_wsl/prove",
+      "phase": "prove",
+      "numerator": "cold/v3/snarkjs (Windows)",
+      "denominator": "cold/v3/rapidsnark (WSL)",
+      "status": "ok",
+      "label": "cross-environment: Windows snarkJS over WSL rapidsnark, same laptop, separate campaigns",
+      "osNumerator": "win32 10.0.26200",
+      "osDenominator": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "ratioOfMedians": 7.0774370180594275,
+      "ci95": [
+        6.783989549906031,
+        7.207083441560498
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30
+    },
+    {
+      "id": "crossenv/cold/v3/snarkjs_win_over_rapidsnark_wsl/wp",
+      "phase": "wp",
+      "numerator": "cold/v3/snarkjs (Windows)",
+      "denominator": "cold/v3/rapidsnark (WSL)",
+      "status": "ok",
+      "label": "cross-environment: Windows snarkJS over WSL rapidsnark, same laptop, separate campaigns",
+      "osNumerator": "win32 10.0.26200",
+      "osDenominator": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "ratioOfMedians": 5.051771698417046,
+      "ci95": [
+        4.919490893422382,
+        5.21024524136285
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30
+    },
+    {
+      "id": "crossenv/cold/v4/snarkjs_win_over_rapidsnark_wsl/prove",
+      "phase": "prove",
+      "numerator": "cold/v4/snarkjs (Windows)",
+      "denominator": "cold/v4/rapidsnark (WSL)",
+      "status": "ok",
+      "label": "cross-environment: Windows snarkJS over WSL rapidsnark, same laptop, separate campaigns",
+      "osNumerator": "win32 10.0.26200",
+      "osDenominator": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "ratioOfMedians": 6.847188110478081,
+      "ci95": [
+        6.620621693684065,
+        7.037961485196332
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30
+    },
+    {
+      "id": "crossenv/cold/v4/snarkjs_win_over_rapidsnark_wsl/wp",
+      "phase": "wp",
+      "numerator": "cold/v4/snarkjs (Windows)",
+      "denominator": "cold/v4/rapidsnark (WSL)",
+      "status": "ok",
+      "label": "cross-environment: Windows snarkJS over WSL rapidsnark, same laptop, separate campaigns",
+      "osNumerator": "win32 10.0.26200",
+      "osDenominator": "linux 6.18.33.2-microsoft-standard-WSL2",
+      "ratioOfMedians": 4.576494588359166,
+      "ci95": [
+        4.4547132890606225,
+        4.7052709085639535
+      ],
+      "nNumerator": 30,
+      "nDenominator": 30
+    }
+  ]
+}

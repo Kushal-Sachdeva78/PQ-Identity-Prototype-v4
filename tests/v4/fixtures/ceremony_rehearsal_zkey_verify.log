@@ -1,0 +1,43 @@
+[32;22m[INFO]  [39;1msnarkJS[0m: Reading r1cs
+[32;22m[INFO]  [39;1msnarkJS[0m: Reading tauG1
+[32;22m[INFO]  [39;1msnarkJS[0m: Reading tauG2
+[32;22m[INFO]  [39;1msnarkJS[0m: Reading alphatauG1
+[32;22m[INFO]  [39;1msnarkJS[0m: Reading betatauG1
+[32;22m[INFO]  [39;1msnarkJS[0m: Circuit hash: 
+		c418e395 58d264b4 b72b9a56 1cfaadf5
+		a52df2f9 956e68d2 8c76d5f6 71ec44f3
+		5fa84698 cef4f6e4 dfe565f1 53b3445f
+		d0b6478b b1f9608e ce9668ad 1c817982
+[32;22m[INFO]  [39;1msnarkJS[0m: Circuit Hash: 
+		c418e395 58d264b4 b72b9a56 1cfaadf5
+		a52df2f9 956e68d2 8c76d5f6 71ec44f3
+		5fa84698 cef4f6e4 dfe565f1 53b3445f
+		d0b6478b b1f9608e ce9668ad 1c817982
+[32;22m[INFO]  [39;1msnarkJS[0m: -------------------------
+[32;22m[INFO]  [39;1msnarkJS[0m: contribution #4 REHEARSAL ONLY dummy beacon:
+		75d17c5e bfaafd05 367964cd b09e0606
+		a57c03a8 c858e0ec b1b99b1e 11dea8ce
+		b5c151d0 af3b7fd8 6346f3d8 5db28066
+		50231b10 99060598 4c8ce821 4d52b587
+[32;22m[INFO]  [39;1msnarkJS[0m: Beacon generator: 5123ef05b95eb9e8b63b54dde02dd7158bd1dea923f9ce28727cdc6451575fc1
+[32;22m[INFO]  [39;1msnarkJS[0m: Beacon iterations Exp: 10
+[32;22m[INFO]  [39;1msnarkJS[0m: -------------------------
+[32;22m[INFO]  [39;1msnarkJS[0m: contribution #3 REHEARSAL ONLY contributor 3 (contribute.ps1):
+		f950b314 bcf93b2e f8204830 ea4c1247
+		a1a7f5c7 873a6552 c4afaa4c e223a9f6
+		dd508b56 0b1fd1f2 0163199a dfae27cc
+		971fd9e9 8e52d56f 2bcddc47 ab678d4c
+[32;22m[INFO]  [39;1msnarkJS[0m: -------------------------
+[32;22m[INFO]  [39;1msnarkJS[0m: contribution #2 REHEARSAL ONLY contributor 2 (contribute.sh):
+		57e34885 7ccc645d 63af352c 6a44e009
+		7bc8f495 753af26f 4286d861 ca8c1a73
+		f65ec52e c5e37db7 36d05f80 57eed864
+		10efc12d 701de5e9 c3bbf9a5 a2899552
+[32;22m[INFO]  [39;1msnarkJS[0m: -------------------------
+[32;22m[INFO]  [39;1msnarkJS[0m: contribution #1 REHEARSAL ONLY contributor 1 (contribute.ps1):
+		3c772a05 5412618c a124a20f 99b30d31
+		f867b329 52acf576 a074cb2f 2e55348c
+		7e910d14 e3e0ab16 21f43024 c30fcaaf
+		01438bc3 bcf7a159 6b16d1fc d350bbe8
+[32;22m[INFO]  [39;1msnarkJS[0m: -------------------------
+[32;22m[INFO]  [39;1msnarkJS[0m: ZKey Ok!

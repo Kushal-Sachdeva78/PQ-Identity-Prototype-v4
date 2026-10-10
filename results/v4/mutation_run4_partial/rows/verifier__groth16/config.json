@@ -1,0 +1,8 @@
+{
+  "name": "verifier:groth16",
+  "port": 8629,
+  "out": "<repo>\\results\\v4\\mutation\\verifier__groth16",
+  "verifierDisabled": [
+    "groth16"
+  ]
+}

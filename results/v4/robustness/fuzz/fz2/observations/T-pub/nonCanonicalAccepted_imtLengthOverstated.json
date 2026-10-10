@@ -1,0 +1,39 @@
+{
+  "schema": "pqid/v4-fuzz-observation/v1",
+  "observation": "nonCanonicalAccepted:imtLengthOverstated",
+  "detail": "accepted a blob that is not the canonical encoding of its content (imtLengthOverstated; u32 field at 5444 edited)",
+  "target": "T-pub",
+  "masterSeed": 20261022,
+  "targetSeed": 4258866428,
+  "caseIndex": 13,
+  "caseSeed": 1237008096,
+  "family": "length-field",
+  "recipe": [
+    "u32 field at 5444 edited"
+  ],
+  "meta": {
+    "$t": "object",
+    "entries": [
+      [
+        "subSeed",
+        4067899141
+      ]
+    ]
+  },
+  "input": {
+    "$t": "object",
+    "entries": [
+      [
+        "n",
+        3
+      ],
+      [
+        "r",
+        8
+      ]
+    ]
+  },
+  "inputTypedJsonBytes": 43,
+  "inputTypedJsonSha256": "08f2782aa4fc6a848784d7222d5cb23f3da53d41bea91833e39bcafa01dbc2ce",
+  "inputTruncated": false
+}

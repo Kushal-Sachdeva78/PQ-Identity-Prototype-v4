@@ -1,0 +1,68 @@
+{
+  "schema": "pqid/v4-fuzz-target/v1",
+  "target": "T-wallet-req",
+  "title": "wallet request checks",
+  "entryPoints": [
+    "HolderWalletV4.checkRequest",
+    "HolderWalletV4.present (exotic requests only)"
+  ],
+  "property": "checkRequest (a fresh wallet per case, so the date log is empty) either returns the verifier's registered KEM key or throws WalletRefusal naming a WALLET_CHECKS check; it returns only for a request that the reference accepts and that names this chain, the registered verifier, a standard threshold, an allowed type and an acceptable date; present() on a Proxy or a throwing getter refuses with requestShape before any other check",
+  "documentedErrors": [
+    "WalletRefusal"
+  ],
+  "masterSeed": 20261022,
+  "targetSeed": 4068743234,
+  "budget": 5000,
+  "casesRun": 5000,
+  "complete": true,
+  "stoppedBy": null,
+  "outcomes": {
+    "mutated/refused:requestShape": 2500,
+    "mutated/accepted": 1084,
+    "honest/accepted": 643,
+    "exotic/refused:requestShape": 623,
+    "mutated/refused:typeAllowed": 69,
+    "mutated/refused:thresholdStandard": 38,
+    "mutated/refused:TypeError": 13,
+    "mutated/refused:dateCurrent": 11,
+    "mutated/refused:verifierRecord": 19
+  },
+  "casesWithViolations": 13,
+  "harnessErrors": 0,
+  "signatures": [
+    {
+      "signature": "d684e06eec1c",
+      "predicate": "checkRequest:onlyNamedRefusals",
+      "errorClass": null,
+      "occurrences": 13,
+      "firstIndices": [
+        184,
+        225,
+        234,
+        1544,
+        2469,
+        2809,
+        2863,
+        2948,
+        3512,
+        4362
+      ],
+      "file": "results/v4/robustness/fuzz/fz1/failures/T-wallet-req/d684e06eec1c.json",
+      "example": "threw TypeError: Cannot read properties of undefined (reading 'policy')"
+    }
+  ],
+  "observations": [],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.0373,
+    "p99": 0.9453110000000002,
+    "max": 77.8734
+  },
+  "startedUtc": "2026-10-03T09:34:32.027Z",
+  "finishedUtc": "2026-10-03T09:34:33.965Z"
+}

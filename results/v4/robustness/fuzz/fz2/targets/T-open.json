@@ -1,0 +1,51 @@
+{
+  "schema": "pqid/v4-fuzz-target/v2",
+  "target": "T-open",
+  "title": "verifier transport (open reply)",
+  "entryPoints": [
+    "verifierOpenReply"
+  ],
+  "property": "verifierOpenReply (in-memory session store, ML-KEM-768 pair generated in memory) never throws on a reply given as an object, a JSON string or UTF-8 bytes; its result is the one the reference decides: malformed for a reply that is not JSON or not of the reply shape, unknownSession or expiredSession for the session state, decryptFailed whenever ct or box differ from what the wallet sealed, malformed for a plaintext that is not strict UTF-8 canonical JSON of an object nesting at most 8 levels, else ok with a presentation equal to the sealed one; ok never consumes the session",
+  "documentedErrors": [],
+  "masterSeed": 20261022,
+  "targetSeed": 2609738961,
+  "budget": 50000,
+  "casesRun": 50000,
+  "complete": true,
+  "stoppedBy": null,
+  "crash": null,
+  "outcomes": {
+    "unknown-session/unknownSession": 3494,
+    "expired/expiredSession": 3605,
+    "honest/ok": 7198,
+    "reply-string/malformed": 3411,
+    "reply-object/ok": 3183,
+    "raw-plaintext/malformed": 5513,
+    "reply-object/malformed": 7427,
+    "reply-string/ok": 3695,
+    "raw-plaintext/ok": 5008,
+    "reply-bytes/malformed": 6572,
+    "reply-bytes/decryptFailed": 500,
+    "reply-bytes/ok": 223,
+    "reply-object/decryptFailed": 72,
+    "reply-string/decryptFailed": 93,
+    "reply-bytes/unknownSession": 6
+  },
+  "casesWithViolations": 0,
+  "harnessErrors": 0,
+  "signatures": [],
+  "observations": [],
+  "slow": {
+    "thresholdMs": 1000,
+    "basis": "max(1000 ms, 100 x median call time of the first 200 cases); not a timing result",
+    "cases": []
+  },
+  "callTimeMs": {
+    "note": "time of the call(s) under test, for the slow-input detector only; not a timing result (untimed series, no quiet-machine protocol)",
+    "median": 0.1986,
+    "p99": 0.9348450000000091,
+    "max": 6.3072
+  },
+  "startedUtc": "2026-10-03T16:05:18.639Z",
+  "finishedUtc": "2026-10-03T16:06:24.578Z"
+}

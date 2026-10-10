@@ -1,0 +1,2 @@
+{"caller":"picus.rkt:275:5","level":"INFO","logger_name":"picus","msg":"The circuit is properly constrained","timestamp":"2026-09-27T13:16:56"}
+{"caller":"picus\\exit.rkt:19:2","level":"INFO","logger_name":"picus","msg":"Exiting Picus with the code 8","timestamp":"2026-09-27T13:16:56"}

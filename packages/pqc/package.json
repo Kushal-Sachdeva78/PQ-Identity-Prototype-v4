@@ -1,0 +1,13 @@
+{
+  "name": "@pqid/pqc",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./kyber-demo": "./kyber_demo.ts"
+  },
+  "dependencies": {
+    "@pqid/common": "1.0.0"
+  }
+}

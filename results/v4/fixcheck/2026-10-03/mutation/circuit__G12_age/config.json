@@ -1,0 +1,16 @@
+{
+  "name": "circuit:G12_age, dev key, post-fix rerun (D-034)",
+  "port": 8811,
+  "out": "results/v4/fixcheck/2026-10-03/mutation/circuit__G12_age",
+  "mutantGroup": "G12_age",
+  "artifacts": {
+    "r1cs": "circuits/build/v4/mutants/G12_age/credential_auth_v4.r1cs",
+    "sym": "circuits/build/v4/mutants/G12_age/credential_auth_v4.sym",
+    "zkey": "circuits/build/v4/mutants/G12_age/mutant_throwaway.zkey",
+    "wasm": "circuits/build/v4/mutants/G12_age/credential_auth_v4_js/credential_auth_v4.wasm",
+    "vkeyFile": "circuits/build/v4/mutants/G12_age/mutant_throwaway_vkey.json",
+    "src": "circuits/build/v4/mutants/G12_age/credential_auth_v4.circom",
+    "attackerDir": "circuits/build/v4/mutants/G12_age/attacker",
+    "keyLabel": "mutant-throwaway"
+  }
+}

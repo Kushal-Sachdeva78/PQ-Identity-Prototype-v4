@@ -1,0 +1,8 @@
+{
+  "name": "verifier:sessionKnown",
+  "port": 8617,
+  "out": "<repo>\\results\\v4\\mutation\\verifier__sessionKnown",
+  "verifierDisabled": [
+    "sessionKnown"
+  ]
+}

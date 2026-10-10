@@ -1,0 +1,8 @@
+{
+  "name": "verifier:transcriptDecrypts",
+  "port": 8618,
+  "out": "<repo>\\results\\v4\\mutation\\verifier__transcriptDecrypts",
+  "verifierDisabled": [
+    "transcriptDecrypts"
+  ]
+}

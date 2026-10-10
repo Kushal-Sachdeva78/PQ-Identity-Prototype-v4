@@ -1,0 +1,584 @@
+{
+  "schema": "pqid/v4-e4-trees/v1",
+  "experiment": "E4",
+  "subcommand": "trees",
+  "dry": false,
+  "label": "[M] measured unless a field says [S] or [A]",
+  "options": {
+    "sub": "trees",
+    "dry": false,
+    "n": null,
+    "k": 1000,
+    "epochs": null,
+    "issueK": null,
+    "build": "auto",
+    "heapMiB": 8192,
+    "p": null,
+    "passes": null,
+    "warmup": null,
+    "holders": null,
+    "r": null,
+    "w": null,
+    "port": null,
+    "besuRpc": "http://127.0.0.1:18545",
+    "noPin": false,
+    "gwei": [],
+    "seed": "pqid-e4-v1"
+  },
+  "startedUtc": "2026-09-27T21:59:12.821Z",
+  "host": {
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 355",
+    "logicalCores": 8,
+    "totalMemGiB": 31.4,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "osBuild": "10.0.26200.9457",
+    "nodeVersion": "v24.18.0",
+    "timestampUtc": "2026-09-27T21:59:12.843Z"
+  },
+  "hostState": {
+    "freeMemGiB": 7.2,
+    "uptimeSec": 201283
+  },
+  "runtime": {
+    "node": "v24.18.0",
+    "openssl": "3.5.7",
+    "v8": "13.6.233.17-node.50",
+    "pqc": "OpenSSL 3.5.7 via Node 24.18.0",
+    "execArgv": [
+      "--import",
+      "tsx"
+    ],
+    "gcExposed": false,
+    "heapSizeLimitMiB": 4288
+  },
+  "timer": "process.hrtime.bigint() (monotonic, ns), reported in ms",
+  "harnessSha256": {
+    "harness/v4/scale.ts": "98fb6ea96fe8d7fff1dc965e08718d96df887a1cc0cef17849e69206dc3ae9ec",
+    "harness/v4/scale_lib.ts": "5cb16cea4abd3fec6fc08cf55a33ff4741b21ed957c89ada05cab1f402d4ee89",
+    "harness/v4/bulk_issuance_tree.ts": "8827870b92b4d6115def3c7ac01d567db163884531a155a2ad4019a2821b30ae",
+    "scripts/besu/setup_qbft.sh": "01d3a6f7a5ab2221aac128c4abd87e88e8484356c7a7154b9880eee15f17eb9c"
+  },
+  "sourceSha256": {
+    "onchain/contracts/v4/RegistriesV4.sol": "b1a10712f5022f72ea0e00e0cc23c9386ebe7d86bd14b03745a77982a2280782",
+    "packages/v4/src/clock.ts": "9619b194d4f36a9dc1d738103b60fe7c7ae745f650f8b6868f571babd6dc01d9",
+    "packages/v4/src/constants.ts": "bcaca98edc6ae0f8ea06a4f089a10a337fa2449e2a269fa20f756a7e02f1de5a",
+    "packages/v4/src/dates.ts": "8c00a1e6d8eb72597283550dfdce4d0c2a4e66d7b84c8c4ecd96b86471b5033c",
+    "packages/v4/src/encoding.ts": "2c3a33ac637a7f4de2971913272b793e926ba577ca46207382a15ca8e608b93f",
+    "packages/v4/src/governance.ts": "cc2b113d1af69f81699643ee90f2abfa0dc4abd97f52e27248ed3ac0919d6d79",
+    "packages/v4/src/imt.ts": "a40447fcc48ed4d82c41e6008b12ce73adccd0bc02abe37b0f96761484fe6d5c",
+    "packages/v4/src/issuer.ts": "c86c410dd3ec07797e87251663d822ee24b2710e1489fae50a00436e8369fbcb",
+    "packages/v4/src/ledger.ts": "c0db178b8b02772d3a8c9bce14ba9853043b5d38930057bf6f754bb6fbae0bac",
+    "packages/v4/src/paths.ts": "31bfc967c84c1cf7991886f06ff25f19234f21012c6ae6b81db7746325668edd",
+    "packages/v4/src/pqc.ts": "2a70a18277d512f24ca18ee35488ae41954209221fb673ad994487b6c4918524",
+    "packages/v4/src/prove.ts": "5e192bd4e70156eabf0b5c2b6a20543436d73e4aed189d8f5f80a3828b131bd0",
+    "packages/v4/src/published.ts": "f5ecfc1eac56f39e80e84353632cf3011012c6ef5901ad597c20c15da63aedcd",
+    "packages/v4/src/session.ts": "d772cc59a9161636e0d05faabd8ae34487911147ae462d24a7c37955d7c5fc80",
+    "packages/v4/src/statements.ts": "1b660aab3614736d5a4c9ca3a071d72334c47946be7f7fc206d9f64dfb88ab64",
+    "packages/v4/src/verifier.ts": "bb73ce73e6df049df3aaa65324ee8ad68c83e29cc583e29d8567992cfccc170f",
+    "packages/v4/src/wallet.ts": "e5aa0cffb60dc5b3ba2465f8ab7d100ebbe9810e2f1c9bfeb44c229ded8a725d",
+    "packages/v4/src/witness.ts": "52f85969a9021ed808736ddbfcfc84a1795e61f08cdfbc30b5acc2c01294ceba",
+    "packages/v4/src/world.ts": "0984232a3bc4038a7a49f04e1853f43b09ed1eb45387332c569567d7bfa65eb6",
+    "packages/issuer/src/issuance.ts": "7efb35a3e870d97cdaa10b077a9509303a4f379159a455f8dcb51389866d2d69",
+    "setup/out/v4/verification_key_dev.json": "87a45ca3ab4616debd4ec1d9351327a13ad5f416793ac08f7b901e45056eff42"
+  },
+  "keyLabel": "dev",
+  "finishedUtc": "2026-09-27T22:06:29.614Z",
+  "method": {
+    "leaves": "[A] issuance leaves are pseudo-random field elements in [1, p) from SHA-256(seed:i); tree cost does not depend on what a leaf commits to",
+    "revocationKeys": "[A] revocation keys are the top 251 bits of SHA-256(seed:i), the distribution of real revKeys (251 bits of a SHA3-256 credID)",
+    "issuanceBuild": "incremental = IssuanceTree.insert per leaf (packages/issuer); bulk = harness/v4/bulk_issuance_tree.ts, same internal state (tests/v4/scale_bulk_tree.test.ts)",
+    "revocationBuild": "IndexedMerkleTree.bulkBuild (packages/v4/src/imt.ts)",
+    "inserts": "K single inserts timed one by one after the tree holds n entries (IssuanceTree.insert; IndexedMerkleTree.insert)",
+    "epoch": "signEpochV4 (roots, IMT snapshot for serving witnesses, ML-DSA-44 sign) and anchorEpochV4 (gas estimate, submit, receipt, anchor re-read) on a local Anvil, minAnchorInterval advanced between epochs (untimed)",
+    "memory": "process.memoryUsage() after global.gc() in a fresh worker process per n (node --expose-gc)"
+  },
+  "runs": [
+    {
+      "n": 100000,
+      "k": 1000,
+      "worker": {
+        "execArgv": [
+          "--expose-gc",
+          "--max-old-space-size=8192",
+          "--import",
+          "tsx"
+        ],
+        "gcExposed": true,
+        "heapSizeLimitMiB": 8384,
+        "anvilPort": 8750
+      },
+      "issuance": {
+        "depth": 32,
+        "buildMethod": "incremental",
+        "buildMs": 189980.7475,
+        "sizeAfterInserts": 101200,
+        "insertMs": {
+          "n": 1000,
+          "median": 1.7761,
+          "q1": 1.7033,
+          "q3": 2.0199,
+          "iqr": 0.3166,
+          "mean": 1.8928,
+          "min": 1.6002,
+          "max": 3.2635,
+          "p95": 2.4366
+        },
+        "insertsPerSec": 563
+      },
+      "revocation": {
+        "depth": 30,
+        "buildMethod": "IndexedMerkleTree.bulkBuild",
+        "buildMs": 15123.2694,
+        "keysAfterInserts": 101200,
+        "insertMs": {
+          "n": 1000,
+          "median": 2.7751,
+          "q1": 2.6261,
+          "q3": 3.11,
+          "iqr": 0.4839,
+          "mean": 2.9036,
+          "min": 2.2094,
+          "max": 4.9912,
+          "p95": 3.637
+        },
+        "insertsPerSec": 360
+      },
+      "epoch": {
+        "epochs": 5,
+        "signMs": {
+          "n": 5,
+          "median": 11.5587,
+          "q1": 11.4878,
+          "q3": 11.602,
+          "iqr": 0.1142,
+          "mean": 15.366,
+          "min": 11.2742,
+          "max": 30.9072,
+          "p95": 27.0462
+        },
+        "anchorMs": {
+          "n": 5,
+          "median": 159.1386,
+          "q1": 154.2042,
+          "q3": 159.2603,
+          "iqr": 5.0561,
+          "mean": 156.3548,
+          "min": 148.2635,
+          "max": 160.9076,
+          "p95": 160.5781
+        },
+        "signPlusAnchorMs": {
+          "n": 5,
+          "median": 170.819,
+          "q1": 170.4128,
+          "q3": 172.5096,
+          "iqr": 2.0968,
+          "mean": 171.7208,
+          "min": 159.7513,
+          "max": 185.1114,
+          "p95": 182.591
+        },
+        "perEpoch": [
+          {
+            "epoch": 1,
+            "signMs": 11.2742,
+            "anchorMs": 159.1386,
+            "signPlusAnchorMs": 170.4128,
+            "gasUsed": 145267
+          },
+          {
+            "epoch": 2,
+            "signMs": 30.9072,
+            "anchorMs": 154.2042,
+            "signPlusAnchorMs": 185.11139999999997,
+            "gasUsed": 54405
+          },
+          {
+            "epoch": 3,
+            "signMs": 11.4878,
+            "anchorMs": 148.2635,
+            "signPlusAnchorMs": 159.7513,
+            "gasUsed": 54405
+          },
+          {
+            "epoch": 4,
+            "signMs": 11.602,
+            "anchorMs": 160.9076,
+            "signPlusAnchorMs": 172.5096,
+            "gasUsed": 54405
+          },
+          {
+            "epoch": 5,
+            "signMs": 11.5587,
+            "anchorMs": 159.2603,
+            "signPlusAnchorMs": 170.819,
+            "gasUsed": 54405
+          }
+        ],
+        "components": {
+          "rootsReadMs": {
+            "n": 20,
+            "median": 0.0001,
+            "q1": 0.0001,
+            "q3": 0.0003,
+            "iqr": 0.0002,
+            "mean": 0.0066,
+            "min": 0.0001,
+            "max": 0.0805,
+            "p95": 0.0467
+          },
+          "imtSnapshotMs": {
+            "n": 3,
+            "median": 12.445,
+            "q1": 12.3897,
+            "q3": 12.4871,
+            "iqr": 0.0973,
+            "mean": 12.4362,
+            "min": 12.3344,
+            "max": 12.5291,
+            "p95": 12.5207
+          },
+          "mlDsa44SignEpochMs": {
+            "n": 20,
+            "median": 0.3041,
+            "q1": 0.1883,
+            "q3": 0.4333,
+            "iqr": 0.245,
+            "mean": 0.3625,
+            "min": 0.1414,
+            "max": 0.9228,
+            "p95": 0.7976
+          }
+        },
+        "note": "signMs = signEpochV4 (roots, IMT snapshot kept to serve witnesses, ML-DSA-44 sign). anchorMs = anchorEpochV4 as shipped: eth_estimateGas, submit, receipt (ethers polls every 100 ms, ledger.ts makeProvider; Anvil mines at once) and the anchor re-read. The first epoch's anchor writes empty storage slots (higher gas); later epochs overwrite them."
+      },
+      "issuerRoutines": {
+        "issueCredentialV4Ms": {
+          "n": 200,
+          "median": 5.3139,
+          "q1": 5.0245,
+          "q3": 5.8401,
+          "iqr": 0.8156,
+          "mean": 5.5171,
+          "min": 4.5489,
+          "max": 10.0587,
+          "p95": 6.9694
+        },
+        "revokeCredentialV4Ms": {
+          "n": 200,
+          "median": 2.9347,
+          "q1": 2.7163,
+          "q3": 3.4201,
+          "iqr": 0.7038,
+          "mean": 3.0593,
+          "min": 2.4262,
+          "max": 4.2856,
+          "p95": 3.7618
+        },
+        "samples": 200
+      },
+      "memory": {
+        "start": {
+          "heapUsedMiB": 52.6,
+          "heapTotalMiB": 117.8,
+          "rssMiB": 248.6,
+          "externalMiB": 96.9,
+          "arrayBuffersMiB": 53.8,
+          "gcBeforeRead": true
+        },
+        "inputsGenerated": {
+          "heapUsedMiB": 63.4,
+          "heapTotalMiB": 129.1,
+          "rssMiB": 282,
+          "externalMiB": 75.3,
+          "arrayBuffersMiB": 53.8,
+          "gcBeforeRead": true
+        },
+        "afterIssuanceBuild": {
+          "heapUsedMiB": 76.4,
+          "heapTotalMiB": 210.4,
+          "rssMiB": 364.7,
+          "externalMiB": 81.7,
+          "arrayBuffersMiB": 56,
+          "gcBeforeRead": true
+        },
+        "afterImtBuild": {
+          "heapUsedMiB": 101.8,
+          "heapTotalMiB": 231.8,
+          "rssMiB": 388.1,
+          "externalMiB": 81,
+          "arrayBuffersMiB": 55.5,
+          "gcBeforeRead": true
+        },
+        "afterInserts": {
+          "heapUsedMiB": 102.9,
+          "heapTotalMiB": 232.9,
+          "rssMiB": 389.1,
+          "externalMiB": 80.6,
+          "arrayBuffersMiB": 55.1,
+          "gcBeforeRead": true
+        },
+        "afterEpochs": {
+          "heapUsedMiB": 129,
+          "heapTotalMiB": 259.4,
+          "rssMiB": 440.3,
+          "externalMiB": 80.4,
+          "arrayBuffersMiB": 54.8,
+          "gcBeforeRead": true
+        },
+        "end": {
+          "heapUsedMiB": 130.2,
+          "heapTotalMiB": 260.2,
+          "rssMiB": 452.3,
+          "externalMiB": 81.2,
+          "arrayBuffersMiB": 55.7,
+          "gcBeforeRead": true
+        }
+      }
+    },
+    {
+      "n": 1000000,
+      "k": 1000,
+      "worker": {
+        "execArgv": [
+          "--expose-gc",
+          "--max-old-space-size=8192",
+          "--import",
+          "tsx"
+        ],
+        "gcExposed": true,
+        "heapSizeLimitMiB": 8384,
+        "anvilPort": 8750
+      },
+      "issuance": {
+        "depth": 32,
+        "buildMethod": "bulk",
+        "buildMs": 59902.0715,
+        "sizeAfterInserts": 1001200,
+        "insertMs": {
+          "n": 1000,
+          "median": 1.7673,
+          "q1": 1.7107,
+          "q3": 1.9421,
+          "iqr": 0.2315,
+          "mean": 1.855,
+          "min": 1.6068,
+          "max": 3.3691,
+          "p95": 2.3453
+        },
+        "insertsPerSec": 566
+      },
+      "revocation": {
+        "depth": 30,
+        "buildMethod": "IndexedMerkleTree.bulkBuild",
+        "buildMs": 140217.1247,
+        "keysAfterInserts": 1001200,
+        "insertMs": {
+          "n": 1000,
+          "median": 2.8944,
+          "q1": 2.7546,
+          "q3": 3.1974,
+          "iqr": 0.4428,
+          "mean": 3.0404,
+          "min": 2.3051,
+          "max": 9.4393,
+          "p95": 3.8485
+        },
+        "insertsPerSec": 345
+      },
+      "epoch": {
+        "epochs": 5,
+        "signMs": {
+          "n": 5,
+          "median": 356.3504,
+          "q1": 353.4405,
+          "q3": 368.3075,
+          "iqr": 14.867,
+          "mean": 362.0587,
+          "min": 345.3724,
+          "max": 386.8227,
+          "p95": 383.1197
+        },
+        "anchorMs": {
+          "n": 5,
+          "median": 162.7264,
+          "q1": 158.8268,
+          "q3": 163.0673,
+          "iqr": 4.2405,
+          "mean": 161.9781,
+          "min": 152.7802,
+          "max": 172.4898,
+          "p95": 170.6053
+        },
+        "signPlusAnchorMs": {
+          "n": 5,
+          "median": 516.1669,
+          "q1": 515.1772,
+          "q3": 531.3748,
+          "iqr": 16.1976,
+          "mean": 524.0368,
+          "min": 498.1526,
+          "max": 559.3125,
+          "p95": 553.725
+        },
+        "perEpoch": [
+          {
+            "epoch": 1,
+            "signMs": 353.4405,
+            "anchorMs": 162.7264,
+            "signPlusAnchorMs": 516.1668999999999,
+            "gasUsed": 145267
+          },
+          {
+            "epoch": 2,
+            "signMs": 345.3724,
+            "anchorMs": 152.7802,
+            "signPlusAnchorMs": 498.1526,
+            "gasUsed": 54405
+          },
+          {
+            "epoch": 3,
+            "signMs": 356.3504,
+            "anchorMs": 158.8268,
+            "signPlusAnchorMs": 515.1772,
+            "gasUsed": 54405
+          },
+          {
+            "epoch": 4,
+            "signMs": 386.8227,
+            "anchorMs": 172.4898,
+            "signPlusAnchorMs": 559.3125,
+            "gasUsed": 54405
+          },
+          {
+            "epoch": 5,
+            "signMs": 368.3075,
+            "anchorMs": 163.0673,
+            "signPlusAnchorMs": 531.3748,
+            "gasUsed": 54405
+          }
+        ],
+        "components": {
+          "rootsReadMs": {
+            "n": 20,
+            "median": 0.0001,
+            "q1": 0.0001,
+            "q3": 0.0004,
+            "iqr": 0.0003,
+            "mean": 0.0053,
+            "min": 0,
+            "max": 0.0644,
+            "p95": 0.0367
+          },
+          "imtSnapshotMs": {
+            "n": 3,
+            "median": 373.8158,
+            "q1": 366.7931,
+            "q3": 399.1584,
+            "iqr": 32.3653,
+            "mean": 386.029,
+            "min": 359.7703,
+            "max": 424.5009,
+            "p95": 419.4324
+          },
+          "mlDsa44SignEpochMs": {
+            "n": 20,
+            "median": 0.33,
+            "q1": 0.2471,
+            "q3": 0.7038,
+            "iqr": 0.4567,
+            "mean": 0.5031,
+            "min": 0.1404,
+            "max": 1.6873,
+            "p95": 1.1675
+          }
+        },
+        "note": "signMs = signEpochV4 (roots, IMT snapshot kept to serve witnesses, ML-DSA-44 sign). anchorMs = anchorEpochV4 as shipped: eth_estimateGas, submit, receipt (ethers polls every 100 ms, ledger.ts makeProvider; Anvil mines at once) and the anchor re-read. The first epoch's anchor writes empty storage slots (higher gas); later epochs overwrite them."
+      },
+      "issuerRoutines": {
+        "issueCredentialV4Ms": {
+          "n": 200,
+          "median": 5.1631,
+          "q1": 4.9025,
+          "q3": 5.7508,
+          "iqr": 0.8483,
+          "mean": 5.3899,
+          "min": 4.4428,
+          "max": 7.3789,
+          "p95": 6.7831
+        },
+        "revokeCredentialV4Ms": {
+          "n": 200,
+          "median": 2.9267,
+          "q1": 2.7965,
+          "q3": 3.2346,
+          "iqr": 0.4381,
+          "mean": 3.0418,
+          "min": 2.5012,
+          "max": 4.0421,
+          "p95": 3.7803
+        },
+        "samples": 200
+      },
+      "memory": {
+        "start": {
+          "heapUsedMiB": 52.6,
+          "heapTotalMiB": 117.8,
+          "rssMiB": 234.9,
+          "externalMiB": 75.3,
+          "arrayBuffersMiB": 53.8,
+          "gcBeforeRead": true
+        },
+        "inputsGenerated": {
+          "heapUsedMiB": 159.5,
+          "heapTotalMiB": 288.9,
+          "rssMiB": 445.5,
+          "externalMiB": 75.3,
+          "arrayBuffersMiB": 53.8,
+          "gcBeforeRead": true
+        },
+        "afterIssuanceBuild": {
+          "heapUsedMiB": 262.7,
+          "heapTotalMiB": 393.4,
+          "rssMiB": 554.3,
+          "externalMiB": 81,
+          "arrayBuffersMiB": 54.9,
+          "gcBeforeRead": true
+        },
+        "afterImtBuild": {
+          "heapUsedMiB": 432.3,
+          "heapTotalMiB": 562.8,
+          "rssMiB": 732.1,
+          "externalMiB": 80.3,
+          "arrayBuffersMiB": 54.7,
+          "gcBeforeRead": true
+        },
+        "afterInserts": {
+          "heapUsedMiB": 440.2,
+          "heapTotalMiB": 570.5,
+          "rssMiB": 742.7,
+          "externalMiB": 80.8,
+          "arrayBuffersMiB": 55.3,
+          "gcBeforeRead": true
+        },
+        "afterEpochs": {
+          "heapUsedMiB": 525.2,
+          "heapTotalMiB": 663.2,
+          "rssMiB": 889.4,
+          "externalMiB": 80.3,
+          "arrayBuffersMiB": 54.8,
+          "gcBeforeRead": true
+        },
+        "end": {
+          "heapUsedMiB": 526.4,
+          "heapTotalMiB": 657.4,
+          "rssMiB": 890.1,
+          "externalMiB": 81.2,
+          "arrayBuffersMiB": 55.7,
+          "gcBeforeRead": true
+        }
+      }
+    }
+  ]
+}

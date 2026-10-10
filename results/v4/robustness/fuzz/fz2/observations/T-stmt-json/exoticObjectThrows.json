@@ -1,0 +1,33 @@
+{
+  "schema": "pqid/v4-fuzz-observation/v1",
+  "observation": "exoticObjectThrows",
+  "detail": "validateStatement threw Error on Proxy whose ownKeys trap throws",
+  "target": "T-stmt-json",
+  "masterSeed": 20261022,
+  "targetSeed": 4035095760,
+  "caseIndex": 10,
+  "caseSeed": 2841074285,
+  "family": "exotic",
+  "recipe": [
+    "Proxy whose ownKeys trap throws"
+  ],
+  "meta": {
+    "$t": "object",
+    "entries": [
+      [
+        "expected",
+        {
+          "$t": "undefined"
+        }
+      ]
+    ]
+  },
+  "input": {
+    "$t": "exotic",
+    "kind": "unreadable",
+    "note": "Error"
+  },
+  "inputTypedJsonBytes": 50,
+  "inputTypedJsonSha256": "a18a837ef7f98c6f9fb4f5661baa09d31477a9676e7fb870216737b98a66ca38",
+  "inputTruncated": false
+}
