@@ -1,0 +1,18 @@
+name: Links
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  link-checker:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress './**/*.md' --exclude 'https://img.shields.io/.*'
+          fail: true
