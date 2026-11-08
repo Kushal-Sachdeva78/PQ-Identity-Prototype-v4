@@ -1,0 +1,45 @@
+name: "Reproduction problem or bug"
+description: "Something does not build, run or reproduce as documented"
+title: "[repro] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This repository is a hash-checked publication package. Documentation and portability fixes are welcome.
+        Changes to the protocol, circuits, keys or recorded results should be discussed in an issue first
+        (see CONTRIBUTING.md). If you think you found a soundness bug, say so here so it can be discussed and
+        recorded.
+  - type: input
+    id: command
+    attributes:
+      label: "Command you ran"
+      placeholder: "make docker"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: "What you expected"
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: "What happened"
+      description: "Paste the relevant output (use a code block)."
+    validations:
+      required: true
+  - type: textarea
+    id: host
+    attributes:
+      label: "Host"
+      description: "CPU, OS (and WSL2 version if used), Node, Python and Docker versions."
+      placeholder: |
+        CPU:
+        OS:
+        Node:
+        Python:
+        Docker:
+    validations:
+      required: true
