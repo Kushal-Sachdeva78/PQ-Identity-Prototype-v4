@@ -1,0 +1,28 @@
+name: "Documentation or portability improvement"
+description: "Suggest a documentation fix, a clearer instruction or a portability fix"
+title: "[docs] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Files listed in MANIFEST.sha256.tsv are hash-checked, so a fix to one of them also needs the maintainer
+        to update the manifest.
+  - type: textarea
+    id: change
+    attributes:
+      label: "What should change"
+      description: "Point to the file and line if you can."
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: "Why it helps"
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: "Scope"
+      options:
+        - label: "This does not change the protocol, the circuits, keys or recorded results."
+          required: true
